@@ -1,0 +1,58 @@
+{
+  "_comment": "Phase 3 test data. Every item holds its true values (ground truth); fields listed in 'blank' are left empty in PLM for the agent to fill. 'children' is the BOM, in order.",
+  "collabspace": "API_development",
+  "items": [
+    {
+      "title": "API_ASM_CONVEYOR_LINE",
+      "description": "Conveyor line, complete",
+      "partNumber": "LIN-0001",
+      "children": ["API_ASM_CONVEYOR_MODULE", "API_ASM_MOTOR_BRACKET", "API_ASM_GUARD"]
+    },
+    {
+      "title": "API_ASM_CONVEYOR_MODULE",
+      "description": "Belt conveyor module, 600 mm",
+      "partNumber": "CNV-1000",
+      "children": [
+        "API_FRAME_SIDE_PLATE_S235",
+        "API_ROLLER_DRIVE_D50",
+        "API_ROLLER_IDLER_D50",
+        "API_BEARING_6204_2RS",
+        "API_BOLT_M8X25_ISO4017",
+        "API_BELT_PVC_600"
+      ]
+    },
+    {"title": "API_FRAME_SIDE_PLATE_S235", "description": "Side plate, S235 steel, laser cut", "partNumber": "CNV-1001"},
+    {"title": "API_ROLLER_DRIVE_D50", "description": "Drive roller, D50 mm", "partNumber": "CNV-1002"},
+    {"title": "API_ROLLER_IDLER_D50", "description": "Idler roller, D50 mm", "partNumber": "CNV-1003", "blank": ["description", "partNumber"]},
+    {"title": "API_BEARING_6204_2RS", "description": "Deep groove ball bearing 6204-2RS", "partNumber": "CNV-1004", "blank": ["description"]},
+    {"title": "API_BOLT_M8X25_ISO4017", "description": "Hex bolt M8x25 ISO 4017, zinc plated", "partNumber": "CNV-1005"},
+    {"title": "API_BELT_PVC_600", "description": "PVC conveyor belt, 600 mm wide", "partNumber": "CNV-1006", "blank": ["partNumber"]},
+    {
+      "title": "API_ASM_MOTOR_BRACKET",
+      "description": "Motor mounting bracket assembly",
+      "partNumber": "MTR-2000",
+      "children": [
+        "API_BRACKET_MOTOR_S235",
+        "API_BOLT_M8X25_ISO4017",
+        "API_NUT_M8_ISO4032",
+        "API_WASHER_M8_ISO7089",
+        "API_MOTOR_GEAR_037KW"
+      ]
+    },
+    {"title": "API_BRACKET_MOTOR_S235", "description": "Motor bracket, S235 steel, bent", "partNumber": "MTR-2001"},
+    {"title": "API_NUT_M8_ISO4032", "description": "Hex nut M8 ISO 4032, zinc plated", "partNumber": "MTR-2002"},
+    {"title": "API_WASHER_M8_ISO7089", "description": "Flat washer M8 ISO 7089", "partNumber": "MTR-2003", "blank": ["description", "partNumber"]},
+    {"title": "API_MOTOR_GEAR_037KW", "description": "Gear motor 0.37 kW, 400 V", "partNumber": "MTR-2004", "blank": ["description"]},
+    {
+      "title": "API_ASM_GUARD",
+      "description": "Safety guard assembly",
+      "partNumber": "GRD-3000",
+      "blank": ["description"],
+      "children": ["API_GUARD_PANEL_MESH", "API_GUARD_HINGE_AL", "API_BOLT_M6X16_ISO4017", "API_NUT_M6_ISO4032"]
+    },
+    {"title": "API_GUARD_PANEL_MESH", "description": "Mesh guard panel, powder coated", "partNumber": "GRD-3001"},
+    {"title": "API_GUARD_HINGE_AL", "description": "Guard hinge, aluminium", "partNumber": "GRD-3002", "blank": ["description", "partNumber"]},
+    {"title": "API_BOLT_M6X16_ISO4017", "description": "Hex bolt M6x16 ISO 4017, zinc plated", "partNumber": "GRD-3003", "blank": ["description"]},
+    {"title": "API_NUT_M6_ISO4032", "description": "Hex nut M6 ISO 4032, zinc plated", "partNumber": "GRD-3004", "blank": ["description"]}
+  ]
+}

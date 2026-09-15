@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "space_url": "https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia",
+    "passport_url": "https://r1132101930766-eu1-academia.iam.3dexperience.3ds.com",
+    "security_context": "VPLMProjectLeader.Company Name.API_development",
+    "tenant": "R1132101930766",
+    "timeout": 30.0
+  },
+  "args": [
+    "API_TEST",
+    "API_development",
+    "API_TEST_001",
+    "Updated by plm_client checkpoint"
+  ]
+}

@@ -1,0 +1,482 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia.iam.3dexperience.3ds.com/login?action=get_auth_params
+  response:
+    body:
+      string: '{"response":"login","lt":"REDACTED"}'
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,authorization,x-requested-method,origin,x-requested-with,x-request,cache-control,content-type,X-DS-IAM-CSRFTOKEN
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - X-DS-IAM-CSRFTOKEN
+      access-control-max-age:
+      - '600'
+      cache-control:
+      - max-age=0
+      - no-store
+      - no-cache
+      - must-revalidate
+      content-length:
+      - '68'
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Tue, 15 Sep 2026 07:54:48 GMT
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-ds-iam-version:
+      - '2'
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '91'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.34.2
+    method: POST
+    uri: https://r1132101930766-eu1-academia.iam.3dexperience.3ds.com/login?service=https%3A%2F%2Fr1132101930766-eu1-academia-space.3dexperience.3ds.com%2Fenovia
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,authorization,x-requested-method,origin,x-requested-with,x-request,cache-control,content-type,X-DS-IAM-CSRFTOKEN
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - X-DS-IAM-CSRFTOKEN
+      access-control-max-age:
+      - '600'
+      cache-control:
+      - max-age=0
+      - no-store
+      - no-cache
+      - must-revalidate
+      content-language:
+      - en-US
+      content-length:
+      - '0'
+      date:
+      - Tue, 15 Sep 2026 07:54:49 GMT
+      location:
+      - https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia?ticket=REDACTED
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      x-content-type-options:
+      - nosniff
+      x-ds-iam-version:
+      - '2'
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia?ticket=REDACTED
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      content-length:
+      - '0'
+      date:
+      - Tue, 15 Sep 2026 07:54:49 GMT
+      location:
+      - /enovia/?ticket=REDACTED
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Origin
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/?ticket=REDACTED
+  response:
+    body:
+      string: "\n\n\n\n\n\n\n<!DOCTYPE html>\n<!-- Navigator 403 Error Page -->\n<html>\n<head>\n\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n\n<style>\nbody.errorNotice
+        {\n\tfont:normal 12px Verdana, Geneva, sans-serif;\n}\n\n#messageBox {\n\tmargin:
+        50px;\n\t\n\tfilter: progid:DXImageTransform.Microsoft.dropShadow(color=#818181,
+        offX=17, offY=17, positive=true);\n\tbox-shadow: 7px 7px 8px #818181;\n\t-webkit-box-shadow:
+        7px 7px 8px #818181;\n\t-moz-box-shadow: 7px 7px 8px #818181;\n\t\n\tfilter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF
+        endColorstr=#DDDDDD);\n\tbackground:-webkit-gradient(linear, left top, left
+        bottom, from(#fff), to(#ddd));\n\tbackground:-moz-linear-gradient(top, #fff,
+        #ddd);\n\t\n\t-moz-border-radius: 10px;\n\t-webkit-border-radius: 10px;\n\t-khtml-border-radius:
+        10px;\n\tborder-radius: 10px;\n\t\n\tpadding: 10px 20px 20px 20px;\n\tmax-width:
+        50%;\n\tmin-width: 300px;\n\ttext-align:center;\n\t\t\n\tfont: 16px Arial,
+        Geneva, sans-serif;\n\t\t\n\tmargin-left: auto;\n\tmargin-right: auto;\n\tborder:
+        solid 4px #C30;\n}\n.errorNumber {\n\tfont: bold 20px Arial, Geneva, sans-serif;\n}\n.errorReason
+        {\n\tcolor: red;\n}\n</style>\n</head>\n<body class=\"errorNotice\">\n\n\n<div
+        id=\"messageBox\">\n<div class=\"errorNumber\">\n\n<span>\nAccess to this
+        server is not granted to user\n\n</span>\n</div>\n<div>\nAlthough authenticated,
+        your are not granted access to this server\n</div>\n\n<div>\nPlease contact
+        your administrator \n</div>\n\n\n<hr/>\n<div class=\"errorReason\">\n    <img
+        src=\"/enovia/common/images/iconStatusError.gif\"/>\n    tenant 'r1132101930766'
+        does not exist\n</div>\n\n</div>\n</body>\n</html>\n\n"
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      content-length:
+      - '1561'
+      content-type:
+      - text/html;charset=UTF-8
+      date:
+      - Tue, 15 Sep 2026 07:54:50 GMT
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Origin
+      x-3dslogin-error:
+      - tenant 'r1132101930766' does not exist
+      x-3dslogin-error-cause:
+      - tenant 'r1132101930766' does not exist
+      x-ua-compatible:
+      - IE=edge
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/resources/v1/application/CSRF?tenant=R1132101930766
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      content-length:
+      - '0'
+      date:
+      - Tue, 15 Sep 2026 07:54:51 GMT
+      location:
+      - https://r1132101930766-eu1-academia.iam.3dexperience.3ds.com:443/login?service=https%3A%2F%2Fr1132101930766-eu1-academia-space.3dexperience.3ds.com%2Fenovia%2Fresources%2Fv1%2Fapplication%2FCSRF%3Ftenant%3DR1132101930766%26serverId%3DMT_Metadata_0_7025
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Origin
+      x-request-id:
+      - d3c86a3c-6b4b-40a1-85ea-2a0cb269b597
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia.iam.3dexperience.3ds.com/login?service=https%3A%2F%2Fr1132101930766-eu1-academia-space.3dexperience.3ds.com%2Fenovia%2Fresources%2Fv1%2Fapplication%2FCSRF%3Ftenant%3DR1132101930766%26serverId%3DMT_Metadata_0_7025
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,authorization,x-requested-method,origin,x-requested-with,x-request,cache-control,content-type,X-DS-IAM-CSRFTOKEN
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - X-DS-IAM-CSRFTOKEN
+      access-control-max-age:
+      - '600'
+      cache-control:
+      - max-age=0
+      - no-store
+      - no-cache
+      - must-revalidate
+      content-language:
+      - en-US
+      content-length:
+      - '0'
+      date:
+      - Tue, 15 Sep 2026 07:54:51 GMT
+      location:
+      - https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/resources/v1/application/CSRF?tenant=R1132101930766&ticket=REDACTED
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      x-content-type-options:
+      - nosniff
+      x-ds-iam-version:
+      - '2'
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/resources/v1/application/CSRF?tenant=R1132101930766&ticket=REDACTED
+  response:
+    body:
+      string: '{"success":true,"statusCode":200,"csrf":{"name":"ENO_CSRF_TOKEN","value":"REDACTED"},"data":[],"masks":[],"definitions":[]}'
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      cache-control:
+      - no-cache,no-store,no-transform,must-revalidate,max-age=0
+      content-length:
+      - '154'
+      content-type:
+      - application/json
+      date:
+      - Tue, 15 Sep 2026 07:54:52 GMT
+      i3dx-requestid:
+      - 12ae094b-666b-49e6-a919-73440d0a050a
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Accept-Encoding,Origin
+      x-request-id:
+      - f608011d-9863-4b57-a1d0-7752c3d2a774
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      SecurityContext:
+      - VPLMProjectLeader.Company Name.API_development
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/resources/v1/modeler/dseng/dseng:EngItem/search?tenant=R1132101930766&%24searchStr=API_TEST&%24mask=dsmveng%3AEngItemMask.Details&%24top=100&%24skip=0
+  response:
+    body:
+      string: '{"totalItems":1,"member":[{"name":"prd-R1132101930766-00000021","title":"API_TEST_001","description":"Updated
+        by plm_client checkpoint","id":"335D9C53C12722006A9FDE7C00000C71","type":"VPMReference","modified":"09\/15\/2026
+        07:52:28 AM","created":"09\/08\/2026 10:09:14 AM","revision":"A","state":"IN_WORK","owner":"abdurrehman_123","organization":"Company
+        Name","collabspace":"API_development","isManufacturable":true,"cestamp":"753B2A60C16F10006AA8F93B0001E8A8"}],"nlsLabel":{"id":"Id","type":"Type","modified":"Modification
+        Date","created":"Creation Date","revision":"Revision","state":"State","owner":"Owner","versionComment":"Revision
+        Comment","reservedby":"Locked By","isManufacturable":"Manufacturable/Procurable"}}'
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      content-length:
+      - '721'
+      content-type:
+      - application/json
+      date:
+      - Tue, 15 Sep 2026 07:54:53 GMT
+      i3dx-requestid:
+      - ed475720-07f9-465b-b6a9-e8a40c1969bd
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Accept-Encoding,Origin
+      x-request-id:
+      - 5e090f66-e96f-4296-a1d8-8928794d8305
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"description": "Updated by plm_client checkpoint", "cestamp": "753B2A60C16F10006AA8F93B0001E8A8"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '98'
+      Content-Type:
+      - application/json
+      SecurityContext:
+      - VPLMProjectLeader.Company Name.API_development
+      User-Agent:
+      - python-requests/2.34.2
+    method: PATCH
+    uri: https://r1132101930766-eu1-academia-space.3dexperience.3ds.com/enovia/resources/v1/modeler/dseng/dseng:EngItem/335D9C53C12722006A9FDE7C00000C71?tenant=R1132101930766&%24mask=dsmveng%3AEngItemMask.Details
+  response:
+    body:
+      string: '{"totalItems":1,"member":[{"name":"prd-R1132101930766-00000021","title":"API_TEST_001","description":"Updated
+        by plm_client checkpoint","id":"335D9C53C12722006A9FDE7C00000C71","type":"VPMReference","modified":"9\/15\/2026
+        7:52:28 AM","created":"9\/8\/2026 10:09:14 AM","revision":"A","state":"IN_WORK","owner":"abdurrehman_123","organization":"Company
+        Name","collabspace":"API_development","versionComment":"","dseng:EnterpriseReference":{"partNumber":""},"reservedby":"","isManufacturable":true,"cestamp":"753B2A60C16F10006AA8F93B0001E8A8"}],"nlsLabel":{"id":"Id","type":"Type","modified":"Modification
+        Date","created":"Creation Date","revision":"Revision","state":"State","owner":"Owner","versionComment":"Revision
+        Comment","reservedby":"Locked By","isManufacturable":"Manufacturable/Procurable"}}'
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - accept,x-requested-method,origin,x-requested-with,x-request,x-request-id,cache-control,content-type,last-modified,x-utc-offset,SecurityContext,X-DS-CSRFTOKEN,keep-alive,
+        DS-API-Version,DS-Client-Step-Name,DS-Request-ID,ENO_CSRF_TOKEN,SecurityToken,DS-Change-Authoring-Context,DS-Configuration-Authoring-Context,DS-Bookmark-WorkUnder
+      access-control-allow-methods:
+      - GET, POST, OPTIONS, HEAD, PUT, DELETE, PATCH
+      access-control-expose-headers:
+      - DS-Request-ID,X-DS-CSRFTOKEN,ENO_CSRF_TOKEN,X-3DComment-Has-Moderation-Rights
+      access-control-max-age:
+      - '600'
+      content-length:
+      - '799'
+      content-type:
+      - application/json
+      date:
+      - Tue, 15 Sep 2026 07:54:54 GMT
+      i3dx-requestid:
+      - 3b641703-1bae-40da-8e6f-86fd5d34b6cf
+      server:
+      - Microsoft-IIS/7.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload;
+      vary:
+      - Accept-Encoding,Origin
+      x-request-id:
+      - 93583686-b555-48c0-b6a6-780846dad572
+    status:
+      code: 200
+      message: OK
+version: 1

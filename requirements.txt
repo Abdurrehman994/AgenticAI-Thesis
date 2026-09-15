@@ -1,0 +1,6 @@
+requests>=2.32
+pydantic>=2.8
+python-dotenv>=1.0
+vcrpy>=6.0
+pytest>=8.0
+datamodel-code-generator>=0.26
