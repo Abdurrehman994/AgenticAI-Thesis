@@ -46,13 +46,14 @@ class ProposalLog:
             return [json.loads(line) for line in f if line.strip()]
 
     def proposals(self) -> dict[str, dict]:
-        """proposal_id -> proposal with its current status: pending, approved or rejected."""
+        """proposal_id -> proposal with its current status (pending, approved or rejected) and review fields."""
         state = {}
         for record in self.records():
             if record["event"] == "proposed":
                 state[record["proposal_id"]] = {**record, "status": "pending"}
             elif record["proposal_id"] in state:
-                state[record["proposal_id"]]["status"] = record["event"]
+                decision = {k: v for k, v in record.items() if k not in ("at", "event", "proposal_id")}
+                state[record["proposal_id"]].update(decision, status=record["event"])  # e.g. final_value, edited
         return state
 
     def pending(self) -> list[dict]:

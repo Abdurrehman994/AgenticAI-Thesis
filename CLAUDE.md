@@ -21,6 +21,7 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\seed_items.py [--yes]                    # create data/dataset.json in the tenant
 .venv\Scripts\python.exe scripts\run_agent.py [--apply] [--min-confidence 0.5]
 .venv\Scripts\python.exe scripts\review.py [--approve ID... | --reject ID...] [--value "edited"]
+.venv\Scripts\python.exe scripts\evaluate.py [--run runs\run-....json] [--out runs\eval.json]   # offline, scores vs dataset
 ```
 
 Tenant scripts read `.env` (see `.env.example`). Without `--yes` / `--apply` the scripts are dry runs. `seed_items.py --yes`,
