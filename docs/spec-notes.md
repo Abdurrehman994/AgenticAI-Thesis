@@ -56,8 +56,6 @@ Source: `docs/openapi/dseng-1.4.1.json` (OpenAPI 3.1.0, Engineering Web Services
 - `POST /dseng:EngItem/locate` works for where-used, with the same reference format as BOM links.
 - **`GET .../dseng:EngInstance` does not return instances in creation order.** The part number rule
   therefore uses only the set of sibling numbers, never their position.
-
-## Phase 3 assumptions not yet verified against the tenant
 - PATCH with `description: ""` clears the description (used when a proposal is rejected).
 
 ## Still needed

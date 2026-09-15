@@ -75,4 +75,4 @@ Verified on the tenant; details in `docs/spec-notes.md`.
 - `GET .../dseng:EngInstance` returns children in no particular order: never rely on BOM position.
 - Search and where-used are index based and lag a few minutes behind creates and new links.
 - Clear a part number with `DELETE /dseng:EngItem/{id}/dseng:EnterpriseReference`.
-- Not yet verified: whether PATCH with `description: ""` clears the description (used by `reject`).
+- PATCH with `description: ""` clears a description (used by `reject`).
