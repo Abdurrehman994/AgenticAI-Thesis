@@ -34,7 +34,7 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
    - *LLM* (`agent/llm.py`): any OpenAI-compatible endpoint (Lehmus AI, Ollama, commercial APIs). One request
      per gap with the same evidence the rules see (parents, siblings, children, other items in the collab space);
      the model answers with a value or null, a confidence and the evidence it used. Part numbers already in use
-     are refused.
+     are refused, and a part number proposed for two items in the same run is dropped for both.
 4. **Write-back for review**: descriptions are written as `[PROPOSED] value`, so reviewers see them in the
    3DEXPERIENCE app. Part numbers are identifiers, so they are only logged and written on approval. Every proposal
    and decision is appended to `runs/proposals.jsonl`.

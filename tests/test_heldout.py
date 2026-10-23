@@ -63,19 +63,21 @@ def result(title, field, value=None, confidence=0.0):
 
 def test_score_run():
     truth = {("A", "description"): "Hex nut M6", ("B", "partNumber"): "X-2", ("C", "partNumber"): "X-3"}
+    truth[("E", "description")] = "Locking lever head"
     run = {"results": [
         result("A", "description", "hex nut, m6", 0.9),  # correct after normalizing
         result("B", "partNumber", "X-9", 0.6),  # wrong
         result("C", "partNumber"),  # no proposal
         result("D", "description", "anything", 0.9),  # no ground truth: not graded
+        result("E", "description", "Locking lever", 0.2),  # close, not correct
     ]}
     s = score_run(run, truth)
 
-    assert s["graded"] == 3
-    assert (s["coverage"], s["accuracy"], s["precision"]) == (2 / 3, 1 / 3, 1 / 2)
+    assert s["graded"] == 4
+    assert (s["coverage"], s["accuracy"], s["close"], s["precision"]) == (3 / 4, 1 / 4, 2 / 4, 1 / 3)
     assert (s["written"], s["written_correct"]) == (2, 1)
-    assert round(s["brier"], 3) == round(((0.9 - 1) ** 2 + 0.6**2) / 2, 3)
+    assert round(s["brier"], 3) == round(((0.9 - 1) ** 2 + 0.6**2 + 0.2**2) / 3, 3)
     assert s["tokens"] is None and s["errors"] == 0
 
-    a = aggregate([s, {**s, "accuracy": 2 / 3}])
-    assert a["runs"] == 2 and a["accuracy"] == {"mean": 0.5, "min": 1 / 3, "max": 2 / 3}
+    a = aggregate([s, {**s, "accuracy": 3 / 4}])
+    assert a["runs"] == 2 and a["accuracy"] == {"mean": 0.5, "min": 1 / 4, "max": 3 / 4}

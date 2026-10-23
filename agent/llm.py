@@ -111,14 +111,25 @@ class LLMSuggester:
 
     def suggest(self, gap: Gap, snapshot: Snapshot) -> Proposal | None:
         context = build_context(gap, snapshot)
-        prompt = (
-            f"Propose the {FIELD_NAMES.get(gap.field, gap.field)} of {gap.title!r}.\n\n"
-            + json.dumps(context, indent=1, ensure_ascii=False)
-        )
+        messages = [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": (
+                f"Propose the {FIELD_NAMES.get(gap.field, gap.field)} of {gap.title!r}.\n\n"
+                + json.dumps(context, indent=1, ensure_ascii=False)
+            )},
+        ]
         self.last_call = {"model": self.settings.model}
         try:
-            text = self._chat(prompt)
-            answer = parse_answer(text)
+            text = self._chat(messages)
+            try:
+                answer = parse_answer(text)
+            except ValueError:  # one retry: show the model its answer and ask for the JSON only
+                self.last_call["retried"] = True
+                messages += [
+                    {"role": "assistant", "content": text},
+                    {"role": "user", "content": "That was not a valid JSON object. Answer with only the JSON object."},
+                ]
+                answer = parse_answer(self._chat(messages))
         except (requests.RequestException, ValueError, KeyError) as exc:
             self.last_call["error"] = f"{type(exc).__name__}: {exc}"
             return None
@@ -140,14 +151,10 @@ class LLMSuggester:
         evidence = [str(e) for e in evidence] if isinstance(evidence, list) else [str(evidence)]
         return Proposal(gap.item_id, gap.title, gap.field, value, confidence, self.method, evidence)
 
-    def _chat(self, prompt: str) -> str:
+    def _chat(self, messages: list[dict]) -> str:
         s = self.settings
         headers = {"Authorization": f"Bearer {s.api_key}"} if s.api_key else {}
-        body = {
-            "model": s.model,
-            "temperature": s.temperature,
-            "messages": [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": prompt}],
-        }
+        body = {"model": s.model, "temperature": s.temperature, "messages": messages}
         started = time.monotonic()
         for attempt in range(self.retries + 1):
             try:
@@ -162,10 +169,10 @@ class LLMSuggester:
         response.raise_for_status()
         data = response.json()
         usage = data.get("usage") or {}
-        self.last_call.update(
-            latency_s=round(time.monotonic() - started, 2),
-            prompt_tokens=usage.get("prompt_tokens"),
-            completion_tokens=usage.get("completion_tokens"),
-        )
+        call = self.last_call  # a retry adds to the first request's latency and tokens
+        call["latency_s"] = round(call.get("latency_s", 0) + time.monotonic() - started, 2)
+        for name in ("prompt_tokens", "completion_tokens"):
+            if usage.get(name) is not None:
+                call[name] = (call.get(name) or 0) + usage[name]
         # Reasoning models (gpt-oss) return their reasoning separately; only the final answer is parsed
         return data["choices"][0]["message"].get("content") or ""

@@ -1,0 +1,1355 @@
+{
+  "collabspace": "API_development",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b",
+  "dataset": "data/dataset_cad.json",
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description",
+        "value": "1\" STANDARD WEIGHT AXLE",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Handle description: \"1\\\" STANDARD WEIGHT PIPE\"",
+          "Brace.Pipe description: \"3/4\\\" STANDARD WEIGHT PIPE\"",
+          "Axle.Cap and Axle.Support items indicate axle is a central rod component",
+          "Used in Hand Truck assembly alongside other structural parts"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.352,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.35,
+        "prompt_tokens": 1502,
+        "completion_tokens": 471
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.27,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.27,
+        "prompt_tokens": 1504,
+        "completion_tokens": 401
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description",
+        "value": "Axle end cap",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Cap sprinkler description pattern \"Sprinkler head cap\"",
+          "Naming convention of caps in project items"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.818,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.82,
+        "prompt_tokens": 1494,
+        "completion_tokens": 274
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.885,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.89,
+        "prompt_tokens": 1496,
+        "completion_tokens": 323
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description",
+        "value": "Axle support bracket",
+        "confidence": 0.65,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn.Leg.Support includes Weld.Axle.Support indicating a bracket component",
+          "Naming pattern of other descriptions (e.g., 'Ground Base Rod', 'Actuator Assembly')"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.182,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.18,
+        "prompt_tokens": 1503,
+        "completion_tokens": 377
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.274,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.27,
+        "prompt_tokens": 1505,
+        "completion_tokens": 394
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description",
+        "value": "Flat steel blade",
+        "confidence": 0.58,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn Hand Truck assembly",
+          "otherParts list includes Handle described as \"1\\\" STANDARD WEIGHT PIPE\" suggesting Blade is a flat steel component for load support"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.938,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.94,
+        "prompt_tokens": 1501,
+        "completion_tokens": 515
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.999,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.0,
+        "prompt_tokens": 1503,
+        "completion_tokens": 344
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.424,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.42,
+        "prompt_tokens": 1505,
+        "completion_tokens": 421
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description",
+        "value": "Caster assembly",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in Hand Truck assembly with wheel‑related parts (Blade, Tire.Pneumatic, Axle)",
+          "Naming convention similar to other items like \"SWC-Actuator\" with description \"Actuator Assembly\""
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.053,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.05,
+        "prompt_tokens": 1503,
+        "completion_tokens": 353
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.559,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.56,
+        "prompt_tokens": 1505,
+        "completion_tokens": 507
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description",
+        "value": "Heavy‑duty hand truck assembly for material handling",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "children list showing components (Blade, Tire.Pneumatic, Caster.Assembly, Axle, etc.) indicating an assembled transport device",
+          "description style of other items (e.g., \"Actuator Assembly\", \"Ground Base Rod\")"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.119,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.12,
+        "prompt_tokens": 1494,
+        "completion_tokens": 262
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "partNumber",
+        "value": "600-1000-00",
+        "confidence": 0.6,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "format of existing part numbers such as 501-0601-00"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.488,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.49,
+        "prompt_tokens": 1496,
+        "completion_tokens": 573
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "partNumber",
+        "value": "502-0601-00",
+        "confidence": 0.65,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers follow pattern XXX-0601-00 (e.g., 505-0601-00, 506-0601-00)",
+          "Unassigned prefixes in same series (502, 503) can be used for new items like pipe",
+          "Handle is a 1\" STANDARD WEIGHT PIPE, similar to other pipe items without numbers"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.922,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.92,
+        "prompt_tokens": 1523,
+        "completion_tokens": 757
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description",
+        "value": "Standard weight pipe for leg support",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Handle description: \"1\\\" STANDARD WEIGHT PIPE\"",
+          "Lower Pipe description: \"1 1/4\\\" STANDARD WEIGHT PIPE\"",
+          "Short Pipe description: \"1 1/4\\\" STANDARD WEIGHT PIPE\"",
+          "Brace.Pipe description: \"3/4\\\" STANDARD WEIGHT PIPE\"",
+          "Leg.Support used in Hand Truck assembly alongside other pipe components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.051,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.05,
+        "prompt_tokens": 1503,
+        "completion_tokens": 641
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "partNumber",
+        "value": "600-1001-00",
+        "confidence": 0.45,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "partNumbersProposedForOtherItems includes 600-1000-00 as a placeholder for generic parts",
+          "existing part numbers follow pattern XXX-YYYY-00, with 600 series used for non‑sprinkler mechanical items"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.39,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.39,
+        "prompt_tokens": 1534,
+        "completion_tokens": 423
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.456,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.46,
+        "prompt_tokens": 1542,
+        "completion_tokens": 449
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description",
+        "value": "Mounting plate",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Title \"Mounting.Plate\" used in Hand Truck assembly",
+          "Other parts have concise functional descriptions (e.g., \"Actuator Assembly\", \"Sprinkler Adjustment Knob\")"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.281,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.28,
+        "prompt_tokens": 1504,
+        "completion_tokens": 395
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber",
+        "value": "503-0601-00",
+        "confidence": 0.55,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers follow pattern XXX-0601-00 for many items",
+          "503 not currently used in the provided list",
+          "Proposed part numbers for other items include 502-0601-00, suggesting sequential allocation"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.586,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.59,
+        "prompt_tokens": 1544,
+        "completion_tokens": 639
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description",
+        "value": "HEX NUT",
+        "confidence": 0.55,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Round Head Bolt_AI (implies accompanying nut)",
+          "Naming convention of fastener descriptions in the project"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.498,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.5,
+        "prompt_tokens": 1501,
+        "completion_tokens": 444
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "partNumber",
+        "value": "600-1002-00",
+        "confidence": 0.68,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers follow pattern XXX-YYYY-ZZ (e.g., 501-0601-00, 600-1000-00)",
+          "Hardware items like bolts likely use 600 series (e.g., 600-1000-00, 600-1001-00)",
+          "Nut is a standard fastener used with Round Head Bolt_AI in Hand Truck assembly"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.199,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.2,
+        "prompt_tokens": 1550,
+        "completion_tokens": 665
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description",
+        "value": "1/4\" x 1\" ROUND HEAD BOLT",
+        "confidence": 0.45,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: Hand Truck",
+          "otherParts: Nut, Mounting.Plate"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.39,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.39,
+        "prompt_tokens": 1504,
+        "completion_tokens": 555
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "partNumber",
+        "value": "519-0601-00",
+        "confidence": 0.65,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers follow pattern XXX-0601-00 (e.g., 501-0601-00, 510-0601-00, 517-0601-00)",
+          "Round Head Bolt is a hardware fastener, likely sharing the same project code (0601)",
+          "Number 519 is not used elsewhere in the provided data"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.774,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.77,
+        "prompt_tokens": 1562,
+        "completion_tokens": 733
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber",
+        "value": "520-0601-00",
+        "confidence": 0.68,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers for similar assemblies use 500‑series with suffix -0601-00 (e.g., 501-0601-00, 510-0601-00, 514-0601-00)",
+          "Suffix -0601-00 appears for main components, while -0803-00 is used for bearing‑related parts",
+          "No current item in the project uses part number 520-0601-00"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.732,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.73,
+        "prompt_tokens": 1573,
+        "completion_tokens": 608
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber",
+        "value": "513-0601-00",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Body sprinkler partNumber 510-0601-00",
+          "SWC-Spray Angle Adjustment sprinkler partNumber 511-0601-00",
+          "SWC-Spray Disruptor sprinkler partNumber 512-0601-00",
+          "SWC-Cover sprinkler partNumber 514-0601-00",
+          "SWC-Jet sprinkler partNumber 515-0601-00",
+          "Unassigned sequential number 513 in the 500 series"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.929,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.93,
+        "prompt_tokens": 1583,
+        "completion_tokens": 816
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description",
+        "value": "Sprinkler base",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Child item \"SWC-Base sprinkler\" description \"Ground Base Rod\"",
+          "Presence of base-related parts in SWC-OrbitalSprinkler (e.g., SWC-Gasket sprinkler, SWC-Upper Bearing sprinkler)",
+          "Naming convention of other descriptions (e.g., \"Main sprinkler body\", \"Sprinkler head cap\")"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.6,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.6,
+        "prompt_tokens": 1505,
+        "completion_tokens": 457
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.521,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.52,
+        "prompt_tokens": 1590,
+        "completion_tokens": 965,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description",
+        "value": "Sprinkler collar",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Cap sprinkler description: \"Sprinkler head cap\"",
+          "SWC-Cover sprinkler description: \"Casing cover\"",
+          "SWC-Base sprinkler description: \"Ground Base Rod\"",
+          "Consistent naming pattern of SWC-... items with concise functional descriptions"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.77,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.77,
+        "prompt_tokens": 1505,
+        "completion_tokens": 474
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "partNumber",
+        "value": "508-0601-00",
+        "confidence": 0.73,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Sequential part numbers for SWC items (e.g., 501-0601-00, 505-0601-00, 510-0601-00)",
+          "Unused numbers in series (508 not present)",
+          "Pattern of suffix \"-0601-00\" for main sprinkler components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.902,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.9,
+        "prompt_tokens": 1590,
+        "completion_tokens": 750
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description",
+        "value": "Engagement spring",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Spring-swingarm sprinkler → description 'Swingarm spring - 33mm'",
+          "SWC-Engage Lever sprinkler → description 'Engagement Lever'",
+          "Naming convention of SWC parts linking component function (e.g., 'Engage' → Engagement)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.833,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.83,
+        "prompt_tokens": 3113,
+        "completion_tokens": 734,
+        "retried": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description",
+        "value": "Jet sprinkler head",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Body sprinkler – \"Main sprinkler body\"",
+          "SWC-Spray Angle Adjustment sprinkler – \"Sprinkler angle adjuster\"",
+          "SWC-Adjustment Knob sprinkler – description pattern for functional sprinker components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.426,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.43,
+        "prompt_tokens": 1505,
+        "completion_tokens": 357
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description",
+        "value": "Lock Lever",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Engage Lever sprinkler description \"Engagement Lever\"",
+          "Naming pattern of other parts in SWC-Rotator assembly"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.277,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.28,
+        "prompt_tokens": 1506,
+        "completion_tokens": 282
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler",
+        "title": "SWC-Lower Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.181,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.18,
+        "prompt_tokens": 1600,
+        "completion_tokens": 914,
+        "rejected": "part number 508-0601-00 is already proposed for SWC-Collar sprinkler"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description",
+        "value": "Sprinkler name plate",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Cap sprinkler → \"Sprinkler head cap\"",
+          "SWC-Adjustment Knob sprinkler → \"Sprinkler Adjustment Knob\"",
+          "SWC-Base sprinkler → \"Ground Base Rod\""
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.926,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.93,
+        "prompt_tokens": 1506,
+        "completion_tokens": 361
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.101,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.1,
+        "prompt_tokens": 1594,
+        "completion_tokens": 897,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description",
+        "value": "Sprinkler rotation adjuster",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Adjustment Knob sprinkler → \"Sprinkler Adjustment Knob\"",
+          "SWC-Spray Angle Adjustment sprinkler → \"Sprinkler angle adjuster\"",
+          "Naming pattern of other sprinkler component descriptions"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.265,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.27,
+        "prompt_tokens": 1506,
+        "completion_tokens": 275
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber",
+        "value": "509-0601-00",
+        "confidence": 0.66,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing SWC part numbers follow pattern <NNN>-0601-00",
+          "Prefixes 500‑518 are used; 509 is currently unused",
+          "Rotation adjustment is a distinct function similar to angle adjustment (511-0601-00)",
+          "Proposed numbers list does not include 509-0601-00"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 9.01,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 9.01,
+        "prompt_tokens": 1600,
+        "completion_tokens": 1177
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description",
+        "value": "Rotator mechanism for orbital sprinkler head",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-OrbitalSprinkler (assembly containing the rotator)",
+          "Child parts include SWC-Spray Angle Adjustment sprinkler and SWC-Rotation Adjustment sprinkler",
+          "Naming pattern of other descriptions (e.g., SWC-Base sprinkler, SWC-Cap sprinkler)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.354,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.35,
+        "prompt_tokens": 1506,
+        "completion_tokens": 328
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.011,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.01,
+        "prompt_tokens": 1609,
+        "completion_tokens": 511,
+        "rejected": "part number 513-0601-00 is already proposed for SWC-Adjustment Knob sprinkler"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description",
+        "value": "Fastening screw for sprinkler assembly",
+        "confidence": 0.65,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in SWC-Rotator alongside other sprinkler components",
+          "Naming pattern of similar parts (e.g., SWC-Body sprinkler, SWC-Gasket sprinkler)",
+          "Presence of generic fasteners like \"Nut\" and \"Round Head Bolt_AI\" in the project"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.286,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.29,
+        "prompt_tokens": 1504,
+        "completion_tokens": 414
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.295,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 6.29,
+        "prompt_tokens": 1607,
+        "completion_tokens": 805,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.317,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 6.32,
+        "prompt_tokens": 1608,
+        "completion_tokens": 985,
+        "rejected": "part number 503-0601-00 is already proposed for Mounting.Plate"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.076,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.08,
+        "prompt_tokens": 1611,
+        "completion_tokens": 901,
+        "rejected": "part number 519-0601-00 is already proposed for Round Head Bolt_AI"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber",
+        "value": "508-0803-00",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Spring-upper bearing sprinkler uses partNumber 507-0803-00 (same size 22mm)",
+          "Prefix 504, 505, 506, 507, 510, etc. indicate distinct component families; 508 is unused",
+          "Pattern that bearing components likely have a unique prefix; 508-0803-00 is not taken"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 10.442,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 10.44,
+        "prompt_tokens": 1609,
+        "completion_tokens": 1317
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber",
+        "value": "503-0803-00",
+        "confidence": 0.75,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Washer-Swingarm sprinkler uses 504-0803-00 (washer, same 23mm size)",
+          "Suffix 0803 appears for washer-type components (e.g., 504-0803-00, 507-0803-00)",
+          "Leading numbers 501‑518 are already assigned; 503-0803-00 is not used in the provided data",
+          "partNumbersProposedForOtherItems includes 508-0803-00, leaving 503-0803-00 available"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 10.323,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 10.32,
+        "prompt_tokens": 1618,
+        "completion_tokens": 1219
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.634,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.63,
+        "prompt_tokens": 1624,
+        "completion_tokens": 916
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description",
+        "value": "Plastic tire",
+        "confidence": 0.75,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Pattern of descriptions using material and part type (e.g., \"3/4\\\" STANDARD WEIGHT PIPE\")",
+          "Presence of related item \"Hand Truck\" indicating the tire is likely for that assembly"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.66,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.66,
+        "prompt_tokens": 1495,
+        "completion_tokens": 324
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.326,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.33,
+        "prompt_tokens": 1616,
+        "completion_tokens": 668,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description",
+        "value": "Pneumatic tire for hand truck",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn -> Hand Truck",
+          "title pattern: Tire.Pneumatic"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.1,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.1,
+        "prompt_tokens": 3029,
+        "completion_tokens": 533,
+        "retried": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.956,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.96,
+        "prompt_tokens": 1626,
+        "completion_tokens": 699,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description",
+        "value": "Weld to Axle Support",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "\"Weld.Short.to.Brace\" and \"Weld.Long.to.Brace\" indicate weld items use a \"Weld to …\" phrasing",
+          "Used in the \"Leg.Support\" assembly alongside \"Axle.Support\", suggesting the weld connects to the axle support"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.385,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.39,
+        "prompt_tokens": 1506,
+        "completion_tokens": 414
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.855,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.86,
+        "prompt_tokens": 1627,
+        "completion_tokens": 680,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description",
+        "value": "Long weld to brace",
+        "confidence": 0.65,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Weld.Short.to.Brace (title suggests analogous description)",
+          "Naming pattern of Weld.* items in assembly context"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.917,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.92,
+        "prompt_tokens": 1506,
+        "completion_tokens": 511
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "partNumber",
+        "value": "600-0601-00",
+        "confidence": 0.68,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Existing part numbers follow pattern XXX-0601-00 for components",
+          "600 series numbers are used for generic items and not yet assigned to welds",
+          "No existing part number conflicts with 600-0601-00"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.114,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 8.11,
+        "prompt_tokens": 1627,
+        "completion_tokens": 1042
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description",
+        "value": "Short weld to brace",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Weld.Long.to.Brace (naming pattern)",
+          "OtherParts descriptions using pipe sizes indicate concise phrasing"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.435,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.43,
+        "prompt_tokens": 1506,
+        "completion_tokens": 302
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.749,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.75,
+        "prompt_tokens": 1636,
+        "completion_tokens": 603,
+        "rejected": "part number 502-0601-00 is already proposed for Handle"
+      }
+    }
+  ]
+}

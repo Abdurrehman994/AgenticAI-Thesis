@@ -8,8 +8,15 @@ def test_normalize_ignores_case_and_punctuation():
 
 
 def test_score():
-    assert score("Hex nut M6", "Hex nut M6") == {"exact": True, "normalized": True, "overlap": 1.0}
-    assert score("Guard assembly", "Safety guard assembly") == {"exact": False, "normalized": False, "overlap": 0.67}
+    assert score("Hex nut M6", "Hex nut M6") == {"exact": True, "normalized": True, "close": True, "overlap": 1.0}
+    assert score("Guard assembly", "Safety guard assembly") == {"exact": False, "normalized": False, "close": True, "overlap": 0.67}
+    assert not score("Base plate for sprinkler assembly", "Base Mount Assembly")["close"]  # overlap 0.33
+
+
+def test_close_does_not_apply_to_part_numbers():
+    # 503-0601-00 and 502-0601-00 share two of three tokens, but a part number is right or wrong
+    assert score("503-0601-00", "502-0601-00", "description")["close"]
+    assert not score("503-0601-00", "502-0601-00", "partNumber")["close"]
 
 
 def test_rules_baseline_on_dataset(tenant, dataset, tmp_path):

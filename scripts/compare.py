@@ -8,6 +8,8 @@ Runs with the same suggester and dataset are repeats; the table shows their mean
 
 - coverage: graded gaps with a proposal
 - accuracy: correct proposals (ignoring case and punctuation) over graded gaps; precision: over proposals
+- close: like accuracy, but a description sharing at least half its words with the truth also counts
+  (evaluate.CLOSE_OVERLAP); Brier and "written (correct)" use the strict match
 - written: proposals at confidence >= --min-confidence (what --apply would put in PLM) and how many are correct
 - Brier: mean (confidence - correct)^2 over proposals; 0 is perfect, always answering 0.5 gives 0.25
 """
@@ -21,18 +23,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.evaluate import DATASET, RUNS, ground_truth, normalize  # noqa: E402
+from scripts.evaluate import DATASET, RUNS, ground_truth, score  # noqa: E402
 
-METRICS = ("graded", "coverage", "accuracy", "precision", "written", "written_correct", "brier", "seconds", "tokens")
+METRICS = ("graded", "coverage", "accuracy", "close", "precision", "written", "written_correct", "brier", "seconds", "tokens")
 
 
 def score_run(run: dict, truth: dict[tuple[str, str], str], min_confidence: float = 0.5) -> dict:
     graded = [r for r in run["results"] if (r["gap"]["title"], r["gap"]["field"]) in truth]
     proposed = [r for r in graded if r["proposal"]]
-    correct = [
-        r for r in proposed
-        if normalize(r["proposal"]["value"]) == normalize(truth[(r["gap"]["title"], r["gap"]["field"])])
-    ]
+    scores = [score(r["proposal"]["value"], truth[(r["gap"]["title"], r["gap"]["field"])], r["gap"]["field"]) for r in proposed]
+    correct = [r for r, s in zip(proposed, scores) if s["normalized"]]
+    close = [r for r, s in zip(proposed, scores) if s["close"]]
     written = [r for r in proposed if r["proposal"]["confidence"] >= min_confidence]
     brier = [(r["proposal"]["confidence"] - (r in correct)) ** 2 for r in proposed]
     tokens = [
@@ -43,6 +44,7 @@ def score_run(run: dict, truth: dict[tuple[str, str], str], min_confidence: floa
         "graded": len(graded),
         "coverage": len(proposed) / len(graded) if graded else None,
         "accuracy": len(correct) / len(graded) if graded else None,
+        "close": len(close) / len(graded) if graded else None,
         "precision": len(correct) / len(proposed) if proposed else None,
         "written": len(written),
         "written_correct": sum(r in correct for r in written),
@@ -100,14 +102,14 @@ def main() -> None:
         per_run.append({"run": path.name, "suggester": key[0], "dataset": key[1], **s})
 
     table = {f"{label} | {dataset}": aggregate(scores) for (label, dataset), scores in sorted(groups.items())}
-    print("| suggester | dataset | runs | graded gaps | coverage | accuracy | precision | written (correct) | Brier | s/gap | tokens/gap | errors |")
-    print("|---|---|---|---|---|---|---|---|---|---|---|---|")
+    print("| suggester | dataset | runs | graded gaps | coverage | accuracy | close | precision | written (correct) | Brier | s/gap | tokens/gap | errors |")
+    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
     for name, a in table.items():
         label, dataset = name.split(" | ")
         written = f"{fmt(a['written'], 'int')} ({fmt(a['written_correct'], 'int')})"
         print(
             f"| {label} | {dataset} | {a['runs']} | {fmt(a['graded'], 'int')} | {fmt(a['coverage'], 'pct')} "
-            f"| {fmt(a['accuracy'], 'pct')} | {fmt(a['precision'], 'pct')} | {written} | {fmt(a['brier'], 'num')} "
+            f"| {fmt(a['accuracy'], 'pct')} | {fmt(a['close'], 'pct')} | {fmt(a['precision'], 'pct')} | {written} | {fmt(a['brier'], 'num')} "
             f"| {fmt(a['seconds'], 'num')} | {fmt(a['tokens'], 'int')} | {a['errors']} |"
         )
 

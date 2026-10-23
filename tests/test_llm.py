@@ -100,6 +100,58 @@ def test_no_proposal_for_null_or_used_part_number(tenant):
     assert suggester.last_call["rejected"] == "part number GRD-3001 is already used"
 
 
+class ScriptedSuggester:
+    """Answers from a {(title, field): value} table, like a model would."""
+
+    name = "scripted"
+
+    def __init__(self, values):
+        self.values = values
+
+    def suggest(self, gap, snapshot):
+        from agent.suggest import Proposal
+
+        value = self.values.get((gap.title, gap.field))
+        return Proposal(gap.item_id, gap.title, gap.field, value, 0.9, "scripted") if value else None
+
+
+def test_duplicate_part_numbers_in_a_run_are_all_dropped(tenant, tmp_path):
+    # Idler and belt both get CNV-1003: either could be right, so neither is kept, whatever the order
+    from agent.writeback import ProposalLog
+
+    values = {
+        ("API_ROLLER_IDLER_D50", "partNumber"): "CNV-1003",
+        ("API_BELT_PVC_600", "partNumber"): "CNV-1003",
+        ("API_GUARD_HINGE_AL", "partNumber"): "GRD-3002",
+    }
+    log = ProposalLog(tmp_path / "log.jsonl")
+    results = run(tenant, collabspace="API_development", apply=True, log=log, suggester=ScriptedSuggester(values))
+    by_gap = {(r["gap"]["title"], r["gap"]["field"]): r for r in results}
+
+    belt = by_gap[("API_BELT_PVC_600", "partNumber")]
+    assert belt["proposal"] is None and belt["ambiguous"] == "CNV-1003 also proposed for API_ROLLER_IDLER_D50"
+    idler = by_gap[("API_ROLLER_IDLER_D50", "partNumber")]
+    assert idler["proposal"] is None and idler["ambiguous"] == "CNV-1003 also proposed for API_BELT_PVC_600"
+    assert by_gap[("API_GUARD_HINGE_AL", "partNumber")]["proposal"]["value"] == "GRD-3002"
+    assert [p["value"] for p in log.pending()] == ["GRD-3002"]  # dropped proposals are never written
+
+
+def test_malformed_answer_is_retried_once(tenant):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    gap = gap_for(snapshot, "API_GUARD_HINGE_AL", "partNumber")
+
+    session = FakeSession(FakeResponse(200, '{"value": "GRD-3002" "confidence": 0.8}'), answer("GRD-3002"))
+    suggester = LLMSuggester(SETTINGS, session=session)
+    assert suggester.suggest(gap, snapshot).value == "GRD-3002"
+    assert suggester.last_call["retried"] and suggester.last_call["prompt_tokens"] == 1800  # both requests counted
+    retry = session.requests[1]["json"]["messages"]
+    assert [m["role"] for m in retry] == ["system", "user", "assistant", "user"]
+
+    suggester = LLMSuggester(SETTINGS, session=FakeSession(FakeResponse(200, "no idea")))
+    assert suggester.suggest(gap, snapshot) is None
+    assert suggester.last_call["error"].startswith("ValueError")
+
+
 def test_server_errors_are_retried_then_reported(tenant):
     snapshot = Snapshot(tenant, tenant.iter_search("*"))
     gap = gap_for(snapshot, "API_GUARD_HINGE_AL", "partNumber")

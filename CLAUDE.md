@@ -54,9 +54,11 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
 2. `find_gaps` is plain code (no AI) and skips `(item_id, field)` pairs that already have a pending proposal.
 3. `Suggester.suggest(gap, snapshot) -> Proposal | None`. `RuleBasedSuggester` is the Phase 4 baseline;
    `LLMSuggester` (`agent/llm.py`) calls any OpenAI-compatible endpoint (`LLM_*` in `.env`; planned: Lehmus AI, the
-   university's vLLM platform, where `LLM_MODEL` is the "public model id"). One request per gap, no tools; it sets
-   `last_call` (latency, tokens, error), which `run()` stores per gap. Every proposal carries `confidence`, `method`
-   and `evidence`.
+   university's vLLM platform, reachable only from the university network or VPN; `LLM_MODEL` is the "public model
+   id"). One request per gap, no tools, one retry on malformed JSON; it sets `last_call` (latency, tokens, error),
+   which `run()` stores per gap. Every proposal carries `confidence`, `method` and `evidence`.
+   `run()` then drops every part number proposed for more than one item in the run (`ambiguous` in the run file):
+   order independent, so a wrong early answer cannot block the right one.
 4. `write_proposal` then `ProposalLog` (`runs/proposals.jsonl`): append-only events `proposed` / `approved` / `rejected`;
    status is derived by folding the events.
 

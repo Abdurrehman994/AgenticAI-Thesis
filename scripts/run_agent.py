@@ -17,6 +17,7 @@ import argparse
 import json
 import sys
 import time
+from collections import defaultdict
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
@@ -50,7 +51,7 @@ def run(
     gaps = find_gaps(snapshot.items.values(), pending)
     print(f"{len(snapshot.items)} items in {collabspace}: {len(gaps)} gaps, {len(pending)} already awaiting review\n")
 
-    results = []
+    results, proposals = [], []
     for gap in gaps:
         started = time.monotonic()
         proposal = suggester.suggest(gap, snapshot)
@@ -63,9 +64,14 @@ def run(
         if getattr(suggester, "last_call", None):
             result["llm"] = suggester.last_call
         results.append(result)
+        proposals.append(proposal)
+    drop_duplicate_part_numbers(results, proposals)
+
+    for gap, result, proposal in zip(gaps, results, proposals):
         if proposal is None:
             error = (result.get("llm") or {}).get("error")
-            print(f"  {gap.title:<28} {gap.field:<12} {'! ' + error if error else 'no evidence'}")
+            reason = f"! {error}" if error else f"ambiguous: {result['ambiguous']}" if "ambiguous" in result else "no evidence"
+            print(f"  {gap.title:<28} {gap.field:<12} {reason}")
             continue
         print(f"  {gap.title:<28} {gap.field:<12} {proposal.value!r:<42} {proposal.confidence:.1f}  {proposal.method}")
         for line in proposal.evidence:
@@ -89,6 +95,23 @@ def run(
     else:
         print("Dry run: nothing written. Re-run with --apply.")
     return results
+
+
+def drop_duplicate_part_numbers(results: list[dict], proposals: list) -> None:
+    """Two items cannot get the same part number, and nothing tells which of them it belongs to: drop all.
+
+    Order independent on purpose: keeping the first claim would let a wrong early answer block the right one.
+    The dropped value stays in the run file under "ambiguous".
+    """
+    claims = defaultdict(list)
+    for i, proposal in enumerate(proposals):
+        if proposal and proposal.field == "partNumber":
+            claims[proposal.value].append(i)
+    for value, indexes in claims.items():
+        for i in indexes if len(indexes) > 1 else []:
+            others = [results[j]["gap"]["title"] for j in indexes if j != i]
+            results[i]["ambiguous"] = f"{value} also proposed for {', '.join(others)}"
+            results[i]["proposal"], proposals[i] = None, None
 
 
 def make_suggester(name: str, model: str | None) -> Suggester:

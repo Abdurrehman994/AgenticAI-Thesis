@@ -1,0 +1,334 @@
+{
+  "collabspace": "API_development",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b",
+  "dataset": "data/dataset.json",
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Guard assembly, powder‑coated mesh panel with aluminium hinge and M6 fasteners",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_GUARD_PANEL_MESH description",
+          "API_GUARD_HINGE_AL title",
+          "API_BOLT_M6X16_ISO4017 title",
+          "API_NUT_M6_ISO4032 title",
+          "API_ASM_GUARD used in API_ASM_CONVEYOR_LINE"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.003,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.0,
+        "prompt_tokens": 949,
+        "completion_tokens": 442
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Deep groove ball bearing 6204, double sealed (2RS), steel, 20×47×14 mm",
+        "confidence": 0.92,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Standard bearing naming convention (6204 2RS) indicates deep groove ball bearing with double rubber seals",
+          "Other part descriptions include type, dimensions, material, and coating (e.g., Hex bolt M8x25 ISO 4017, zinc plated)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.351,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.35,
+        "prompt_tokens": 952,
+        "completion_tokens": 421
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber",
+        "value": "CNV-1003",
+        "confidence": 0.96,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_ASM_CONVEYOR_MODULE partNumber CNV-1000",
+          "API_FRAME_SIDE_PLATE_S235 partNumber CNV-1001",
+          "API_ROLLER_DRIVE_D50 partNumber CNV-1002",
+          "API_BEARING_6204_2RS partNumber CNV-1004",
+          "API_BOLT_M8X25_ISO4017 partNumber CNV-1005"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.757,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.76,
+        "prompt_tokens": 952,
+        "completion_tokens": 324
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description",
+        "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+        "confidence": 0.96,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_BOLT_M8X25_ISO4017 description pattern",
+          "Consistent naming with other bolt items in project"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.163,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.16,
+        "prompt_tokens": 953,
+        "completion_tokens": 268
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Guard hinge, aluminum, powder coated",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_ASM_GUARD contains guard panel mesh described as \"Mesh guard panel, powder coated\"",
+          "Title includes \"AL\" suggesting aluminum material",
+          "Pattern of descriptions includes material and finish, e.g., \"Motor bracket, S235 steel, bent\""
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.119,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.12,
+        "prompt_tokens": 950,
+        "completion_tokens": 383
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber",
+        "value": "GRD-3002",
+        "confidence": 0.92,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "GRD-3000 assembly part numbers sequence",
+          "GRD-3001, GRD-3003, GRD-3004 used for other guard parts",
+          "consistent guard family prefix GRD"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.498,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.5,
+        "prompt_tokens": 971,
+        "completion_tokens": 309
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Motor gear, 0.37 kW, spur type, steel",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: API_ASM_MOTOR_BRACKET",
+          "title pattern: API_MOTOR_GEAR_037KW",
+          "partNumber MTR-2004 indicates motor component"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.063,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.06,
+        "prompt_tokens": 950,
+        "completion_tokens": 254
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description",
+        "value": "Hex nut M6 ISO 4032, zinc plated",
+        "confidence": 0.95,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_NUT_M8_ISO4032 description pattern"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.628,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.63,
+        "prompt_tokens": 951,
+        "completion_tokens": 197
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, D50 mm",
+        "confidence": 0.92,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_ROLLER_DRIVE_D50 description: \"Drive roller, D50 mm\"",
+          "Naming pattern: API_ROLLER_IDLER_D50 parallels API_ROLLER_DRIVE_D50"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.845,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.84,
+        "prompt_tokens": 950,
+        "completion_tokens": 225
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.462,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.46,
+        "prompt_tokens": 979,
+        "completion_tokens": 352,
+        "rejected": "part number CNV-1003 is already proposed for API_BELT_PVC_600"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description",
+        "value": "Flat washer M8 ISO 7089, zinc plated",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "API_BOLT_M8X25_ISO4017 description pattern",
+          "API_NUT_M8_ISO4032 description pattern",
+          "ISO 7089 standard for metric flat washers"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.186,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.19,
+        "prompt_tokens": 952,
+        "completion_tokens": 271
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber",
+        "value": "MTR-2003",
+        "confidence": 0.84,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Motor assembly items use prefix MTR and numbers in 2000 range (MTR-2000, MTR-2001, MTR-2002, MTR-2004)",
+          "Unused number 2003 in the MTR series",
+          "Washer is used in API_ASM_MOTOR_BRACKET, fitting the motor assembly category"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.067,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.07,
+        "prompt_tokens": 981,
+        "completion_tokens": 597
+      }
+    }
+  ]
+}
