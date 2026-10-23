@@ -131,6 +131,20 @@ The rules do not transfer: they expect `API_..._` underscore titles and plain nu
 uses spaced names and `family-variant-revision` part numbers (`507-0702-00`). Their confidence stayed below 0.5,
 so nothing wrong would have been written to PLM.
 
+GPT-OSS-120B on Lehmus AI, 3 runs per dataset, offline, 23 October 2026 (`runs/compare-20261023.json`; mean, range):
+
+| Suggester | Dataset | Accuracy | Close | Written (correct) | Brier |
+|---|---|---|---|---|---|
+| Rules | `dataset.json` | 50% | 67% | 5 (5) | 0.13 |
+| GPT-OSS-120B | `dataset.json` | 47% (42-58%) | 75% (67-83%) | 10.7 (5.7) | 0.31 |
+| Rules | `dataset_cad.json` | 0% | 0% | 0 (0) | 0.10 |
+| GPT-OSS-120B | `dataset_cad.json` | 4% (0-6%) | 16% (6-24%) | 11 (0.7) | 0.52 |
+
+"Close" counts descriptions sharing at least half their words with the truth. Brier is the squared error of the
+confidence; always answering 0.5 scores 0.25. The model's descriptions are often close in meaning, but its confidence
+does not separate right from wrong: at the 0.5 threshold it would write about 10 wrong values to PLM on the CAD data.
+On CAD part numbers it guesses the same free number for many parts, which the duplicate check drops.
+
 Most CAD descriptions are configuration-specific properties, not on the file's Custom tab: reading only the Custom
 tab makes the sprinkler look almost empty. The source data has its own errors too (the upper bearing spring is
 described as "Upper bearing - 22mm").
