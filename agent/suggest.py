@@ -1,7 +1,7 @@
 """Suggesters turn a gap plus evidence from the snapshot into a proposal.
 
-RuleBasedSuggester needs no AI and is the Phase 4 baseline. An LLM suggester goes behind the
-same interface later, so run_agent.py and the review flow do not change when it is added.
+RuleBasedSuggester needs no AI and is the Phase 4 baseline. LLMSuggester (agent/llm.py) sits behind
+the same interface, so run_agent.py and the review flow are the same for both.
 """
 import re
 from collections import Counter
@@ -27,20 +27,6 @@ class Suggester(Protocol):
     name: str
 
     def suggest(self, gap: Gap, snapshot: Snapshot) -> Proposal | None: ...
-
-
-class ClaudeSuggester:
-    """Slot for the LLM suggester (needs an Anthropic API key).
-
-    Plan: give the model the gap and the same evidence the rules use (similar items, parents,
-    siblings, children), let it call the read-only Engineering methods as tools, and return a
-    Proposal with method="llm:<model id>" and the evidence it relied on.
-    """
-
-    name = "claude"
-
-    def __init__(self, *args, **kwargs):
-        raise NotImplementedError("LLM suggester not implemented yet: use RuleBasedSuggester")
 
 
 TITLE_PREFIXES = ("API",)  # naming prefixes that carry no meaning about the part

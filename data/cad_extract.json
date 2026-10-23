@@ -1,0 +1,649 @@
+{
+  "ESS-0010_CADData/Axle.Cap.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Axle.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Axle.Support.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Blade.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Brace.Pipe.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Description": "3/4\" STANDARD WEIGHT PIPE"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Caster.Assembly.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Vendor": "CastorsRUs"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Hand Truck.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {},
+    "summary": {},
+    "children": {
+      "blade.sldprt": 1,
+      "tire.pneumatic.sldprt": 2,
+      "caster.assembly.sldprt": 2,
+      "axle.sldprt": 1,
+      "leg.support.sldasm": 2,
+      "handle.sldprt": 1,
+      "mounting.plate.sldprt": 1,
+      "nut.sldprt": 8,
+      "round head bolt_ai.sldprt": 6
+    }
+  },
+  "ESS-0010_CADData/Handle.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Description": "1\" STANDARD WEIGHT PIPE"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Leg.Support.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {},
+    "summary": {},
+    "children": {
+      "axle.support.sldprt": 1,
+      "lower pipe.sldprt": 1,
+      "weld.axle.support.sldprt": 1,
+      "weld.short.to.brace.sldprt": 1,
+      "weld.long.to.brace.sldprt": 1,
+      "short.pipe.sldprt": 1,
+      "brace.pipe.sldprt": 1
+    }
+  },
+  "ESS-0010_CADData/Lower Pipe.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Description": "1 1/4\" STANDARD WEIGHT PIPE"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Mounting.Plate.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Nut.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Round Head Bolt_AI.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "IsFastener": "1"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Short.Pipe.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Description": "1 1/4\" STANDARD WEIGHT PIPE"
+    },
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Tire.Plastic.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Tire.Pneumatic.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Weld.Axle.Support.sldprt": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Weld.Long.to.Brace.sldprt": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "ESS-0010_CADData/Weld.Short.to.Brace.sldprt": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {},
+    "summary": {}
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Actuator.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {
+      "Default": {
+        "Description": "Actuator Assembly"
+      }
+    },
+    "summary": {},
+    "children": {
+      "swc-spring-swingarm sprinkler.sldprt": 1,
+      "swc-swingarm sprinkler.sldprt": 1,
+      "swc-name plate sprinkler.sldprt": 1,
+      "swc-cap sprinkler.sldprt": 1
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Adjustment Knob sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "513-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Sprinkler Adjustment Knob",
+        "Material": "ABS",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Adjustment Knob"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Base sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "501-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Ground Base Rod",
+        "Material": "356.0-T6 Permanent Mold cast (SS)",
+        "Finish": "Powder Coated",
+        "MakeOrBuy": "Buy",
+        "Price": "2.670000",
+        "revision": "A.1"
+      }
+    },
+    "summary": {
+      "title": "Sprinkler Stem"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Base.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {
+      "Default": {
+        "Description": "Base Mount Assembly"
+      }
+    },
+    "summary": {},
+    "children": {
+      "swc-rotation adjustment sprinkler.sldprt": 2,
+      "swc-base sprinkler.sldprt": 1,
+      "swc-collar sprinkler.sldprt": 1
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Body sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "510-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Main sprinkler body",
+        "Material": "ABS",
+        "Finish": "Paint ",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Sprinkler Body"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Cap sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "517-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Sprinkler head cap",
+        "Material": "ABS",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Cap"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Collar sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "502-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Lower collar ring"
+      }
+    },
+    "summary": {
+      "title": "Collar"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Cover sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "514-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Casing cover"
+      }
+    },
+    "summary": {
+      "title": "Cover"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Engage Lever sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "505-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Engagement Lever",
+        "Material": "ABS",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Lever - Engage"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Engage Spring sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "507-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Engagement spring"
+      }
+    },
+    "summary": {
+      "title": "Spring, Engage"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Gasket sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "506-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Base Gasket",
+        "Material": "Rubber",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Gasket"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Gasket-jet sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "506-0702-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Base gasket"
+      }
+    },
+    "summary": {
+      "title": "Gasket-Jet"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Jet sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "515-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Jet head"
+      }
+    },
+    "summary": {
+      "title": "Jet"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Locklever sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "505-0702-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Locking lever head"
+      }
+    },
+    "summary": {
+      "title": "Lever - Lock"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Lower Bearing sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "503-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Bearing Lower - 12mm",
+        "Material": "Brass",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Lower Bearing"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Name Plate sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "518-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Top cap label",
+        "Material": "ABS",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Nameplate"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-OrbitalSprinkler.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {
+      "Default": {
+        "Description": "Orbital Sprinkler Assembly"
+      }
+    },
+    "summary": {},
+    "children": {
+      "swc-shaft sprinkler.sldprt": 1,
+      "swc-base.sldasm": 1,
+      "swc-rotator.sldasm": 1,
+      "swc-upper bearing sprinkler.sldprt": 1,
+      "swc-washer-swingarm sprinkler.sldprt": 1,
+      "swc-upper washer sprinkler.sldprt": 1,
+      "swc-gasket sprinkler.sldprt": 1,
+      "swc-spring-upper bearing sprinkler.sldprt": 1,
+      "swc-lower bearing sprinkler.sldprt": 1,
+      "swc-actuator.sldasm": 1
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Rotation Adjustment sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "508-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Rotation Adjuster",
+        "Material": "ABS PC",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Rotation Stop"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Rotator.SLDASM": {
+    "kind": "assembly",
+    "properties": {},
+    "configurations": {
+      "Default": {
+        "Description": "Rotator Assembly"
+      }
+    },
+    "summary": {},
+    "children": {
+      "swc-body sprinkler.sldprt": 1,
+      "swc-spray angle adjustment sprinkler.sldprt": 1,
+      "swc-screw.sldprt": 3,
+      "swc-spray disruptor sprinkler.sldprt": 1,
+      "swc-engage spring sprinkler.sldprt": 1,
+      "swc-jet sprinkler.sldprt": 1,
+      "swc-gasket-jet sprinkler.sldprt": 1,
+      "swc-locklever sprinkler.sldprt": 1,
+      "swc-cover sprinkler.sldprt": 1,
+      "swc-engage lever sprinkler.sldprt": 1,
+      "swc-adjustment knob sprinkler.sldprt": 1
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Screw.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "519-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Faced roundhead screw - M6x1",
+        "Material": "Cast Alloy Steel",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Screw"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Shaft sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "509-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Center Shaft",
+        "Material": "Brass",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Sprinkler Shaft"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Spray Angle Adjustment sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "511-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Sprinkler angle adjuster",
+        "Material": "ABS",
+        "Finish": "Paint ",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Angle Adjustment - Spray"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Spray Disruptor sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "512-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Spray head disruptor",
+        "Material": "ABS",
+        "Finish": "Paint ",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Disruptor - Spray"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Spring-swingarm sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "507-0702-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Swingarm spring - 33mm",
+        "Material": "Alloy Steel (SS)",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Spring, Swingarm"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Spring-upper bearing sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "507-0803-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Upper bearing - 22mm",
+        "Material": "Alloy Steel (SS)",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Spring, Upper Bearing"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Swingarm sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "516-0601-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Swingarm",
+        "Material": "ABS",
+        "Finish": "Sand Blasted",
+        "MakeOrBuy": "Buy",
+        "Price": "8.000000",
+        "UNIT_OF_MEASURE": "SWC-Swingarm sprinkler"
+      }
+    },
+    "summary": {
+      "title": "Swingarm"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Upper Bearing sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {},
+    "configurations": {
+      "Default": {
+        "Description": "Bearing Upper - 22mm",
+        "Material": "Brass",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Upper Bearing"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Upper Washer sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "504-0702-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Washer Upper - 23mm",
+        "Material": "Brass",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Washer, Upper"
+    }
+  },
+  "3DCD-0011_CADData/SWC Design Files/SWC-Washer-Swingarm sprinkler.SLDPRT": {
+    "kind": "part",
+    "properties": {
+      "Partnumber": "504-0803-00"
+    },
+    "configurations": {
+      "Default": {
+        "Description": "Washer - 23mm",
+        "Material": "Brass",
+        "Finish": "N/A",
+        "MakeOrBuy": "Buy",
+        "Price": "0"
+      }
+    },
+    "summary": {
+      "title": "Washer, Swingarm"
+    }
+  }
+}

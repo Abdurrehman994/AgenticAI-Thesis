@@ -1,0 +1,235 @@
+{
+  "collabspace": "API_development",
+  "suggester": "rules",
+  "label": "rules",
+  "dataset": "data/dataset.json",
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Guard assembly",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_ASM_GUARD'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Bearing 6204 2RS",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_BEARING_6204_2RS'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description",
+        "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+        "confidence": 0.8,
+        "method": "description-analogy",
+        "evidence": [
+          "API_BOLT_M8X25_ISO4017 has description 'Hex bolt M8x25 ISO 4017, zinc plated'",
+          "titles differ only in M8X25->M6X16"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.001
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Guard hinge aluminium",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_GUARD_HINGE_AL'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber",
+        "value": "GRD-3002",
+        "confidence": 0.7,
+        "method": "sibling-numbers",
+        "evidence": [
+          "other parts under API_ASM_GUARD: GRD-3001, GRD-3003, GRD-3004",
+          "the only number missing from the sequence"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Motor gear 037KW",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_MOTOR_GEAR_037KW'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description",
+        "value": "Hex nut M6 ISO 4032, zinc plated",
+        "confidence": 0.8,
+        "method": "description-analogy",
+        "evidence": [
+          "API_NUT_M8_ISO4032 has description 'Hex nut M8 ISO 4032, zinc plated'",
+          "titles differ only in M8->M6"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.001
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, D50 mm",
+        "confidence": 0.6,
+        "method": "description-analogy",
+        "evidence": [
+          "API_ROLLER_DRIVE_D50 has description 'Drive roller, D50 mm'",
+          "titles differ only in DRIVE->IDLER"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.001
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description",
+        "value": "Washer M8 ISO7089",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_WASHER_M8_ISO7089'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber",
+        "value": "MTR-2003",
+        "confidence": 0.7,
+        "method": "sibling-numbers",
+        "evidence": [
+          "other parts under API_ASM_MOTOR_BRACKET: MTR-2001, MTR-2002, MTR-2004",
+          "the only number missing from the sequence"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    }
+  ]
+}

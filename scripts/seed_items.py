@@ -5,6 +5,10 @@ Safe to re-run: items already created (tracked in data/seeded.json) and existing
 
     python scripts/seed_items.py          # dry run: shows what would be created
     python scripts/seed_items.py --yes    # creates the items (with part numbers) and BOM links
+    python scripts/seed_items.py --dataset data/dataset_cad.json --yes
+
+Phase 4 scoring does not need the items in the tenant (run_agent.py --dataset works offline); seeding is for
+demos and for reviewing proposals in the 3DEXPERIENCE app.
 """
 import argparse
 import json
@@ -23,9 +27,10 @@ SEEDED = ROOT / "data" / "seeded.json"  # title -> id; search lags behind creati
 def plm_attributes(entry: dict) -> dict:
     blank = set(entry.get("blank", []))
     attributes = {"title": entry["title"]}
-    if "description" not in blank:
+    # A field missing from the entry has no known value and stays empty in PLM
+    if entry.get("description") and "description" not in blank:
         attributes["description"] = entry["description"]
-    if "partNumber" not in blank:
+    if entry.get("partNumber") and "partNumber" not in blank:
         attributes["dseng:EnterpriseReference"] = {"partNumber": entry["partNumber"]}
     return attributes
 
@@ -33,9 +38,10 @@ def plm_attributes(entry: dict) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--yes", action="store_true", help="actually create the items and BOM links")
+    parser.add_argument("--dataset", type=Path, default=DATASET)
     args = parser.parse_args()
 
-    dataset = json.loads(DATASET.read_text(encoding="utf-8"))
+    dataset = json.loads(args.dataset.read_text(encoding="utf-8"))
     entries = dataset["items"]
     ids = json.loads(SEEDED.read_text(encoding="utf-8")) if SEEDED.exists() else {}
 

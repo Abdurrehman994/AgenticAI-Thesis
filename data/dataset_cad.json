@@ -1,0 +1,313 @@
+{
+  "_comment": "Phase 4 held-out data built by scripts/cad_to_dataset.py from data/cad_extract.json. True values are the CAD properties; 'blank' fields are left empty for the agent. Fields missing from an item have no CAD value: real gaps with no ground truth.",
+  "source": {
+    "extract": "data/cad_extract.json",
+    "blank_fraction": 0.3,
+    "seed": 2026
+  },
+  "collabspace": "API_development",
+  "items": [
+    {
+      "title": "Axle"
+    },
+    {
+      "title": "Axle.Cap"
+    },
+    {
+      "title": "Axle.Support"
+    },
+    {
+      "title": "Blade"
+    },
+    {
+      "title": "Brace.Pipe",
+      "description": "3/4\" STANDARD WEIGHT PIPE"
+    },
+    {
+      "title": "Caster.Assembly"
+    },
+    {
+      "title": "Hand Truck",
+      "children": [
+        "Blade",
+        "Tire.Pneumatic",
+        "Caster.Assembly",
+        "Axle",
+        "Leg.Support",
+        "Handle",
+        "Mounting.Plate",
+        "Nut",
+        "Round Head Bolt_AI"
+      ]
+    },
+    {
+      "title": "Handle",
+      "description": "1\" STANDARD WEIGHT PIPE"
+    },
+    {
+      "title": "Leg.Support",
+      "children": [
+        "Axle.Support",
+        "Lower Pipe",
+        "Weld.Axle.Support",
+        "Weld.Short.to.Brace",
+        "Weld.Long.to.Brace",
+        "Short.Pipe",
+        "Brace.Pipe"
+      ]
+    },
+    {
+      "title": "Lower Pipe",
+      "description": "1 1/4\" STANDARD WEIGHT PIPE"
+    },
+    {
+      "title": "Mounting.Plate"
+    },
+    {
+      "title": "Nut"
+    },
+    {
+      "title": "Round Head Bolt_AI"
+    },
+    {
+      "title": "Short.Pipe",
+      "description": "1 1/4\" STANDARD WEIGHT PIPE"
+    },
+    {
+      "title": "SWC-Actuator",
+      "description": "Actuator Assembly",
+      "children": [
+        "SWC-Spring-swingarm sprinkler",
+        "SWC-Swingarm sprinkler",
+        "SWC-Name Plate sprinkler",
+        "SWC-Cap sprinkler"
+      ]
+    },
+    {
+      "title": "SWC-Adjustment Knob sprinkler",
+      "description": "Sprinkler Adjustment Knob",
+      "partNumber": "513-0601-00",
+      "blank": [
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Base",
+      "description": "Base Mount Assembly",
+      "children": [
+        "SWC-Rotation Adjustment sprinkler",
+        "SWC-Base sprinkler",
+        "SWC-Collar sprinkler"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Base sprinkler",
+      "description": "Ground Base Rod",
+      "partNumber": "501-0601-00"
+    },
+    {
+      "title": "SWC-Body sprinkler",
+      "description": "Main sprinkler body",
+      "partNumber": "510-0601-00"
+    },
+    {
+      "title": "SWC-Cap sprinkler",
+      "description": "Sprinkler head cap",
+      "partNumber": "517-0601-00"
+    },
+    {
+      "title": "SWC-Collar sprinkler",
+      "description": "Lower collar ring",
+      "partNumber": "502-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Cover sprinkler",
+      "description": "Casing cover",
+      "partNumber": "514-0601-00"
+    },
+    {
+      "title": "SWC-Engage Lever sprinkler",
+      "description": "Engagement Lever",
+      "partNumber": "505-0601-00"
+    },
+    {
+      "title": "SWC-Engage Spring sprinkler",
+      "description": "Engagement spring",
+      "partNumber": "507-0601-00",
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Gasket sprinkler",
+      "description": "Base Gasket",
+      "partNumber": "506-0601-00"
+    },
+    {
+      "title": "SWC-Gasket-jet sprinkler",
+      "description": "Base gasket",
+      "partNumber": "506-0702-00"
+    },
+    {
+      "title": "SWC-Jet sprinkler",
+      "description": "Jet head",
+      "partNumber": "515-0601-00",
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Locklever sprinkler",
+      "description": "Locking lever head",
+      "partNumber": "505-0702-00",
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Lower Bearing sprinkler",
+      "description": "Bearing Lower - 12mm",
+      "partNumber": "503-0601-00",
+      "blank": [
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Name Plate sprinkler",
+      "description": "Top cap label",
+      "partNumber": "518-0601-00",
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-OrbitalSprinkler",
+      "description": "Orbital Sprinkler Assembly",
+      "children": [
+        "SWC-Shaft sprinkler",
+        "SWC-Base",
+        "SWC-Rotator",
+        "SWC-Upper Bearing sprinkler",
+        "SWC-Washer-Swingarm sprinkler",
+        "SWC-Upper Washer sprinkler",
+        "SWC-Gasket sprinkler",
+        "SWC-Spring-upper bearing sprinkler",
+        "SWC-Lower Bearing sprinkler",
+        "SWC-Actuator"
+      ]
+    },
+    {
+      "title": "SWC-Rotation Adjustment sprinkler",
+      "description": "Rotation Adjuster",
+      "partNumber": "508-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Rotator",
+      "description": "Rotator Assembly",
+      "children": [
+        "SWC-Body sprinkler",
+        "SWC-Spray Angle Adjustment sprinkler",
+        "SWC-Screw",
+        "SWC-Spray Disruptor sprinkler",
+        "SWC-Engage Spring sprinkler",
+        "SWC-Jet sprinkler",
+        "SWC-Gasket-jet sprinkler",
+        "SWC-Locklever sprinkler",
+        "SWC-Cover sprinkler",
+        "SWC-Engage Lever sprinkler",
+        "SWC-Adjustment Knob sprinkler"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Screw",
+      "description": "Faced roundhead screw - M6x1",
+      "partNumber": "519-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Shaft sprinkler",
+      "description": "Center Shaft",
+      "partNumber": "509-0601-00",
+      "blank": [
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Spray Angle Adjustment sprinkler",
+      "description": "Sprinkler angle adjuster",
+      "partNumber": "511-0601-00"
+    },
+    {
+      "title": "SWC-Spray Disruptor sprinkler",
+      "description": "Spray head disruptor",
+      "partNumber": "512-0601-00"
+    },
+    {
+      "title": "SWC-Spring-swingarm sprinkler",
+      "description": "Swingarm spring - 33mm",
+      "partNumber": "507-0702-00",
+      "blank": [
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Spring-upper bearing sprinkler",
+      "description": "Upper bearing - 22mm",
+      "partNumber": "507-0803-00"
+    },
+    {
+      "title": "SWC-Swingarm sprinkler",
+      "description": "Swingarm",
+      "partNumber": "516-0601-00"
+    },
+    {
+      "title": "SWC-Upper Bearing sprinkler",
+      "description": "Bearing Upper - 22mm"
+    },
+    {
+      "title": "SWC-Upper Washer sprinkler",
+      "description": "Washer Upper - 23mm",
+      "partNumber": "504-0702-00",
+      "blank": [
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Washer-Swingarm sprinkler",
+      "description": "Washer - 23mm",
+      "partNumber": "504-0803-00"
+    },
+    {
+      "title": "Tire.Plastic"
+    },
+    {
+      "title": "Tire.Pneumatic"
+    },
+    {
+      "title": "Weld.Axle.Support"
+    },
+    {
+      "title": "Weld.Long.to.Brace"
+    },
+    {
+      "title": "Weld.Short.to.Brace"
+    }
+  ]
+}

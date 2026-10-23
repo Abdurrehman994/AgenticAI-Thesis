@@ -136,14 +136,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--run", type=Path, help="run file to score (default: the latest runs/run-*.json)")
     parser.add_argument("--log", type=Path, default=DEFAULT_LOG)
+    parser.add_argument("--dataset", type=Path, help="ground truth (default: the run's dataset, else data/dataset.json)")
     parser.add_argument("--out", type=Path, help="also save the summary and rows as JSON")
     args = parser.parse_args()
 
     run_path = args.run or max(RUNS.glob("run-*.json"), default=None)
     if run_path is None:
         raise SystemExit("No runs/run-*.json yet: run scripts/run_agent.py first")
-    truth = ground_truth(json.loads(DATASET.read_text(encoding="utf-8")))
-    rows = collect(json.loads(run_path.read_text(encoding="utf-8")), ProposalLog(args.log).proposals(), truth)
+    run = json.loads(run_path.read_text(encoding="utf-8"))
+    dataset = args.dataset or (ROOT / run["dataset"] if run.get("dataset") else DATASET)
+    truth = ground_truth(json.loads(dataset.read_text(encoding="utf-8")))
+    # Offline runs never write to the tenant, so the review log says nothing about them
+    logged = ProposalLog(args.log).proposals() if not run.get("dataset") else {}
+    rows = collect(run, logged, truth)
     summary = summarize(rows, truth)
     print_report(run_path, rows, summary)
 

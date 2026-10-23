@@ -1,0 +1,821 @@
+{
+  "collabspace": "API_development",
+  "suggester": "rules",
+  "label": "rules",
+  "dataset": "data/dataset_cad.json",
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description",
+        "value": "Axle",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Axle'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description",
+        "value": "Axle.cap",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Axle.Cap'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description",
+        "value": "Axle.support",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Axle.Support'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description",
+        "value": "Blade",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Blade'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description",
+        "value": "Caster.assembly",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Caster.Assembly'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description",
+        "value": "Hand truck",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Hand Truck'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description",
+        "value": "Leg.support",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Leg.Support'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description",
+        "value": "Mounting.plate",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Mounting.Plate'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description",
+        "value": "Nut",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Nut'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description",
+        "value": "Round head bolt ai",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Round Head Bolt_AI'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description",
+        "value": "Swc-base",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Base'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description",
+        "value": "Swc-collar sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Collar sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description",
+        "value": "Swc-engage spring sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Engage Spring sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description",
+        "value": "Swc-jet sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Jet sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description",
+        "value": "Swc-locklever sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Locklever sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler",
+        "title": "SWC-Lower Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description",
+        "value": "Swc-name plate sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Name Plate sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description",
+        "value": "Swc-rotation adjustment sprinkler",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Rotation Adjustment sprinkler'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description",
+        "value": "Swc-rotator",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Rotator'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description",
+        "value": "Swc-screw",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'SWC-Screw'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber",
+        "value": "516-0601-01",
+        "confidence": 0.4,
+        "method": "sibling-numbers",
+        "evidence": [
+          "other parts under SWC-Actuator: 516-0601-00",
+          "no gap in the sequence; next after the highest"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description",
+        "value": "Tire.plastic",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Tire.Plastic'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description",
+        "value": "Tire.pneumatic",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Tire.Pneumatic'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description",
+        "value": "Weld.axle.support",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Weld.Axle.Support'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description",
+        "value": "Weld.long.to.brace",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Weld.Long.to.Brace'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description",
+        "value": "Weld.short.to.brace",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'Weld.Short.to.Brace'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    }
+  ]
+}

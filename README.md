@@ -19,7 +19,7 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
 | 1. Validate access | Postman calls against the Engineering API | Done |
 | 2. REST client | 3DPassport login, CSRF, search, GET/PATCH, recorded offline replay | Done |
 | 3. Agent logic | Gap detection, rule-based suggester, `[PROPOSED]` write-back, review | Done |
-| 4. Evaluation | Score proposals against ground truth; rules vs. LLM comparison | In progress |
+| 4. Evaluation | Score proposals against ground truth; held-out CAD dataset; rules vs. LLM comparison | In progress: LLM runs wait for Lehmus AI access |
 
 ## How the agent works
 
@@ -31,7 +31,10 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
    - *sibling part numbers*: fill the one number missing among the other parts in the same assembly
      (GRD-3001, GRD-3003, GRD-3004 → GRD-3002)
    - *title expansion*: low-confidence fallback built from the item title
-   - An LLM suggester slot (`ClaudeSuggester`) shares the same interface and is not implemented yet.
+   - *LLM* (`agent/llm.py`): any OpenAI-compatible endpoint (Lehmus AI, Ollama, commercial APIs). One request
+     per gap with the same evidence the rules see (parents, siblings, children, other items in the collab space);
+     the model answers with a value or null, a confidence and the evidence it used. Part numbers already in use
+     are refused.
 4. **Write-back for review**: descriptions are written as `[PROPOSED] value`, so reviewers see them in the
    3DEXPERIENCE app. Part numbers are identifiers, so they are only logged and written on approval. Every proposal
    and decision is appended to `runs/proposals.jsonl`.
@@ -74,6 +77,21 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 .venv\Scripts\python.exe scripts\evaluate.py --out runs\eval.json
 ```
 
+Phase 4 comparisons run offline on an in-memory tenant built from a dataset file, so every run starts from the
+same blanks and nothing is written to the tenant:
+
+```powershell
+# Held-out data from the SolidWorks files (needs SolidWorks; read-only), then the dataset file
+.venv\Scripts\python.exe scripts\extract_cad.py
+.venv\Scripts\python.exe scripts\cad_to_dataset.py
+
+# Rules and LLM on both datasets; LLM answers vary, so repeat them
+.venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset.json
+.venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json
+.venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json --suggester llm --repeat 3
+.venv\Scripts\python.exe scripts\compare.py --since 20261023 --out runs\compare.json
+```
+
 ## Tests
 
 ```powershell
@@ -98,8 +116,24 @@ First live run (rule-based suggester, 15 September 2026):
 | Correct at confidence ≥ 0.5 (written to PLM) | 5/5 |
 | Correct below 0.5 (title expansion) | 1/5 |
 
-These numbers are optimistic: the rules were written with this dataset in view. A held-out dataset and an
-LLM-based suggester are the next steps for Phase 4.
+These numbers are optimistic: the rules were written with this dataset in view.
+
+`data/dataset_cad.json` is the held-out set, built by `cad_to_dataset.py` from the SolidWorks sample models (a hand
+truck and an orbital sprinkler, 48 files). It has 17 known values blanked at random (seed 2026) as ground truth, and
+39 fields with no CAD value, which are real gaps without ground truth. Rules, offline, 23 October 2026:
+
+| Dataset | Graded gaps | Coverage | Correct | Written (confidence ≥ 0.5) |
+|---|---|---|---|---|
+| `dataset.json` (rules written for it) | 12 | 83% | 50% | 5, all correct |
+| `dataset_cad.json` (held out) | 17 | 59% | 0% | 0 |
+
+The rules do not transfer: they expect `API_..._` underscore titles and plain number sequences, while the CAD data
+uses spaced names and `family-variant-revision` part numbers (`507-0702-00`). Their confidence stayed below 0.5,
+so nothing wrong would have been written to PLM.
+
+Most CAD descriptions are configuration-specific properties, not on the file's Custom tab: reading only the Custom
+tab makes the sprinkler look almost empty. The source data has its own errors too (the upper bearing spring is
+described as "Upper bearing - 22mm").
 
 ## Findings about the API
 
@@ -119,8 +153,8 @@ Verified on the tenant where it differs from the dseng 1.4.1 OpenAPI examples (d
 ```
 plm_client/   REST client: auth, session, Engineering calls, recording, generated models
 agent/        snapshot, gap detection, suggesters, write-back and proposal log
-scripts/      checkpoint, seed, run_agent, review, evaluate
-data/         ground-truth dataset and the ids of seeded items
+scripts/      checkpoint, seed, run_agent, review, evaluate, compare, extract_cad, cad_to_dataset
+data/         ground-truth datasets (Phase 3 and held-out CAD), CAD extract, ids of seeded items
 runs/         agent run outputs, proposal log, evaluation reports
 docs/         dseng 1.4.1 OpenAPI spec and verified API notes
 tests/        offline tests and the scrubbed cassette
