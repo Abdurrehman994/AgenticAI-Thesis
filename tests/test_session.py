@@ -1,6 +1,7 @@
 import pytest
 
-from plm_client import Engineering, PLMError, PLMSession, Settings
+from plm_client import Engineering, PLMError, PLMSession, Routes, Settings
+from plm_client.routes import ALL_STATES
 
 CFG = Settings(
     space_url="https://space.test/enovia",
@@ -102,3 +103,20 @@ def test_add_instance_references_child_by_space_url(logins):
         "identifier": "C",
         "relativePath": "/resources/v1/modeler/dseng/dseng:EngItem/C",
     }
+
+
+def test_route_search_and_get(logins):
+    http = FakeHttp(
+        FakeResponse(200, {"success": True, "statusCode": 200, "data": [{"id": "R1"}]}),
+        FakeResponse(200, {"success": True, "statusCode": 200, "data": [{"id": "R1", "tasks": []}]}),
+    )
+    routes = Routes(PLMSession(CFG, http))
+
+    assert routes.search("AI review", states=ALL_STATES, top=5) == [{"id": "R1"}]
+    method, url, kwargs = http.calls[0]
+    assert (method, url) == ("GET", "https://space.test/enovia/resources/v1/modeler/dsrt/routes/search")
+    assert kwargs["params"] == {
+        "tenant": CFG.tenant, "routeStateFilter": "Define,In Process,Complete", "$top": 5, "$skip": 0, "searchStr": "AI review",
+    }
+    assert routes.get("R1") == {"id": "R1", "tasks": []}
+    assert http.calls[1][2]["params"] == {"tenant": CFG.tenant, "$include": "tasks"}
