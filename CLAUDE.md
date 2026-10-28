@@ -21,6 +21,8 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\seed_items.py [--yes]                    # create data/dataset.json in the tenant
 .venv\Scripts\python.exe scripts\run_agent.py [--apply] [--min-confidence 0.5]
 .venv\Scripts\python.exe scripts\review.py [--approve ID... | --reject ID...] [--value "edited"]
+.venv\Scripts\python.exe scripts\review_route.py create|sync [--yes]          # review in a 3DEXPERIENCE route instead
+.venv\Scripts\python.exe scripts\review_route.py delete ROUTE_ID [--yes]
 .venv\Scripts\python.exe scripts\evaluate.py [--run runs\run-....json] [--out runs\eval.json]   # offline, scores vs dataset
 .venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json [--suggester llm] [--repeat 3]  # offline
 .venv\Scripts\python.exe scripts\compare.py --since 20261023                  # rules vs LLM table over run files
@@ -29,7 +31,8 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 ```
 
 Tenant scripts read `.env` (see `.env.example`). Without `--yes` / `--apply` the scripts are dry runs. `seed_items.py --yes`,
-`run_agent.py --apply`, `review.py --approve/--reject` and `checkpoint.py` write to a real, shared university tenant:
+`run_agent.py --apply`, `review.py --approve/--reject`, `review_route.py ... --yes` and `checkpoint.py` write to a
+real, shared university tenant:
 confirm with the user before running them.
 
 ## Architecture
@@ -60,7 +63,13 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    `run()` then drops every part number proposed for more than one item in the run (`ambiguous` in the run file):
    order independent, so a wrong early answer cannot block the right one.
 4. `write_proposal` then `ProposalLog` (`runs/proposals.jsonl`): append-only events `proposed` / `approved` / `rejected`;
-   status is derived by folding the events.
+   status is derived by folding the events. `routed` (proposal sent to a route) keeps the status pending.
+5. Review either with `review.py` or in the platform: `agent/review_route.py` builds one route (approval workflow,
+   `plm_client/routes.py`, spec `docs/openapi/dsroute_v1.openapi.json`) with one Approve task per proposal; the task
+   title starts with the proposal id. `sync` reads each task's `approvalStatus` / `comments` (`value: ...` = edited
+   value) and calls the same `approve` / `reject`. Route search works with the current role (verified); creating a
+   route has not been tried on the tenant yet, and `routeBasePurpose` / `AutoStopOnRejection` values beyond the
+   spec's examples are unverified.
 
 Write-back contract: descriptions go into PLM as `[PROPOSED] value`; part numbers are identifiers, so they are never
 prefixed, only logged, and written on approval. `approve` / `reject` detect conflicts by comparing the field's content,

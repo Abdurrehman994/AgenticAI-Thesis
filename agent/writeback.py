@@ -51,6 +51,9 @@ class ProposalLog:
         for record in self.records():
             if record["event"] == "proposed":
                 state[record["proposal_id"]] = {**record, "status": "pending"}
+            elif record["event"] == "routed" and record["proposal_id"] in state:
+                # Sent for review in a 3DEXPERIENCE route: still pending, now with route_id and task_title
+                state[record["proposal_id"]].update(route_id=record["route_id"], task_title=record["task_title"])
             elif record["proposal_id"] in state:
                 decision = {k: v for k, v in record.items() if k not in ("at", "event", "proposal_id")}
                 state[record["proposal_id"]].update(decision, status=record["event"])  # e.g. final_value, edited

@@ -34,14 +34,16 @@ class PLMSession:
         auth.login(self.http, self.cfg)
         self._csrf = auth.fetch_csrf(self.http, self.cfg)
 
-    def request(self, method: str, path: str, *, params: dict | None = None, json: dict | None = None) -> dict:
-        """Call {space}/resources/v1/modeler{path} and return the decoded JSON body."""
+    def request(
+        self, method: str, path: str, *, params: dict | None = None, json: dict | None = None, base: str = MODELER_PATH
+    ) -> dict:
+        """Call {space}{base}{path} (base: /resources/v1/modeler) and return the decoded JSON body."""
         if self._csrf is None:
             self.login()
-        resp = self._send(method, path, params, json)
+        resp = self._send(method, base + path, params, json)
         if resp.status_code == 401:
             self.login()
-            resp = self._send(method, path, params, json)
+            resp = self._send(method, base + path, params, json)
         if not resp.ok:
             raise PLMError.from_response(resp)
         return resp.json() if resp.content else {}
@@ -54,7 +56,7 @@ class PLMSession:
             params = {"tenant": self.cfg.tenant, **(params or {})}
         return self.http.request(
             method,
-            f"{self.cfg.space_url}{MODELER_PATH}{path}",
+            f"{self.cfg.space_url}{path}",
             headers=headers,
             params=params,
             json=json,
