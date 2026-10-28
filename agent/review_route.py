@@ -4,6 +4,8 @@ The reviewer approves or rejects each task in the platform's own task inbox; a c
 "value:" approves with an edited value. sync() turns finished tasks into the same approve / reject calls
 as scripts/review.py, so the conflict check (field changed in PLM since the proposal) still applies.
 """
+import html
+import re
 from datetime import datetime
 
 from .writeback import PROPOSED_PREFIX
@@ -57,11 +59,17 @@ def build_route(records: list[dict], reviewer: str, *, now: datetime | None = No
     return route
 
 
+def plain_text(text: str) -> str:
+    """Task comments come from a rich-text editor: 'value: Flat washer<br />\\n&nbsp;' -> 'value: Flat washer'."""
+    text = html.unescape(re.sub(r"<[^>]+>", " ", text or ""))
+    return " ".join(text.replace("\xa0", " ").split())
+
+
 def decision(task: dict) -> tuple[str | None, str | None]:
     """("approve", edited value or None), ("reject", None) or (None, None) while the task is open."""
     status = (task.get("approvalStatus") or "").strip().lower()
     if status.startswith("approve"):
-        comment = (task.get("comments") or "").strip()
+        comment = plain_text(task.get("comments"))
         edited = comment[len(EDIT_PREFIX):].strip() if comment.lower().startswith(EDIT_PREFIX) else None
         return "approve", edited or None
     if status.startswith("reject"):

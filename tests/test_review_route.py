@@ -36,6 +36,11 @@ def test_route_has_one_approve_task_per_proposal(tenant, tmp_path):
 def test_decision_from_task():
     assert decision({"approvalStatus": "Approved", "comments": "looks right"}) == ("approve", None)
     assert decision({"approvalStatus": "Approved", "comments": "value: Idler roller, 50 mm"}) == ("approve", "Idler roller, 50 mm")
+    # As the tenant returned it: the task comment box is a rich-text editor
+    assert decision({"approvalStatus": "Approved", "comments": "value: Flat washer M8 ISO 7089<br />\n&nbsp;"}) == (
+        "approve", "Flat washer M8 ISO 7089",
+    )
+    assert decision({"approvalStatus": "Approved", "comments": "<p>Value:&nbsp;Hex&amp;nut</p>"}) == ("approve", "Hex&nut")
     assert decision({"approvalStatus": "Rejected", "comments": "wrong part"}) == ("reject", None)
     assert decision({"approvalStatus": "None"}) == (None, None)
     assert decision({}) == (None, None)
