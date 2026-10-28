@@ -9,6 +9,7 @@ Phase 4 runs use --dataset: the agent works on an in-memory tenant built from th
 starts from the same blanks and nothing touches the real tenant. LLM answers vary, so repeat them:
 
     python scripts/run_agent.py --dataset data/dataset_cad.json --suggester llm --repeat 3
+    python scripts/run_agent.py --dataset data/dataset.json --suggester llm --confidence evidence
 
 Every run saves runs/run-<timestamp>.json with all gaps, including those with no proposal.
 Review written proposals with scripts/review.py; compare runs with scripts/compare.py.
@@ -114,12 +115,12 @@ def drop_duplicate_part_numbers(results: list[dict], proposals: list) -> None:
             results[i]["proposal"], proposals[i] = None, None
 
 
-def make_suggester(name: str, model: str | None) -> Suggester:
+def make_suggester(name: str, model: str | None, confidence: str = "self") -> Suggester:
     if name == "rules":
         return RuleBasedSuggester()
     from agent.llm import LLMSettings, LLMSuggester
 
-    return LLMSuggester(LLMSettings.from_env(model))
+    return LLMSuggester(LLMSettings.from_env(model), confidence=confidence)
 
 
 def main() -> None:
@@ -130,6 +131,10 @@ def main() -> None:
     parser.add_argument("--min-confidence", type=float, default=0.5, help="only write proposals at or above this")
     parser.add_argument("--suggester", choices=("rules", "llm"), default="rules")
     parser.add_argument("--model", help="model id for --suggester llm (default: LLM_MODEL in .env)")
+    parser.add_argument(
+        "--confidence", choices=("self", "evidence"), default="self",
+        help="--suggester llm: the model's own confidence, or one mapped from the evidence it names",
+    )
     parser.add_argument("--dataset", type=Path, help="run offline on an in-memory tenant built from this dataset")
     parser.add_argument("--repeat", type=int, default=1, help="number of runs, each saved separately (dry runs only)")
     args = parser.parse_args()
@@ -138,7 +143,7 @@ def main() -> None:
     if args.repeat > 1 and args.apply:
         parser.error("--repeat is for dry runs: a second --apply run skips the gaps the first one proposed")
 
-    suggester = make_suggester(args.suggester, args.model)
+    suggester = make_suggester(args.suggester, args.model, args.confidence)
     if args.dataset:
         from agent.offline import DatasetTenant
 

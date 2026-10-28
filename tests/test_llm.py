@@ -83,6 +83,40 @@ def test_proposal_from_answer(tenant):
     assert request["headers"] == {"Authorization": "Bearer k"}
 
 
+def evidence_answer(value, basis, sources=(), confidence=0.95) -> FakeResponse:
+    body = {"value": value, "basis": basis, "sources": list(sources), "evidence": ["reason"], "confidence": confidence}
+    return FakeResponse(200, json.dumps(body))
+
+
+@pytest.mark.parametrize(
+    ("basis", "sources", "confidence", "used"),
+    [
+        ("copied", ["API_NUT_M8_ISO4032"], 0.8, "copied"),
+        ("pattern", ["API_NUT_M8_ISO4032", "NOT_AN_ITEM"], 0.7, "pattern"),
+        ("copied", ["NOT_AN_ITEM"], 0.3, "inferred"),  # a source that does not exist does not count
+        ("copied", ["API_NUT_M6_ISO4032"], 0.3, "inferred"),  # nor does the item itself
+        ("inferred", [], 0.3, "inferred"),
+        ("certain", [], 0.1, "guess"),  # unknown basis
+    ],
+)
+def test_evidence_confidence(tenant, basis, sources, confidence, used):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    session = FakeSession(evidence_answer("Hex nut M6 ISO 4032, zinc plated", basis, sources))
+    suggester = LLMSuggester(SETTINGS, confidence="evidence", session=session)
+    proposal = suggester.suggest(gap_for(snapshot, "API_NUT_M6_ISO4032", "description"), snapshot)
+
+    assert proposal.confidence == confidence  # the model's own 0.95 is ignored
+    assert proposal.method == "llm:gpt-oss-120b+evidence"
+    assert proposal.evidence[0].startswith(f"basis: {used}")
+    assert suggester.last_call["basis"] == used and suggester.last_call["stated_basis"] == basis
+    assert '"basis"' in session.requests[0]["json"]["messages"][0]["content"]  # the evidence prompt was sent
+
+
+def test_unknown_confidence_mode():
+    with pytest.raises(ValueError):
+        LLMSuggester(SETTINGS, confidence="vibes")
+
+
 def test_parse_answer_in_code_fence_or_prose():
     assert parse_answer('```json\n{"value": "x", "confidence": 0.5}\n```') == {"value": "x", "confidence": 0.5}
     assert parse_answer('Here it is: {"value": null} hope that helps')["value"] is None

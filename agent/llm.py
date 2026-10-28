@@ -31,6 +31,34 @@ Rules:
 Answer with only a JSON object, no other text:
 {"value": "<value>" or null, "confidence": <0..1>, "evidence": ["<item or pattern you relied on>", ...]}"""
 
+# Evidence-based confidence: the model names the kind of evidence and the items it used; the code checks the items
+# and maps the kind to a fixed confidence on the rules' scale (analogy 0.8, sibling numbers 0.7, title expansion 0.3).
+# The values were fixed before any run, not fitted, so the held-out set stays held out.
+BASIS_CONFIDENCE = {"copied": 0.8, "pattern": 0.7, "inferred": 0.3, "guess": 0.1}
+NEEDS_SOURCES = {"copied", "pattern"}
+
+EVIDENCE_PROMPT = """\
+You fill in missing attributes of Engineering Items in a PLM system (3DEXPERIENCE).
+You get one item with an empty field, and context from the same product structure: the assemblies that use
+the item, the other parts in those assemblies, the item's own children and other items in the same project.
+
+Rules:
+- Propose a value only when the context supports it. If it does not, answer with "value": null.
+- Follow the conventions of the existing data: wording, abbreviations, units, language and numbering scheme.
+- A part number is an identifier: never reuse a part number that another item already has.
+- Do not add facts (materials, finishes, ratings) that no item in the context states.
+
+Say what kind of evidence the value rests on, as "basis":
+- "copied": adapted from one near-identical item whose title differs only in a size or variant
+- "pattern": follows a pattern that several related items share, such as a gap in a numbering sequence
+- "inferred": reasoned from the item's title or role, with no item to copy from
+- "guess": anything weaker
+List in "sources" the exact titles of the items the value is copied from or whose pattern it follows.
+
+Answer with only a JSON object, no other text:
+{"value": "<value>" or null, "basis": "copied" | "pattern" | "inferred" | "guess", "sources": ["<title>", ...],
+ "evidence": ["<short reason>", ...]}"""
+
 FIELD_NAMES = {"description": "description", "partNumber": "part number"}
 
 
@@ -102,17 +130,23 @@ def parse_answer(text: str) -> dict:
 class LLMSuggester:
     name = "llm"
 
-    def __init__(self, settings: LLMSettings, *, session: requests.Session | None = None, retries: int = 2):
+    def __init__(
+        self, settings: LLMSettings, *, confidence: str = "self", session: requests.Session | None = None, retries: int = 2
+    ):
+        """confidence="self": the model's own probability; "evidence": mapped from the evidence it names."""
+        if confidence not in ("self", "evidence"):
+            raise ValueError(f"confidence must be 'self' or 'evidence', not {confidence!r}")
         self.settings = settings
+        self.confidence = confidence
         self.session = session or requests.Session()
         self.retries = retries
-        self.method = f"llm:{settings.label or settings.model}"
+        self.method = f"llm:{settings.label or settings.model}" + ("+evidence" if confidence == "evidence" else "")
         self.last_call: dict | None = None  # model, latency and tokens of the latest gap, for the run file
 
     def suggest(self, gap: Gap, snapshot: Snapshot) -> Proposal | None:
         context = build_context(gap, snapshot)
         messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": EVIDENCE_PROMPT if self.confidence == "evidence" else SYSTEM_PROMPT},
             {"role": "user", "content": (
                 f"Propose the {FIELD_NAMES.get(gap.field, gap.field)} of {gap.title!r}.\n\n"
                 + json.dumps(context, indent=1, ensure_ascii=False)
@@ -143,13 +177,32 @@ class LLMSuggester:
         if gap.field == "partNumber" and value in {part_number(i) for i in snapshot.items.values()}:
             self.last_call["rejected"] = f"part number {value} is already used"
             return None
-        try:
-            confidence = min(max(float(answer.get("confidence", 0)), 0.0), 1.0)
-        except (TypeError, ValueError):
-            confidence = 0.0
         evidence = answer.get("evidence") or []
         evidence = [str(e) for e in evidence] if isinstance(evidence, list) else [str(evidence)]
+        if self.confidence == "evidence":
+            confidence, grounds = self._evidence_confidence(gap, snapshot, answer)
+            evidence = grounds + evidence
+        else:
+            try:
+                confidence = min(max(float(answer.get("confidence", 0)), 0.0), 1.0)
+            except (TypeError, ValueError):
+                confidence = 0.0
         return Proposal(gap.item_id, gap.title, gap.field, value, confidence, self.method, evidence)
+
+    def _evidence_confidence(self, gap: Gap, snapshot: Snapshot, answer: dict) -> tuple[float, list[str]]:
+        """Confidence from the stated basis. Copied or pattern needs at least one named source that exists."""
+        stated = str(answer.get("basis", "")).strip().lower()
+        basis = stated if stated in BASIS_CONFIDENCE else "guess"
+        sources = answer.get("sources") or []
+        sources = [str(s) for s in sources] if isinstance(sources, list) else [str(sources)]
+        titles = {i.get("title") for i in snapshot.items.values()} - {gap.title}
+        found = [s for s in sources if s in titles]
+        if basis in NEEDS_SOURCES and not found:
+            basis = "inferred"  # claims a source it does not name, or names items that do not exist
+        self.last_call.update(basis=basis, stated_basis=stated, sources=sources, sources_found=found)
+        grounds = [f"basis: {basis}" + (f" (stated {stated!r})" if basis != stated else "")]
+        grounds += [f"source: {s}" for s in found]
+        return BASIS_CONFIDENCE[basis], grounds
 
     def _chat(self, messages: list[dict]) -> str:
         s = self.settings
