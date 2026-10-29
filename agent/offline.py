@@ -7,6 +7,8 @@ import copy
 
 from plm_client import PLMError
 
+from .gaps import MATERIAL
+
 
 class DatasetTenant:
     def __init__(self, dataset: dict):
@@ -22,6 +24,8 @@ class DatasetTenant:
                 item["description"] = entry["description"]
             if entry.get("partNumber") and "partNumber" not in blank:
                 item["dseng:EnterpriseReference"] = {"partNumber": entry["partNumber"]}
+            if entry.get(MATERIAL) and MATERIAL not in blank:
+                item[MATERIAL] = entry[MATERIAL]  # stands in for the dsspec:Material relationship
             self.items[item_id] = item
             self.bom[item_id] = [f"ID-{child}" for child in entry.get("children", [])]
 

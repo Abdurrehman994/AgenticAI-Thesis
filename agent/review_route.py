@@ -24,7 +24,7 @@ def task_instructions(record: dict) -> str:
         f"It is shown in PLM as '{PROPOSED_PREFIX} {record['value']}'."
         if record["written_to_plm"] else "It is not in PLM yet: approving writes it."
     )
-    evidence = "; ".join(record.get("evidence") or []) or "none given"
+    evidence = "; ".join(e.strip().rstrip(".") for e in record.get("evidence") or []) or "none given"
     return (
         f"The AI agent proposes {FIELD_NAMES.get(record['field'], record['field'])} '{record['value']}' "
         f"for {record['title']} (confidence {record['confidence']:.1f}, {record['method']}). {current} "

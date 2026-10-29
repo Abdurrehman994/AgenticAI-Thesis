@@ -115,3 +115,9 @@ def test_run_writes_confident_proposals_once(tenant, tmp_path):
 
     second = run(tenant, collabspace="API_development", apply=True, min_confidence=0.5, log=log)
     assert len(second) == 7 and not any(r["proposal_id"] for r in second)
+
+
+def test_run_only_proposes_for_the_given_titles(tenant, tmp_path):
+    results = run(tenant, collabspace=tenant.items["ID-API_ASM_GUARD"]["collabspace"], log=ProposalLog(tmp_path / "log.jsonl"),
+                  fields=("description",), only={"API_ASM_GUARD"})
+    assert [(r["gap"]["title"], r["gap"]["field"]) for r in results] == [("API_ASM_GUARD", "description")]

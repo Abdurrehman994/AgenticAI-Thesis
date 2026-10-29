@@ -43,11 +43,6 @@ def answer(value, confidence=0.8, evidence=("API_NUT_M8_ISO4032 has a similar de
 SETTINGS = LLMSettings(base_url="https://llm.example/v1", model="azsydsttjnlbfjbgqnwd", api_key="k", label="gpt-oss-120b")
 
 
-@pytest.fixture(autouse=True)
-def no_sleep(monkeypatch):
-    monkeypatch.setattr(llm.time, "sleep", lambda seconds: None)
-
-
 def gap_for(snapshot, title, field):
     return next(g for g in find_gaps(snapshot.items.values()) if (g.title, g.field) == (title, field))
 

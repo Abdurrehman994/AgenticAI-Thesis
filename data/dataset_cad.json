@@ -87,7 +87,9 @@
       "title": "SWC-Adjustment Knob sprinkler",
       "description": "Sprinkler Adjustment Knob",
       "partNumber": "513-0601-00",
+      "material": "ABS",
       "blank": [
+        "material",
         "partNumber"
       ]
     },
@@ -106,17 +108,26 @@
     {
       "title": "SWC-Base sprinkler",
       "description": "Ground Base Rod",
-      "partNumber": "501-0601-00"
+      "partNumber": "501-0601-00",
+      "material": "356.0-T6 Permanent Mold cast (SS)"
     },
     {
       "title": "SWC-Body sprinkler",
       "description": "Main sprinkler body",
-      "partNumber": "510-0601-00"
+      "partNumber": "510-0601-00",
+      "material": "ABS",
+      "blank": [
+        "material"
+      ]
     },
     {
       "title": "SWC-Cap sprinkler",
       "description": "Sprinkler head cap",
-      "partNumber": "517-0601-00"
+      "partNumber": "517-0601-00",
+      "material": "ABS",
+      "blank": [
+        "material"
+      ]
     },
     {
       "title": "SWC-Collar sprinkler",
@@ -135,7 +146,8 @@
     {
       "title": "SWC-Engage Lever sprinkler",
       "description": "Engagement Lever",
-      "partNumber": "505-0601-00"
+      "partNumber": "505-0601-00",
+      "material": "ABS"
     },
     {
       "title": "SWC-Engage Spring sprinkler",
@@ -148,7 +160,11 @@
     {
       "title": "SWC-Gasket sprinkler",
       "description": "Base Gasket",
-      "partNumber": "506-0601-00"
+      "partNumber": "506-0601-00",
+      "material": "Rubber",
+      "blank": [
+        "material"
+      ]
     },
     {
       "title": "SWC-Gasket-jet sprinkler",
@@ -175,6 +191,7 @@
       "title": "SWC-Lower Bearing sprinkler",
       "description": "Bearing Lower - 12mm",
       "partNumber": "503-0601-00",
+      "material": "Brass",
       "blank": [
         "partNumber"
       ]
@@ -183,6 +200,7 @@
       "title": "SWC-Name Plate sprinkler",
       "description": "Top cap label",
       "partNumber": "518-0601-00",
+      "material": "ABS",
       "blank": [
         "description"
       ]
@@ -207,6 +225,7 @@
       "title": "SWC-Rotation Adjustment sprinkler",
       "description": "Rotation Adjuster",
       "partNumber": "508-0601-00",
+      "material": "ABS PC",
       "blank": [
         "description",
         "partNumber"
@@ -236,6 +255,7 @@
       "title": "SWC-Screw",
       "description": "Faced roundhead screw - M6x1",
       "partNumber": "519-0601-00",
+      "material": "Cast Alloy Steel",
       "blank": [
         "description",
         "partNumber"
@@ -245,24 +265,29 @@
       "title": "SWC-Shaft sprinkler",
       "description": "Center Shaft",
       "partNumber": "509-0601-00",
+      "material": "Brass",
       "blank": [
+        "material",
         "partNumber"
       ]
     },
     {
       "title": "SWC-Spray Angle Adjustment sprinkler",
       "description": "Sprinkler angle adjuster",
-      "partNumber": "511-0601-00"
+      "partNumber": "511-0601-00",
+      "material": "ABS"
     },
     {
       "title": "SWC-Spray Disruptor sprinkler",
       "description": "Spray head disruptor",
-      "partNumber": "512-0601-00"
+      "partNumber": "512-0601-00",
+      "material": "ABS"
     },
     {
       "title": "SWC-Spring-swingarm sprinkler",
       "description": "Swingarm spring - 33mm",
       "partNumber": "507-0702-00",
+      "material": "Alloy Steel (SS)",
       "blank": [
         "partNumber"
       ]
@@ -270,21 +295,28 @@
     {
       "title": "SWC-Spring-upper bearing sprinkler",
       "description": "Upper bearing - 22mm",
-      "partNumber": "507-0803-00"
+      "partNumber": "507-0803-00",
+      "material": "Alloy Steel (SS)",
+      "blank": [
+        "material"
+      ]
     },
     {
       "title": "SWC-Swingarm sprinkler",
       "description": "Swingarm",
-      "partNumber": "516-0601-00"
+      "partNumber": "516-0601-00",
+      "material": "ABS"
     },
     {
       "title": "SWC-Upper Bearing sprinkler",
-      "description": "Bearing Upper - 22mm"
+      "description": "Bearing Upper - 22mm",
+      "material": "Brass"
     },
     {
       "title": "SWC-Upper Washer sprinkler",
       "description": "Washer Upper - 23mm",
       "partNumber": "504-0702-00",
+      "material": "Brass",
       "blank": [
         "partNumber"
       ]
@@ -292,7 +324,8 @@
     {
       "title": "SWC-Washer-Swingarm sprinkler",
       "description": "Washer - 23mm",
-      "partNumber": "504-0803-00"
+      "partNumber": "504-0803-00",
+      "material": "Brass"
     },
     {
       "title": "Tire.Plastic"

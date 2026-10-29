@@ -4,9 +4,11 @@ from pathlib import Path
 from agent.gaps import find_gaps
 from agent.offline import DatasetTenant
 from agent.snapshot import Snapshot
+from agent.suggest import RuleBasedSuggester
 from scripts.cad_to_dataset import convert, true_values
 from scripts.compare import aggregate, score_run
-from scripts.evaluate import ground_truth
+from scripts.evaluate import ground_truth, run_fields
+from scripts.sweep import sweep
 
 EXTRACT = {
     "Kit/Box.SLDASM": {"kind": "assembly", "properties": {}, "configurations": {"Default": {"Description": "Box assembly"}},
@@ -81,3 +83,52 @@ def test_score_run():
 
     a = aggregate([s, {**s, "accuracy": 3 / 4}])
     assert a["runs"] == 2 and a["accuracy"] == {"mean": 0.5, "min": 1 / 4, "max": 3 / 4}
+
+
+def test_material_is_read_and_blanked_without_changing_the_other_blanks():
+    with_material = {k: dict(v) for k, v in EXTRACT.items()}
+    with_material["Kit/Lid.SLDPRT"]["properties"] = {**EXTRACT["Kit/Lid.SLDPRT"]["properties"], "Material": "ABS"}
+    with_material["Kit/Screw.SLDPRT"]["properties"] = {**EXTRACT["Kit/Screw.SLDPRT"]["properties"], "Material": "Steel"}
+    assert true_values(with_material["Kit/Lid.SLDPRT"])["material"] == "ABS"
+
+    def other_blanks(dataset):
+        return [(i["title"], [f for f in i.get("blank", []) if f != "material"]) for i in dataset["items"]]
+
+    before = convert(EXTRACT, blank_fraction=0.5, seed=1, collabspace="CS")
+    after = convert(with_material, blank_fraction=0.5, seed=1, collabspace="CS")
+    assert other_blanks(after) == other_blanks(before)
+    assert sum("material" in i.get("blank", []) for i in after["items"]) == 1  # half of the 2 materials
+
+
+def test_material_from_siblings():
+    dataset = {"collabspace": "CS", "items": [
+        {"title": "Box", "children": ["A", "B", "C", "D"]},
+        {"title": "A", "material": "ABS"}, {"title": "B", "material": "ABS"}, {"title": "C", "material": "Steel"},
+        {"title": "D", "material": "ABS", "blank": ["material"]},
+    ]}
+    tenant = DatasetTenant(dataset)
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    gaps = find_gaps(snapshot.items.values(), fields=["material"])
+    assert {g.title for g in gaps} == {"Box", "D"}
+
+    proposals = {g.title: RuleBasedSuggester().suggest(g, snapshot) for g in gaps}
+    assert proposals["Box"] is None  # assemblies get no material
+    assert (proposals["D"].value, proposals["D"].confidence) == ("ABS", 0.4)  # a majority, not unanimous
+
+
+def test_scores_only_the_fields_a_run_checked():
+    dataset = {"items": [{"title": "A", "description": "x", "material": "ABS", "blank": ["description", "material"]}]}
+    assert set(ground_truth(dataset)) == {("A", "description"), ("A", "material")}
+    assert set(ground_truth(dataset, run_fields({}))) == {("A", "description")}  # runs from before --fields
+
+    truth = ground_truth(dataset)
+    run = {"results": [result("A", "description", "y", 0.3), result("A", "material", "abs", 0.6)]}
+    assert score_run(run, truth, field="material")["accuracy"] == 1.0
+    assert score_run(run, truth, field="description")["accuracy"] == 0.0
+
+
+def test_sweep_scores_every_seed_and_field():
+    extract = {k: dict(v) for k, v in EXTRACT.items()}
+    scores = sweep(extract, RuleBasedSuggester(), seeds=[1, 2, 3], blank_fraction=0.5, fields=("description", "partNumber"))
+    assert set(scores) == {"description", "partNumber"}
+    assert [s["seed"] for s in scores["partNumber"]] == [1, 2, 3]

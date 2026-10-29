@@ -9,11 +9,12 @@ import os
 import re
 import time
 from dataclasses import dataclass, field
+from functools import partial
 
 import requests
 from dotenv import load_dotenv
 
-from .gaps import PROPOSED_PREFIX, Gap
+from .gaps import MATERIAL, PROPOSED_PREFIX, Gap
 from .snapshot import Snapshot, field_value, part_number
 from .suggest import Proposal
 
@@ -59,7 +60,7 @@ Answer with only a JSON object, no other text:
 {"value": "<value>" or null, "basis": "copied" | "pattern" | "inferred" | "guess", "sources": ["<title>", ...],
  "evidence": ["<short reason>", ...]}"""
 
-FIELD_NAMES = {"description": "description", "partNumber": "part number"}
+FIELD_NAMES = {"description": "description", "partNumber": "part number", MATERIAL: "material"}
 
 
 @dataclass
@@ -88,33 +89,45 @@ class LLMSettings:
         )
 
 
-def _shown(item: dict) -> dict:
-    """Title and known values of an item. Unreviewed [PROPOSED] descriptions are not evidence."""
+def _shown(item: dict, material: bool = False) -> dict:
+    """Title and known values of an item. Unreviewed [PROPOSED] descriptions are not evidence.
+
+    Material is shown only for material gaps, so description and part number prompts stay the same as in
+    the runs made before material was added.
+    """
     description = field_value(item, "description")
     shown = {"title": item.get("title", "")}
     if description and not description.startswith(PROPOSED_PREFIX):
         shown["description"] = description
     if part_number(item):
         shown["partNumber"] = part_number(item)
+    if material and field_value(item, MATERIAL):
+        shown[MATERIAL] = field_value(item, MATERIAL)
     return shown
 
 
+def shown_for(gap: Gap):
+    """_shown as used for one gap: material values only for material gaps."""
+    return partial(_shown, material=gap.field == MATERIAL)
+
+
 def build_context(gap: Gap, snapshot: Snapshot, max_items: int = 80) -> dict:
+    show = shown_for(gap)
     target = snapshot.item(gap.item_id)
     listed = {gap.item_id}
     parents = []
     for parent_id in snapshot.parents(gap.item_id):
         siblings = [sid for sid in snapshot.children(parent_id) if sid != gap.item_id]
-        parents.append({**_shown(snapshot.item(parent_id)), "otherParts": [_shown(snapshot.item(s)) for s in siblings]})
+        parents.append({**show(snapshot.item(parent_id)), "otherParts": [show(snapshot.item(s)) for s in siblings]})
         listed.update([parent_id, *siblings])
     children = snapshot.children(gap.item_id)
     listed.update(children)
-    others = [_shown(i) for iid, i in snapshot.items.items() if iid not in listed][:max_items]
+    others = [show(i) for iid, i in snapshot.items.items() if iid not in listed][:max_items]
     return {
-        "item": _shown(target),
+        "item": show(target),
         "missingField": gap.field,
         "usedIn": parents,
-        "children": [_shown(snapshot.item(c)) for c in children],
+        "children": [show(snapshot.item(c)) for c in children],
         "otherItemsInProject": others,
     }
 
@@ -169,7 +182,8 @@ class LLMSuggester:
             return None
         return self._proposal(gap, snapshot, answer)
 
-    def _proposal(self, gap: Gap, snapshot: Snapshot, answer: dict) -> Proposal | None:
+    def _proposal(self, gap: Gap, snapshot: Snapshot, answer: dict, seen: set[str] | None = None) -> Proposal | None:
+        """seen: titles the model was shown, if not the whole snapshot; only those count as sources."""
         value = answer.get("value")
         if not isinstance(value, str) or not value.strip():
             return None
@@ -180,7 +194,7 @@ class LLMSuggester:
         evidence = answer.get("evidence") or []
         evidence = [str(e) for e in evidence] if isinstance(evidence, list) else [str(evidence)]
         if self.confidence == "evidence":
-            confidence, grounds = self._evidence_confidence(gap, snapshot, answer)
+            confidence, grounds = self._evidence_confidence(gap, snapshot, answer, seen)
             evidence = grounds + evidence
         else:
             try:
@@ -189,13 +203,15 @@ class LLMSuggester:
                 confidence = 0.0
         return Proposal(gap.item_id, gap.title, gap.field, value, confidence, self.method, evidence)
 
-    def _evidence_confidence(self, gap: Gap, snapshot: Snapshot, answer: dict) -> tuple[float, list[str]]:
+    def _evidence_confidence(
+        self, gap: Gap, snapshot: Snapshot, answer: dict, seen: set[str] | None = None
+    ) -> tuple[float, list[str]]:
         """Confidence from the stated basis. Copied or pattern needs at least one named source that exists."""
         stated = str(answer.get("basis", "")).strip().lower()
         basis = stated if stated in BASIS_CONFIDENCE else "guess"
         sources = answer.get("sources") or []
         sources = [str(s) for s in sources] if isinstance(sources, list) else [str(sources)]
-        titles = {i.get("title") for i in snapshot.items.values()} - {gap.title}
+        titles = (seen if seen is not None else {i.get("title") for i in snapshot.items.values()}) - {gap.title}
         found = [s for s in sources if s in titles]
         if basis in NEEDS_SOURCES and not found:
             basis = "inferred"  # claims a source it does not name, or names items that do not exist
@@ -205,9 +221,14 @@ class LLMSuggester:
         return BASIS_CONFIDENCE[basis], grounds
 
     def _chat(self, messages: list[dict]) -> str:
+        """The answer text. Reasoning models (gpt-oss) return their reasoning separately; only the answer is parsed."""
+        return self._message(messages).get("content") or ""
+
+    def _message(self, messages: list[dict], extra: dict | None = None) -> dict:
+        """The model's reply message; `extra` adds request fields, e.g. native tool definitions (agent/agentic.py)."""
         s = self.settings
         headers = {"Authorization": f"Bearer {s.api_key}"} if s.api_key else {}
-        body = {"model": s.model, "temperature": s.temperature, "messages": messages}
+        body = {"model": s.model, "temperature": s.temperature, "messages": messages, **(extra or {})}
         started = time.monotonic()
         for attempt in range(self.retries + 1):
             try:
@@ -227,5 +248,10 @@ class LLMSuggester:
         for name in ("prompt_tokens", "completion_tokens"):
             if usage.get(name) is not None:
                 call[name] = (call.get(name) or 0) + usage[name]
-        # Reasoning models (gpt-oss) return their reasoning separately; only the final answer is parsed
-        return data["choices"][0]["message"].get("content") or ""
+        choice = data["choices"][0]
+        message = choice["message"]
+        if not (message.get("content") or "").strip() and not message.get("tool_calls"):
+            # Kept in the run file to tell a cut-off answer (finish_reason "length") from a dropped tool call
+            reasoning = message.get("reasoning_content") or message.get("reasoning") or ""
+            call["empty"] = {"finish_reason": choice.get("finish_reason"), "reasoning_tail": reasoning[-300:]}
+        return message

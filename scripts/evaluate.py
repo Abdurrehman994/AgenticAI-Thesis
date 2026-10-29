@@ -12,11 +12,12 @@ import json
 import re
 import sys
 from collections import Counter
-from pathlib import Path
+from pathlib import Path, PurePath
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from agent.gaps import FIELDS  # noqa: E402
 from agent.writeback import DEFAULT_LOG, ProposalLog  # noqa: E402
 
 DATASET = ROOT / "data" / "dataset.json"
@@ -45,8 +46,35 @@ def score(value: str, truth: str, field: str = "description") -> dict:
     }
 
 
-def ground_truth(dataset: dict) -> dict[tuple[str, str], str]:
-    return {(e["title"], field): e[field] for e in dataset["items"] for field in e.get("blank", [])}
+def ground_truth(dataset: dict, fields: list[str] | None = None) -> dict[tuple[str, str], str]:
+    """(title, field) -> true value of every blank, limited to `fields` (a run's checked fields) if given."""
+    return {
+        (e["title"], field): e[field]
+        for e in dataset["items"] for field in e.get("blank", []) if fields is None or field in fields
+    }
+
+
+def run_fields(run: dict) -> list[str]:
+    """Fields the run checked. Runs from before --fields checked description and part number."""
+    return run.get("fields") or list(FIELDS)
+
+
+def run_truth(run: dict, datasets: dict[Path, dict]) -> dict[tuple[str, str], str]:
+    """Ground truth for the fields the run checked; `datasets` caches each dataset file once."""
+    path = ROOT / run["dataset"] if run.get("dataset") else DATASET  # live runs use the Phase 3 dataset
+    if path not in datasets:
+        datasets[path] = json.loads(path.read_text(encoding="utf-8"))
+    return ground_truth(datasets[path], run_fields(run))
+
+
+def run_group(run: dict) -> tuple[str, str]:
+    """(suggester label, dataset name) of a run. Runs that checked other fields than the default are not
+    repeats of the default ones, so their dataset name carries the fields: dataset_cad.json (material)."""
+    fields = run_fields(run)
+    name = PurePath(run.get("dataset") or DATASET).name
+    if fields != list(FIELDS):
+        name += f" ({'+'.join(fields)})"
+    return run.get("label") or run.get("suggester", "rules"), name
 
 
 def collect(run: dict, logged: dict[str, dict], truth: dict) -> list[dict]:
@@ -158,7 +186,7 @@ def main() -> None:
         raise SystemExit("No runs/run-*.json yet: run scripts/run_agent.py first")
     run = json.loads(run_path.read_text(encoding="utf-8"))
     dataset = args.dataset or (ROOT / run["dataset"] if run.get("dataset") else DATASET)
-    truth = ground_truth(json.loads(dataset.read_text(encoding="utf-8")))
+    truth = ground_truth(json.loads(dataset.read_text(encoding="utf-8")), run_fields(run))
     # Offline runs never write to the tenant, so the review log says nothing about them
     logged = ProposalLog(args.log).proposals() if not run.get("dataset") else {}
     rows = collect(run, logged, truth)

@@ -25,13 +25,18 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\review_route.py delete ROUTE_ID [--yes]
 .venv\Scripts\python.exe scripts\evaluate.py [--run runs\run-....json] [--out runs\eval.json]   # offline, scores vs dataset
 .venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json [--suggester llm] [--repeat 3]  # offline
-.venv\Scripts\python.exe scripts\compare.py --since 20261023                  # rules vs LLM table over run files
+.venv\Scripts\python.exe scripts\compare.py --since 20261023 [--by-field]      # rules vs LLM table over run files
+.venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json --fields material   # offline only
+.venv\Scripts\python.exe scripts\sweep.py [--seeds 10] [--suggester llm]       # offline, many blank patterns
+.venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json   # offline, threshold from data
+.venv\Scripts\python.exe scripts\run_agent.py --only TITLE_OR_ID [--fields description]  # one item (demo)
+.venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
 .venv\Scripts\python.exe scripts\extract_cad.py                               # needs SolidWorks, read-only
 .venv\Scripts\python.exe scripts\cad_to_dataset.py                            # cad_extract.json -> dataset_cad.json
 ```
 
 Tenant scripts read `.env` (see `.env.example`). Without `--yes` / `--apply` the scripts are dry runs. `seed_items.py --yes`,
-`run_agent.py --apply`, `review.py --approve/--reject`, `review_route.py ... --yes` and `checkpoint.py` write to a
+`run_agent.py --apply`, `watch_agent.py --apply`, `review.py --approve/--reject`, `review_route.py ... --yes` and `checkpoint.py` write to a
 real, shared university tenant:
 confirm with the user before running them.
 
@@ -60,6 +65,15 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    university's vLLM platform, reachable only from the university network or VPN; `LLM_MODEL` is the "public model
    id"). One request per gap, no tools, one retry on malformed JSON; it sets `last_call` (latency, tokens, error),
    which `run()` stores per gap. Every proposal carries `confidence`, `method` and `evidence`.
+   `AgenticSuggester` (`agent/agentic.py`, `--suggester agent`) subclasses it: the model starts with the item, its
+   parents' and children's titles, and calls tools over the snapshot (`SnapshotTools`: find_similar, get_siblings,
+   get_item, get_parents, get_children, find_items, list_items). Tools are declared natively (`TOOL_SCHEMAS`, which
+   also generates the prompt's tool list); `AgenticSuggester._ask` reads `tool_calls` from `LLMSuggester._message`,
+   and an endpoint that rejects `tools` (HTTP 400) falls back to the plain JSON protocol `{"tool":..., "args":...}`
+   in the prompt for up to `MAX_STEPS`, then answers in the same format. `VERSION` is part of
+   the method label (`agent-v2:...`): bump it when the agent changes, so runs of each version stay separate.
+   Its prompt reuses the fixed-context prompt's rules (`agent_prompt`); `last_call["steps"]` records the tool calls;
+   in evidence mode only items it was shown (`SnapshotTools.seen`) count as sources.
    `run()` then drops every part number proposed for more than one item in the run (`ambiguous` in the run file):
    order independent, so a wrong early answer cannot block the right one.
 4. `write_proposal` then `ProposalLog` (`runs/proposals.jsonl`): append-only events `proposed` / `approved` / `rejected`;
@@ -70,6 +84,10 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    value) and calls the same `approve` / `reject`. Route search works with the current role (verified); creating a
    route has not been tried on the tenant yet, and `routeBasePurpose` / `AutoStopOnRejection` values beyond the
    spec's examples are unverified.
+6. Continuous mode: `scripts/watch_agent.py` polls search, `agent/watch.py` `ChangeTracker` compares each item's
+   `cestamp` with the last poll (state in `runs/watch-state.json`), and `run(..., only=changed_ids)` handles just those.
+   `only` takes titles or ids and still loads the whole collab space, so the evidence equals a full run. An event
+   handler (once the Enterprise Integration Architect role is granted) is meant to call the same `run(only=...)`.
 
 Write-back contract: descriptions go into PLM as `[PROPOSED] value`; part numbers are identifiers, so they are never
 prefixed, only logged, and written on approval. `approve` / `reject` detect conflicts by comparing the field's content,
@@ -83,7 +101,11 @@ not `cestamp` (items created together share a cestamp, and a second proposal on 
 - `agent/offline.py` `DatasetTenant` builds an in-memory tenant from a dataset; the tests (`tenant` fixture) and
   `run_agent.py --dataset` run against it. Changing `dataset.json` changes the expected counts in `tests/test_agent.py`.
 - SolidWorks keeps most descriptions in configuration-specific properties: `extract_cad.py` reads both tabs.
-- `runs/run-*.json` records every gap of every run, including gaps with no proposal (Phase 4 input).
+- `runs/run-*.json` records every gap of every run, including gaps with no proposal (Phase 4 input), and the
+  `fields` the run checked; `evaluate.py` / `compare.py` grade only those (older runs: description, partNumber).
+- Material: `dsspec:Material` returns 403, so `material` is an offline-only field (`--fields`, needs `--dataset`).
+  `DatasetTenant` stores it as an item key; `cad_to_dataset.py` blanks it with its own random stream (seed + 1) so
+  the description and part number blanks stay as they were. Material proposals are never written to PLM.
 
 ## Tenant behaviour that differs from the spec
 

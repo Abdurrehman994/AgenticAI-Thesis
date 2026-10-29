@@ -2,9 +2,11 @@
 
     python scripts/compare.py runs/run-a.json runs/run-b.json ...
     python scripts/compare.py --since 20261023 --out runs/compare.json   # every run file from that day on
+    python scripts/compare.py --since 20261029 --by-field               # one row per field (description, ...)
 
 Only the run files are scored, not the review log: these are dry runs of what each suggester would propose.
-Runs with the same suggester and dataset are repeats; the table shows their mean and range.
+Runs with the same suggester and dataset are repeats; the table shows their mean and range. Only the fields a
+run checked (run_agent.py --fields) are graded, so adding material does not change older runs' numbers.
 
 - coverage: graded gaps with a proposal
 - accuracy: correct proposals (ignoring case and punctuation) over graded gaps; precision: over proposals
@@ -23,22 +25,30 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.evaluate import DATASET, RUNS, ground_truth, score  # noqa: E402
+from scripts.evaluate import RUNS, run_fields, run_group, run_truth, score  # noqa: E402
 
 METRICS = ("graded", "coverage", "accuracy", "close", "precision", "written", "written_correct", "brier", "seconds", "tokens")
 
 
-def score_run(run: dict, truth: dict[tuple[str, str], str], min_confidence: float = 0.5) -> dict:
-    graded = [r for r in run["results"] if (r["gap"]["title"], r["gap"]["field"]) in truth]
+def graded_results(results: list[dict], truth: dict) -> tuple[list[dict], list[dict], list[dict]]:
+    """The results with ground truth, those of them with a proposal, and each proposal's score."""
+    graded = [r for r in results if (r["gap"]["title"], r["gap"]["field"]) in truth]
     proposed = [r for r in graded if r["proposal"]]
     scores = [score(r["proposal"]["value"], truth[(r["gap"]["title"], r["gap"]["field"])], r["gap"]["field"]) for r in proposed]
+    return graded, proposed, scores
+
+
+def score_run(run: dict, truth: dict[tuple[str, str], str], min_confidence: float = 0.5, field: str | None = None) -> dict:
+    """Scores over the graded gaps, or only those of one field. Time and tokens are per gap of that selection."""
+    selected = [r for r in run["results"] if field is None or r["gap"]["field"] == field]
+    graded, proposed, scores = graded_results(selected, truth)
     correct = [r for r, s in zip(proposed, scores) if s["normalized"]]
     close = [r for r, s in zip(proposed, scores) if s["close"]]
     written = [r for r in proposed if r["proposal"]["confidence"] >= min_confidence]
     brier = [(r["proposal"]["confidence"] - (r in correct)) ** 2 for r in proposed]
     tokens = [
         (r["llm"].get("prompt_tokens") or 0) + (r["llm"].get("completion_tokens") or 0)
-        for r in run["results"] if r.get("llm")
+        for r in selected if r.get("llm")
     ]
     return {
         "graded": len(graded),
@@ -49,9 +59,9 @@ def score_run(run: dict, truth: dict[tuple[str, str], str], min_confidence: floa
         "written": len(written),
         "written_correct": sum(r in correct for r in written),
         "brier": sum(brier) / len(brier) if brier else None,
-        "seconds": sum(r.get("elapsed_s", 0) for r in run["results"]) / len(run["results"]) if run["results"] else None,
+        "seconds": sum(r.get("elapsed_s", 0) for r in selected) / len(selected) if selected else None,
         "tokens": sum(tokens) / len(tokens) if tokens else None,
-        "errors": sum(1 for r in run["results"] if (r.get("llm") or {}).get("error")),
+        "errors": sum(1 for r in selected if (r.get("llm") or {}).get("error")),
     }
 
 
@@ -85,30 +95,39 @@ def main() -> None:
     parser.add_argument("--since", help="also include runs/run-*.json from this timestamp on, e.g. 20261023")
     parser.add_argument("--min-confidence", type=float, default=0.5)
     parser.add_argument("--out", type=Path, help="also save per-run scores and the table as JSON")
+    parser.add_argument(
+        "--include-live", action="store_true",
+        help="also score runs on the real tenant: their blanks depend on what was approved there, not on a dataset",
+    )
+    parser.add_argument("--by-field", action="store_true", help="one row per field instead of one per suggester and dataset")
     args = parser.parse_args()
 
     runs = load_runs(args.runs, args.since)
+    live = [path.name for path, run in runs if not run.get("dataset")]
+    if live and not args.include_live:
+        runs = [(path, run) for path, run in runs if run.get("dataset")]
+        print(f"Skipped {len(live)} run(s) on the live tenant (--include-live to score them): {', '.join(live)}\n")
     if not runs:
         raise SystemExit("No run files: pass paths or --since")
 
-    truths, groups, per_run = {}, defaultdict(list), []
+    datasets, groups, per_run = {}, defaultdict(list), []
     for path, run in runs:
-        dataset = ROOT / run["dataset"] if run.get("dataset") else DATASET  # live runs use the Phase 3 dataset
-        if dataset not in truths:
-            truths[dataset] = ground_truth(json.loads(dataset.read_text(encoding="utf-8")))
-        s = score_run(run, truths[dataset], args.min_confidence)
-        key = (run.get("label") or run.get("suggester", "rules"), dataset.name)
-        groups[key].append(s)
-        per_run.append({"run": path.name, "suggester": key[0], "dataset": key[1], **s})
+        truth = run_truth(run, datasets)
+        label, name = run_group(run)
+        for field in run_fields(run) if args.by_field else [None]:
+            s = score_run(run, truth, args.min_confidence, field)
+            key = (label, name, field) if args.by_field else (label, name)
+            groups[key].append(s)
+            per_run.append({"run": path.name, "suggester": label, "dataset": name, **({"field": field} if field else {}), **s})
 
-    table = {f"{label} | {dataset}": aggregate(scores) for (label, dataset), scores in sorted(groups.items())}
-    print("| suggester | dataset | runs | graded gaps | coverage | accuracy | close | precision | written (correct) | Brier | s/gap | tokens/gap | errors |")
-    print("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+    table = {" | ".join(key): aggregate(scores) for key, scores in sorted(groups.items())}
+    field_header = " field |" if args.by_field else ""
+    print(f"| suggester | dataset |{field_header} runs | graded gaps | coverage | accuracy | close | precision | written (correct) | Brier | s/gap | tokens/gap | errors |")
+    print("|---|---|" + ("---|" if args.by_field else "") + "---|---|---|---|---|---|---|---|---|---|---|")
     for name, a in table.items():
-        label, dataset = name.split(" | ")
         written = f"{fmt(a['written'], 'int')} ({fmt(a['written_correct'], 'int')})"
         print(
-            f"| {label} | {dataset} | {a['runs']} | {fmt(a['graded'], 'int')} | {fmt(a['coverage'], 'pct')} "
+            f"| {name} | {a['runs']} | {fmt(a['graded'], 'int')} | {fmt(a['coverage'], 'pct')} "
             f"| {fmt(a['accuracy'], 'pct')} | {fmt(a['close'], 'pct')} | {fmt(a['precision'], 'pct')} | {written} | {fmt(a['brier'], 'num')} "
             f"| {fmt(a['seconds'], 'num')} | {fmt(a['tokens'], 'int')} | {a['errors']} |"
         )

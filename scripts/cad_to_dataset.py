@@ -5,8 +5,9 @@
 
 Titles are the CAD file names, the BOM is the assemblies' direct children, and the true values are the CAD
 properties: Description from the Custom tab, else from a configuration; the part number from a property
-named like Partnumber. A random share of the known values is blanked (fixed seed, so the file can be
-rebuilt). Fields with no CAD value are left out: in PLM they are real gaps with no ground truth.
+named like Partnumber; the material from SolidWorks' Material property. A random share of the known values
+is blanked (fixed seed, so the file can be rebuilt). Materials are blanked with their own random stream, so
+adding them left the description and part number blanks of earlier runs unchanged. Fields with no CAD value are left out: in PLM they are real gaps with no ground truth.
 None of this was used to write the rules, which is what makes it held out.
 """
 import argparse
@@ -16,6 +17,10 @@ import sys
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from agent.gaps import FIELDS, MATERIAL  # noqa: E402
+
 DATA = ROOT / "data"
 PART_NUMBER_KEYS = {"partnumber", "partno", "partnum", "pn"}
 
@@ -32,7 +37,7 @@ def true_values(entry: dict) -> dict:
     configurations = entry.get("configurations", {})
     tabs = [entry.get("properties", {}), *sorted(configurations.values(), key=lambda p: p is not configurations.get("Default"))]
     values = {}
-    for field, keys in (("description", {"description"}), ("partNumber", PART_NUMBER_KEYS)):
+    for field, keys in (("description", {"description"}), ("partNumber", PART_NUMBER_KEYS), (MATERIAL, {"material"})):
         value = next((v for v in (find(tab, keys) for tab in tabs) if v), "")
         if value:
             values[field] = value
@@ -59,10 +64,11 @@ def convert(extract: dict, *, blank_fraction: float, seed: int, collabspace: str
             item["children"] = children
         items.append(item)
 
-    rng = random.Random(seed)
-    known = [(item, field) for item in items for field in ("description", "partNumber") if field in item]
-    for item, field in sorted(rng.sample(known, round(len(known) * blank_fraction)), key=lambda x: x[0]["title"]):
-        item.setdefault("blank", []).append(field)
+    # Material has its own random stream (seed + 1), so adding it left the other fields' blanks unchanged
+    for fields, rng in ((FIELDS, random.Random(seed)), ((MATERIAL,), random.Random(seed + 1))):
+        known = [(item, field) for item in items for field in fields if field in item]
+        for item, field in sorted(rng.sample(known, round(len(known) * blank_fraction)), key=lambda x: x[0]["title"]):
+            item.setdefault("blank", []).append(field)
     for item in items:
         if "blank" in item:
             item["blank"].sort()
@@ -97,7 +103,7 @@ def main() -> None:
 
     items = dataset["items"]
     blanks = sum(len(i.get("blank", [])) for i in items)
-    unknown = sum(1 for i in items for f in ("description", "partNumber") if f not in i)
+    unknown = sum(1 for i in items for f in (*FIELDS, MATERIAL) if f not in i)
     print(f"{len(items)} items, {blanks} blanked values (ground truth), {unknown} fields with no CAD value -> {args.out}")
     if "_unresolved_children" in dataset:
         print(f"Children not found among the files: {', '.join(dataset['_unresolved_children'])}")

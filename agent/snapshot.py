@@ -9,8 +9,14 @@ def part_number(item: dict) -> str:
 
 
 def field_value(item: dict, field: str) -> str:
-    # Search responses omit empty attributes, so a missing key and "" both mean empty
+    # Search responses omit empty attributes, so a missing key and "" both mean empty. "material" is only
+    # set by the offline tenant: in PLM it is a relationship, not an attribute
     return part_number(item) if field == "partNumber" else item.get(field) or ""
+
+
+def collab_items(eng: Engineering, search: str = "*", collabspace: str | None = None) -> list[dict]:
+    """Search results, limited to one collab space if given (search spans every space the user can see)."""
+    return [i for i in eng.iter_search(search) if not collabspace or i.get("collabspace") == collabspace]
 
 
 class Snapshot:
@@ -22,8 +28,7 @@ class Snapshot:
 
     @classmethod
     def load(cls, eng: Engineering, search: str = "*", collabspace: str | None = None) -> "Snapshot":
-        items = [i for i in eng.iter_search(search) if not collabspace or i.get("collabspace") == collabspace]
-        return cls(eng, items)
+        return cls(eng, collab_items(eng, search, collabspace))
 
     def item(self, item_id: str) -> dict:
         """Items outside the collab space (e.g. a child from a library) are fetched once."""

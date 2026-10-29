@@ -8,8 +8,8 @@ from collections import Counter
 from dataclasses import dataclass, field
 from typing import Protocol
 
-from .gaps import PROPOSED_PREFIX, Gap
-from .snapshot import Snapshot, part_number
+from .gaps import MATERIAL, PROPOSED_PREFIX, Gap
+from .snapshot import Snapshot, field_value, part_number
 
 
 @dataclass
@@ -65,6 +65,8 @@ class RuleBasedSuggester:
             return self._description_by_analogy(gap, snapshot) or self._description_from_title(gap)
         if gap.field == "partNumber":
             return self._part_number_from_siblings(gap, snapshot)
+        if gap.field == MATERIAL:
+            return self._material_from_siblings(gap, snapshot)
         return None
 
     def _description_by_analogy(self, gap: Gap, snapshot: Snapshot) -> Proposal | None:
@@ -153,3 +155,30 @@ class RuleBasedSuggester:
                 [f"other parts under {parent_title}: {listing}", reason],
             )
         return None
+
+    def _material_from_siblings(self, gap: Gap, snapshot: Snapshot) -> Proposal | None:
+        """The material most of the other parts in the same assemblies have.
+
+        Assemblies get no material: in CAD and PLM it belongs to parts. The confidence levels were set before
+        any run on the held-out set: several siblings agreeing 0.6, a majority 0.4, a single sibling 0.3.
+        """
+        if snapshot.children(gap.item_id):
+            return None
+        votes, parents = Counter(), []
+        for parent_id in snapshot.parents(gap.item_id):
+            materials = [field_value(snapshot.item(s), MATERIAL) for s in snapshot.children(parent_id) if s != gap.item_id]
+            materials = [m for m in materials if m]
+            if materials:
+                votes.update(materials)
+                parents.append(snapshot.item(parent_id).get("title", parent_id))
+        if not votes:
+            return None
+        (value, count), total = votes.most_common(1)[0], sum(votes.values())
+        if len(votes) > 1 and votes.most_common(2)[1][1] == count:
+            return None  # a tie: nothing tells which material applies
+        confidence = 0.3 if total == 1 else 0.6 if count == total else 0.4
+        listing = ", ".join(f"{m} x{n}" for m, n in votes.most_common())
+        return Proposal(
+            gap.item_id, gap.title, gap.field, value, confidence, "sibling-material",
+            [f"materials of the other parts under {', '.join(parents)}: {listing}"],
+        )

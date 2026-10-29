@@ -3,3 +3,7 @@
 __pycache__/
 .pytest_cache/
 logs/
+runs/watch-state.json
+
+# SOLIDWORKS sample models: read by extract_cad.py, kept out of git (data/cad_extract.json holds what the agent uses)
+data/*_CADData/
