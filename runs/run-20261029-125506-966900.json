@@ -1,0 +1,2251 @@
+{
+  "collabspace": "API_development",
+  "suggester": "agent",
+  "label": "agent-v2:gpt-oss-120b+evidence",
+  "dataset": "data/dataset_cad.json",
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.524,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          }
+        ],
+        "latency_s": 6.52,
+        "prompt_tokens": 2227,
+        "completion_tokens": 572
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber",
+        "value": "AXLE",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The partNumber often mirrors the item title in this PLM dataset; similar simple items use a direct title-based identifier."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 17.062,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Axle"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Tire.Pneumatic"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle.Cap"
+            }
+          }
+        ],
+        "latency_s": 17.07,
+        "prompt_tokens": 7257,
+        "completion_tokens": 1536,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Axle"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description",
+        "value": "Protective cap for axle end",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Axle.Cap' suggests a cap component that covers or protects the end of an axle."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.3,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Axle Cap"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle"
+            }
+          }
+        ],
+        "latency_s": 7.3,
+        "prompt_tokens": 3500,
+        "completion_tokens": 624,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 8.379,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Axle"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle"
+            }
+          }
+        ],
+        "latency_s": 8.38,
+        "prompt_tokens": 2181,
+        "completion_tokens": 836
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description",
+        "value": "Structural support component for the axle, used to connect and reinforce the axle within the Leg.Support assembly.",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item is used in Leg.Support, indicating it provides support for the axle within that assembly.",
+          "The term 'Support' in the title suggests a structural reinforcement role."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.82,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle.Support"
+            }
+          }
+        ],
+        "latency_s": 6.82,
+        "prompt_tokens": 1379,
+        "completion_tokens": 667,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Axle.Support",
+          "Leg.Support"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.093,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle"
+            }
+          }
+        ],
+        "latency_s": 4.1,
+        "prompt_tokens": 2759,
+        "completion_tokens": 392
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description",
+        "value": "Flat steel blade used to support and slide loads on the hand truck",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The part is named 'Blade' and is a child of the Hand Truck assembly, indicating it is the load‑supporting steel blade typical for hand trucks."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 10.978,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Tire.Pneumatic"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Blade"
+            }
+          }
+        ],
+        "latency_s": 10.97,
+        "prompt_tokens": 3817,
+        "completion_tokens": 1126,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 16.732,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Handle"
+            }
+          }
+        ],
+        "latency_s": 16.73,
+        "prompt_tokens": 2238,
+        "completion_tokens": 1721
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.582,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_children",
+            "args": {
+              "title": "Leg.Support"
+            }
+          }
+        ],
+        "latency_s": 5.59,
+        "prompt_tokens": 2409,
+        "completion_tokens": 557,
+        "unparsed": "",
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description",
+        "value": "Caster assembly for Hand Truck",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item title indicates it is a caster assembly used in the Hand Truck product; no existing description is available to copy, so the description is inferred from its role."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.409,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Caster.Assembly"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Caster"
+            }
+          }
+        ],
+        "latency_s": 8.42,
+        "prompt_tokens": 4381,
+        "completion_tokens": 855,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Caster.Assembly"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.476,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Caster"
+            }
+          }
+        ],
+        "latency_s": 4.47,
+        "prompt_tokens": 1369,
+        "completion_tokens": 574
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description",
+        "value": "Hand Truck – portable material handling device with a dual‑wheel frame, blade base, pneumatic tire, caster assembly, axle, leg support, handle, mounting plate, nut and round‑head bolt for transporting loads.",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Blade",
+          "Children list defines components of the hand truck",
+          "Standard description of a hand truck in similar PLM items"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 9.709,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          }
+        ],
+        "latency_s": 9.71,
+        "prompt_tokens": 3032,
+        "completion_tokens": 1174,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Blade",
+          "Tire.Pneumatic",
+          "Caster.Assembly",
+          "Axle",
+          "Leg.Support",
+          "Handle",
+          "Mounting.Plate"
+        ],
+        "sources_found": [
+          "Blade"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.111,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          }
+        ],
+        "latency_s": 6.11,
+        "prompt_tokens": 2886,
+        "completion_tokens": 789
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.025,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Handle"
+            }
+          }
+        ],
+        "latency_s": 4.03,
+        "prompt_tokens": 1495,
+        "completion_tokens": 712
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description",
+        "value": "Leg support assembly for Hand Truck",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item name 'Leg.Support' and its use in the Hand Truck assembly indicate it is the support structure for the truck's leg.",
+          "Its children include axle support, pipes, and welds, typical components of a leg support assembly."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.906,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Hand Truck"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle.Support"
+            }
+          }
+        ],
+        "latency_s": 6.91,
+        "prompt_tokens": 4863,
+        "completion_tokens": 1198,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.665,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          }
+        ],
+        "latency_s": 5.66,
+        "prompt_tokens": 1530,
+        "completion_tokens": 1011
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "partNumber",
+        "value": "PIPE-1-1/4",
+        "confidence": 0.7,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: Brace.Pipe",
+          "source: Handle",
+          "Similar pipe items use a partNumber that combines the word PIPE with the nominal size, e.g., 3/4\" pipe and 1\" pipe."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.079,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "Lower Pipe"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "PIPE"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Short.Pipe"
+            }
+          }
+        ],
+        "latency_s": 8.08,
+        "prompt_tokens": 4117,
+        "completion_tokens": 1417,
+        "unparsed": "Let's get Brace.Pipe info.",
+        "retried": true,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "Brace.Pipe",
+          "Handle"
+        ],
+        "sources_found": [
+          "Brace.Pipe",
+          "Handle"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description",
+        "value": "MOUNTING PLATE",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item name indicates it is a generic mounting plate; no similar items with descriptions were found to copy."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.364,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Mounting.Plate"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Plate"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Mounting Plate"
+            }
+          }
+        ],
+        "latency_s": 5.37,
+        "prompt_tokens": 6212,
+        "completion_tokens": 896,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Mounting.Plate"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.443,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "Mounting.Plate"
+            }
+          }
+        ],
+        "latency_s": 6.45,
+        "prompt_tokens": 2238,
+        "completion_tokens": 796
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description",
+        "value": "Standard hexagonal nut for fastening components",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Nut is a typical fastener used with the Round Head Bolt in the Hand Truck assembly; standard description follows common PLM conventions for nuts"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.989,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Bolt"
+            }
+          }
+        ],
+        "latency_s": 7.0,
+        "prompt_tokens": 2963,
+        "completion_tokens": 757,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.756,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          }
+        ],
+        "latency_s": 3.75,
+        "prompt_tokens": 2195,
+        "completion_tokens": 652,
+        "unparsed": "",
+        "retried": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.621,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 1.62,
+        "prompt_tokens": 664,
+        "completion_tokens": 283
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.897,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Round Head Bolt_AI"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Axle"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Bolt"
+            }
+          }
+        ],
+        "latency_s": 5.89,
+        "prompt_tokens": 4359,
+        "completion_tokens": 1014
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber",
+        "value": "SWC-Actuator",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "No other items provide explicit partNumber; common practice in this PLM is to use the title as the partNumber when no separate code is defined."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.167,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Actuator"
+            }
+          }
+        ],
+        "latency_s": 4.16,
+        "prompt_tokens": 2980,
+        "completion_tokens": 719,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Actuator"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber",
+        "value": "505-0803-00",
+        "confidence": 0.7,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "source: SWC-Gasket sprinkler",
+          "source: SWC-Spring-upper bearing sprinkler",
+          "Sibling parts in the SWC-Rotator assembly have partNumbers 504-0803-00 (washer), 506-0601-00 (gasket), and 507-0803-00 (spring). The numeric prefix increments by one for each distinct component type, suggesting the adjustment knob, as the next component type, would use the next available prefix 505.",
+          "The suffix \"-0803-00\" appears for components of similar size/role (washer and spring), indicating it may be appropriate for the knob as well."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 12.364,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Rotator"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Adjustment Knob"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Washer-Swingarm sprinkler"
+            }
+          }
+        ],
+        "latency_s": 12.37,
+        "prompt_tokens": 3941,
+        "completion_tokens": 2204,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description",
+        "value": "Base assembly for orbital sprinkler",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Base sprinkler",
+          "Child item SWC-Base sprinkler is described as \"Ground Base Rod\", indicating the base component.",
+          "SWC-Base groups base, rotation adjustment, and collar parts, suggesting it is the overall base assembly for the SWC-OrbitalSprinkler."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 12.998,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Base"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "SWC-Base"
+            }
+          }
+        ],
+        "latency_s": 13.0,
+        "prompt_tokens": 3099,
+        "completion_tokens": 1321,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Base sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.158,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          }
+        ],
+        "latency_s": 3.16,
+        "prompt_tokens": 1554,
+        "completion_tokens": 554
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.748,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 1.75,
+        "prompt_tokens": 668,
+        "completion_tokens": 310
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.045,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Base sprinkler"
+            }
+          }
+        ],
+        "latency_s": 2.05,
+        "prompt_tokens": 3870,
+        "completion_tokens": 324,
+        "unparsed": "",
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description",
+        "value": "Engagement spring for sprinkler assembly",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Title indicates it is a spring used for engagement; siblings include 'Engage Lever' with description 'Engagement Lever', so spring likely provides spring force for that function. No exact matching item found, so description inferred from role."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.18,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Engage Spring sprinkler"
+            }
+          }
+        ],
+        "latency_s": 3.18,
+        "prompt_tokens": 1765,
+        "completion_tokens": 550,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description",
+        "value": "Jet nozzle",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The part name includes 'Jet', and sibling parts use functional descriptions (e.g., 'Spray head disruptor', 'Casing cover'). A reasonable description is a concise function: a jet nozzle."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.586,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "SWC Jet sprinkler"
+            }
+          },
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "SWC-Jet sprinkler"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Jet sprinkler"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Jet nozzle"
+            }
+          }
+        ],
+        "latency_s": 5.59,
+        "prompt_tokens": 5527,
+        "completion_tokens": 944,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description",
+        "value": "Lock Lever",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The part name contains 'Locklever', matching naming of other parts where the description mirrors the functional name (e.g., 'Actuator Assembly', 'Center Shaft'). No sibling provides a more detailed description, so a concise functional description is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.95,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Locklever sprinkler"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Rotator"
+            }
+          }
+        ],
+        "latency_s": 3.94,
+        "prompt_tokens": 2531,
+        "completion_tokens": 683,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler",
+        "title": "SWC-Lower Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.649,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Upper Bearing sprinkler"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Upper Bearing sprinkler"
+            }
+          }
+        ],
+        "latency_s": 7.65,
+        "prompt_tokens": 4893,
+        "completion_tokens": 1334
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description",
+        "value": "Sprinkler name plate",
+        "confidence": 0.7,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Swingarm sprinkler",
+          "source: SWC-Cap sprinkler",
+          "Part number 518-0601-00 follows sequential pattern after 516-0601-00 (Swingarm) and 517-0601-00 (Cap)",
+          "Sibling parts include descriptive names ending with 'sprinkler' (e.g., 'Sprinkler head cap')",
+          "Thus the description should follow the naming pattern as a simple identifier for the plate component"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.337,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Actuator"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Name Plate sprinkler"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Name Plate"
+            }
+          }
+        ],
+        "latency_s": 4.33,
+        "prompt_tokens": 3455,
+        "completion_tokens": 741,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Swingarm sprinkler",
+          "SWC-Cap sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Swingarm sprinkler",
+          "SWC-Cap sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 10.994,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_children",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "SWC-"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Actuator"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Base"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Assembly"
+            }
+          }
+        ],
+        "latency_s": 10.99,
+        "prompt_tokens": 10852,
+        "completion_tokens": 1905,
+        "unparsed": "We need to search for other assembly items with pattern number.",
+        "retried": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description",
+        "value": "Adjustment component that enables rotational positioning of the sprinkler head for fine‑tuning spray coverage.",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred (stated 'pattern')",
+          "Similar items in the SWC family use 'Adjustment' in the description to denote a component that fine‑tunes a setting.",
+          "The title includes 'Rotation Adjustment', indicating its purpose is to adjust rotation of the sprinkler."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.696,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 3.69,
+        "prompt_tokens": 2743,
+        "completion_tokens": 640,
+        "unparsed": "",
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Adjustment Knob sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber",
+        "value": "502-0601-00",
+        "confidence": 0.7,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "SWC-Base sprinkler has partNumber 501-0601-00; components in the same assembly appear to follow sequential numbering (e.g., 501, then likely 502 for the next distinct part).",
+          "Other parts in related assemblies use a similar pattern where the first three digits increment for different component types (e.g., 504, 506, 507)."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 21.783,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "SWC-Rotation Adjustment sprinkler"
+            }
+          },
+          {
+            "tool": "get_children",
+            "args": {
+              "title": "SWC-Base"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Rotation Adjustment"
+            }
+          },
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Base"
+            }
+          }
+        ],
+        "latency_s": 21.78,
+        "prompt_tokens": 5152,
+        "completion_tokens": 1753,
+        "unparsed": "",
+        "retried": true,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description",
+        "value": "Rotating Mechanism for Orbital Sprinkler",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item is a component of the SWC-OrbitalSprinkler assembly, which contains parts such as Shaft, Bearings, Washers, Gasket, and Actuator. The name \"Rotator\" suggests it provides the rotating function of the assembly. No existing sibling with a description was found, so the description is inferred from its role within the orbital sprinkler.",
+          "Other children have concise functional descriptions (e.g., \"Center Shaft\", \"Bearing Upper - 22mm\"), so a brief functional phrase is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 12.013,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          },
+          {
+            "tool": "get_children",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          }
+        ],
+        "latency_s": 12.02,
+        "prompt_tokens": 2938,
+        "completion_tokens": 955,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 12.812,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Rotator"
+            }
+          }
+        ],
+        "latency_s": 12.82,
+        "prompt_tokens": 2688,
+        "completion_tokens": 1034
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description",
+        "value": "Screw for SWC‑Rotator assembly",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item is a child of SWC‑Rotator, which contains other mechanical parts (body, lock lever, etc.).",
+          "Screw components are typically described as the fastening element for the assembly they belong to."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 9.976,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Rotator"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Body sprinkler"
+            }
+          }
+        ],
+        "latency_s": 9.98,
+        "prompt_tokens": 2417,
+        "completion_tokens": 859,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 21.749,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Rotator"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Screw"
+            }
+          }
+        ],
+        "latency_s": 21.75,
+        "prompt_tokens": 2401,
+        "completion_tokens": 904
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "partNumber",
+        "value": "SWC-SHAFT",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Part numbers for similar SWC components follow the pattern 'SWC-<NAME>'. The title of this item is 'SWC-Shaft sprinkler', so the likely partNumber is 'SWC-SHAFT'."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 35.691,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {
+              "title": ""
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-Actuator"
+            }
+          }
+        ],
+        "latency_s": 35.69,
+        "prompt_tokens": 3685,
+        "completion_tokens": 2051,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber",
+        "value": "507-0701-00",
+        "confidence": 0.1,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: guess",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Spring-upper bearing sprinkler",
+          "All spring items in the product line have part numbers that start with 507 and end with -00.",
+          "Existing springs use middle codes 0601 and 0803, suggesting the next unused code could be 0701."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 23.913,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "SWC-Actuator"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Spring"
+            }
+          }
+        ],
+        "latency_s": 23.9,
+        "prompt_tokens": 2833,
+        "completion_tokens": 1418,
+        "basis": "guess",
+        "stated_basis": "guess",
+        "sources": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 17.147,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "SWC-OrbitalSprinkler"
+            }
+          }
+        ],
+        "latency_s": 17.15,
+        "prompt_tokens": 1534,
+        "completion_tokens": 1023
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.468,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 3.47,
+        "prompt_tokens": 1397,
+        "completion_tokens": 146,
+        "unparsed": "{\"tool\": \"list_items\", \"args\": {\"}}",
+        "retried": true,
+        "error": "JSONDecodeError: Unterminated string starting at: line 1 column 33 (char 32)"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 10.93,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_siblings",
+            "args": {
+              "title": "Short.Pipe"
+            }
+          }
+        ],
+        "latency_s": 10.93,
+        "prompt_tokens": 1523,
+        "completion_tokens": 680
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.518,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 2.52,
+        "prompt_tokens": 1335,
+        "completion_tokens": 145,
+        "unparsed": "",
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 6.277,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Tire"
+            }
+          }
+        ],
+        "latency_s": 6.27,
+        "prompt_tokens": 1376,
+        "completion_tokens": 360
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description",
+        "value": "Pneumatic tire for material handling equipment, providing cushioning and traction on smooth surfaces.",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred (stated 'copied')",
+          "The Tire.Pneumatic is used in the Hand Truck assembly, indicating it is a standard pneumatic tire for a hand‑truck.",
+          "Similar tire items in the system are described as ‘pneumatic tire for … equipment’, so the description follows that pattern."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.289,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 6.29,
+        "prompt_tokens": 666,
+        "completion_tokens": 355,
+        "basis": "inferred",
+        "stated_basis": "copied",
+        "sources": [
+          "Tire.Pneumatic",
+          "Hand Truck"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 12.0,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Hand Truck"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Blade"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Tire"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Tire.Plastic"
+            }
+          }
+        ],
+        "latency_s": 12.0,
+        "prompt_tokens": 4048,
+        "completion_tokens": 713
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.473,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 2.47,
+        "prompt_tokens": 1355,
+        "completion_tokens": 144,
+        "unparsed": "",
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 9.216,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Axle.Support"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 9.21,
+        "prompt_tokens": 5670,
+        "completion_tokens": 560,
+        "unparsed": "",
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description",
+        "value": "Longitudinal weld connecting a brace to the leg support",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Weld.Long.to.Brace' indicates a long weld applied to a brace.",
+          "The part is used in the 'Leg.Support' assembly, suggesting it joins a brace to the leg support structure."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.06,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Long.to.Brace"
+            }
+          }
+        ],
+        "latency_s": 7.05,
+        "prompt_tokens": 1397,
+        "completion_tokens": 439,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 9.973,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Weld"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Axle.Support"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Short.to.Brace"
+            }
+          }
+        ],
+        "latency_s": 9.97,
+        "prompt_tokens": 3082,
+        "completion_tokens": 567
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description",
+        "value": "Short weld to brace",
+        "confidence": 0.3,
+        "method": "agent-v2:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The description is derived directly from the item title, following the same wording pattern as other weld items such as Weld.Long.to.Brace, which would logically be described as \"Long weld to brace\"."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 21.311,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Short.to.Brace"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "Weld Short to Brace"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Long.to.Brace"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Weld.Axle.Support"
+            }
+          }
+        ],
+        "latency_s": 21.31,
+        "prompt_tokens": 5000,
+        "completion_tokens": 1278,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 24.277,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "Weld.Short.to.Brace"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "Leg.Support"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 24.26,
+        "prompt_tokens": 4129,
+        "completion_tokens": 1452,
+        "unparsed": "",
+        "retried": true
+      }
+    }
+  ]
+}

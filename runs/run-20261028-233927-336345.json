@@ -1,0 +1,1877 @@
+{
+  "collabspace": "API_development",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b+evidence",
+  "dataset": "data/dataset_cad.json",
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "description",
+        "value": "Axle - central shaft for wheel support",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item is titled 'Axle' and is used in the 'Hand Truck' assembly alongside wheel‑related parts (Tire.Pneumatic, Caster.Assembly).",
+          "Typical function of an axle is to serve as the central shaft that supports wheels, matching the role in this context."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.669,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.67,
+        "prompt_tokens": 1625,
+        "completion_tokens": 361,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "partNumber",
+        "value": "530-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Cap sprinkler",
+          "source: SWC-Cover sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Gasket sprinkler",
+          "source: SWC-Jet sprinkler",
+          "source: SWC-Locklever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "Existing part numbers follow the pattern XXX-0601-00, where XXX is a unique three‑digit identifier for each component type.",
+          "No existing part uses the three‑digit prefix 530, so it can be allocated to the new Axle item without conflict.",
+          "The project code '0601' and suffix '00' are common across all parts in this project, thus applied to the Axle as well."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.238,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.24,
+        "prompt_tokens": 1627,
+        "completion_tokens": 750,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "description",
+        "value": "Axle end cap",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Axle",
+          "source: Axle.Support",
+          "The title 'Axle.Cap' indicates it is a cap component that terminates or protects the axle",
+          "Similar items use concise functional descriptions, e.g., 'Sprinkler head cap' for SWC-Cap sprinkler"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.91,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.91,
+        "prompt_tokens": 1617,
+        "completion_tokens": 327,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Axle",
+          "Axle.Support"
+        ],
+        "sources_found": [
+          "Axle",
+          "Axle.Support"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.136,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.14,
+        "prompt_tokens": 1619,
+        "completion_tokens": 550
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "description",
+        "value": "Axle support",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Leg.Support",
+          "The item is used in the Leg.Support assembly, indicating its function is to support the axle.",
+          "Naming convention matches other support items (e.g., Leg.Support) which lack explicit descriptions, so a concise functional description is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.266,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.27,
+        "prompt_tokens": 1626,
+        "completion_tokens": 392,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Leg.Support"
+        ],
+        "sources_found": [
+          "Leg.Support"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.787,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.79,
+        "prompt_tokens": 1628,
+        "completion_tokens": 487
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.539,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.54,
+        "prompt_tokens": 1624,
+        "completion_tokens": 442
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.115,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.11,
+        "prompt_tokens": 1626,
+        "completion_tokens": 546
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.156,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.16,
+        "prompt_tokens": 1628,
+        "completion_tokens": 372
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "description",
+        "value": "Caster Assembly",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Actuator",
+          "Assembly items in the project (e.g., SWC-Actuator) use a description formed by the item name followed by the word 'Assembly'",
+          "Caster.Assembly is an assembly component of the Hand Truck, matching the naming convention of other assemblies"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.173,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.17,
+        "prompt_tokens": 1626,
+        "completion_tokens": 374,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Actuator"
+        ],
+        "sources_found": [
+          "SWC-Actuator"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.406,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.41,
+        "prompt_tokens": 1628,
+        "completion_tokens": 599,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Gasket-jet sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Gasket-jet sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      },
+      "ambiguous": "519-0601-00 also proposed for SWC-Actuator"
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "description",
+        "value": "Portable hand truck with pneumatic tire, caster assembly, axle, leg support and 1\" standard weight pipe handle",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Children include Blade, Pneumatic Tire, Caster Assembly, Axle, Leg Support, and Handle (described as 1\" STANDARD WEIGHT PIPE)",
+          "Hand truck is typically a portable equipment comprising these components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.899,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.9,
+        "prompt_tokens": 1617,
+        "completion_tokens": 325,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.471,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.47,
+        "prompt_tokens": 1619,
+        "completion_tokens": 611
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.462,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.46,
+        "prompt_tokens": 1626,
+        "completion_tokens": 609
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.478,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.48,
+        "prompt_tokens": 1626,
+        "completion_tokens": 794
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.258,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.26,
+        "prompt_tokens": 1628,
+        "completion_tokens": 573
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.03,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.03,
+        "prompt_tokens": 1627,
+        "completion_tokens": 713
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "description",
+        "value": "Mounting plate for hand truck",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item title 'Mounting.Plate' suggests a plate used for mounting.",
+          "It is listed as a part of the Hand Truck assembly, indicating its role as a mounting component for that product.",
+          "Existing descriptions in the project follow a concise functional format (e.g., 'Actuator Assembly', 'Sprinkler Adjustment Knob')."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.812,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.81,
+        "prompt_tokens": 1627,
+        "completion_tokens": 491,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "partNumber",
+        "value": "523-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Cap sprinkler",
+          "source: SWC-Cover sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Gasket sprinkler",
+          "source: SWC-Jet sprinkler",
+          "source: SWC-Locklever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "All existing numbered items use a three‑digit prefix in the 500 range followed by a hyphen, a four‑digit code (commonly 0601) and a trailing -00.",
+          "No other part in the current project uses the prefix 523, making it available.",
+          "Mounting.Plate is a generic hardware component like the listed items, so assigning it the next unused 500‑series prefix follows the established numbering pattern."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.631,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.63,
+        "prompt_tokens": 1629,
+        "completion_tokens": 822,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "description",
+        "value": "HEX NUT, STANDARD THREAD",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The Nut is used in the Hand Truck assembly alongside a Round Head Bolt, indicating it is a standard fastening component.",
+          "No existing item provides a specific description, so a generic description matching typical PLM conventions is applied."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.926,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.93,
+        "prompt_tokens": 1624,
+        "completion_tokens": 330,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.381,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.38,
+        "prompt_tokens": 1626,
+        "completion_tokens": 776,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Gasket sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Gasket sprinkler"
+        ]
+      },
+      "ambiguous": "503-0601-00 also proposed for Round Head Bolt_AI, SWC-Shaft sprinkler"
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "description",
+        "value": "Round head bolt",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item title is 'Round Head Bolt_AI', indicating it is a round head bolt.",
+          "Other fasteners in the project (e.g., Nut) have simple functional descriptions, so a matching brief description is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.111,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.11,
+        "prompt_tokens": 1627,
+        "completion_tokens": 364,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.987,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.99,
+        "prompt_tokens": 1629,
+        "completion_tokens": 705,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      },
+      "ambiguous": "503-0601-00 also proposed for Nut, SWC-Shaft sprinkler"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.475,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.47,
+        "prompt_tokens": 1631,
+        "completion_tokens": 793,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Name Plate sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Body sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Name Plate sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Body sprinkler"
+        ]
+      },
+      "ambiguous": "519-0601-00 also proposed for Caster.Assembly"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.763,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.76,
+        "prompt_tokens": 1632,
+        "completion_tokens": 846,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Jet sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Jet sprinkler"
+        ]
+      },
+      "ambiguous": "513-0601-00 also proposed for SWC-Collar sprinkler, SWC-Rotator"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "description",
+        "value": "Sprinkler Base",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Cap sprinkler",
+          "source: SWC-Cover sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "Other SWC-... items describe the component followed by the word 'sprinkler' (e.g., 'Main sprinkler body', 'Sprinkler head cap').",
+          "SWC-Base is used in the SWC-OrbitalSprinkler assembly as the foundational component.",
+          "A child item 'SWC-Base sprinkler' is described as 'Ground Base Rod', indicating the parent should represent the overall base."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.329,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.33,
+        "prompt_tokens": 1628,
+        "completion_tokens": 767,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "partNumber",
+        "value": "500-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "All sprinkler components use a 5xx-0601-00 numbering scheme (e.g., SWC-Body sprinkler 510-0601-00, SWC-Cap sprinkler 517-0601-00). The child part 'SWC-Base sprinkler' is 501-0601-00, suggesting the base assembly itself would be the preceding number 500-0601-00."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.746,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.75,
+        "prompt_tokens": 1630,
+        "completion_tokens": 661,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "description",
+        "value": "Base collar for sprinkler assembly",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Other SWC components have concise functional descriptions (e.g., SWC-Base sprinkler: \"Ground Base Rod\", SWC-Cap sprinkler: \"Sprinkler head cap\").",
+          "The term \"collar\" typically denotes a mounting or transition piece, so a brief functional phrase describing its role is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.85,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.85,
+        "prompt_tokens": 1628,
+        "completion_tokens": 316,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.558,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.56,
+        "prompt_tokens": 1630,
+        "completion_tokens": 809,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      },
+      "ambiguous": "513-0601-00 also proposed for SWC-Adjustment Knob sprinkler, SWC-Rotator"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "description",
+        "value": "Engagement spring",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Spring-swingarm sprinkler",
+          "Spring items in the project are described with function followed by \"spring\" (e.g., \"Swingarm spring - 33mm\").",
+          "The part name contains \"Engage\" indicating its role is to engage, so the description is inferred as \"Engagement spring\"."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.31,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.31,
+        "prompt_tokens": 1630,
+        "completion_tokens": 400,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Spring-swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spring-swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "description",
+        "value": "Jet spray nozzle",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Adjustment Knob sprinkler",
+          "The title includes 'Jet', which in sprinkler assemblies denotes the high‑velocity spray nozzle.",
+          "Other sprinkler parts use concise functional descriptions (e.g., 'Main sprinkler body', 'Spray head disruptor').",
+          "A short, functional phrase consistent with the existing naming style provides a clear description."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.13,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.13,
+        "prompt_tokens": 1628,
+        "completion_tokens": 549,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Adjustment Knob sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Adjustment Knob sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "description",
+        "value": "Locking Lever",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'SWC-Locklever sprinkler' indicates a lever that locks the sprinkler mechanism.",
+          "Similar part 'SWC-Engage Lever sprinkler' has description 'Engagement Lever', suggesting parallel phrasing."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.796,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.8,
+        "prompt_tokens": 1629,
+        "completion_tokens": 306,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler",
+        "title": "SWC-Lower Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.992,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.99,
+        "prompt_tokens": 1631,
+        "completion_tokens": 888
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Name Plate sprinkler",
+        "title": "SWC-Name Plate sprinkler",
+        "field": "description",
+        "value": "Sprinkler name plate",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title contains 'Name Plate sprinkler', matching the pattern of other items whose description combines the function and the word 'sprinkler' (e.g., 'Sprinkler head cap')",
+          "No existing item provides an exact description, so the description is inferred from the component's role within the sprinkler assembly"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.697,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.7,
+        "prompt_tokens": 1629,
+        "completion_tokens": 470,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "partNumber",
+        "value": "520-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Cap sprinkler",
+          "source: SWC-Cover sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Jet sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "Existing SWC parts use the pattern 5xx-0601-00 for main sprinkler components.",
+          "Numbers 501‑518 are already taken; the next unused number in this series is 520.",
+          "OrbitalSprinkler is a top‑level assembly similar to Body, Cap, Cover, etc., fitting the same numbering scheme."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.376,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.38,
+        "prompt_tokens": 1625,
+        "completion_tokens": 957,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "description",
+        "value": "Sprinkler rotation adjuster",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The part name includes 'Rotation Adjustment' and follows naming conventions of similar items (e.g., SWC-Adjustment Knob sprinkler described as 'Sprinkler Adjustment Knob' and SWC-Spray Angle Adjustment sprinkler described as 'Sprinkler angle adjuster'), indicating its purpose is to adjust the sprinkler's rotation."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.114,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.11,
+        "prompt_tokens": 1629,
+        "completion_tokens": 364,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler",
+        "title": "SWC-Rotation Adjustment sprinkler",
+        "field": "partNumber",
+        "value": "508-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Body sprinkler",
+          "Existing SWC part numbers follow a sequential first segment (504, 505, 506, 507, 510, etc.) with a common second segment 0601 for standard parts.",
+          "Rotation Adjustment is a functional sibling to other adjustment parts (e.g., Spray Angle Adjustment 511-0601-00), so it should share the 0601 series.",
+          "The next unused sequential number after 507 is 508, fitting the established pattern."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.058,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.06,
+        "prompt_tokens": 1631,
+        "completion_tokens": 718,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Body sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Body sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "description",
+        "value": "Rotator mechanism for orbital sprinkler",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-OrbitalSprinkler",
+          "source: SWC-Rotation Adjustment sprinkler",
+          "Item is used in the SWC-OrbitalSprinkler assembly where rotation of the sprinkler head is required",
+          "Its children include body, spray angle adjustment, and other moving parts indicating a rotating sub‑assembly",
+          "Similar items (e.g., SWC-Rotation Adjustment sprinkler) describe rotation‑related functions"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.356,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.36,
+        "prompt_tokens": 1629,
+        "completion_tokens": 408,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-OrbitalSprinkler",
+          "SWC-Rotation Adjustment sprinkler"
+        ],
+        "sources_found": [
+          "SWC-OrbitalSprinkler",
+          "SWC-Rotation Adjustment sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.903,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.9,
+        "prompt_tokens": 1631,
+        "completion_tokens": 871,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      },
+      "ambiguous": "513-0601-00 also proposed for SWC-Adjustment Knob sprinkler, SWC-Collar sprinkler"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "description",
+        "value": "Fastening screw",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'SWC-Screw' indicates a generic screw used for fastening within the SWC assemblies.",
+          "Other items have concise functional descriptions (e.g., 'Casing cover', 'Engagement Lever'), so a matching brief description is appropriate."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.207,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.21,
+        "prompt_tokens": 1627,
+        "completion_tokens": 381,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw",
+        "title": "SWC-Screw",
+        "field": "partNumber",
+        "value": "509-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Base sprinkler",
+          "source: SWC-Body sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Jet sprinkler",
+          "source: SWC-Cap sprinkler",
+          "source: SWC-Gasket sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "source: SWC-Spring-upper bearing sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "source: SWC-Locklever sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Cover sprinkler",
+          "source: SWC-Gasket-jet sprinkler",
+          "All SWC parts share a three‑digit prefix followed by '-0601-00' (or other series) and are sequentially numbered.",
+          "The numeric series includes 501, 504‑518, leaving 509 unused, making it a logical next number for a new fastener such as a screw."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.46,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 6.46,
+        "prompt_tokens": 1629,
+        "completion_tokens": 1152,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Spring-upper bearing sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Gasket-jet sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Spring-upper bearing sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Gasket-jet sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.502,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.5,
+        "prompt_tokens": 1630,
+        "completion_tokens": 979,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Body sprinkler",
+          "SWC-Cap sprinkler",
+          "SWC-Cover sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Engage Spring sprinkler",
+          "SWC-Gasket sprinkler",
+          "SWC-Jet sprinkler",
+          "SWC-Locklever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      },
+      "ambiguous": "503-0601-00 also proposed for Nut, Round Head Bolt_AI"
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler",
+        "title": "SWC-Spring-swingarm sprinkler",
+        "field": "partNumber",
+        "value": "507-0602-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Engage Spring sprinkler",
+          "source: SWC-Spring-upper bearing sprinkler",
+          "Both spring items in the project share the prefix 507, indicating the 507 series is used for springs.",
+          "Existing spring part numbers are 507-0601-00 and 507-0803-00, leaving a gap for the next sequential spring variant.",
+          "Assigning the next sequential number 507-0602-00 follows the numbering pattern used for other spring components."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.235,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.23,
+        "prompt_tokens": 1633,
+        "completion_tokens": 931,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Engage Spring sprinkler",
+          "SWC-Spring-upper bearing sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler",
+        "title": "SWC-Upper Bearing sprinkler",
+        "field": "partNumber",
+        "value": "508-0803-00",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Spring-upper bearing sprinkler",
+          "Upper bearing is a distinct component type; existing families use sequential three‑digit prefixes (504 washer, 505 lever, 506 gasket, 507 spring).",
+          "The spring version of the upper bearing uses 507-0803-00, suggesting the bearing itself would follow the next available family number, 508, with the same suffix 0803‑00."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.392,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 6.39,
+        "prompt_tokens": 1631,
+        "completion_tokens": 1141,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Spring-upper bearing sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spring-upper bearing sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Washer sprinkler",
+        "title": "SWC-Upper Washer sprinkler",
+        "field": "partNumber",
+        "value": "504-0601-00",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "Washer components in the sprinkler family use the prefix 504 (e.g., SWC-Washer-Swingarm sprinkler).",
+          "The majority of other sprinkler parts use the suffix 0601-00 for the default series, so applying this suffix to a new washer variant follows the observed numbering pattern."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.79,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.79,
+        "prompt_tokens": 1631,
+        "completion_tokens": 1394,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.674,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.67,
+        "prompt_tokens": 1628,
+        "completion_tokens": 466
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "description",
+        "value": "Plastic Tire",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Tire.Plastic' indicates the component is a tire made of plastic; no other item provides a concrete description to copy, so the description is inferred from the title following the simple '<Material> <Component>' pattern used elsewhere (e.g., 'Actuator Assembly')."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.184,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.18,
+        "prompt_tokens": 1618,
+        "completion_tokens": 371,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.895,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.89,
+        "prompt_tokens": 1620,
+        "completion_tokens": 506
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "description",
+        "value": "Pneumatic tire",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Tire.Pneumatic' directly indicates a tire that is pneumatic (air‑filled).",
+          "It is used in the Hand Truck assembly, implying a standard pneumatic tire for that equipment."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.435,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.43,
+        "prompt_tokens": 1628,
+        "completion_tokens": 240,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.358,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.36,
+        "prompt_tokens": 1630,
+        "completion_tokens": 576
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "description",
+        "value": "WELD TO AXLE SUPPORT",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Weld.Axle.Support' indicates a welding operation applied to the axle support.",
+          "It appears in the Leg.Support assembly alongside other parts, matching the pattern of other weld items (e.g., 'Weld.Short.to.Brace') that lack explicit descriptions."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.672,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.67,
+        "prompt_tokens": 1629,
+        "completion_tokens": 465,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.128,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.13,
+        "prompt_tokens": 1631,
+        "completion_tokens": 548
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "description",
+        "value": "Weld joining a long pipe to a brace",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'Weld.Long.to.Brace' indicates a weld that connects a long component (likely a pipe) to a brace",
+          "Similar item 'Weld.Short.to.Brace' suggests a parallel naming convention for short vs. long variants"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.342,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.34,
+        "prompt_tokens": 1629,
+        "completion_tokens": 405,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.488,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.49,
+        "prompt_tokens": 1631,
+        "completion_tokens": 432
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "description",
+        "value": "Short weld to brace",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Weld.Long.to.Brace",
+          "source: Weld.Axle.Support",
+          "The item name 'Weld.Short.to.Brace' suggests a welding operation of a short length to a brace",
+          "Follows the naming pattern of similar items such as 'Weld.Long.to.Brace' and 'Weld.Axle.Support'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.496,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.5,
+        "prompt_tokens": 1629,
+        "completion_tokens": 615,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Weld.Long.to.Brace",
+          "Weld.Axle.Support"
+        ],
+        "sources_found": [
+          "Weld.Long.to.Brace",
+          "Weld.Axle.Support"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.331,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.33,
+        "prompt_tokens": 1631,
+        "completion_tokens": 577
+      }
+    }
+  ]
+}

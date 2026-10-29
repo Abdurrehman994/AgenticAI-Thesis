@@ -1,0 +1,33 @@
+{
+  "collabspace": "API_development",
+  "suggester": "rules",
+  "label": "rules",
+  "dataset": null,
+  "fields": [
+    "description"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Guard assembly",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_ASM_GUARD'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    }
+  ]
+}

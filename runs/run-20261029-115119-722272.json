@@ -1,0 +1,1268 @@
+{
+  "collabspace": "API_development",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b+evidence",
+  "dataset": "data/dataset_cad.json",
+  "fields": [
+    "material"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "material",
+        "value": "Carbon Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Handle",
+          "source: Brace.Pipe",
+          "source: Lower Pipe",
+          "Axle is a load‑bearing component in a hand truck, typically made of steel.",
+          "Other pipe‑type parts in the project (Handle, Brace.Pipe, Lower Pipe) are standard weight steel, suggesting the axle uses the same material."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.289,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.29,
+        "prompt_tokens": 1736,
+        "completion_tokens": 589,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Handle",
+          "Brace.Pipe",
+          "Lower Pipe"
+        ],
+        "sources_found": [
+          "Handle",
+          "Brace.Pipe",
+          "Lower Pipe"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Axle components are typically metal parts; no plastic material is indicated for related axle items.",
+          "Other hardware items (e.g., SWC-Screw, SWC-Lower Bearing) use steel or brass, suggesting metal is the standard material for load‑bearing parts.",
+          "A cap for an axle is generally a metal (steel) component to resist wear and provide structural integrity."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.297,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.3,
+        "prompt_tokens": 1728,
+        "completion_tokens": 408,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Axle.Support is a structural component used in a support assembly, similar to other metal support parts (e.g., Mounting.Plate, Axle.Cap) which are typically made of steel.",
+          "Weld.Axle.Support suggests a weldable metal, reinforcing the inference of a steel material.",
+          "The project contains several steel-based items (e.g., SWC-Base sprinkler: 356.0-T6 Permanent Mold cast (SS), SWC-Screw: Cast Alloy Steel), indicating steel is a common material for load‑bearing parts."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.234,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.23,
+        "prompt_tokens": 1737,
+        "completion_tokens": 579,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.206,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.21,
+        "prompt_tokens": 1735,
+        "completion_tokens": 392
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "material",
+        "value": "Carbon Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Handle",
+          "The description 'STANDARD WEIGHT PIPE' is commonly used for carbon steel pipe in this project",
+          "Similar parts (e.g., Handle) also have 'STANDARD WEIGHT PIPE' description, suggesting the same material"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.232,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.23,
+        "prompt_tokens": 1737,
+        "completion_tokens": 396,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Handle"
+        ],
+        "sources_found": [
+          "Handle"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "material",
+        "value": "Cast Alloy Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Screw",
+          "Caster assemblies are typically made from forged or cast steel components (axle, mounting plate, bolts).",
+          "The only cast metal material present in the project is \"Cast Alloy Steel\" for SWC‑Screw, suggesting a similar choice for other structural cast parts."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.111,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.11,
+        "prompt_tokens": 1737,
+        "completion_tokens": 375,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Screw"
+        ],
+        "sources_found": [
+          "SWC-Screw"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "material",
+        "value": "Carbon Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Handle description: \"1\\\" STANDARD WEIGHT PIPE\" suggests use of standard weight pipe material, commonly carbon steel.",
+          "Other child parts (e.g., Brace.Pipe, Lower Pipe) are also described as standard weight pipe, implying the same material for the overall Hand Truck."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.919,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.92,
+        "prompt_tokens": 1728,
+        "completion_tokens": 339,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.092,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.09,
+        "prompt_tokens": 1735,
+        "completion_tokens": 371
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Handle",
+          "source: Lower Pipe",
+          "source: Short.Pipe",
+          "source: Brace.Pipe",
+          "Leg.Support is a structural component of the Hand Truck, analogous to other pipe parts listed as \"STANDARD WEIGHT PIPE\" which are normally steel",
+          "Its children include pipe elements (Lower Pipe, Short Pipe, Brace Pipe) that are standard weight steel, indicating the leg support would use the same material"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.435,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.43,
+        "prompt_tokens": 1737,
+        "completion_tokens": 616,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Handle",
+          "Lower Pipe",
+          "Short.Pipe",
+          "Brace.Pipe"
+        ],
+        "sources_found": [
+          "Handle",
+          "Lower Pipe",
+          "Short.Pipe",
+          "Brace.Pipe"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title and description indicate a 'STANDARD WEIGHT PIPE', which in industry typically refers to carbon/standard steel pipe",
+          "No other pipe items in the provided context have a material defined, so inference from common practice is required"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.808,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.81,
+        "prompt_tokens": 1736,
+        "completion_tokens": 320,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "material",
+        "value": "Cast Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Mounting.Plate is a structural component of the Hand Truck assembly, similar to the Handle (standard weight pipe), Axle and other load‑bearing parts that are typically manufactured from steel.",
+          "The project uses steel‑based materials for other structural items (e.g., SWC-Base uses a stainless‑steel cast, SWC‑Screw uses Cast Alloy Steel), indicating steel as the default material for load‑bearing metal parts."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.785,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.78,
+        "prompt_tokens": 1738,
+        "completion_tokens": 679,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: Round Head Bolt_AI",
+          "The Nut is used together with a Round Head Bolt in the Hand Truck assembly; bolts are commonly made of steel.",
+          "Other fasteners in the project (e.g., SWC-Screw) are specified as Cast Alloy Steel, indicating a preference for steel fasteners."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.827,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.83,
+        "prompt_tokens": 1735,
+        "completion_tokens": 323,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "Round Head Bolt_AI"
+        ],
+        "sources_found": [
+          "Round Head Bolt_AI"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Screw",
+          "Fasteners such as screws in the same project are made of alloy steel.",
+          "Bolts are typically manufactured from the same material class as screws.",
+          "The only metal material used for comparable small hardware items in the context is alloy steel (SS)."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.108,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.11,
+        "prompt_tokens": 1738,
+        "completion_tokens": 556,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Screw"
+        ],
+        "sources_found": [
+          "SWC-Screw"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Spring-swingarm sprinkler",
+          "source: SWC-Screw",
+          "Metal actuator assemblies in this project are typically made from steel alloys (e.g., the swingarm spring is \"Alloy Steel (SS)\" and the screw is \"Cast Alloy Steel\").",
+          "All other sprinkler components that are structural or load‑bearing (bearings, washers) use Brass, while the actuator is a motion‑transmitting part, suggesting a stronger material such as steel.",
+          "No existing item directly matches \"Actuator\" with a defined material, so the material is inferred from similar mechanical parts."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.819,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.82,
+        "prompt_tokens": 1740,
+        "completion_tokens": 502,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Spring-swingarm sprinkler",
+          "SWC-Screw"
+        ],
+        "sources_found": [
+          "SWC-Spring-swingarm sprinkler",
+          "SWC-Screw"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Rotation Adjustment sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "Adjustment-type parts in the SWC assembly (spray angle adjuster, spray disruptor, engage lever, name plate, rotation adjustment, swingarm) are recorded as ABS (or ABS PC).",
+          "The knob serves a similar functional role as these adjustment components, suggesting the same material choice."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.467,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.47,
+        "prompt_tokens": 1741,
+        "completion_tokens": 438,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Rotation Adjustment sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Rotation Adjustment sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "material",
+        "value": "356.0-T6 Permanent Mold cast (SS)",
+        "confidence": 0.8,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: copied",
+          "source: SWC-Base sprinkler",
+          "Child item 'SWC-Base sprinkler' (Ground Base Rod) specifies material '356.0-T6 Permanent Mold cast (SS)'.",
+          "'SWC-Base' is the parent of this child, implying they share the same material."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.741,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.74,
+        "prompt_tokens": 1739,
+        "completion_tokens": 307,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "SWC-Base sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Body sprinkler",
+        "title": "SWC-Body sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Body sprinkler",
+        "title": "SWC-Body sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "Most sibling sprinkler components in the same assembly are listed with material ABS",
+          "ABS is used for various external and functional parts of the sprinkler system, indicating a common material choice for body components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.697,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.7,
+        "prompt_tokens": 1739,
+        "completion_tokens": 422,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cap sprinkler",
+        "title": "SWC-Cap sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cap sprinkler",
+        "title": "SWC-Cap sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Swingarm sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Rotation Adjustment sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "Most non‑metal sprinkler components in the same assembly are made of ABS plastic.",
+          "The cap serves as a protective cover, a role typically fulfilled by ABS in this product line.",
+          "No metal‑only parts (e.g., bearings, base) are used for small external covers, suggesting a plastic material."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.986,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.99,
+        "prompt_tokens": 1739,
+        "completion_tokens": 563,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Swingarm sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Rotation Adjustment sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Swingarm sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Rotation Adjustment sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "material",
+        "value": "Brass",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Lower Bearing sprinkler",
+          "source: SWC-Upper Bearing sprinkler",
+          "source: SWC-Upper Washer sprinkler",
+          "Collar is a structural ring component, analogous to bearings and washers which are specified as Brass in the same sprinkler family",
+          "Metal parts of the sprinkler assembly that provide strength or corrosion resistance use Brass, while plastic parts are marked ABS",
+          "No existing item matches the collar directly, so material is inferred from similar metal components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.507,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 6.51,
+        "prompt_tokens": 1739,
+        "completion_tokens": 800,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Lower Bearing sprinkler",
+          "SWC-Upper Bearing sprinkler",
+          "SWC-Upper Washer sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Lower Bearing sprinkler",
+          "SWC-Upper Bearing sprinkler",
+          "SWC-Upper Washer sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cover sprinkler",
+        "title": "SWC-Cover sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cover sprinkler",
+        "title": "SWC-Cover sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "Multiple non-structural sprinkler components (adjusters, disruptor, lever, name plate, swingarm) are specified as ABS.",
+          "Casing covers are typically made of the same plastic material as other external parts of the sprinkler assembly."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.789,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.79,
+        "prompt_tokens": 1739,
+        "completion_tokens": 461,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.8,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: copied",
+          "source: SWC-Spring-swingarm sprinkler",
+          "The item name contains 'Spring', and another spring component in the same project ('SWC-Spring-swingarm sprinkler') is specified as Alloy Steel (SS).",
+          "Springs in this product family are consistently made of alloy steel, suggesting the same material for the Engage Spring."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.849,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.85,
+        "prompt_tokens": 1741,
+        "completion_tokens": 328,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "SWC-Spring-swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spring-swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket sprinkler",
+        "title": "SWC-Gasket sprinkler",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.745,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.74,
+        "prompt_tokens": 1739,
+        "completion_tokens": 599
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler",
+        "title": "SWC-Gasket-jet sprinkler",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.079,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.08,
+        "prompt_tokens": 1741,
+        "completion_tokens": 598
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "Several other sprinkler‑family components in the same assembly list ABS as their material.",
+          "The majority of external, non‑metallic sprinkler parts (adjuster, disruptor, lever, name plate) are ABS, suggesting a consistent material choice for similar functional parts.",
+          "No metal material is indicated for the Jet sprinkler, and the pattern of using ABS for plastic sprinkler components supports this assignment."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.146,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 7.15,
+        "prompt_tokens": 1739,
+        "completion_tokens": 714,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.8,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: copied",
+          "source: SWC-Engage Lever sprinkler",
+          "The related part 'SWC-Engage Lever sprinkler' (partNumber 505-0601-00) has material ABS.",
+          "Lock lever is a similar small plastic component within the same sprinkler family, and many comparable parts (e.g., spray adjuster, disruptor, swingarm) also use ABS."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.924,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.92,
+        "prompt_tokens": 1740,
+        "completion_tokens": 340,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "SWC-Engage Lever sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Engage Lever sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.273,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.27,
+        "prompt_tokens": 1734,
+        "completion_tokens": 768
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "material",
+        "value": "Brass",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Upper Bearing sprinkler",
+          "source: SWC-Lower Bearing sprinkler",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "source: SWC-Upper Washer sprinkler",
+          "source: SWC-Washer-Swingarm sprinkler",
+          "Rotator is a rotating component that mates with brass bearings and washers in the same assembly.",
+          "Brass is commonly used for rotating parts to provide low friction and wear resistance.",
+          "No other material is indicated for similar rotating or bearing-adjacent parts in the context."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.108,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.11,
+        "prompt_tokens": 1740,
+        "completion_tokens": 555,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Upper Bearing sprinkler",
+          "SWC-Lower Bearing sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Upper Washer sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Upper Bearing sprinkler",
+          "SWC-Lower Bearing sprinkler",
+          "SWC-Washer-Swingarm sprinkler",
+          "SWC-Upper Washer sprinkler",
+          "SWC-Washer-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "material",
+        "value": "Stainless Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Base sprinkler",
+          "source: SWC-Spring-swingarm sprinkler",
+          "source: SWC-Screw",
+          "Structural components of the sprinkler (base, spring, screw) are specified as stainless or alloy steel, indicating the shaft is likely made of stainless steel for strength and corrosion resistance.",
+          "No brass parts are used for load‑bearing shafts in the given context; brass is used for washers and bearings, not the central shaft."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.588,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.59,
+        "prompt_tokens": 1739,
+        "completion_tokens": 455,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Base sprinkler",
+          "SWC-Spring-swingarm sprinkler",
+          "SWC-Screw"
+        ],
+        "sources_found": [
+          "SWC-Base sprinkler",
+          "SWC-Spring-swingarm sprinkler",
+          "SWC-Screw"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler",
+        "title": "SWC-Spring-upper bearing sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler",
+        "title": "SWC-Spring-upper bearing sprinkler",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Spring-swingarm sprinkler",
+          "Other spring item 'SWC-Spring-swingarm sprinkler' uses material 'Alloy Steel (SS)'.",
+          "Naming pattern 'SWC-Spring-...' suggests similar material across spring components."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.324,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.32,
+        "prompt_tokens": 1741,
+        "completion_tokens": 412,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Spring-swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Spring-swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title and description (\"1 1/4\\\" STANDARD WEIGHT PIPE\") indicate a typical standard weight pipe, which is commonly made of carbon steel."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.642,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.64,
+        "prompt_tokens": 1737,
+        "completion_tokens": 289,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: SWC-Engage Lever sprinkler",
+          "source: SWC-Name Plate sprinkler",
+          "source: SWC-Spray Angle Adjustment sprinkler",
+          "source: SWC-Spray Disruptor sprinkler",
+          "source: SWC-Swingarm sprinkler",
+          "All listed items are plastic components and have material ABS, indicating a project‑wide pattern for plastic parts",
+          "The title 'Tire.Plastic' explicitly denotes a plastic part, aligning with the established material pattern"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.59,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.59,
+        "prompt_tokens": 1729,
+        "completion_tokens": 645,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Engage Lever sprinkler",
+          "SWC-Name Plate sprinkler",
+          "SWC-Spray Angle Adjustment sprinkler",
+          "SWC-Spray Disruptor sprinkler",
+          "SWC-Swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "material",
+        "value": "Rubber",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item title 'Tire.Pneumatic' denotes a pneumatic tire, which is typically made of rubber."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.492,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.49,
+        "prompt_tokens": 1739,
+        "completion_tokens": 262,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "material",
+        "value": "Alloy Steel (SS)",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: SWC-Screw",
+          "source: SWC-Spring-swingarm sprinkler",
+          "Structural welds in similar assemblies are typically made of steel.",
+          "Other metal components in the project use Alloy Steel (SS) or Cast Alloy Steel, indicating steel as the common material for load‑bearing parts."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.249,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.25,
+        "prompt_tokens": 1740,
+        "completion_tokens": 581,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "SWC-Screw",
+          "SWC-Spring-swingarm sprinkler"
+        ],
+        "sources_found": [
+          "SWC-Screw",
+          "SWC-Spring-swingarm sprinkler"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "material",
+        "value": "Steel",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The item is a weld, and welds in structural assemblies are conventionally made of steel.",
+          "The surrounding parts (pipes, braces) are standard weight steel pipe, implying a steel weld."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.84,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.84,
+        "prompt_tokens": 1740,
+        "completion_tokens": 507,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.523,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.52,
+        "prompt_tokens": 1740,
+        "completion_tokens": 631
+      }
+    }
+  ]
+}

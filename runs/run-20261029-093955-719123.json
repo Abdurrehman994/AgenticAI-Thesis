@@ -1,0 +1,473 @@
+{
+  "collabspace": "API_development",
+  "suggester": "rules",
+  "label": "rules",
+  "dataset": "data/dataset_cad.json",
+  "fields": [
+    "material"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-Axle",
+        "title": "Axle",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Cap",
+        "title": "Axle.Cap",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Axle.Support",
+        "title": "Axle.Support",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Blade",
+        "title": "Blade",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Brace.Pipe",
+        "title": "Brace.Pipe",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Caster.Assembly",
+        "title": "Caster.Assembly",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Hand Truck",
+        "title": "Hand Truck",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Handle",
+        "title": "Handle",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Leg.Support",
+        "title": "Leg.Support",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Lower Pipe",
+        "title": "Lower Pipe",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Mounting.Plate",
+        "title": "Mounting.Plate",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Nut",
+        "title": "Nut",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Round Head Bolt_AI",
+        "title": "Round Head Bolt_AI",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator",
+        "title": "SWC-Actuator",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler",
+        "title": "SWC-Adjustment Knob sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base",
+        "title": "SWC-Base",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Body sprinkler",
+        "title": "SWC-Body sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Body sprinkler",
+        "title": "SWC-Body sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cap sprinkler",
+        "title": "SWC-Cap sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cap sprinkler",
+        "title": "SWC-Cap sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Actuator: ABS x2, Alloy Steel (SS) x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler",
+        "title": "SWC-Collar sprinkler",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cover sprinkler",
+        "title": "SWC-Cover sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cover sprinkler",
+        "title": "SWC-Cover sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler",
+        "title": "SWC-Engage Spring sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket sprinkler",
+        "title": "SWC-Gasket sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Gasket sprinkler",
+        "title": "SWC-Gasket sprinkler",
+        "field": "material",
+        "value": "Brass",
+        "confidence": 0.6,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-OrbitalSprinkler: Brass x4"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler",
+        "title": "SWC-Gasket-jet sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler",
+        "title": "SWC-Gasket-jet sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler",
+        "title": "SWC-Jet sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler",
+        "title": "SWC-Locklever sprinkler",
+        "field": "material",
+        "value": "ABS",
+        "confidence": 0.4,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-Rotator: ABS x3, Cast Alloy Steel x1"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler",
+        "title": "SWC-OrbitalSprinkler",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator",
+        "title": "SWC-Rotator",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Shaft sprinkler",
+        "title": "SWC-Shaft sprinkler",
+        "field": "material",
+        "value": "Brass",
+        "confidence": 0.6,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-OrbitalSprinkler: Brass x4"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler",
+        "title": "SWC-Spring-upper bearing sprinkler",
+        "field": "material"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler",
+        "title": "SWC-Spring-upper bearing sprinkler",
+        "field": "material",
+        "value": "Brass",
+        "confidence": 0.6,
+        "method": "sibling-material",
+        "evidence": [
+          "materials of the other parts under SWC-OrbitalSprinkler: Brass x4"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Short.Pipe",
+        "title": "Short.Pipe",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Plastic",
+        "title": "Tire.Plastic",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Tire.Pneumatic",
+        "title": "Tire.Pneumatic",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Axle.Support",
+        "title": "Weld.Axle.Support",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Long.to.Brace",
+        "title": "Weld.Long.to.Brace",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "ID-Weld.Short.to.Brace",
+        "title": "Weld.Short.to.Brace",
+        "field": "material"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    }
+  ]
+}

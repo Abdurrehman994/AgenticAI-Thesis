@@ -1,0 +1,478 @@
+{
+  "collabspace": "API_development",
+  "suggester": "agent",
+  "label": "agent:gpt-oss-120b+evidence",
+  "dataset": "data/dataset.json",
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Guard assembly, includes mesh guard panel and hinge, powder coated",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: API_GUARD_PANEL_MESH",
+          "The assembly title API_ASM_GUARD suggests it combines guard components.",
+          "Related item API_GUARD_PANEL_MESH provides description of the panel part, indicating material and finish, which is likely inherited by the assembly."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.501,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "GUARD"
+            }
+          }
+        ],
+        "latency_s": 8.51,
+        "prompt_tokens": 1314,
+        "completion_tokens": 877,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "API_GUARD_PANEL_MESH"
+        ],
+        "sources_found": [
+          "API_GUARD_PANEL_MESH"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Deep groove ball bearing 6204 2RS",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title indicates a bearing of type 6204 with 2RS seals, typical description follows 'Deep groove ball bearing' format."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.002,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_BEARING"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "BEARING"
+            }
+          }
+        ],
+        "latency_s": 7.01,
+        "prompt_tokens": 2680,
+        "completion_tokens": 672,
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "API_BEARING_6204_2RS"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber",
+        "value": "API-BELT-PVC-600",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title follows the pattern <family>_<type>_<size>. Part numbers in the system typically use hyphens instead of underscores and retain the same components."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.886,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_BELT_PVC"
+            }
+          }
+        ],
+        "latency_s": 6.89,
+        "prompt_tokens": 1930,
+        "completion_tokens": 689,
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.398,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 1.4,
+        "prompt_tokens": 1241,
+        "completion_tokens": 123,
+        "retried": true,
+        "error": "ValueError: no JSON object in the answer"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Aluminium guard hinge",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title 'API_GUARD_HINGE_AL' indicates a hinge used on a guard made of aluminium; no similar items found for copying."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.658,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "GUARD HINGE"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_GUARD_HINGE_AL"
+            }
+          }
+        ],
+        "latency_s": 6.66,
+        "prompt_tokens": 1948,
+        "completion_tokens": 642,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 18.631,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "API_GUARD_HINGE_AL"
+            }
+          }
+        ],
+        "latency_s": 18.63,
+        "prompt_tokens": 1887,
+        "completion_tokens": 1549,
+        "retried": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Gear for 0.37 kW motor",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title indicates it is a motor gear with rating 0.37 kW; similar items typically have descriptions of the form 'Gear for X kW motor'."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.969,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_MOTOR_GEAR_037KW"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_MOTOR_BRACKET"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "MOTOR GEAR KW"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "MOTOR GEAR"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "GEAR"
+            }
+          }
+        ],
+        "latency_s": 7.98,
+        "prompt_tokens": 5672,
+        "completion_tokens": 715,
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "API_MOTOR_GEAR_037KW"
+        ],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description",
+        "value": "Hexagon nut, M6, ISO 4032",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title indicates the part is a hexagon nut with metric thread M6 conforming to ISO 4032 standard."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 6.082,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 6.08,
+        "prompt_tokens": 1233,
+        "completion_tokens": 586,
+        "retried": true,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, diameter 50 mm",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title contains 'IDLER' and size 'D50', indicating an idler roller with 50 mm diameter, following the naming convention used in other items (e.g., belt description includes size in mm)."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 13.459,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ROLLER_IDLER_D50"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_CONVEYOR_MODULE"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "ROLLER IDLER"
+            }
+          }
+        ],
+        "latency_s": 13.46,
+        "prompt_tokens": 2956,
+        "completion_tokens": 1292,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.01,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_ROLLER_IDLER"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "ROLLER IDLER"
+            }
+          }
+        ],
+        "latency_s": 4.02,
+        "prompt_tokens": 1923,
+        "completion_tokens": 364
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description",
+        "value": "API standard washer, M8 size, complying with ISO 7089 (rubber washer) for vibration isolation and sealing.",
+        "confidence": 0.3,
+        "method": "agent:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Title indicates API washer, metric size M8, and ISO 7089 standard, which defines specifications for rubber washers. No identical item found to copy; description inferred from naming conventions."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.519,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [],
+        "latency_s": 3.52,
+        "prompt_tokens": 597,
+        "completion_tokens": 335,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 11.434,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_WASHER_M8_ISO7089"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "ISO7089"
+            }
+          }
+        ],
+        "latency_s": 11.44,
+        "prompt_tokens": 1949,
+        "completion_tokens": 1284
+      }
+    }
+  ]
+}

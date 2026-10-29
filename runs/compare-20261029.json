@@ -1,0 +1,562 @@
+{
+  "table": {
+    "llm:gpt-oss-120b | dataset.json": {
+      "runs": 3,
+      "errors": 0,
+      "graded": {
+        "mean": 12,
+        "min": 12,
+        "max": 12
+      },
+      "coverage": {
+        "mean": 0.888888888888889,
+        "min": 0.8333333333333334,
+        "max": 1.0
+      },
+      "accuracy": {
+        "mean": 0.47222222222222227,
+        "min": 0.4166666666666667,
+        "max": 0.5833333333333334
+      },
+      "close": {
+        "mean": 0.75,
+        "min": 0.6666666666666666,
+        "max": 0.8333333333333334
+      },
+      "precision": {
+        "mean": 0.5277777777777778,
+        "min": 0.5,
+        "max": 0.5833333333333334
+      },
+      "written": {
+        "mean": 10.666666666666666,
+        "min": 10,
+        "max": 12
+      },
+      "written_correct": {
+        "mean": 5.666666666666667,
+        "min": 5,
+        "max": 7
+      },
+      "brier": {
+        "mean": 0.30944,
+        "min": 0.2894,
+        "max": 0.32867
+      },
+      "seconds": {
+        "mean": 3.230888888888889,
+        "min": 3.174916666666667,
+        "max": 3.3425833333333332
+      },
+      "tokens": {
+        "mean": 1290.1666666666667,
+        "min": 1274.9166666666667,
+        "max": 1302.4166666666667
+      }
+    },
+    "llm:gpt-oss-120b | dataset_cad.json": {
+      "runs": 3,
+      "errors": 0,
+      "graded": {
+        "mean": 17,
+        "min": 17,
+        "max": 17
+      },
+      "coverage": {
+        "mean": 0.6470588235294118,
+        "min": 0.6470588235294118,
+        "max": 0.6470588235294118
+      },
+      "accuracy": {
+        "mean": 0.0392156862745098,
+        "min": 0.0,
+        "max": 0.058823529411764705
+      },
+      "close": {
+        "mean": 0.1568627450980392,
+        "min": 0.058823529411764705,
+        "max": 0.23529411764705882
+      },
+      "precision": {
+        "mean": 0.06060606060606061,
+        "min": 0.0,
+        "max": 0.09090909090909091
+      },
+      "written": {
+        "mean": 11,
+        "min": 11,
+        "max": 11
+      },
+      "written_correct": {
+        "mean": 0.6666666666666666,
+        "min": 0,
+        "max": 1
+      },
+      "brier": {
+        "mean": 0.5226454545454545,
+        "min": 0.5035181818181819,
+        "max": 0.5374909090909091
+      },
+      "seconds": {
+        "mean": 4.120505952380952,
+        "min": 3.9014285714285712,
+        "max": 4.479196428571429
+      },
+      "tokens": {
+        "mean": 2062.6785714285716,
+        "min": 2048.2678571428573,
+        "max": 2087.660714285714
+      }
+    },
+    "llm:gpt-oss-120b+evidence | dataset.json": {
+      "runs": 3,
+      "errors": 0,
+      "graded": {
+        "mean": 12,
+        "min": 12,
+        "max": 12
+      },
+      "coverage": {
+        "mean": 0.8333333333333334,
+        "min": 0.8333333333333334,
+        "max": 0.8333333333333334
+      },
+      "accuracy": {
+        "mean": 0.4722222222222222,
+        "min": 0.4166666666666667,
+        "max": 0.5
+      },
+      "close": {
+        "mean": 0.6944444444444444,
+        "min": 0.6666666666666666,
+        "max": 0.75
+      },
+      "precision": {
+        "mean": 0.5666666666666667,
+        "min": 0.5,
+        "max": 0.6
+      },
+      "written": {
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "written_correct": {
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "brier": {
+        "mean": 0.15166666666666664,
+        "min": 0.125,
+        "max": 0.16999999999999998
+      },
+      "seconds": {
+        "mean": 2.7438333333333333,
+        "min": 2.589916666666667,
+        "max": 2.9157499999999996
+      },
+      "tokens": {
+        "mean": 1456.3055555555554,
+        "min": 1438.25,
+        "max": 1484.8333333333333
+      }
+    },
+    "llm:gpt-oss-120b+evidence | dataset_cad.json": {
+      "runs": 4,
+      "errors": 0,
+      "graded": {
+        "mean": 17,
+        "min": 17,
+        "max": 17
+      },
+      "coverage": {
+        "mean": 0.6323529411764706,
+        "min": 0.5294117647058824,
+        "max": 0.7647058823529411
+      },
+      "accuracy": {
+        "mean": 0.07352941176470588,
+        "min": 0.058823529411764705,
+        "max": 0.11764705882352941
+      },
+      "close": {
+        "mean": 0.14705882352941177,
+        "min": 0.058823529411764705,
+        "max": 0.23529411764705882
+      },
+      "precision": {
+        "mean": 0.11396658896658897,
+        "min": 0.09090909090909091,
+        "max": 0.15384615384615385
+      },
+      "written": {
+        "mean": 2.25,
+        "min": 0,
+        "max": 5
+      },
+      "written_correct": {
+        "mean": 0.25,
+        "min": 0,
+        "max": 1
+      },
+      "brier": {
+        "mean": 0.19593628593628593,
+        "min": 0.13444444444444445,
+        "max": 0.2438461538461538
+      },
+      "seconds": {
+        "mean": 3.676299107142857,
+        "min": 3.426482142857143,
+        "max": 4.245017857142857
+      },
+      "tokens": {
+        "mean": 2225.424107142857,
+        "min": 2193.910714285714,
+        "max": 2245.875
+      }
+    },
+    "rules | dataset.json": {
+      "runs": 1,
+      "errors": 0,
+      "graded": {
+        "mean": 12,
+        "min": 12,
+        "max": 12
+      },
+      "coverage": {
+        "mean": 0.8333333333333334,
+        "min": 0.8333333333333334,
+        "max": 0.8333333333333334
+      },
+      "accuracy": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5
+      },
+      "close": {
+        "mean": 0.6666666666666666,
+        "min": 0.6666666666666666,
+        "max": 0.6666666666666666
+      },
+      "precision": {
+        "mean": 0.6,
+        "min": 0.6,
+        "max": 0.6
+      },
+      "written": {
+        "mean": 5,
+        "min": 5,
+        "max": 5
+      },
+      "written_correct": {
+        "mean": 5,
+        "min": 5,
+        "max": 5
+      },
+      "brier": {
+        "mean": 0.127,
+        "min": 0.127,
+        "max": 0.127
+      },
+      "seconds": {
+        "mean": 0.00025,
+        "min": 0.00025,
+        "max": 0.00025
+      },
+      "tokens": null
+    },
+    "rules | dataset_cad.json": {
+      "runs": 1,
+      "errors": 0,
+      "graded": {
+        "mean": 17,
+        "min": 17,
+        "max": 17
+      },
+      "coverage": {
+        "mean": 0.5882352941176471,
+        "min": 0.5882352941176471,
+        "max": 0.5882352941176471
+      },
+      "accuracy": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "close": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "precision": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "written": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "written_correct": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "brier": {
+        "mean": 0.097,
+        "min": 0.097,
+        "max": 0.097
+      },
+      "seconds": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": null
+    }
+  },
+  "runs": [
+    {
+      "run": "run-20261023-153939-050143.json",
+      "suggester": "rules",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.5,
+      "close": 0.6666666666666666,
+      "precision": 0.6,
+      "written": 5,
+      "written_correct": 5,
+      "brier": 0.127,
+      "seconds": 0.00025,
+      "tokens": null,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-153939-785921.json",
+      "suggester": "rules",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.5882352941176471,
+      "accuracy": 0.0,
+      "close": 0.0,
+      "precision": 0.0,
+      "written": 0,
+      "written_correct": 0,
+      "brier": 0.097,
+      "seconds": 0.0,
+      "tokens": null,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-154021-619842.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 1.0,
+      "accuracy": 0.5833333333333334,
+      "close": 0.8333333333333334,
+      "precision": 0.5833333333333334,
+      "written": 12,
+      "written_correct": 7,
+      "brier": 0.31025,
+      "seconds": 3.3425833333333332,
+      "tokens": 1302.4166666666667,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-154059-722806.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.4166666666666667,
+      "close": 0.75,
+      "precision": 0.5,
+      "written": 10,
+      "written_correct": 5,
+      "brier": 0.2894,
+      "seconds": 3.1751666666666662,
+      "tokens": 1293.1666666666667,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-154137-823375.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.4166666666666667,
+      "close": 0.6666666666666666,
+      "precision": 0.5,
+      "written": 10,
+      "written_correct": 5,
+      "brier": 0.32867,
+      "seconds": 3.174916666666667,
+      "tokens": 1274.9166666666667,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-154352-281806.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.6470588235294118,
+      "accuracy": 0.058823529411764705,
+      "close": 0.17647058823529413,
+      "precision": 0.09090909090909091,
+      "written": 11,
+      "written_correct": 1,
+      "brier": 0.5269272727272727,
+      "seconds": 4.479196428571429,
+      "tokens": 2052.1071428571427,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-154730-765631.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.6470588235294118,
+      "accuracy": 0.0,
+      "close": 0.058823529411764705,
+      "precision": 0.0,
+      "written": 11,
+      "written_correct": 0,
+      "brier": 0.5374909090909091,
+      "seconds": 3.9014285714285712,
+      "tokens": 2087.660714285714,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-155113-700443.json",
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.6470588235294118,
+      "accuracy": 0.058823529411764705,
+      "close": 0.23529411764705882,
+      "precision": 0.09090909090909091,
+      "written": 11,
+      "written_correct": 1,
+      "brier": 0.5035181818181819,
+      "seconds": 3.9808928571428575,
+      "tokens": 2048.2678571428573,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-164417-176395.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.5,
+      "close": 0.75,
+      "precision": 0.6,
+      "written": 4,
+      "written_correct": 4,
+      "brier": 0.15999999999999998,
+      "seconds": 2.9157499999999996,
+      "tokens": 1445.8333333333333,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-164449-887088.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.4166666666666667,
+      "close": 0.6666666666666666,
+      "precision": 0.5,
+      "written": 4,
+      "written_correct": 4,
+      "brier": 0.125,
+      "seconds": 2.7258333333333336,
+      "tokens": 1484.8333333333333,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-164520-969001.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "graded": 12,
+      "coverage": 0.8333333333333334,
+      "accuracy": 0.5,
+      "close": 0.6666666666666666,
+      "precision": 0.6,
+      "written": 4,
+      "written_correct": 4,
+      "brier": 0.16999999999999998,
+      "seconds": 2.589916666666667,
+      "tokens": 1438.25,
+      "errors": 0
+    },
+    {
+      "run": "run-20261023-164927-343003.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.5294117647058824,
+      "accuracy": 0.058823529411764705,
+      "close": 0.058823529411764705,
+      "precision": 0.1111111111111111,
+      "written": 0,
+      "written_correct": 0,
+      "brier": 0.13444444444444445,
+      "seconds": 4.245017857142857,
+      "tokens": 2193.910714285714,
+      "errors": 0
+    },
+    {
+      "run": "run-20261028-233927-336345.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.7647058823529411,
+      "accuracy": 0.11764705882352941,
+      "close": 0.23529411764705882,
+      "precision": 0.15384615384615385,
+      "written": 5,
+      "written_correct": 1,
+      "brier": 0.2438461538461538,
+      "seconds": 3.426482142857143,
+      "tokens": 2227.6785714285716,
+      "errors": 0
+    },
+    {
+      "run": "run-20261028-234242-299140.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.5882352941176471,
+      "accuracy": 0.058823529411764705,
+      "close": 0.17647058823529413,
+      "precision": 0.1,
+      "written": 1,
+      "written_correct": 0,
+      "brier": 0.16999999999999998,
+      "seconds": 3.481392857142857,
+      "tokens": 2245.875,
+      "errors": 0
+    },
+    {
+      "run": "run-20261028-234601-287748.json",
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "graded": 17,
+      "coverage": 0.6470588235294118,
+      "accuracy": 0.058823529411764705,
+      "close": 0.11764705882352941,
+      "precision": 0.09090909090909091,
+      "written": 3,
+      "written_correct": 0,
+      "brier": 0.23545454545454544,
+      "seconds": 3.5523035714285713,
+      "tokens": 2234.2321428571427,
+      "errors": 0
+    }
+  ]
+}

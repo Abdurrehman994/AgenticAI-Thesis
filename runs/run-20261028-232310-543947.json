@@ -1,0 +1,319 @@
+{
+  "collabspace": "API_development",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b+evidence",
+  "dataset": null,
+  "applied": true,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Protective mesh guard assembly with aluminium hinge",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: API_GUARD_PANEL_MESH",
+          "source: API_GUARD_HINGE_AL",
+          "source: API_ASM_CONVEYOR_LINE",
+          "Children items include a mesh guard panel, bolts, nuts and an aluminium hinge, indicating the assembly is a protective guard.",
+          "The guard is used in the conveyor line assembly, similar to other assemblies whose descriptions follow the pattern \"<function> assembly\"."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.034,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.74,
+        "prompt_tokens": 1158,
+        "completion_tokens": 392,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "API_GUARD_PANEL_MESH",
+          "API_GUARD_HINGE_AL",
+          "API_ASM_CONVEYOR_LINE"
+        ],
+        "sources_found": [
+          "API_GUARD_PANEL_MESH",
+          "API_GUARD_HINGE_AL",
+          "API_ASM_CONVEYOR_LINE"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Deep groove ball bearing 6204, double sealed (2RS)",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Title indicates a 6204 deep‑groove ball bearing with 2RS seals; description follows the pattern used for other items (type, size, key feature)."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.659,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.91,
+        "prompt_tokens": 1161,
+        "completion_tokens": 337,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A10000136D",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.697,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.37,
+        "prompt_tokens": 1161,
+        "completion_tokens": 420,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "API_ASM_CONVEYOR_MODULE",
+          "API_FRAME_SIDE_PLATE_S235",
+          "API_ROLLER_DRIVE_D50",
+          "API_BEARING_6204_2RS",
+          "API_BOLT_M8X25_ISO4017"
+        ],
+        "sources_found": [
+          "API_ASM_CONVEYOR_MODULE",
+          "API_FRAME_SIDE_PLATE_S235",
+          "API_ROLLER_DRIVE_D50",
+          "API_BEARING_6204_2RS",
+          "API_BOLT_M8X25_ISO4017"
+        ]
+      },
+      "ambiguous": "CNV-1003 also proposed for API_ROLLER_IDLER_D50"
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A30000139D",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A30000139D",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Guard hinge, aluminium, powder coated",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Title contains 'GUARD_HINGE' indicating a hinge for a guard",
+          "Suffix '_AL' suggests material aluminium",
+          "Other parts in the same guard assembly include finish specifications (e.g., powder coated), implying similar finish for the hinge"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.864,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.53,
+        "prompt_tokens": 1159,
+        "completion_tokens": 447,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A20000138B",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A20000138B",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Motor gear, 0.37 kW",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "Title 'API_MOTOR_GEAR_037KW' indicates a gear for a motor with a power rating of 0.37 kW",
+          "Item is used in the 'API_ASM_MOTOR_BRACKET' assembly, which groups motor‑related components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.641,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.96,
+        "prompt_tokens": 1159,
+        "completion_tokens": 345,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, D50 mm",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "source: API_ROLLER_DRIVE_D50",
+          "Title includes 'ROLLER' and diameter D50 like API_ROLLER_DRIVE_D50 which is described as 'Drive roller, D50 mm'",
+          "Idler rollers are standard passive rollers in conveyor modules, differing only by function from drive rollers"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.893,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.46,
+        "prompt_tokens": 1159,
+        "completion_tokens": 255,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [
+          "API_ROLLER_DRIVE_D50"
+        ],
+        "sources_found": [
+          "API_ROLLER_DRIVE_D50"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.992,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.99,
+        "prompt_tokens": 1161,
+        "completion_tokens": 351,
+        "basis": "inferred",
+        "stated_basis": "pattern",
+        "sources": [
+          "API_ASM_CONVEYOR_MODULE (CNV-1000)",
+          "API_FRAME_SIDE_PLATE_S235 (CNV-1001)",
+          "API_ROLLER_DRIVE_D50 (CNV-1002)",
+          "API_BEARING_6204_2RS (CNV-1004)",
+          "API_BOLT_M8X25_ISO4017 (CNV-1005)"
+        ],
+        "sources_found": []
+      },
+      "ambiguous": "CNV-1003 also proposed for API_BELT_PVC_600"
+    },
+    {
+      "gap": {
+        "item_id": "335D9C53C12722006A9FDE7C00000C71",
+        "title": "API_TEST_001",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "335D9C53C12722006A9FDE7C00000C71",
+        "title": "API_TEST_001",
+        "field": "partNumber",
+        "value": "TST-0001",
+        "confidence": 0.3,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title contains 'TEST_001', suggesting a test part with numeric identifier 001.",
+          "Other items use a three‑letter prefix indicating category (e.g., CNV, GRD, MTR) followed by a dash and a numeric series.",
+          "No existing part numbers with the 'TST' prefix are present, so assigning the first number in that series (0001) is consistent with the naming convention and avoids duplication."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.356,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.04,
+        "prompt_tokens": 1148,
+        "completion_tokens": 541,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A200001385",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A200001385",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description",
+        "value": "Plain washer M8 ISO 7089, zinc plated",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: pattern",
+          "source: API_NUT_M8_ISO4032",
+          "source: API_BOLT_M8X25_ISO4017",
+          "Title indicates M8 washer conforming to ISO 7089.",
+          "Other fasteners in the same assembly use the phrasing \"<type> <size> ISO <standard>, zinc plated\" and have a zinc plated finish."
+        ]
+      },
+      "proposal_id": "453f77cb",
+      "elapsed_s": 3.238,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.91,
+        "prompt_tokens": 1161,
+        "completion_tokens": 520,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "API_NUT_M8_ISO4032",
+          "API_BOLT_M8X25_ISO4017"
+        ],
+        "sources_found": [
+          "API_NUT_M8_ISO4032",
+          "API_BOLT_M8X25_ISO4017"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "collabspace": "API_development",
+  "suggester": "rules",
+  "label": "rules",
+  "dataset": null,
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A200001391",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Guard assembly",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_ASM_GUARD'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Bearing 6204 2RS",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_BEARING_6204_2RS'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A10000136D",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.547
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A30000139D",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A30000139D",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Guard hinge aluminium",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_GUARD_HINGE_AL'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A20000138B",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A20000138B",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Motor gear 037KW",
+        "confidence": 0.3,
+        "method": "title-expansion",
+        "evidence": [
+          "no similar item with a description; expanded the title 'API_MOTOR_GEAR_037KW'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.0
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, D50 mm",
+        "confidence": 0.6,
+        "method": "description-analogy",
+        "evidence": [
+          "API_ROLLER_DRIVE_D50 has description 'Drive roller, D50 mm'",
+          "titles differ only in DRIVE->IDLER"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 0.001
+    },
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A00000135B",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.173
+    },
+    {
+      "gap": {
+        "item_id": "335D9C53C12722006A9FDE7C00000C71",
+        "title": "API_TEST_001",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 0.165
+    }
+  ]
+}
