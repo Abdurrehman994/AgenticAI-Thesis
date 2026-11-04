@@ -68,7 +68,16 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
    rare they are in the collab space; size specs must agree (an M6 and an M8 nut are variants, not duplicates), a
    different material rules a pair out, and assemblies with the same children match whatever they are called.
    Every candidate comes with its reasons (shared words, same specs, same material, same children).
-8. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
+8. **3DDashboard widget** (`widget/`, served by `serve_widget.py`): the reviewer's side inside 3DEXPERIENCE, in
+   the "Run your App" widget. Review tab (approve, edit and approve, reject, with the same conflict check as
+   `review.py`), release readiness as a BOM tree, and duplicates with a "check before creating" box. The widget
+   calls 3DSpace with the logged-in user's own session (WAFData): no credentials in the widget, and each user sees
+   and changes only what their role allows. The local server only serves the files and the proposal log (part
+   number proposals live only there) and records the decisions. The checks are a JavaScript port (`widget/core.js`)
+   that a test compares with the Python on both datasets. Opened outside 3DDashboard, it runs on a dataset:
+   the offline demo. Verified on the tenant on 4 November 2026: 19 items and 18 BOM links read with the user's
+   session inside 3DDashboard.
+9. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
    handles only items that are new or changed since the last poll (it compares each item's `cestamp`; search lags
    a few minutes behind changes, so this is near-real-time at best). This is
    the stand-in for platform events: with the Enterprise Integration Architect role, an event handler would call
@@ -116,6 +125,14 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 # Duplicates (read-only): every candidate pair, or check a part before creating it (exit 1 = may exist)
 .venv\Scripts\python.exe scripts\duplicates.py [--dataset data\dataset_cad.json]
 .venv\Scripts\python.exe scripts\duplicates.py --new "Hex bolt M8x25, zinc plated" [--title T] [--material M]
+
+# 3DDashboard widget: open https://localhost:8443/index.html once (accept the certificate), then paste the
+# same URL into the "Run your App" widget (lite.html if index.html does not connect); ?tab=readiness opens a tab
+# (works for the offline demo; 3DDashboard cannot frame localhost, so for live use build single-file pages and
+# host them on HTTPS, e.g. https://abdurrehman994.github.io/plm-agent-widget/index.html)
+.venv\Scripts\python.exe scripts\serve_widget.py [--port 8443]
+.venv\Scripts\python.exe scripts\build_widget.py      # widget/dist/: self-contained pages to host
+.venv\Scripts\python.exe scriptsuild_widget.py                    # widget/dist/: self-contained pages to host
 
 # Review proposals on the command line...
 .venv\Scripts\python.exe scripts\review.py

@@ -33,6 +33,7 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
 .venv\Scripts\python.exe scripts\readiness.py API_ASM_GUARD [--route [--yes]]     # BOM release check, exit 1 = not ready
 .venv\Scripts\python.exe scripts\duplicates.py [--dataset D] [--new "description"] [--plant 6 --seeds 10]  # read-only
+.venv\Scripts\python.exe scripts\serve_widget.py [--port 8443]          # widget at https://localhost:8443/index.html
 .venv\Scripts\python.exe scripts\extract_cad.py                               # needs SolidWorks, read-only
 .venv\Scripts\python.exe scripts\cad_to_dataset.py                            # cad_extract.json -> dataset_cad.json
 ```
@@ -102,6 +103,24 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    part/assembly mismatch rule a pair out, same children match assemblies. `[PROPOSED]` descriptions are ignored.
    `find_existing` checks a part before creation. `plant` adds known duplicates for the recall/precision
    evaluation; the 0.5 default was chosen on `dataset.json`. Same part number is the readiness check's job.
+
+9. 3DDashboard widget (`widget/`, `scripts/serve_widget.py`), loaded with "Run your App". In 3DDashboard `app.js`
+   calls 3DSpace through `DS/WAFData` with the user's session (SecurityContext header, `?tenant=`, CSRF from
+   `/resources/v1/application/CSRF`); outside it (top-level window) it runs on `/api/offline` (a dataset with rule
+   proposals at confidence >= 0.5 marked `[PROPOSED]`, nothing written). `core.js` ports readiness and
+   duplicates: `tests/test_widget.py` runs it in node and compares with the Python, so change both together.
+   The server (127.0.0.1, self-signed cert in `widget/.cert/`, CORS only for `*.3dexperience.3ds.com`) serves
+   `/api/config` (no credentials), `/api/pending` and `POST /api/decision` (appends to the proposal log, `via:
+   widget`). Approve/reject in the widget write to PLM with the user's own rights after a confirm dialog.
+   Verified on the tenant (4 Nov 2026): loads in "Run your App", WAFData search, BOM reads and CSRF work with the
+   user's session. `i3DXCompassServices.getServiceUrl` never answers there: after 8 s the widget derives 3DSpace from
+   the frame's `widgetDomain` (`-ifwe.` -> `-space.` + `/enovia`). The dashboard fetches the page through its own
+   proxy and runs it on a pod frame host; a page with ~45 KB inline head code did not load, so `index.html` is a
+   small ASCII loader that pulls core.js/app.js/style.css by absolute URL.
+   "Run your App" cannot load localhost (no request reaches the server): `scripts/build_widget.py` inlines
+   css/js into `widget/dist/`, published to the public repo Abdurrehman994/plm-agent-widget (GitHub Pages). There
+   the laptop backend is unreachable too, so the widget works on PLM alone (part-number proposals stay in review.py).
+   While Pages deploys were stuck, `githack.html` (raw.githack.com, pinned to a commit) served the same loader.
 
 Write-back contract: descriptions go into PLM as `[PROPOSED] value`; part numbers are identifiers, so they are never
 prefixed, only logged, and written on approval. `approve` / `reject` detect conflicts by comparing the field's content,

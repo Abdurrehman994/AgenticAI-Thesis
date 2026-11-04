@@ -7,3 +7,7 @@ runs/watch-state.json
 
 # SOLIDWORKS sample models: read by extract_cad.py, kept out of git (data/cad_extract.json holds what the agent uses)
 data/*_CADData/
+
+# Widget: self-signed certificate made by scripts/serve_widget.py
+widget/.cert/
+widget/dist/
