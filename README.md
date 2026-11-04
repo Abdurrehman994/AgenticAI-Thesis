@@ -57,7 +57,12 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
    counts only if the agent actually looked at that item. Tools are declared as native function calls, with a
    plain JSON fallback for endpoints without tool support. Versions are labelled (`agent-v3:...`); v1 and v2 runs
    stay in the comparison.
-6. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
+6. **Release readiness** (`readiness.py`): before an assembly is released, walk its whole BOM and list every
+   blocker: missing descriptions or part numbers, `[PROPOSED]` values nobody approved, proposals still pending
+   review, part numbers used twice, cycles in the structure. Read-only; exit code 1 when not ready, and
+   optionally a route task with the verdict in the reviewer's 3DEXPERIENCE inbox. It reports rather than blocks:
+   changing the maturity state would need the lifecycle API.
+7. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
    handles only items that are new or changed since the last poll (it compares each item's `cestamp`; search lags
    a few minutes behind changes, so this is near-real-time at best). This is
    the stand-in for platform events: with the Enterprise Integration Architect role, an event handler would call
@@ -98,6 +103,9 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 
 # Continuous mode: poll every 5 minutes and handle only new or changed items (--baseline: only later changes)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--interval 300] [--once] [--apply]
+
+# Release readiness of an assembly (read-only; --route sends the verdict as a task, --yes creates it)
+.venv\Scripts\python.exe scripts\readiness.py API_ASM_CONVEYOR_LINE [--out runs\readiness.json] [--route [--yes]]
 
 # Review proposals on the command line...
 .venv\Scripts\python.exe scripts\review.py

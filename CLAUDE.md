@@ -31,12 +31,13 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json   # offline, threshold from data
 .venv\Scripts\python.exe scripts\run_agent.py --only TITLE_OR_ID [--fields description]  # one item (demo)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
+.venv\Scripts\python.exe scripts\readiness.py API_ASM_GUARD [--route [--yes]]     # BOM release check, exit 1 = not ready
 .venv\Scripts\python.exe scripts\extract_cad.py                               # needs SolidWorks, read-only
 .venv\Scripts\python.exe scripts\cad_to_dataset.py                            # cad_extract.json -> dataset_cad.json
 ```
 
 Tenant scripts read `.env` (see `.env.example`). Without `--yes` / `--apply` the scripts are dry runs. `seed_items.py --yes`,
-`run_agent.py --apply`, `watch_agent.py --apply`, `review.py --approve/--reject`, `review_route.py ... --yes` and `checkpoint.py` write to a
+`run_agent.py --apply`, `watch_agent.py --apply`, `readiness.py --route --yes`, `review.py --approve/--reject`, `review_route.py ... --yes` and `checkpoint.py` write to a
 real, shared university tenant:
 confirm with the user before running them.
 
@@ -88,6 +89,11 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    `cestamp` with the last poll (state in `runs/watch-state.json`), and `run(..., only=changed_ids)` handles just those.
    `only` takes titles or ids and still loads the whole collab space, so the evidence equals a full run. An event
    handler (once the Enterprise Integration Architect role is granted) is meant to call the same `run(only=...)`.
+
+7. Release readiness (`agent/readiness.py`, `scripts/readiness.py`): read-only. `walk_bom` visits every item under
+   a root once (cycles become issues); `check` reports missing fields (via `find_gaps`; material only on parts),
+   `[PROPOSED]` descriptions, pending proposals from the log, and part numbers shared with any other item.
+   `--route` sends the verdict as one Approve task (same route shape as the proposal review).
 
 Write-back contract: descriptions go into PLM as `[PROPOSED] value`; part numbers are identifiers, so they are never
 prefixed, only logged, and written on approval. `approve` / `reject` detect conflicts by comparing the field's content,
