@@ -32,6 +32,7 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\run_agent.py --only TITLE_OR_ID [--fields description]  # one item (demo)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
 .venv\Scripts\python.exe scripts\readiness.py API_ASM_GUARD [--route [--yes]]     # BOM release check, exit 1 = not ready
+.venv\Scripts\python.exe scripts\duplicates.py [--dataset D] [--new "description"] [--plant 6 --seeds 10]  # read-only
 .venv\Scripts\python.exe scripts\extract_cad.py                               # needs SolidWorks, read-only
 .venv\Scripts\python.exe scripts\cad_to_dataset.py                            # cad_extract.json -> dataset_cad.json
 ```
@@ -94,6 +95,13 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    a root once (cycles become issues); `check` reports missing fields (via `find_gaps`; material only on parts),
    `[PROPOSED]` descriptions, pending proposals from the log, and part numbers shared with any other item.
    `--route` sends the verdict as one Approve task (same route shape as the proposal review).
+
+8. Duplicate detection (`agent/duplicates.py`, `scripts/duplicates.py`): read-only, plain code. Idf-weighted Jaccard
+   over title and description words (also description-only, so a meaningless new title cannot hide a copy); spec
+   words (with a digit, from the description when there is one) must not conflict, a different material and a
+   part/assembly mismatch rule a pair out, same children match assemblies. `[PROPOSED]` descriptions are ignored.
+   `find_existing` checks a part before creation. `plant` adds known duplicates for the recall/precision
+   evaluation; the 0.5 default was chosen on `dataset.json`. Same part number is the readiness check's job.
 
 Write-back contract: descriptions go into PLM as `[PROPOSED] value`; part numbers are identifiers, so they are never
 prefixed, only logged, and written on approval. `approve` / `reject` detect conflicts by comparing the field's content,

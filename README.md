@@ -62,7 +62,13 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
    review, part numbers used twice, cycles in the structure. Read-only; exit code 1 when not ready, and
    optionally a route task with the verdict in the reviewer's 3DEXPERIENCE inbox. It reports rather than blocks:
    changing the maturity state would need the lifecycle API.
-7. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
+7. **Duplicate detection** (`duplicates.py`): parts that already exist under another title or part number, either
+   every candidate pair in the collab space or, before a part is created, the existing items it may duplicate
+   (`--new "Hex bolt M8x25, zinc plated"`). Plain code, read-only: title and description words weighted by how
+   rare they are in the collab space; size specs must agree (an M6 and an M8 nut are variants, not duplicates), a
+   different material rules a pair out, and assemblies with the same children match whatever they are called.
+   Every candidate comes with its reasons (shared words, same specs, same material, same children).
+8. **Continuous mode** (`watch_agent.py`): instead of one run over everything, the agent polls the collab space and
    handles only items that are new or changed since the last poll (it compares each item's `cestamp`; search lags
    a few minutes behind changes, so this is near-real-time at best). This is
    the stand-in for platform events: with the Enterprise Integration Architect role, an event handler would call
@@ -106,6 +112,10 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 
 # Release readiness of an assembly (read-only; --route sends the verdict as a task, --yes creates it)
 .venv\Scripts\python.exe scripts\readiness.py API_ASM_CONVEYOR_LINE [--out runs\readiness.json] [--route [--yes]]
+
+# Duplicates (read-only): every candidate pair, or check a part before creating it (exit 1 = may exist)
+.venv\Scripts\python.exe scripts\duplicates.py [--dataset data\dataset_cad.json]
+.venv\Scripts\python.exe scripts\duplicates.py --new "Hex bolt M8x25, zinc plated" [--title T] [--material M]
 
 # Review proposals on the command line...
 .venv\Scripts\python.exe scripts\review.py
@@ -246,6 +256,31 @@ safety on another. Wrong writes are still reviewed before they count, but this i
 Most CAD descriptions are configuration-specific properties, not on the file's Custom tab: reading only the Custom
 tab makes the sprinkler look almost empty. The source data has its own errors too (the upper bearing spring is
 described as "Upper bearing - 22mm").
+
+### Duplicate detection (4 November 2026)
+
+There are no known duplicates in the datasets, so `duplicates.py --plant N` adds them: N parts created a second
+time with no part number and no BOM place, the description lowercased with its last detail dropped, and every second
+copy given a title that says nothing (`NEW PART A`), so only its description can match. 6 copies, 10 seeds (mean, min):
+
+| Threshold | `dataset.json`: recall | precision | `dataset_cad.json`: recall | precision |
+|---|---|---|---|---|
+| 0.4 | 100% (100%) | 97% (86%) | 100% (100%) | 34% (30%) |
+| 0.5 (default) | 100% (100%) | 100% (100%) | 100% (100%) | 41% (35%) |
+| 0.6 | 48% (33%) | 100% (100%) | 100% (100%) | 44% (38%) |
+
+0.5 is the highest threshold that finds every planted copy on `dataset.json`, which has no other duplicates: its M6
+and M8 nuts and bolts share every word but the size and are correctly not reported. The CAD precision counts real
+near-duplicates as wrong, because they were not planted: without planting, the detector reports 6 pairs in the CAD
+data at 0.5, and 4 are worth a reviewer's look:
+- `SWC-Gasket sprinkler` / `SWC-Gasket-jet sprinkler`: both "Base gasket" (506-0601-00, 506-0702-00);
+- `Lower Pipe` / `Short.Pipe`: both `1 1/4" STANDARD WEIGHT PIPE` (the 1" handle pipe is kept apart);
+- `SWC-Upper Washer` / `SWC-Washer-Swingarm`: brass washers, 23 mm;
+- `SWC-Spring-upper bearing` / `SWC-Upper Bearing`: the spring is described as "Upper bearing - 22mm", an error in
+  the source data found this way.
+The other 2 are welds next to the parts they join (`Axle.Support` / `Weld.Axle.Support`, the long and short brace
+welds): items with no description match on title words alone. Planted copies of the short CAD descriptions are
+easy to find (recall stays 100% up to 0.9); the measure to improve is precision on real data.
 
 ## Findings about the API
 
