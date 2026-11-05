@@ -182,6 +182,9 @@ same blanks and nothing is written to the tenant:
 
 # Agreement between repeated runs as a confidence signal (one decision per gap)
 .venv\Scripts\python.exe scripts\agreement.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--out runs\agreement.json]
+
+# Check the model's "copied" claims in code and demote the ones it cannot confirm
+.venv\Scripts\python.exe scripts\verify_copies.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--demote 0.3]
 ```
 
 ## Tests
@@ -387,6 +390,31 @@ bootstrap interval overlaps the one without agreement, so this is a consistent t
 improvement. The threshold test is mixed: for the tool-using agent, the combined threshold chosen on
 `dataset.json` (0.47) writes 4 CAD decisions of which 1 is wrong, where the basis alone writes none; for the
 evidence-based LLM it does not help (5 of 6 wrong). The price is one model call per run: 3 or more per gap.
+
+### Checking the "copied" claim in code (5 November 2026)
+
+`agent/verify.py` checks an answer the model says it copied against the items it was shown: a **literal copy** (the
+source's value), a **variant swap** (the source's value with the title tokens the two items differ in replaced,
+M8 -> M6, each of which the value must mention) or **unverified**. `verify_copies.py` applies it to the existing
+evidence-mode runs (exact match):
+
+| Suggester | Dataset | Variant swap: right | Literal copy: right | Unverified: right |
+|---|---|---|---|---|
+| Tool-using agent v3 | `dataset.json` | 18 of 18 answers (3 gaps) | - | 0 of 1 (1 gap) |
+| Tool-using agent v3 | `dataset_cad.json` | 6 of 6 (2 gaps) | 0 of 1 (1 gap) | 0 of 6 (3 gaps) |
+| LLM, evidence-based | `dataset.json` | 3 of 3 (2 gaps) | - | - |
+
+Every answer the code could confirm as a variant swap was right; none of the unverified "copies" was. Demoting
+unverified copies to 0.3 (the confidence of "inferred") changes what a threshold transfers: for the tool-using agent
+the tolerant threshold chosen on `dataset.json` (0.80, at most 10% wrong there) writes values on the CAD data that
+are **14% wrong instead of 54%** (0.2 wrong values per run instead of 1.8), at no cost on `dataset.json`, where all
+verified copies stay at 0.8. ECE on the CAD data moves only from 0.34 to 0.30: the check fixes the top of the
+confidence scale, where values get written, not the rest. It does nothing for the evidence-based LLM, which claimed
+no copies on the CAD data: its wrong writes come from "pattern" answers, mostly part numbers guessed from a family
+sequence, which a check of the number pattern would have to catch. With close matching the check makes no
+difference, because the agent is close on nearly everything in `dataset.json` and the tolerant threshold falls to
+0.10, below any demotion. The samples are small (2-3 gaps per verified kind), so this shows the mechanism, not its
+size.
 
 ### Duplicate detection (4 November 2026)
 

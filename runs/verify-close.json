@@ -1,0 +1,253 @@
+{
+  "correct": "close match",
+  "demote": 0.3,
+  "checks": [
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "check": "variant swap",
+      "gaps": 3,
+      "answers": 18,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "check": "unverified",
+      "gaps": 1,
+      "answers": 1,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "check": "literal copy",
+      "gaps": 1,
+      "answers": 1,
+      "accuracy": 0.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "check": "variant swap",
+      "gaps": 2,
+      "answers": 6,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "check": "unverified",
+      "gaps": 3,
+      "answers": 6,
+      "accuracy": 0.5,
+      "ci": null
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "check": "variant swap",
+      "gaps": 2,
+      "answers": 3,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "check": "literal copy",
+      "gaps": 1,
+      "answers": 1,
+      "accuracy": 0.0,
+      "ci": null
+    }
+  ],
+  "calibration": [
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "fixed",
+      "ece": 0.34461538461538466,
+      "ci": [
+        0.23859649122807017,
+        0.46764705882352947
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "checked",
+      "ece": 0.3523076923076923,
+      "ci": [
+        0.24285714285714283,
+        0.476271186440678
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "fixed",
+      "ece": 0.19791666666666666,
+      "ci": [
+        0.07380952380952378,
+        0.4043478260869565
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "checked",
+      "ece": 0.1520833333333333,
+      "ci": [
+        0.06170212765957442,
+        0.36521739130434777
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "fixed",
+      "ece": 0.3633333333333333,
+      "ci": [
+        0.18,
+        0.5366666666666666
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "checked",
+      "ece": 0.3633333333333333,
+      "ci": [
+        0.18,
+        0.5366666666666666
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "fixed",
+      "ece": 0.1511627906976744,
+      "ci": [
+        0.04468085106382978,
+        0.3631578947368421
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "checked",
+      "ece": 0.1511627906976744,
+      "ci": [
+        0.04468085106382978,
+        0.3631578947368421
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "mapping": "fixed",
+      "ece": 0.3066666666666667,
+      "ci": [
+        0.0866666666666667,
+        0.5466666666666667
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "mapping": "checked",
+      "ece": 0.3066666666666667,
+      "ci": [
+        0.0866666666666667,
+        0.5466666666666667
+      ]
+    }
+  ],
+  "transfer": [
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "fixed",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.1,
+      "written": 12.0,
+      "wrong": 7.25,
+      "correct_coverage": 0.27941176470588236
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.1,
+      "written": 12.0,
+      "wrong": 7.25,
+      "correct_coverage": 0.27941176470588236
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "fixed",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "fixed",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.7,
+      "written": 2.25,
+      "wrong": 1.75,
+      "correct_coverage": 0.029411764705882353
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.7,
+      "written": 2.25,
+      "wrong": 1.75,
+      "correct_coverage": 0.029411764705882353
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "fixed",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    }
+  ]
+}
