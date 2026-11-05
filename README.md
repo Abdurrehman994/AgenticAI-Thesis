@@ -293,6 +293,8 @@ described as "Upper bearing - 22mm").
 
 ECE (expected calibration error) is the gap between confidence and accuracy, averaged over bins of width 0.2; 0 is
 perfect. The model's own confidence is the worst: on the CAD data it is 75% sure on average and 7% right.
+The fixed evidence mapping (0.8 / 0.7 / 0.3 / 0.1) was chosen with `dataset.json` in view, like the rules, so its
+calibration there is optimistic; the CAD data is the fair test of it.
 
 Accuracy per stated basis, tool-using agent v3, descriptions (`--by-field`; gaps = distinct blank fields, each
 answered in 4-6 repeated runs):
