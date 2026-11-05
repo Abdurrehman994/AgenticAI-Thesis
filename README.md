@@ -179,6 +179,9 @@ same blanks and nothing is written to the tenant:
 
 # Calibration: confidence against accuracy, per basis, and whether a learned mapping transfers
 .venv\Scripts\python.exe scripts\calibration.py --since 20261023 --suggester agent-v3 --suggester llm: --suggester rules [--by-field] [--close] [--plot runs\reliability.png] [--out runs\calibration.json]
+
+# Agreement between repeated runs as a confidence signal (one decision per gap)
+.venv\Scripts\python.exe scripts\agreement.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--out runs\agreement.json]
 ```
 
 ## Tests
@@ -356,6 +359,34 @@ source item; the others adapt it (Hex nut M8 -> M6). A check that the proposed v
 value therefore cannot verify the claim; it has to recognise a variant swap, as the `description-analogy` rule
 does. On the CAD data many wrong "copied" and "pattern" answers are close paraphrases ("Sprinkler rotation
 adjuster" for "Rotation Adjuster") or a part number guessed from a family pattern.
+
+### Agreement between repeated runs (5 November 2026)
+
+`agreement.py` turns the repeated runs into one decision per gap, as if the agent were run several times before
+anything is written: the majority answer, with its **agreement** (share of runs that gave it), its **basis**
+(the mean confidence the runs gave it) and **combined** = basis x agreement. Exact match; 3-6 runs per dataset:
+
+| Suggester | Dataset | Unanimous gaps: right | Split gaps: right |
+|---|---|---|---|
+| Tool-using agent v3, evidence-based | `dataset.json` | 5 of 6 (83%) | 1 of 6 (17%) |
+| Tool-using agent v3, evidence-based | `dataset_cad.json` | 2 of 3 (67%) | 2 of 13 (15%) |
+| LLM, evidence-based | `dataset.json` | 5 of 5 (100%) | 1 of 5 (20%) |
+| LLM, evidence-based | `dataset_cad.json` | 1 of 1 | 1 of 12 (8%) |
+| LLM, self-rated | `dataset.json` | 5 of 6 (83%) | 2 of 6 (33%) |
+| LLM, self-rated | `dataset_cad.json` | **0 of 2** | 1 of 9 (11%) |
+
+A split answer is almost never right, on either dataset; a unanimous one usually is, and on the unfamiliar CAD
+data far fewer gaps are unanimous (1-3 of 11-16), so a rule "write only unanimous answers" writes less exactly
+where the agent knows less. It does not catch systematic errors: the self-rated LLM gave the same wrong answer in
+every run for both of its unanimous CAD gaps. With close matching (`--close`) the evidence-based suggesters' unanimous answers are right on all 15 gaps
+where they were unanimous.
+
+Combining the signal with the basis improves calibration on the CAD data for all three suggesters (ECE of the gap
+decisions: tool-using agent 0.40 -> 0.16, evidence-based LLM 0.28 -> 0.05, self-rated LLM 0.67 -> 0.35), but each
+bootstrap interval overlaps the one without agreement, so this is a consistent trend, not yet a proven
+improvement. The threshold test is mixed: for the tool-using agent, the combined threshold chosen on
+`dataset.json` (0.47) writes 4 CAD decisions of which 1 is wrong, where the basis alone writes none; for the
+evidence-based LLM it does not help (5 of 6 wrong). The price is one model call per run: 3 or more per gap.
 
 ### Duplicate detection (4 November 2026)
 

@@ -1,0 +1,1256 @@
+{
+  "correct": "close match",
+  "groups": [
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "runs": 6,
+      "graded": 12,
+      "decisions": [
+        {
+          "gap": "API_ASM_GUARD|description",
+          "field": "description",
+          "value": "Guard assembly",
+          "answers": 6,
+          "distinct": 6,
+          "agreement": 0.16666666666666666,
+          "basis": 0.7,
+          "combined": 0.11666666666666665,
+          "correct": true
+        },
+        {
+          "gap": "API_BEARING_6204_2RS|description",
+          "field": "description",
+          "value": "Deep groove ball bearing 6204 with double rubber seals (2RS)",
+          "answers": 5,
+          "distinct": 4,
+          "agreement": 0.3333333333333333,
+          "basis": 0.3,
+          "combined": 0.09999999999999999,
+          "correct": true
+        },
+        {
+          "gap": "API_BELT_PVC_600|partNumber",
+          "field": "partNumber",
+          "value": "BOLT-M6X16-4017",
+          "answers": 2,
+          "distinct": 2,
+          "agreement": 0.16666666666666666,
+          "basis": 0.3,
+          "combined": 0.049999999999999996,
+          "correct": false
+        },
+        {
+          "gap": "API_BOLT_M6X16_ISO4017|description",
+          "field": "description",
+          "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.8000000000000002,
+          "combined": 0.8000000000000002,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|description",
+          "field": "description",
+          "value": "Aluminium guard hinge",
+          "answers": 6,
+          "distinct": 3,
+          "agreement": 0.6666666666666666,
+          "basis": 0.3,
+          "combined": 0.19999999999999998,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|partNumber",
+          "field": "partNumber",
+          "value": "GRD-3002",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.6999999999999998,
+          "combined": 0.6999999999999998,
+          "correct": true
+        },
+        {
+          "gap": "API_MOTOR_GEAR_037KW|description",
+          "field": "description",
+          "value": "Motor gear, 0.37 kW",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.3,
+          "combined": 0.3,
+          "correct": true
+        },
+        {
+          "gap": "API_NUT_M6_ISO4032|description",
+          "field": "description",
+          "value": "Hex nut M6 ISO 4032, zinc plated",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.8000000000000002,
+          "combined": 0.8000000000000002,
+          "correct": true
+        },
+        {
+          "gap": "API_ROLLER_IDLER_D50|description",
+          "field": "description",
+          "value": "Idler roller, D50 mm",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.8000000000000002,
+          "combined": 0.8000000000000002,
+          "correct": true
+        },
+        {
+          "gap": "API_ROLLER_IDLER_D50|partNumber",
+          "field": "partNumber",
+          "value": "CNV-1003",
+          "answers": 6,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.6999999999999998,
+          "combined": 0.6999999999999998,
+          "correct": true
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|description",
+          "field": "description",
+          "value": "Flat washer M8 ISO 7089, zinc plated",
+          "answers": 6,
+          "distinct": 2,
+          "agreement": 0.5,
+          "basis": 0.6,
+          "combined": 0.3,
+          "correct": true
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|partNumber",
+          "field": "partNumber",
+          "value": "MTR-2003",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 0.6666666666666666,
+          "basis": 0.7,
+          "combined": 0.4666666666666666,
+          "correct": true
+        }
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "runs": 4,
+      "graded": 17,
+      "decisions": [
+        {
+          "gap": "SWC-Adjustment Knob sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "513-0601-00",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Base|description",
+          "field": "description",
+          "value": "Base Assembly",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.3,
+          "combined": 0.15,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Collar sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler collar",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.3,
+          "combined": 0.15,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Collar sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "502-0601-00",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 0.75,
+          "basis": 0.6999999999999998,
+          "combined": 0.5249999999999999,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Engage Spring sprinkler|description",
+          "field": "description",
+          "value": "Engagement Spring",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.8,
+          "combined": 0.8,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Jet sprinkler|description",
+          "field": "description",
+          "value": "Jet nozzle",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.5,
+          "combined": 0.25,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Locklever sprinkler|description",
+          "field": "description",
+          "value": "Lock lever",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.5,
+          "basis": 0.75,
+          "combined": 0.375,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Lower Bearing sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "507-0801-00",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Name Plate sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler name plate",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.5,
+          "basis": 0.55,
+          "combined": 0.275,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Rotation Adjustment sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler rotation adjuster",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.775,
+          "combined": 0.775,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Rotation Adjustment sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "501-0602-00",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Rotator|description",
+          "field": "description",
+          "value": "Rotator Assembly",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.75,
+          "combined": 0.75,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Screw|description",
+          "field": "description",
+          "value": "Rotator screw",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.3,
+          "combined": 0.075,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Shaft sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "503-0601-00",
+          "answers": 2,
+          "distinct": 2,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Spring-swingarm sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "507-0602-00",
+          "answers": 2,
+          "distinct": 2,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Upper Washer sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "504-0803-01",
+          "answers": 2,
+          "distinct": 2,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        }
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset.json",
+      "runs": 4,
+      "graded": 12,
+      "decisions": [
+        {
+          "gap": "API_ASM_GUARD|description",
+          "field": "description",
+          "value": "Guard assembly, mesh panel with hinge",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.78,
+          "combined": 0.195,
+          "correct": false
+        },
+        {
+          "gap": "API_BEARING_6204_2RS|description",
+          "field": "description",
+          "value": "Ball bearing 6204 2RS, 20 × 47 × 14 mm, steel, double sealed",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.92,
+          "combined": 0.23,
+          "correct": false
+        },
+        {
+          "gap": "API_BELT_PVC_600|partNumber",
+          "field": "partNumber",
+          "value": "CNV-1006",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.62,
+          "combined": 0.155,
+          "correct": true
+        },
+        {
+          "gap": "API_BOLT_M6X16_ISO4017|description",
+          "field": "description",
+          "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.9325,
+          "combined": 0.9325,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|description",
+          "field": "description",
+          "value": "Aluminium guard hinge, for guard panel assembly",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.78,
+          "combined": 0.195,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|partNumber",
+          "field": "partNumber",
+          "value": "GRD-3002",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.9,
+          "combined": 0.9,
+          "correct": true
+        },
+        {
+          "gap": "API_MOTOR_GEAR_037KW|description",
+          "field": "description",
+          "value": "Motor gear, 0.37 kW, steel",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.7366666666666667,
+          "combined": 0.5525,
+          "correct": true
+        },
+        {
+          "gap": "API_NUT_M6_ISO4032|description",
+          "field": "description",
+          "value": "Hex nut M6 ISO 4032, zinc plated",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.94,
+          "combined": 0.94,
+          "correct": true
+        },
+        {
+          "gap": "API_ROLLER_IDLER_D50|description",
+          "field": "description",
+          "value": "Idler roller, D50 mm",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.9475,
+          "combined": 0.9475,
+          "correct": true
+        },
+        {
+          "gap": "API_ROLLER_IDLER_D50|partNumber",
+          "field": "partNumber",
+          "value": "CNV-1003",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.92,
+          "combined": 0.23,
+          "correct": true
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|description",
+          "field": "description",
+          "value": "Plain washer M8 ISO 7089, zinc plated",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.8625,
+          "combined": 0.8625,
+          "correct": true
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|partNumber",
+          "field": "partNumber",
+          "value": "MTR-2003",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.76,
+          "combined": 0.76,
+          "correct": true
+        }
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "dataset": "dataset_cad.json",
+      "runs": 4,
+      "graded": 17,
+      "decisions": [
+        {
+          "gap": "SWC-Base|description",
+          "field": "description",
+          "value": "Ground Base Rod",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.75,
+          "combined": 0.1875,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Collar sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler base collar",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.78,
+          "combined": 0.39,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Engage Spring sprinkler|description",
+          "field": "description",
+          "value": "Engagement spring",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.8033333333333333,
+          "combined": 0.6025,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Jet sprinkler|description",
+          "field": "description",
+          "value": "Jet spray nozzle",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.78,
+          "combined": 0.39,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Locklever sprinkler|description",
+          "field": "description",
+          "value": "Lock Lever",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.79,
+          "combined": 0.5925,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Name Plate sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler name plate",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.8266666666666667,
+          "combined": 0.62,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Rotation Adjustment sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler rotation adjuster",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.78,
+          "combined": 0.78,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Rotator|description",
+          "field": "description",
+          "value": "Rotator assembly for orbital sprinkler head",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.78,
+          "combined": 0.195,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Screw|description",
+          "field": "description",
+          "value": "Mounting screw",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.78,
+          "combined": 0.195,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Spring-swingarm sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "508-0601-00",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.6975,
+          "combined": 0.6975,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Upper Washer sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "504-0601-00",
+          "answers": 3,
+          "distinct": 3,
+          "agreement": 0.25,
+          "basis": 0.62,
+          "combined": 0.155,
+          "correct": false
+        }
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "runs": 3,
+      "graded": 12,
+      "decisions": [
+        {
+          "gap": "API_ASM_GUARD|description",
+          "field": "description",
+          "value": "Guard assembly, mesh panel with hinge",
+          "answers": 3,
+          "distinct": 3,
+          "agreement": 0.3333333333333333,
+          "basis": 0.3,
+          "combined": 0.09999999999999999,
+          "correct": false
+        },
+        {
+          "gap": "API_BEARING_6204_2RS|description",
+          "field": "description",
+          "value": "Deep groove ball bearing 6204 2RS, double sealed",
+          "answers": 3,
+          "distinct": 3,
+          "agreement": 0.3333333333333333,
+          "basis": 0.3,
+          "combined": 0.09999999999999999,
+          "correct": true
+        },
+        {
+          "gap": "API_BOLT_M6X16_ISO4017|description",
+          "field": "description",
+          "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.7666666666666666,
+          "combined": 0.7666666666666666,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|description",
+          "field": "description",
+          "value": "Guard hinge, aluminium",
+          "answers": 3,
+          "distinct": 2,
+          "agreement": 0.6666666666666666,
+          "basis": 0.3,
+          "combined": 0.19999999999999998,
+          "correct": true
+        },
+        {
+          "gap": "API_GUARD_HINGE_AL|partNumber",
+          "field": "partNumber",
+          "value": "GRD-3002",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.6999999999999998,
+          "combined": 0.6999999999999998,
+          "correct": true
+        },
+        {
+          "gap": "API_MOTOR_GEAR_037KW|description",
+          "field": "description",
+          "value": "Gear for 0.37 kW motor",
+          "answers": 3,
+          "distinct": 3,
+          "agreement": 0.3333333333333333,
+          "basis": 0.3,
+          "combined": 0.09999999999999999,
+          "correct": true
+        },
+        {
+          "gap": "API_NUT_M6_ISO4032|description",
+          "field": "description",
+          "value": "Hex nut M6 ISO 4032, zinc plated",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.7333333333333334,
+          "combined": 0.7333333333333334,
+          "correct": true
+        },
+        {
+          "gap": "API_ROLLER_IDLER_D50|description",
+          "field": "description",
+          "value": "Idler roller, D50 mm",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.3,
+          "combined": 0.3,
+          "correct": true
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|description",
+          "field": "description",
+          "value": "Conical lock washer M8, ISO 7089, zinc plated",
+          "answers": 3,
+          "distinct": 3,
+          "agreement": 0.3333333333333333,
+          "basis": 0.3,
+          "combined": 0.09999999999999999,
+          "correct": false
+        },
+        {
+          "gap": "API_WASHER_M8_ISO7089|partNumber",
+          "field": "partNumber",
+          "value": "MTR-2003",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.6999999999999998,
+          "combined": 0.6999999999999998,
+          "correct": true
+        }
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "runs": 4,
+      "graded": 17,
+      "decisions": [
+        {
+          "gap": "SWC-Base|description",
+          "field": "description",
+          "value": "Base plate for sprinkler assembly",
+          "answers": 4,
+          "distinct": 3,
+          "agreement": 0.5,
+          "basis": 0.3,
+          "combined": 0.15,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Collar sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler collar",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.3,
+          "combined": 0.22499999999999998,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Engage Spring sprinkler|description",
+          "field": "description",
+          "value": "Engagement Spring",
+          "answers": 4,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.3,
+          "combined": 0.3,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Jet sprinkler|description",
+          "field": "description",
+          "value": "Jet spray nozzle",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.3,
+          "combined": 0.22499999999999998,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Locklever sprinkler|description",
+          "field": "description",
+          "value": "Lock Lever",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.3,
+          "combined": 0.22499999999999998,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Name Plate sprinkler|description",
+          "field": "description",
+          "value": "Name plate",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.5,
+          "basis": 0.3,
+          "combined": 0.15,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Rotation Adjustment sprinkler|description",
+          "field": "description",
+          "value": "Sprinkler rotation adjuster",
+          "answers": 4,
+          "distinct": 2,
+          "agreement": 0.75,
+          "basis": 0.4333333333333333,
+          "combined": 0.32499999999999996,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Rotation Adjustment sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "508-0601-00",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Rotator|description",
+          "field": "description",
+          "value": "Rotating mechanism for sprinkler head",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.3,
+          "combined": 0.075,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Screw|description",
+          "field": "description",
+          "value": "Fastening screw",
+          "answers": 4,
+          "distinct": 4,
+          "agreement": 0.25,
+          "basis": 0.3,
+          "combined": 0.075,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Screw|partNumber",
+          "field": "partNumber",
+          "value": "509-0601-00",
+          "answers": 1,
+          "distinct": 1,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Spring-swingarm sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "507-0601-01",
+          "answers": 2,
+          "distinct": 2,
+          "agreement": 0.25,
+          "basis": 0.7,
+          "combined": 0.175,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Upper Washer sprinkler|partNumber",
+          "field": "partNumber",
+          "value": "504-0804-00",
+          "answers": 3,
+          "distinct": 2,
+          "agreement": 0.5,
+          "basis": 0.7,
+          "combined": 0.35,
+          "correct": false
+        }
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "runs": 3,
+      "graded": 6,
+      "decisions": [
+        {
+          "gap": "SWC-Adjustment Knob sprinkler|material",
+          "field": "material",
+          "value": "ABS",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.4333333333333333,
+          "combined": 0.4333333333333333,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Body sprinkler|material",
+          "field": "material",
+          "value": "ABS",
+          "answers": 3,
+          "distinct": 1,
+          "agreement": 1.0,
+          "basis": 0.4333333333333333,
+          "combined": 0.4333333333333333,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Cap sprinkler|material",
+          "field": "material",
+          "value": "ABS",
+          "answers": 3,
+          "distinct": 2,
+          "agreement": 0.6666666666666666,
+          "basis": 0.5,
+          "combined": 0.3333333333333333,
+          "correct": true
+        },
+        {
+          "gap": "SWC-Shaft sprinkler|material",
+          "field": "material",
+          "value": "Alloy Steel (SS)",
+          "answers": 3,
+          "distinct": 2,
+          "agreement": 0.6666666666666666,
+          "basis": 0.3,
+          "combined": 0.19999999999999998,
+          "correct": false
+        },
+        {
+          "gap": "SWC-Spring-upper bearing sprinkler|material",
+          "field": "material",
+          "value": "Alloy Steel (SS)",
+          "answers": 3,
+          "distinct": 2,
+          "agreement": 0.6666666666666666,
+          "basis": 0.7,
+          "combined": 0.4666666666666666,
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "transfer": [
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "basis",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.6,
+        "written": 11.0,
+        "wrong": 6.0,
+        "correct_coverage": 0.29411764705882354
+      },
+      "tolerant": {
+        "threshold": 0.3,
+        "written": 16.0,
+        "wrong": 10.0,
+        "correct_coverage": 0.35294117647058826
+      }
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "agreement",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.3333333333333333,
+        "written": 9.0,
+        "wrong": 4.0,
+        "correct_coverage": 0.29411764705882354
+      },
+      "tolerant": {
+        "threshold": 0.16666666666666666,
+        "written": 16.0,
+        "wrong": 10.0,
+        "correct_coverage": 0.35294117647058826
+      }
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "combined",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.09999999999999999,
+        "written": 15.0,
+        "wrong": 9.0,
+        "correct_coverage": 0.35294117647058826
+      },
+      "tolerant": {
+        "threshold": 0.049999999999999996,
+        "written": 16.0,
+        "wrong": 10.0,
+        "correct_coverage": 0.35294117647058826
+      }
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "basis",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 0.775,
+        "written": 3.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.25
+      },
+      "tolerant": {
+        "threshold": 0.775,
+        "written": 3.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.25
+      }
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "agreement",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 0.75,
+        "written": 6.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.5
+      },
+      "tolerant": {
+        "threshold": 0.75,
+        "written": 6.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.5
+      }
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "score": "combined",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 0.5249999999999999,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      },
+      "tolerant": {
+        "threshold": 0.5249999999999999,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "basis",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.9325,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      },
+      "tolerant": {
+        "threshold": 0.9325,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "agreement",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.75,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      },
+      "tolerant": {
+        "threshold": 0.75,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "combined",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.5525,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      },
+      "tolerant": {
+        "threshold": 0.5525,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "basis",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      },
+      "tolerant": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "agreement",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      },
+      "tolerant": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b",
+      "score": "combined",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 0.78,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      },
+      "tolerant": {
+        "threshold": 0.78,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "basis",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.6999999999999998,
+        "written": 4.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.058823529411764705
+      },
+      "tolerant": {
+        "threshold": 0.6999999999999998,
+        "written": 4.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.058823529411764705
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "agreement",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.6666666666666666,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      },
+      "tolerant": {
+        "threshold": 0.6666666666666666,
+        "written": 5.0,
+        "wrong": 3.0,
+        "correct_coverage": 0.11764705882352941
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "combined",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "strict": {
+        "threshold": 0.19999999999999998,
+        "written": 6.0,
+        "wrong": 4.0,
+        "correct_coverage": 0.11764705882352941
+      },
+      "tolerant": {
+        "threshold": 0.19999999999999998,
+        "written": 6.0,
+        "wrong": 4.0,
+        "correct_coverage": 0.11764705882352941
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "basis",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      },
+      "tolerant": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "agreement",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 1.0,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      },
+      "tolerant": {
+        "threshold": 1.0,
+        "written": 5.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.4166666666666667
+      }
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "score": "combined",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "strict": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      },
+      "tolerant": {
+        "threshold": 1.01,
+        "written": 0.0,
+        "wrong": 0.0,
+        "correct_coverage": 0.0
+      }
+    }
+  ]
+}

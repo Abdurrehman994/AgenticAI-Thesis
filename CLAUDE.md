@@ -30,6 +30,7 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\sweep.py [--seeds 10] [--suggester llm]       # offline, many blank patterns
 .venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json   # offline, threshold from data
 .venv\Scripts\python.exe scripts\calibration.py --since 20261023 [--suggester agent-v3] [--close] [--plot runs\reliability.png]  # offline, ECE
+.venv\Scripts\python.exe scripts\agreement.py --since 20261023 [--suggester agent-v3] [--close]  # offline, repeats as signal
 .venv\Scripts\python.exe scripts\run_agent.py --only TITLE_OR_ID [--fields description]  # one item (demo)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
 .venv\Scripts\python.exe scripts\readiness.py API_ASM_GUARD [--route [--yes]]     # BOM release check, exit 1 = not ready
