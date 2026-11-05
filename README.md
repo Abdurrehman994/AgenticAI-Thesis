@@ -39,6 +39,12 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
      With `--confidence evidence` the model does not rate itself: it states its basis (*copied* from a near-identical
      item, a *pattern* among related items, *inferred*, *guess*) and the items it used; the code checks that those
      items exist and maps the basis to a fixed confidence on the rules' scale (0.8 / 0.7 / 0.3 / 0.1).
+     With `--confidence checked` the code also checks the two claims it can (`agent/verify.py`): a *copied*
+     answer must be a literal copy of a source or a variant swap of it (M8 -> M6), a *pattern* part number the
+     only hole in its family's sequence. A claim that fails gets the confidence of *inferred* (0.3), so it is
+     not written at the default threshold, and the check's result is the second line of the evidence the reviewer
+     sees ("check: variant swap (API_NUT_M8_ISO4032)"). This is the recommended mode; see the calibration results
+     below for why.
 4. **Write-back for review**: descriptions are written as `[PROPOSED] value`, so reviewers see them in the
    3DEXPERIENCE app. Part numbers are identifiers, so they are only logged and written on approval. Every proposal
    and decision is appended to `runs/proposals.jsonl`.
@@ -169,6 +175,9 @@ same blanks and nothing is written to the tenant:
 
 # Wider evaluation: the same CAD values blanked in 10 random patterns instead of one
 .venv\Scripts\python.exe scripts\sweep.py [--seeds 10] [--suggester llm] [--out runs\sweep.json]
+
+# Recommended: evidence-based confidence with the claims checked in code (new label: ...+checked)
+.venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset_cad.json --suggester agent --confidence checked --repeat 3
 
 # Tool-using agent: the same LLM gathers its own evidence (compare with --suggester llm on the same datasets)
 .venv\Scripts\python.exe scripts\run_agent.py --dataset data\dataset.json --suggester agent --confidence evidence --repeat 3

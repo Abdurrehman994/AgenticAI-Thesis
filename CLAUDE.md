@@ -80,6 +80,9 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    the method label (`agent-v2:...`): bump it when the agent changes, so runs of each version stay separate.
    Its prompt reuses the fixed-context prompt's rules (`agent_prompt`); `last_call["steps"]` records the tool calls;
    in evidence mode only items it was shown (`SnapshotTools.seen`) count as sources.
+   `--confidence checked` (`LLMSuggester._check_claim`) adds the claim checks of `agent/verify.py` to the evidence
+   mode: an unconfirmed "copied" answer or "pattern" part number gets `UNCONFIRMED` (0.3, as inferred); label
+   `+checked`, so its runs stay apart from `+evidence` ones without a VERSION bump (the agent loop is unchanged).
    `run()` then drops every part number proposed for more than one item in the run (`ambiguous` in the run file):
    order independent, so a wrong early answer cannot block the right one.
 4. `write_proposal` then `ProposalLog` (`runs/proposals.jsonl`): append-only events `proposed` / `approved` / `rejected`;

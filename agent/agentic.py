@@ -16,7 +16,7 @@ import re
 import requests
 
 from .gaps import Gap
-from .llm import EVIDENCE_PROMPT, SYSTEM_PROMPT, LLMSettings, LLMSuggester, parse_answer, shown_for
+from .llm import EVIDENCE_MODES, EVIDENCE_PROMPT, SYSTEM_PROMPT, LLMSettings, LLMSuggester, parse_answer, shown_for
 from .snapshot import Snapshot
 from .suggest import Proposal
 
@@ -71,7 +71,7 @@ def agent_prompt(confidence: str, max_steps: int) -> str:
         f"- {f['name']}({', '.join(f['parameters']['properties'])}): {f['description']}"
         for f in (schema["function"] for schema in TOOL_SCHEMAS)
     )
-    rules = (EVIDENCE_PROMPT if confidence == "evidence" else SYSTEM_PROMPT).split("Rules:", 1)[1]
+    rules = (EVIDENCE_PROMPT if confidence in EVIDENCE_MODES else SYSTEM_PROMPT).split("Rules:", 1)[1]
     intro = AGENT_INTRO.replace("{tools}", tools).replace("{max_steps}", str(max_steps))
     return intro + "Rules:" + rules.replace("Answer with only a JSON object", "Final answer: only a JSON object")
 
@@ -201,7 +201,7 @@ class AgenticSuggester(LLMSuggester):
                         continue
                 if "tool" not in action or step == self.max_steps:
                     answer = action.get("answer", action)  # also accept {"answer": {...}}
-                    return self._proposal(gap, snapshot, answer, tools.seen if self.confidence == "evidence" else None)
+                    return self._proposal(gap, snapshot, answer, tools.seen if self.confidence in EVIDENCE_MODES else None)
                 args = action.get("args") if isinstance(action.get("args"), dict) else {}
                 result = tools.call(str(action["tool"]), args)
                 self.last_call["steps"].append({"tool": action["tool"], "args": args})

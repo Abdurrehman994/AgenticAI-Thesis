@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 from .gaps import MATERIAL, PROPOSED_PREFIX, Gap
 from .snapshot import Snapshot, field_value, part_number
 from .suggest import Proposal
+from .verify import LITERAL, SWAPPED, VERIFIED_NUMBERS, verify_copy, verify_pattern_number
 
 SYSTEM_PROMPT = """\
 You fill in missing attributes of Engineering Items in a PLM system (3DEXPERIENCE).
@@ -37,6 +38,13 @@ Answer with only a JSON object, no other text:
 # The values were fixed before any run, not fitted, so the held-out set stays held out.
 BASIS_CONFIDENCE = {"copied": 0.8, "pattern": 0.7, "inferred": 0.3, "guess": 0.1}
 NEEDS_SOURCES = {"copied", "pattern"}
+# "checked": the evidence mode, plus the code checking the two claims it can (agent/verify.py). A copy must be a
+# literal copy or a variant swap of a source, a "pattern" part number the only hole in its family's sequence;
+# a claim that fails gets the confidence of "inferred", so it is not written at the default threshold of 0.5.
+# Offline, on the earlier runs, verified claims were always right and unverified ones never (scripts/verify_claims.py).
+CONFIDENCE_MODES = ("self", "evidence", "checked")
+EVIDENCE_MODES = ("evidence", "checked")
+UNCONFIRMED = BASIS_CONFIDENCE["inferred"]
 
 EVIDENCE_PROMPT = """\
 You fill in missing attributes of Engineering Items in a PLM system (3DEXPERIENCE).
@@ -146,20 +154,21 @@ class LLMSuggester:
     def __init__(
         self, settings: LLMSettings, *, confidence: str = "self", session: requests.Session | None = None, retries: int = 2
     ):
-        """confidence="self": the model's own probability; "evidence": mapped from the evidence it names."""
-        if confidence not in ("self", "evidence"):
-            raise ValueError(f"confidence must be 'self' or 'evidence', not {confidence!r}")
+        """confidence="self": the model's own probability; "evidence": mapped from the evidence it names;
+        "checked": as "evidence", with the claims the code can check demoted when they fail."""
+        if confidence not in CONFIDENCE_MODES:
+            raise ValueError(f"confidence must be one of {CONFIDENCE_MODES}, not {confidence!r}")
         self.settings = settings
         self.confidence = confidence
         self.session = session or requests.Session()
         self.retries = retries
-        self.method = f"llm:{settings.label or settings.model}" + ("+evidence" if confidence == "evidence" else "")
+        self.method = f"llm:{settings.label or settings.model}" + ("" if confidence == "self" else f"+{confidence}")
         self.last_call: dict | None = None  # model, latency and tokens of the latest gap, for the run file
 
     def suggest(self, gap: Gap, snapshot: Snapshot) -> Proposal | None:
         context = build_context(gap, snapshot)
         messages = [
-            {"role": "system", "content": EVIDENCE_PROMPT if self.confidence == "evidence" else SYSTEM_PROMPT},
+            {"role": "system", "content": EVIDENCE_PROMPT if self.confidence in EVIDENCE_MODES else SYSTEM_PROMPT},
             {"role": "user", "content": (
                 f"Propose the {FIELD_NAMES.get(gap.field, gap.field)} of {gap.title!r}.\n\n"
                 + json.dumps(context, indent=1, ensure_ascii=False)
@@ -193,8 +202,10 @@ class LLMSuggester:
             return None
         evidence = answer.get("evidence") or []
         evidence = [str(e) for e in evidence] if isinstance(evidence, list) else [str(evidence)]
-        if self.confidence == "evidence":
+        if self.confidence in EVIDENCE_MODES:
             confidence, grounds = self._evidence_confidence(gap, snapshot, answer, seen)
+            if self.confidence == "checked":
+                confidence, grounds = self._check_claim(gap, snapshot, value, confidence, grounds)
             evidence = grounds + evidence
         else:
             try:
@@ -219,6 +230,32 @@ class LLMSuggester:
         grounds = [f"basis: {basis}" + (f" (stated {stated!r})" if basis != stated else "")]
         grounds += [f"source: {s}" for s in found]
         return BASIS_CONFIDENCE[basis], grounds
+
+    def _check_claim(
+        self, gap: Gap, snapshot: Snapshot, value: str, confidence: float, grounds: list[str]
+    ) -> tuple[float, list[str]]:
+        """Check a "copied" answer or a "pattern" part number in code; an unconfirmed claim gets UNCONFIRMED.
+
+        The result goes right after the basis in the evidence, so a reviewer sees it first.
+        """
+        basis = self.last_call.get("basis")
+        if basis == "copied":
+            by_title = {i.get("title"): i for i in snapshot.items.values()}
+            sources = [by_title[t] for t in self.last_call.get("sources_found", []) if t in by_title]
+            check, detail = verify_copy(value, gap.title, gap.field, sources)
+            verified = check in (LITERAL, SWAPPED)
+        elif basis == "pattern" and gap.field == "partNumber":
+            used = [part_number(i) for i in snapshot.items.values() if i["id"] != gap.item_id]
+            check, detail = verify_pattern_number(value, used)
+            verified = check in VERIFIED_NUMBERS
+        else:
+            return confidence, grounds  # nothing the code can check: the basis stands
+        self.last_call.update(check=check, verified=verified)
+        line = f"check: {check}" + (f" ({detail})" if detail else "")
+        if not verified:
+            confidence = UNCONFIRMED
+            line += f": not confirmed, confidence {UNCONFIRMED}"
+        return confidence, grounds[:1] + [line] + grounds[1:]
 
     def _chat(self, messages: list[dict]) -> str:
         """The answer text. Reasoning models (gpt-oss) return their reasoning separately; only the answer is parsed."""

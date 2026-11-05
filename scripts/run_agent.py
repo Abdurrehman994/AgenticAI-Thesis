@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from agent.gaps import ALL_FIELDS, FIELDS, MATERIAL, find_gaps  # noqa: E402
+from agent.llm import CONFIDENCE_MODES  # noqa: E402
 from agent.snapshot import Snapshot  # noqa: E402
 from agent.suggest import RuleBasedSuggester, Suggester  # noqa: E402
 from agent.writeback import ProposalLog, write_proposal  # noqa: E402
@@ -179,7 +180,7 @@ def main() -> None:
     parser.add_argument("--suggester", choices=SUGGESTERS, default="rules")
     parser.add_argument("--model", help="model id for --suggester llm (default: LLM_MODEL in .env)")
     parser.add_argument(
-        "--confidence", choices=("self", "evidence"), default="self",
+        "--confidence", choices=CONFIDENCE_MODES, default="self",
         help="--suggester llm: the model's own confidence, or one mapped from the evidence it names",
     )
     parser.add_argument("--dataset", type=Path, help="run offline on an in-memory tenant built from this dataset")

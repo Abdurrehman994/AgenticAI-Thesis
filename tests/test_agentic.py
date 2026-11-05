@@ -73,6 +73,22 @@ def test_evidence_sources_must_have_been_looked_at(tenant):
     assert looked.suggest(gap, snapshot).confidence == 0.8
 
 
+def test_checked_mode_verifies_the_agents_copy(tenant):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    gap = gap_for(snapshot, "API_ROLLER_IDLER_D50", "description")
+    look = tool("find_items", text="ROLLER DRIVE")
+    swap = {"value": "Idler roller, D50 mm", "basis": "copied", "sources": ["API_ROLLER_DRIVE_D50"], "evidence": []}
+    loose = {**swap, "value": "Idler roller"}
+
+    agent = AgenticSuggester(SETTINGS, confidence="checked", session=FakeSession(look, reply(swap)))
+    proposal = agent.suggest(gap, snapshot)
+    assert proposal.method.endswith("+checked") and proposal.method.startswith("agent-v")
+    assert proposal.confidence == 0.8 and proposal.evidence[1].startswith("check: variant swap")  # DRIVE -> IDLER
+
+    agent = AgenticSuggester(SETTINGS, confidence="checked", session=FakeSession(look, reply(loose)))
+    assert agent.suggest(gap, snapshot).confidence == 0.3  # 'copied', but not what the source says
+
+
 def test_start_shows_structure_and_siblings_tool(tenant):
     snapshot = Snapshot(tenant, tenant.iter_search("*"))
     gap = gap_for(snapshot, "API_ROLLER_IDLER_D50", "description")

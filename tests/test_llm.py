@@ -107,6 +107,44 @@ def test_evidence_confidence(tenant, basis, sources, confidence, used):
     assert '"basis"' in session.requests[0]["json"]["messages"][0]["content"]  # the evidence prompt was sent
 
 
+@pytest.mark.parametrize(
+    ("title", "field", "value", "basis", "sources", "confidence", "check"),
+    [
+        # A copy the code confirms keeps its confidence; one it cannot is demoted to that of "inferred"
+        ("API_NUT_M6_ISO4032", "description", "Hex nut M6 ISO 4032, zinc plated", "copied", ["API_NUT_M8_ISO4032"], 0.8,
+         "check: variant swap (API_NUT_M8_ISO4032)"),
+        ("API_NUT_M6_ISO4032", "description", "Hex nut M6, stainless", "copied", ["API_NUT_M8_ISO4032"], 0.3,
+         "check: unverified: not confirmed, confidence 0.3"),
+        # GRD-3000, 3001, 3003 and 3004 are in use: 3002 is the only hole, 3005 merely the next number
+        ("API_GUARD_HINGE_AL", "partNumber", "GRD-3002", "pattern", ["API_GUARD_PANEL_MESH"], 0.7,
+         "check: only hole in the sequence (the only missing number)"),
+        ("API_GUARD_HINGE_AL", "partNumber", "GRD-3005", "pattern", ["API_GUARD_PANEL_MESH"], 0.3,
+         "check: next after the highest (one after the highest in use): not confirmed, confidence 0.3"),
+    ],
+)
+def test_checked_confidence(tenant, title, field, value, basis, sources, confidence, check):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    session = FakeSession(evidence_answer(value, basis, sources))
+    suggester = LLMSuggester(SETTINGS, confidence="checked", session=session)
+    proposal = suggester.suggest(gap_for(snapshot, title, field), snapshot)
+
+    assert proposal.method == "llm:gpt-oss-120b+checked"
+    assert proposal.confidence == confidence
+    assert proposal.evidence[0] == f"basis: {basis}" and proposal.evidence[1] == check  # the check comes right after
+    assert suggester.last_call["verified"] is (confidence > 0.3)
+    assert '"basis"' in session.requests[0]["json"]["messages"][0]["content"]  # same prompt as the evidence mode
+
+
+def test_checked_mode_leaves_uncheckable_bases_alone(tenant):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    session = FakeSession(evidence_answer("Guard hinge", "pattern", ["API_GUARD_PANEL_MESH"]))  # a description
+    suggester = LLMSuggester(SETTINGS, confidence="checked", session=session)
+    proposal = suggester.suggest(gap_for(snapshot, "API_GUARD_HINGE_AL", "description"), snapshot)
+
+    assert proposal.confidence == 0.7 and "check" not in suggester.last_call
+    assert not any(e.startswith("check:") for e in proposal.evidence)
+
+
 def test_unknown_confidence_mode():
     with pytest.raises(ValueError):
         LLMSuggester(SETTINGS, confidence="vibes")

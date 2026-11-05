@@ -188,7 +188,8 @@ def display_name(label: str) -> str:
     if label == "rules":
         return "Rules"
     kind, _, rest = label.partition(":")
-    mode = "evidence-based" if rest.endswith("+evidence") else "self-rated"
+    mode = {"+evidence": "evidence-based", "+checked": "evidence-based, checked"}.get(rest[rest.rfind("+"):], "self-rated") \
+        if "+" in rest else "self-rated"
     name = {"llm": "LLM"}.get(kind) or ("Tool-using agent " + kind.split("-")[1] if "-" in kind else "Tool-using agent v1")
     return f"{name}, {mode}"
 
