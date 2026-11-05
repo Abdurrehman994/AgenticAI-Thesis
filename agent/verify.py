@@ -30,6 +30,7 @@ NEW_VARIANT = "new variant of an existing family"  # 504-0804-00 next to 504-070
 ALREADY_USED = "already used"
 BREAKS_PATTERN = "breaks the pattern"
 VERIFIED_NUMBERS = (ONLY_HOLE,)
+UNCHECKABLE = "cannot be checked"  # a claim no rule covers (a "pattern" description)
 
 
 def normalize(text: str) -> str:

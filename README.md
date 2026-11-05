@@ -43,8 +43,11 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
      answer must be a literal copy of a source or a variant swap of it (M8 -> M6), a *pattern* part number the
      only hole in its family's sequence. A claim that fails gets the confidence of *inferred* (0.3), so it is
      not written at the default threshold, and the check's result is the second line of the evidence the reviewer
-     sees ("check: variant swap (API_NUT_M8_ISO4032)"). This is the recommended mode; see the calibration results
-     below for why.
+     sees ("check: variant swap (API_NUT_M8_ISO4032)"). See the calibration results below for why.
+     `--confidence checked-v2` adds two rules: a claim no rule can check (a *pattern* description) gets 0.3 too,
+     so only checked claims keep a high confidence, and a copy counts only from an item of the same kind
+     (assembly or part). Both were found on the held-out CAD runs, so the CAD data no longer tests them: the next
+     new dataset does. `checked` stays unchanged, so its runs remain reproducible.
 4. **Write-back for review**: descriptions are written as `[PROPOSED] value`, so reviewers see them in the
    3DEXPERIENCE app. Part numbers are identifiers, so they are only logged and written on approval. Every proposal
    and decision is appended to `runs/proposals.jsonl`.
@@ -467,7 +470,9 @@ Of the 7 wrong values still written at 0.5 over the six runs, 5 are "pattern" de
 cannot check (right 2 of 8 times over both datasets), and 2 are the assembly SWC-Base taking the description of the
 part SWC-Base sprinkler (one literal copy, one variant swap). Both point to changes not made here because they were
 found on the held-out data: no high confidence for a claim the code cannot check, and a copy source of the same
-kind (assembly or part) as the item, as the duplicate check already requires.
+kind (assembly or part) as the item, as the duplicate check already requires. They are in `--confidence
+checked-v2`, kept apart from `checked`: run on the CAD data it would remove exactly the errors it was built
+from, so its real test is a dataset neither rule has seen (the company's example data).
 
 ### Duplicate detection (4 November 2026)
 

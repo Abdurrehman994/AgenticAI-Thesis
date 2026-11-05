@@ -83,6 +83,9 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    `--confidence checked` (`LLMSuggester._check_claim`) adds the claim checks of `agent/verify.py` to the evidence
    mode: an unconfirmed "copied" answer or "pattern" part number gets `UNCONFIRMED` (0.3, as inferred); label
    `+checked`, so its runs stay apart from `+evidence` ones without a VERSION bump (the agent loop is unchanged).
+   `checked-v2` (label `+checked-v2`) also demotes uncheckable claims (a "pattern" description: `UNCHECKABLE`)
+   and takes copy sources only of the same kind (assembly or part, via `snapshot.children`). Both rules came from
+   the held-out CAD runs of `checked`: evaluate v2 on a new dataset, not on dataset_cad.json. Keep `checked` as is.
    `run()` then drops every part number proposed for more than one item in the run (`ambiguous` in the run file):
    order independent, so a wrong early answer cannot block the right one.
 4. `write_proposal` then `ProposalLog` (`runs/proposals.jsonl`): append-only events `proposed` / `approved` / `rejected`;

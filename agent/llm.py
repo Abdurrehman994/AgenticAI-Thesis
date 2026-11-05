@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from .gaps import MATERIAL, PROPOSED_PREFIX, Gap
 from .snapshot import Snapshot, field_value, part_number
 from .suggest import Proposal
-from .verify import LITERAL, SWAPPED, VERIFIED_NUMBERS, verify_copy, verify_pattern_number
+from .verify import LITERAL, SWAPPED, UNCHECKABLE, VERIFIED_NUMBERS, verify_copy, verify_pattern_number
 
 SYSTEM_PROMPT = """\
 You fill in missing attributes of Engineering Items in a PLM system (3DEXPERIENCE).
@@ -42,8 +42,14 @@ NEEDS_SOURCES = {"copied", "pattern"}
 # literal copy or a variant swap of a source, a "pattern" part number the only hole in its family's sequence;
 # a claim that fails gets the confidence of "inferred", so it is not written at the default threshold of 0.5.
 # Offline, on the earlier runs, verified claims were always right and unverified ones never (scripts/verify_claims.py).
-CONFIDENCE_MODES = ("self", "evidence", "checked")
-EVIDENCE_MODES = ("evidence", "checked")
+# "checked-v2" adds two rules found on the held-out CAD runs of "checked" (5 Nov 2026), so the CAD data no longer
+# tests them; the next new dataset does. A "copied" or "pattern" claim the code cannot check at all (a pattern
+# description) gets UNCONFIRMED too, so only checked claims keep a high confidence; and a copy only counts from
+# a source of the same kind, assembly or part (an assembly took a part's description), as duplicates.py requires.
+# "checked" stays as it was, so its runs remain reproducible.
+CONFIDENCE_MODES = ("self", "evidence", "checked", "checked-v2")
+EVIDENCE_MODES = ("evidence", "checked", "checked-v2")
+CHECKED_MODES = ("checked", "checked-v2")
 UNCONFIRMED = BASIS_CONFIDENCE["inferred"]
 
 EVIDENCE_PROMPT = """\
@@ -204,7 +210,7 @@ class LLMSuggester:
         evidence = [str(e) for e in evidence] if isinstance(evidence, list) else [str(evidence)]
         if self.confidence in EVIDENCE_MODES:
             confidence, grounds = self._evidence_confidence(gap, snapshot, answer, seen)
-            if self.confidence == "checked":
+            if self.confidence in CHECKED_MODES:
                 confidence, grounds = self._check_claim(gap, snapshot, value, confidence, grounds)
             evidence = grounds + evidence
         else:
@@ -235,21 +241,30 @@ class LLMSuggester:
         self, gap: Gap, snapshot: Snapshot, value: str, confidence: float, grounds: list[str]
     ) -> tuple[float, list[str]]:
         """Check a "copied" answer or a "pattern" part number in code; an unconfirmed claim gets UNCONFIRMED.
+        checked-v2 also demotes a claim nothing can check, and takes copies only from items of the same kind.
 
         The result goes right after the basis in the evidence, so a reviewer sees it first.
         """
+        v2 = self.confidence == "checked-v2"
         basis = self.last_call.get("basis")
         if basis == "copied":
             by_title = {i.get("title"): i for i in snapshot.items.values()}
             sources = [by_title[t] for t in self.last_call.get("sources_found", []) if t in by_title]
+            if v2:
+                assembly = bool(snapshot.children(gap.item_id))
+                sources = [s for s in sources if bool(snapshot.children(s["id"])) == assembly]
             check, detail = verify_copy(value, gap.title, gap.field, sources)
+            if v2 and not sources:
+                detail = f"no source is {'an assembly' if assembly else 'a part'} like {gap.title}"
             verified = check in (LITERAL, SWAPPED)
         elif basis == "pattern" and gap.field == "partNumber":
             used = [part_number(i) for i in snapshot.items.values() if i["id"] != gap.item_id]
             check, detail = verify_pattern_number(value, used)
             verified = check in VERIFIED_NUMBERS
+        elif v2 and basis in NEEDS_SOURCES:
+            check, detail, verified = UNCHECKABLE, f"no rule checks a {basis} {gap.field}", False
         else:
-            return confidence, grounds  # nothing the code can check: the basis stands
+            return confidence, grounds  # inferred or guess: already low, nothing to check
         self.last_call.update(check=check, verified=verified)
         line = f"check: {check}" + (f" ({detail})" if detail else "")
         if not verified:

@@ -145,6 +145,38 @@ def test_checked_mode_leaves_uncheckable_bases_alone(tenant):
     assert not any(e.startswith("check:") for e in proposal.evidence)
 
 
+def checked(tenant, mode, title, field, value, basis, sources):
+    snapshot = Snapshot(tenant, tenant.iter_search("*"))
+    suggester = LLMSuggester(SETTINGS, confidence=mode, session=FakeSession(evidence_answer(value, basis, sources)))
+    return suggester, suggester.suggest(gap_for(snapshot, title, field), snapshot)
+
+
+def test_checked_v2_demotes_a_claim_nothing_can_check(tenant):
+    args = ("API_GUARD_HINGE_AL", "description", "Guard hinge", "pattern", ["API_GUARD_PANEL_MESH"])
+    _, v1 = checked(tenant, "checked", *args)
+    suggester, v2 = checked(tenant, "checked-v2", *args)
+    assert v1.confidence == 0.7  # version 1 lets an unchecked pattern description stand
+    assert v2.confidence == 0.3 and v2.method == "llm:gpt-oss-120b+checked-v2"
+    assert v2.evidence[1] == ("check: cannot be checked (no rule checks a pattern description): "
+                              "not confirmed, confidence 0.3")
+    assert suggester.last_call["verified"] is False
+
+
+def test_checked_v2_copies_only_from_the_same_kind_of_item(tenant):
+    # The guard assembly taking the description of one of its parts: a literal copy, but of the wrong kind of item
+    args = ("API_ASM_GUARD", "description", "Mesh guard panel, powder coated", "copied", ["API_GUARD_PANEL_MESH"])
+    _, v1 = checked(tenant, "checked", *args)
+    _, v2 = checked(tenant, "checked-v2", *args)
+    assert v1.confidence == 0.8 and v1.evidence[1].startswith("check: literal copy")
+    assert v2.confidence == 0.3
+    assert v2.evidence[1] == ("check: unverified (no source is an assembly like API_ASM_GUARD): "
+                              "not confirmed, confidence 0.3")
+    # A part copying a part is still verified
+    _, part = checked(tenant, "checked-v2", "API_NUT_M6_ISO4032", "description", "Hex nut M6 ISO 4032, zinc plated",
+                      "copied", ["API_NUT_M8_ISO4032"])
+    assert part.confidence == 0.8 and part.evidence[1].startswith("check: variant swap")
+
+
 def test_unknown_confidence_mode():
     with pytest.raises(ValueError):
         LLMSuggester(SETTINGS, confidence="vibes")
