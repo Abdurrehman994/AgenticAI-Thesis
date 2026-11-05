@@ -1,4 +1,5 @@
-from agent.verify import LITERAL, SWAPPED, UNVERIFIED, title_tokens, variant_swap, verify_copy
+from agent.verify import (ALREADY_USED, BREAKS_PATTERN, LITERAL, NEW_VARIANT, NEXT_NUMBER, ONE_OF_HOLES, ONLY_HOLE,
+                          SWAPPED, UNVERIFIED, title_tokens, variant_swap, verify_copy, verify_pattern_number)
 
 
 def item(title, description):
@@ -38,3 +39,23 @@ def test_verify_copy_kinds():
 def test_unapproved_ai_values_are_not_sources():
     proposed = item("API_NUT_M8_ISO4032", "[PROPOSED] Hex nut M8 ISO 4032")
     assert verify_copy("Hex nut M6 ISO 4032", "API_NUT_M6_ISO4032", "description", [proposed]) == (UNVERIFIED, None)
+
+
+GUARD = ["GRD-3000", "GRD-3001", "GRD-3003", "GRD-3004", "CNV-1000", "CNV-1001"]
+SPRINKLER = ["501-0601-00", "504-0803-00", "505-0601-00", "506-0601-00", "507-0601-00", "510-0601-00"]
+
+
+def test_the_only_hole_in_the_sequence_is_verified():
+    assert verify_pattern_number("GRD-3002", GUARD)[0] == ONLY_HOLE
+    assert verify_pattern_number("GRD-3005", GUARD)[0] == NEXT_NUMBER
+    assert verify_pattern_number("GRD-3004", GUARD)[0] == ALREADY_USED
+    assert verify_pattern_number("GRD-4002", GUARD)[0] == BREAKS_PATTERN  # outside GRD-3000..3004
+    assert verify_pattern_number("XYZ-3002", GUARD)[0] == BREAKS_PATTERN  # no family with these letters
+
+
+def test_several_holes_and_new_variants_only_fit():
+    # Families 501-510 with 502, 503, 508, 509 missing: a hole, but which part is which is not derivable
+    status, detail = verify_pattern_number("502-0601-00", SPRINKLER)
+    assert status == ONE_OF_HOLES and "4" in detail
+    assert verify_pattern_number("504-0804-00", SPRINKLER)[0] == NEW_VARIANT  # 504 is already a family
+    assert verify_pattern_number("502-0702-00", SPRINKLER)[0] == BREAKS_PATTERN  # first variant is 0601-00

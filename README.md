@@ -183,8 +183,8 @@ same blanks and nothing is written to the tenant:
 # Agreement between repeated runs as a confidence signal (one decision per gap)
 .venv\Scripts\python.exe scripts\agreement.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--out runs\agreement.json]
 
-# Check the model's "copied" claims in code and demote the ones it cannot confirm
-.venv\Scripts\python.exe scripts\verify_copies.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--demote 0.3]
+# Check the model's "copied" and "pattern" part-number claims in code; demote what it cannot confirm
+.venv\Scripts\python.exe scripts\verify_claims.py --since 20261023 --suggester agent-v3 --suggester llm: [--close] [--demote 0.3]
 ```
 
 ## Tests
@@ -391,30 +391,48 @@ improvement. The threshold test is mixed: for the tool-using agent, the combined
 `dataset.json` (0.47) writes 4 CAD decisions of which 1 is wrong, where the basis alone writes none; for the
 evidence-based LLM it does not help (5 of 6 wrong). The price is one model call per run: 3 or more per gap.
 
-### Checking the "copied" claim in code (5 November 2026)
+### Checking the model's claims in code (5 November 2026)
 
-`agent/verify.py` checks an answer the model says it copied against the items it was shown: a **literal copy** (the
-source's value), a **variant swap** (the source's value with the title tokens the two items differ in replaced,
-M8 -> M6, each of which the value must mention) or **unverified**. `verify_copies.py` applies it to the existing
-evidence-mode runs (exact match):
+The evidence mode's two highest bases are claims the code can check (`agent/verify.py`; `verify_claims.py` applies
+the checks to the existing runs):
+- **"copied"**, against the items the model was shown: a **literal copy** of a source's value, a **variant swap** (the
+  source's value with the title tokens the two items differ in replaced, M8 -> M6, each of which the value must
+  mention), or unverified;
+- **"pattern" for a part number**, against the numbers in use: the **only hole** in its family's sequence (verified:
+  GRD-3001, 3003, 3004 -> GRD-3002), one of several holes, the next number, a new variant of a family in use, already
+  used, or breaking the pattern. A "pattern" description has nothing to be checked against.
 
-| Suggester | Dataset | Variant swap: right | Literal copy: right | Unverified: right |
-|---|---|---|---|---|
-| Tool-using agent v3 | `dataset.json` | 18 of 18 answers (3 gaps) | - | 0 of 1 (1 gap) |
-| Tool-using agent v3 | `dataset_cad.json` | 6 of 6 (2 gaps) | 0 of 1 (1 gap) | 0 of 6 (3 gaps) |
-| LLM, evidence-based | `dataset.json` | 3 of 3 (2 gaps) | - | - |
+Exact match, tool-using agent v3 (the evidence-based LLM agrees wherever it made the claim):
 
-Every answer the code could confirm as a variant swap was right; none of the unverified "copies" was. Demoting
-unverified copies to 0.3 (the confidence of "inferred") changes what a threshold transfers: for the tool-using agent
-the tolerant threshold chosen on `dataset.json` (0.80, at most 10% wrong there) writes values on the CAD data that
-are **14% wrong instead of 54%** (0.2 wrong values per run instead of 1.8), at no cost on `dataset.json`, where all
-verified copies stay at 0.8. ECE on the CAD data moves only from 0.34 to 0.30: the check fixes the top of the
-confidence scale, where values get written, not the rest. It does nothing for the evidence-based LLM, which claimed
-no copies on the CAD data: its wrong writes come from "pattern" answers, mostly part numbers guessed from a family
-sequence, which a check of the number pattern would have to catch. With close matching the check makes no
-difference, because the agent is close on nearly everything in `dataset.json` and the tolerant threshold falls to
-0.10, below any demotion. The samples are small (2-3 gaps per verified kind), so this shows the mechanism, not its
-size.
+| Claim | Check result | `dataset.json`: right | `dataset_cad.json`: right |
+|---|---|---|---|
+| copied | variant swap (verified) | 18 of 18 answers (3 gaps) | 6 of 6 (2 gaps) |
+| copied | literal copy (verified) | - | 0 of 1 (1 gap) |
+| copied | unverified | 0 of 1 (1 gap) | 0 of 6 (3 gaps) |
+| part number | only hole (verified) | 16 of 16 (3 gaps) | - |
+| part number | one of several holes | - | 4 of 5 (3 gaps) |
+| part number | new variant of a family in use | - | 0 of 6 (4 gaps) |
+
+On the CAD data no part number can be verified: six parts have no number and five families are missing from the
+sequence 501-518, so a hole fits but nothing tells whose it is (the rules refuse to guess for the same reason). A
+"new variant" (504-0804-00 next to 504-0702-00) was wrong every time. The model often picks the right hole (4 of 5),
+so demoting holes costs some right answers: the check confirms what can be derived, not what is likely.
+
+Demoting every claim the code cannot confirm to 0.3 (the confidence of "inferred"):
+
+| Suggester | Mapping | ECE on `dataset_cad.json` | Threshold from `dataset.json` on the CAD data: wrong per run |
+|---|---|---|---|
+| Tool-using agent v3 | fixed (claims taken at their word) | 0.34 (0.16-0.54) | 1.8 of 3.2 written (54%) |
+| Tool-using agent v3 | copies and numbers checked | 0.21 (0.07-0.37) | 0.2 of 1.8 written (14%) |
+| LLM, evidence-based | fixed | 0.27 (0.10-0.43) | 2.0 of 2.2 written (89%) |
+| LLM, evidence-based | copies and numbers checked | 0.20 (0.04-0.33) | 0.5 of 0.5 written |
+
+Nothing changes on `dataset.json`, where the verified claims keep their confidence. On the CAD data both checks
+lower the calibration error and cut the wrong writes the transferred threshold lets through: for the agent from 1.8
+to 0.2 per run (the copy check; its part numbers were already below the 0.80 threshold), for the evidence-based LLM
+from 2.0 to 0.5 (the number check). What is left are "pattern" descriptions, which no rule can check. The intervals
+still overlap and the cells hold 1-4 gaps, so this shows the mechanism, not its size; with close matching the
+checks make no difference, because the tolerant threshold on `dataset.json` falls to 0.10, below any demotion.
 
 ### Duplicate detection (4 November 2026)
 

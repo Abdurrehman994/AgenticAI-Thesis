@@ -31,7 +31,7 @@ Windows, virtualenv in `.venv`. No linter is configured. `pyproject.toml` puts t
 .venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json   # offline, threshold from data
 .venv\Scripts\python.exe scripts\calibration.py --since 20261023 [--suggester agent-v3] [--close] [--plot runs\reliability.png]  # offline, ECE
 .venv\Scripts\python.exe scripts\agreement.py --since 20261023 [--suggester agent-v3] [--close]  # offline, repeats as signal
-.venv\Scripts\python.exe scripts\verify_copies.py --since 20261023 [--suggester agent-v3] [--demote 0.3]  # offline
+.venv\Scripts\python.exe scripts\verify_claims.py --since 20261023 [--suggester agent-v3] [--demote 0.3]  # offline
 .venv\Scripts\python.exe scripts\run_agent.py --only TITLE_OR_ID [--fields description]  # one item (demo)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--once] [--apply]   # polls, handles changed items
 .venv\Scripts\python.exe scripts\readiness.py API_ASM_GUARD [--route [--yes]]     # BOM release check, exit 1 = not ready
@@ -100,9 +100,11 @@ Three layers: `plm_client/` (REST client) → `agent/` (pipeline) → `scripts/`
    `[PROPOSED]` descriptions, pending proposals from the log, and part numbers shared with any other item.
    `--route` sends the verdict as one Approve task (same route shape as the proposal review).
 
-   Copy check (`agent/verify.py`): `verify_copy` confirms a "copied" answer as a literal copy or a variant swap
+   Claim checks (`agent/verify.py`): `verify_copy` confirms a "copied" answer as a literal copy or a variant swap
    (title tokens the two items differ in, replaced in the source's value, as description-analogy does, but for any
-   separator); `scripts/verify_copies.py` measures it on existing runs. Not wired into the agent yet.
+   separator); `verify_pattern_number` confirms a "pattern" part number only as the single hole in its family's
+   sequence (family = same shape and letters; sequence = the segment with most distinct values).
+   `scripts/verify_claims.py` measures both on existing runs. Not wired into the agent yet.
 
 8. Duplicate detection (`agent/duplicates.py`, `scripts/duplicates.py`): read-only, plain code. Idf-weighted Jaccard
    over title and description words (also description-only, so a meaningless new title cannot hide a copy); spec

@@ -5,7 +5,20 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "claim": "copied",
+      "check": "unverified",
+      "verified": false,
+      "gaps": 1,
+      "answers": 1,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "claim": "copied",
       "check": "variant swap",
+      "verified": true,
       "gaps": 3,
       "answers": 18,
       "accuracy": 1.0,
@@ -14,16 +27,20 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
-      "check": "unverified",
-      "gaps": 1,
-      "answers": 1,
+      "claim": "pattern part number",
+      "check": "only hole in the sequence",
+      "verified": true,
+      "gaps": 3,
+      "answers": 16,
       "accuracy": 1.0,
       "ci": null
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "claim": "copied",
       "check": "literal copy",
+      "verified": true,
       "gaps": 1,
       "answers": 1,
       "accuracy": 0.0,
@@ -32,7 +49,20 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "claim": "copied",
+      "check": "unverified",
+      "verified": false,
+      "gaps": 3,
+      "answers": 6,
+      "accuracy": 0.5,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "claim": "copied",
       "check": "variant swap",
+      "verified": true,
       "gaps": 2,
       "answers": 6,
       "accuracy": 1.0,
@@ -41,16 +71,31 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
-      "check": "unverified",
-      "gaps": 3,
+      "claim": "pattern part number",
+      "check": "new variant of an existing family",
+      "verified": false,
+      "gaps": 4,
       "answers": 6,
-      "accuracy": 0.5,
+      "accuracy": 0.0,
+      "ci": null
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "claim": "pattern part number",
+      "check": "one of several holes",
+      "verified": false,
+      "gaps": 3,
+      "answers": 5,
+      "accuracy": 0.8,
       "ci": null
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "claim": "copied",
       "check": "variant swap",
+      "verified": true,
       "gaps": 2,
       "answers": 3,
       "accuracy": 1.0,
@@ -58,8 +103,43 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "claim": "pattern part number",
+      "check": "only hole in the sequence",
+      "verified": true,
+      "gaps": 2,
+      "answers": 6,
+      "accuracy": 1.0,
+      "ci": null
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "claim": "pattern part number",
+      "check": "new variant of an existing family",
+      "verified": false,
+      "gaps": 2,
+      "answers": 5,
+      "accuracy": 0.0,
+      "ci": null
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "claim": "pattern part number",
+      "check": "one of several holes",
+      "verified": false,
+      "gaps": 2,
+      "answers": 2,
+      "accuracy": 0.5,
+      "ci": null
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
+      "claim": "copied",
       "check": "literal copy",
+      "verified": true,
       "gaps": 1,
       "answers": 1,
       "accuracy": 0.0,
@@ -80,7 +160,27 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "ece": 0.3523076923076923,
+      "ci": [
+        0.24285714285714283,
+        0.476271186440678
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "numbers checked",
+      "ece": 0.34461538461538466,
+      "ci": [
+        0.23859649122807017,
+        0.46764705882352947
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "both checked",
       "ece": 0.3523076923076923,
       "ci": [
         0.24285714285714283,
@@ -100,7 +200,7 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
-      "mapping": "checked",
+      "mapping": "copies checked",
       "ece": 0.1520833333333333,
       "ci": [
         0.06170212765957442,
@@ -108,6 +208,26 @@
       ]
     },
     {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "numbers checked",
+      "ece": 0.10625000000000001,
+      "ci": [
+        0.039583333333333325,
+        0.31132075471698106
+      ]
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "both checked",
+      "ece": 0.06041666666666665,
+      "ci": [
+        0.0382978723404255,
+        0.2740740740740741
+      ]
+    },
+    {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
       "mapping": "fixed",
@@ -120,7 +240,27 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "ece": 0.3633333333333333,
+      "ci": [
+        0.18,
+        0.5366666666666666
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "numbers checked",
+      "ece": 0.3633333333333333,
+      "ci": [
+        0.18,
+        0.5366666666666666
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset.json",
+      "mapping": "both checked",
       "ece": 0.3633333333333333,
       "ci": [
         0.18,
@@ -140,11 +280,31 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
-      "mapping": "checked",
+      "mapping": "copies checked",
       "ece": 0.1511627906976744,
       "ci": [
         0.04468085106382978,
         0.3631578947368421
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "numbers checked",
+      "ece": 0.08604651162790697,
+      "ci": [
+        0.01428571428571429,
+        0.26
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json",
+      "mapping": "both checked",
+      "ece": 0.08604651162790697,
+      "ci": [
+        0.01428571428571429,
+        0.26
       ]
     },
     {
@@ -160,7 +320,27 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "ece": 0.3066666666666667,
+      "ci": [
+        0.0866666666666667,
+        0.5466666666666667
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "mapping": "numbers checked",
+      "ece": 0.3066666666666667,
+      "ci": [
+        0.0866666666666667,
+        0.5466666666666667
+      ]
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "dataset": "dataset_cad.json (material)",
+      "mapping": "both checked",
       "ece": 0.3066666666666667,
       "ci": [
         0.0866666666666667,
@@ -181,7 +361,27 @@
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.1,
+      "written": 12.0,
+      "wrong": 7.25,
+      "correct_coverage": 0.27941176470588236
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "numbers checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.1,
+      "written": 12.0,
+      "wrong": 7.25,
+      "correct_coverage": 0.27941176470588236
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "both checked",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "threshold": 0.1,
@@ -201,7 +401,27 @@
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "numbers checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "mapping": "both checked",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "threshold": 1.01,
@@ -221,13 +441,33 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
-      "mapping": "checked",
+      "mapping": "copies checked",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "threshold": 0.7,
       "written": 2.25,
       "wrong": 1.75,
       "correct_coverage": 0.029411764705882353
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "numbers checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.7,
+      "written": 0.5,
+      "wrong": 0.25,
+      "correct_coverage": 0.014705882352941176
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "both checked",
+      "train": "dataset.json",
+      "test": "dataset_cad.json",
+      "threshold": 0.7,
+      "written": 0.5,
+      "wrong": 0.25,
+      "correct_coverage": 0.014705882352941176
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
@@ -241,7 +481,27 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
-      "mapping": "checked",
+      "mapping": "copies checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "numbers checked",
+      "train": "dataset_cad.json",
+      "test": "dataset.json",
+      "threshold": 1.01,
+      "written": 0.0,
+      "wrong": 0.0,
+      "correct_coverage": 0.0
+    },
+    {
+      "suggester": "llm:gpt-oss-120b+evidence",
+      "mapping": "both checked",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "threshold": 1.01,
