@@ -1,16 +1,33 @@
 {
   "correct": "exact match (ignoring case and punctuation)",
+  "by_field": false,
   "max_wrong_rate": 0.1,
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 2026,
+    "unit": "gap",
+    "min_gaps": 5
+  },
   "calibration": [
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "runs": 6,
+      "gaps": 12,
       "proposals": 65,
       "confidence": 0.5661538461538461,
       "accuracy": 0.5384615384615384,
+      "accuracy_ci": [
+        0.25,
+        0.8032786885245902
+      ],
       "brier": 0.11415384615384615,
       "ece": 0.1753846153846154,
+      "ece_ci": [
+        0.12272727272727273,
+        0.26666666666666666
+      ],
       "reliability": [
         {
           "bin": "0.0-0.2",
@@ -41,12 +58,22 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "runs": 4,
+      "gaps": 16,
       "proposals": 48,
       "confidence": 0.59375,
       "accuracy": 0.25,
+      "accuracy_ci": [
+        0.02702702702702703,
+        0.5106382978723404
+      ],
       "brier": 0.27229166666666665,
       "ece": 0.34375,
+      "ece_ci": [
+        0.15957446808510636,
+        0.539622641509434
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -71,12 +98,22 @@
     {
       "suggester": "llm:gpt-oss-120b",
       "dataset": "dataset.json",
+      "field": "all",
       "runs": 4,
+      "gaps": 12,
       "proposals": 42,
       "confidence": 0.8442857142857143,
       "accuracy": 0.5476190476190477,
+      "accuracy_ci": [
+        0.26666666666666666,
+        0.8333333333333334
+      ],
       "brier": 0.3056761904761905,
       "ece": 0.2966666666666667,
+      "ece_ci": [
+        0.0797619047619048,
+        0.55625
+      ],
       "reliability": [
         {
           "bin": "0.6-0.8",
@@ -95,12 +132,22 @@
     {
       "suggester": "llm:gpt-oss-120b",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "runs": 4,
+      "gaps": 11,
       "proposals": 43,
       "confidence": 0.7497674418604652,
       "accuracy": 0.06976744186046512,
+      "accuracy_ci": [
+        0.0,
+        0.20930232558139536
+      ],
       "brier": 0.5263255813953489,
       "ece": 0.6799999999999999,
+      "ece_ci": [
+        0.539047619047619,
+        0.7737209302325582
+      ],
       "reliability": [
         {
           "bin": "0.4-0.6",
@@ -125,12 +172,22 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "runs": 3,
+      "gaps": 10,
       "proposals": 30,
       "confidence": 0.47,
       "accuracy": 0.5666666666666667,
+      "accuracy_ci": [
+        0.26666666666666666,
+        0.8666666666666667
+      ],
       "brier": 0.15166666666666667,
       "ece": 0.12333333333333332,
+      "ece_ci": [
+        0.06666666666666668,
+        0.31
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -155,12 +212,22 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "runs": 4,
+      "gaps": 13,
       "proposals": 43,
       "confidence": 0.38372093023255816,
       "accuracy": 0.11627906976744186,
+      "accuracy_ci": [
+        0.0,
+        0.32432432432432434
+      ],
       "brier": 0.20162790697674418,
       "ece": 0.26744186046511625,
+      "ece_ci": [
+        0.09999999999999999,
+        0.42857142857142855
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -179,12 +246,22 @@
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "runs": 3,
+      "gaps": 5,
       "proposals": 15,
       "confidence": 0.4666666666666667,
       "accuracy": 0.6666666666666666,
+      "accuracy_ci": [
+        0.3333333333333333,
+        0.9333333333333333
+      ],
       "brier": 0.26,
       "ece": 0.3066666666666667,
+      "ece_ci": [
+        0.0866666666666667,
+        0.5466666666666667
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -209,12 +286,22 @@
     {
       "suggester": "rules",
       "dataset": "dataset.json",
+      "field": "all",
       "runs": 2,
+      "gaps": 10,
       "proposals": 20,
       "confidence": 0.51,
       "accuracy": 0.6,
+      "accuracy_ci": [
+        0.3,
+        0.9
+      ],
       "brier": 0.127,
       "ece": 0.19,
+      "ece_ci": [
+        0.09000000000000001,
+        0.32000000000000006
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -245,12 +332,22 @@
     {
       "suggester": "rules",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "runs": 2,
+      "gaps": 10,
       "proposals": 20,
       "confidence": 0.31,
       "accuracy": 0.0,
+      "accuracy_ci": [
+        0.0,
+        0.3
+      ],
       "brier": 0.097,
       "ece": 0.31000000000000005,
+      "ece_ci": [
+        0.3,
+        0.33
+      ],
       "reliability": [
         {
           "bin": "0.2-0.4",
@@ -269,12 +366,22 @@
     {
       "suggester": "rules",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "runs": 1,
+      "gaps": 6,
       "proposals": 6,
       "confidence": 0.5,
       "accuracy": 0.6666666666666666,
+      "accuracy_ci": [
+        0.3333333333333333,
+        1.0
+      ],
       "brier": 0.32666666666666666,
       "ece": 0.16666666666666663,
+      "ece_ci": [
+        0.0,
+        0.5666666666666667
+      ],
       "reliability": [
         {
           "bin": "0.4-0.6",
@@ -289,217 +396,272 @@
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "copied",
+      "gaps": 4,
       "n": 19,
       "confidence": 0.8,
       "accuracy": 0.9473684210526315,
-      "low": 0.7536078466345479,
-      "high": 0.99064824750947
+      "ci": null
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "pattern",
+      "gaps": 6,
       "n": 20,
       "confidence": 0.7,
       "accuracy": 0.8,
-      "low": 0.5839782779742401,
-      "high": 0.9193436467288
+      "ci": [
+        0.36363636363636365,
+        0.967741935483871
+      ]
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "inferred",
+      "gaps": 6,
       "n": 25,
       "confidence": 0.3,
       "accuracy": 0.04,
-      "low": 0.007096050386699165,
-      "high": 0.19544472405022525
+      "ci": [
+        0.0,
+        0.12
+      ]
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "guess",
+      "gaps": 1,
       "n": 1,
       "confidence": 0.1,
       "accuracy": 0.0,
-      "low": 0.0,
-      "high": 0.7934567085261071
+      "ci": null
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "copied",
+      "gaps": 6,
       "n": 13,
       "confidence": 0.8,
       "accuracy": 0.46153846153846156,
-      "low": 0.2320575430148814,
-      "high": 0.7085656756816796
+      "ci": [
+        0.0,
+        0.8571428571428571
+      ]
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "pattern",
+      "gaps": 11,
       "n": 19,
       "confidence": 0.7,
       "accuracy": 0.3157894736842105,
-      "low": 0.15364171004428598,
-      "high": 0.5398998982493537
+      "ci": [
+        0.0,
+        0.6086956521739131
+      ]
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "inferred",
+      "gaps": 6,
       "n": 16,
       "confidence": 0.3,
       "accuracy": 0.0,
-      "low": 0.0,
-      "high": 0.19361341827271994
+      "ci": [
+        0.0,
+        0.5
+      ]
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "copied",
+      "gaps": 2,
       "n": 3,
       "confidence": 0.8000000000000002,
       "accuracy": 1.0,
-      "low": 0.43849391955098227,
-      "high": 1.0
+      "ci": null
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "pattern",
+      "gaps": 4,
       "n": 9,
       "confidence": 0.7,
       "accuracy": 1.0,
-      "low": 0.7008472464490407,
-      "high": 1.0
+      "ci": null
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "inferred",
+      "gaps": 6,
       "n": 18,
       "confidence": 0.3,
       "accuracy": 0.2777777777777778,
-      "low": 0.12499569146355474,
-      "high": 0.5087307754619452
+      "ci": [
+        0.0,
+        0.6111111111111112
+      ]
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "pattern",
+      "gaps": 6,
       "n": 9,
       "confidence": 0.7,
       "accuracy": 0.1111111111111111,
-      "low": 0.019890371327130535,
-      "high": 0.4350062147680601
+      "ci": [
+        0.0,
+        0.5
+      ]
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "inferred",
+      "gaps": 9,
       "n": 34,
       "confidence": 0.3,
       "accuracy": 0.11764705882352941,
-      "low": 0.04671370973436122,
-      "high": 0.26621174796298774
+      "ci": [
+        0.0,
+        0.35294117647058826
+      ]
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "basis": "copied",
+      "gaps": 1,
       "n": 1,
       "confidence": 0.8,
       "accuracy": 0.0,
-      "low": 0.0,
-      "high": 0.7934567085261071
+      "ci": null
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "basis": "pattern",
+      "gaps": 4,
       "n": 5,
       "confidence": 0.7,
       "accuracy": 1.0,
-      "low": 0.5655085052479191,
-      "high": 1.0
+      "ci": null
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "basis": "inferred",
+      "gaps": 4,
       "n": 9,
       "confidence": 0.3,
       "accuracy": 0.5555555555555556,
-      "low": 0.2666473457440297,
-      "high": 0.811224570528086
+      "ci": null
     },
     {
       "suggester": "rules",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "description-analogy",
+      "gaps": 3,
       "n": 6,
       "confidence": 0.7333333333333334,
       "accuracy": 1.0,
-      "low": 0.6096569663469354,
-      "high": 0.9999999999999999
+      "ci": null
     },
     {
       "suggester": "rules",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "sibling-numbers",
+      "gaps": 2,
       "n": 4,
       "confidence": 0.7,
       "accuracy": 1.0,
-      "low": 0.5100999795960008,
-      "high": 1.0
+      "ci": null
     },
     {
       "suggester": "rules",
       "dataset": "dataset.json",
+      "field": "all",
       "basis": "title-expansion",
+      "gaps": 5,
       "n": 10,
       "confidence": 0.3,
       "accuracy": 0.2,
-      "low": 0.056680947980693314,
-      "high": 0.5098431532792765
+      "ci": [
+        0.0,
+        0.6
+      ]
     },
     {
       "suggester": "rules",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "sibling-numbers",
+      "gaps": 1,
       "n": 2,
       "confidence": 0.4,
       "accuracy": 0.0,
-      "low": 0.0,
-      "high": 0.6576280471103807
+      "ci": null
     },
     {
       "suggester": "rules",
       "dataset": "dataset_cad.json",
+      "field": "all",
       "basis": "title-expansion",
+      "gaps": 9,
       "n": 18,
       "confidence": 0.3,
       "accuracy": 0.0,
-      "low": 0.0,
-      "high": 0.1758845505823749
+      "ci": [
+        0.0,
+        0.3333333333333333
+      ]
     },
     {
       "suggester": "rules",
       "dataset": "dataset_cad.json (material)",
+      "field": "all",
       "basis": "sibling-material",
+      "gaps": 6,
       "n": 6,
       "confidence": 0.5,
       "accuracy": 0.6666666666666666,
-      "low": 0.29998832134152864,
-      "high": 0.9032306674407831
+      "ci": [
+        0.3333333333333333,
+        1.0
+      ]
     }
   ],
   "transfer": [
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "mapping": "fixed",
@@ -526,6 +688,7 @@
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "mapping": "learned",
@@ -552,6 +715,7 @@
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "mapping": "fixed",
@@ -578,6 +742,7 @@
     },
     {
       "suggester": "agent-v3:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "mapping": "learned",
@@ -603,6 +768,7 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "mapping": "fixed",
@@ -629,6 +795,7 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset.json",
       "test": "dataset_cad.json",
       "mapping": "learned",
@@ -654,6 +821,7 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "mapping": "fixed",
@@ -680,6 +848,7 @@
     },
     {
       "suggester": "llm:gpt-oss-120b+evidence",
+      "field": "all",
       "train": "dataset_cad.json",
       "test": "dataset.json",
       "mapping": "learned",

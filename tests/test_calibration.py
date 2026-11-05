@@ -1,7 +1,9 @@
 import pytest
 
-from scripts.calibration import (FIXED, brier, choose_tolerant, ece, learn_mapping, plot, proposal_rows, reliability,
-                                 remap, selected, threshold_transfer, wilson)
+from collections import Counter
+
+from scripts.calibration import (ALL, FIXED, accuracy, accuracy_interval, bootstrap, brier, by_gap, choose_tolerant, ece, learn_mapping,
+                                 plot, proposal_rows, reliability, remap, selected, split_runs, threshold_transfer)
 from scripts.threshold import curve
 
 
@@ -23,11 +25,27 @@ def test_reliability_bins_and_top_bin_includes_one():
     assert bins[1]["accuracy"] == 0.5
 
 
-def test_wilson_interval_is_wide_for_small_samples():
-    low, high = wilson(1, 1)
-    assert low < 0.25 and high == 1.0
-    low, high = wilson(50, 100)
-    assert 0.39 < low < 0.5 < high < 0.61
+def test_bootstrap_counts_a_gap_once_however_often_it_was_repeated():
+    rows = [{"gap": f"g{i}", "confidence": 0.8, "correct": i % 2 == 0} for i in range(10)]
+    repeated = rows * 6  # the same 10 gaps answered in six runs
+    assert len(by_gap(repeated)) == 10
+    once, six = bootstrap(by_gap(rows), accuracy), bootstrap(by_gap(repeated), accuracy)
+    assert once == six  # six repeats add no information: the interval stays as wide
+    low, high = once
+    assert low < 0.5 < high and high - low > 0.3
+    assert bootstrap(by_gap(rows[:4]), accuracy) is None  # too few gaps for an interval
+
+
+def test_bootstrap_is_reproducible():
+    clusters = [[(0.7, True)], [(0.7, False)], [(0.3, False)], [(0.3, True)], [(0.8, True)], [(0.1, False)]]
+    assert bootstrap(clusters, ece) == bootstrap(clusters, ece)
+
+
+def test_split_runs_keeps_graded_gaps_per_field():
+    rows = [{"field": "description"}, {"field": "partNumber"}, {"field": "description"}]
+    group = [(Counter(description=5, partNumber=3), rows)]
+    assert split_runs(group, "partNumber") == [(3, [rows[1]])]
+    assert split_runs(group, ALL) == [(8, rows)]
 
 
 def test_learned_mapping_is_smoothed_accuracy_per_basis():
@@ -62,7 +80,7 @@ def test_close_option_counts_near_matches():
     truth = {("A", "description"): "Rotation Adjuster"}
     assert proposal_rows(run, truth)[0]["correct"] is False
     assert proposal_rows(run, truth, close=True)[0] == {"confidence": 0.7, "correct": True, "basis": "pattern",
-                                                         "field": "description"}
+                                                         "field": "description", "gap": "A|description"}
 
 
 def test_suggester_filter_matches_label_parts():
@@ -75,3 +93,10 @@ def test_plot_writes_a_figure(tmp_path):
              "reliability": [{"confidence": 0.3, "accuracy": 0.2, "n": 10}, {"confidence": 0.75, "accuracy": 1.0, "n": 6}]}]
     plot(rows, tmp_path / "r.png", close=False)
     assert (tmp_path / "r.png").stat().st_size > 1000
+
+
+def test_rule_of_three_when_every_gap_has_the_same_outcome():
+    all_wrong = [[(0.3, False)] for _ in range(10)]
+    assert bootstrap(all_wrong, accuracy) == (0.0, 0.0)  # the bootstrap alone claims certainty
+    assert accuracy_interval(all_wrong) == (0.0, 0.3)  # 0 of 10: at most about 30%
+    assert accuracy_interval([[(0.8, True)] for _ in range(6)]) == (0.5, 1.0)

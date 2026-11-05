@@ -178,7 +178,7 @@ same blanks and nothing is written to the tenant:
 .venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json
 
 # Calibration: confidence against accuracy, per basis, and whether a learned mapping transfers
-.venv\Scripts\python.exe scripts\calibration.py --since 20261023 --suggester agent-v3 --suggester llm: --suggester rules [--close] [--plot runs\reliability.png] [--out runs\calibration.json]
+.venv\Scripts\python.exe scripts\calibration.py --since 20261023 --suggester agent-v3 --suggester llm: --suggester rules [--by-field] [--close] [--plot runs\reliability.png] [--out runs\calibration.json]
 ```
 
 ## Tests
@@ -294,13 +294,31 @@ described as "Upper bearing - 22mm").
 ECE (expected calibration error) is the gap between confidence and accuracy, averaged over bins of width 0.2; 0 is
 perfect. The model's own confidence is the worst: on the CAD data it is 75% sure on average and 7% right.
 
-Accuracy per stated basis, tool-using agent v3 (95% Wilson interval):
+Accuracy per stated basis, tool-using agent v3, descriptions (`--by-field`; gaps = distinct blank fields, each
+answered in 4-6 repeated runs):
 
 | Basis (confidence given) | `dataset.json` | `dataset_cad.json` |
 |---|---|---|
-| copied (0.8) | 95% (75-99%), n=19 | 46% (23-71%), n=13 |
-| pattern (0.7) | 80% (58-92%), n=20 | 32% (15-54%), n=19 |
-| inferred (0.3) | 4% (1-20%), n=25 | 0% (0-19%), n=16 |
+| copied (0.8) | 95% of 19 answers, 4 gaps | 46% of 13 answers, 6 gaps (95%: 0-86%) |
+| pattern (0.7) | 0% of 4 answers, 3 gaps | 25% of 8 answers, 4 gaps |
+| inferred (0.3) | 4% of 24 answers, 5 gaps (0-12%) | 0% of 15 answers, 5 gaps (0-60%) |
+
+**How much data this is.** A gap answered in six repeated runs is one sample, not six: the repeats share the item,
+the evidence and mostly the answer. The intervals are therefore a bootstrap over gaps (whole gaps resampled with all
+their repeats; the rule of three where every gap has the same outcome), and none is given below 5 gaps. Counted
+this way the evaluation rests on 10-16 gaps per suggester and dataset, and most per-basis cells on 2-6. Two
+differences are clear at this size: the self-rated LLM is badly calibrated on the CAD data (ECE 0.68, 95%
+0.54-0.77), and evidence-based confidence is better calibrated there (0.27, 0.10-0.43: the intervals do not
+overlap). Whether the tool-using agent is worse calibrated on the CAD data than on `dataset.json` (ECE 0.34 against
+0.18) is not settled: the intervals overlap. More gaps, not more repeats, would settle it.
+
+**Descriptions and part numbers** (`--by-field`) fail differently. On `dataset.json` part numbers are the easy field
+(89-100% right: they follow the assembly's number sequence) and descriptions the hard one (40-50%). On the CAD data
+both are mostly wrong, and part numbers are the riskier: the agent's "pattern" part numbers (`507-0802-00` for
+`507-0702-00`) are given 0.7 and right 36% of the time, and a wrong identifier is harder for a reviewer to spot than
+a wrong description. A threshold chosen on `dataset.json` writes 64-86% wrong part numbers on the CAD data, which
+supports the existing rule that part numbers are never written without approval. `runs/reliability-by-field.png`
+shows the four panels.
 
 The basis ranks the answers in the same order on both datasets (copied > pattern > inferred), and "inferred" is
 almost never right on either: it separates well. What does not transfer is the level: the same basis is right half
