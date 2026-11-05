@@ -443,6 +443,32 @@ from 2.0 to 0.5 (the number check). What is left are "pattern" descriptions, whi
 still overlap and the cells hold 1-4 gaps, so this shows the mechanism, not its size; with close matching the
 checks make no difference, because the tolerant threshold on `dataset.json` falls to 0.10, below any demotion.
 
+### Checked confidence on fresh runs (5 November 2026)
+
+The tool-using agent v3 with `--confidence checked`, 3 runs per dataset, compared with the same agent's
+`--confidence evidence` runs (6 and 4 runs). The prompt is the same, so the checks change only the confidence,
+never the answers; the lower accuracy of the new runs (36% against 49% exact on `dataset.json`) is run-to-run
+variation of the model.
+
+| Dataset | Mode | At confidence 0.5: written per run | of which wrong | Brier | ECE |
+|---|---|---|---|---|---|
+| `dataset.json` | evidence | 6.5 | 0.8 | 0.11 | 0.18 |
+| `dataset.json` | checked | 4.7 | 0.7 | 0.11 | 0.20 |
+| `dataset_cad.json` | evidence | 8.0 | **5.0** | 0.27 | 0.34 |
+| `dataset_cad.json` | checked | 3.7 | **2.0** | 0.17 | 0.26 |
+
+The checks on the fresh answers behave as on the old runs: verified variant swaps were right 9 of 9 times on
+`dataset.json` and 3 of 4 on the CAD data, "only hole" part numbers 3 of 3; unverified copies (0 of 5),
+new-variant part numbers (0 of 3) and other holes (1 of 3) were demoted. A threshold with no wrong write on
+`dataset.json` now exists (0.80; the evidence mode has none) and writes 1.7 values per run on the CAD data, 0.7 of
+them wrong.
+
+Of the 7 wrong values still written at 0.5 over the six runs, 5 are "pattern" descriptions, the one claim the code
+cannot check (right 2 of 8 times over both datasets), and 2 are the assembly SWC-Base taking the description of the
+part SWC-Base sprinkler (one literal copy, one variant swap). Both point to changes not made here because they were
+found on the held-out data: no high confidence for a claim the code cannot check, and a copy source of the same
+kind (assembly or part) as the item, as the duplicate check already requires.
+
 ### Duplicate detection (4 November 2026)
 
 There are no known duplicates in the datasets, so `duplicates.py --plant N` adds them: N parts created a second

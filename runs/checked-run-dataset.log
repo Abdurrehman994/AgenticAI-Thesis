@@ -1,0 +1,175 @@
+
+=== run 1 of 3 ===
+18 items in API_development: 12 gaps, 0 already awaiting review
+
+  API_ASM_GUARD                description  'Mesh guard assembly'                      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Children include mesh guard panel and hinge, indicating a guard assembly
+      - Other assemblies in the project use descriptions following the pattern '<Function> assembly'
+  API_BEARING_6204_2RS         description  '6204 2RS deep groove ball bearing'        0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'API_BEARING_6204_2RS' follows the common naming convention for deep groove ball bearings, where '6204' denotes the bearing series and size, and '2RS' indicates two rubber seals.
+  API_BELT_PVC_600             partNumber   no evidence
+  API_BOLT_M6X16_ISO4017       description  'Hex bolt M6x16 ISO 4017, zinc plated'     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_BOLT_M8X25_ISO4017)
+      - source: API_BOLT_M8X25_ISO4017
+      - Similar item API_BOLT_M8X25_ISO4017 uses description pattern 'Hex bolt M8x25 ISO 4017, zinc plated'
+      - Target item is same family, differing only in size (M6x16) so description follows same pattern
+  API_GUARD_HINGE_AL           description  'Aluminium hinge for guard panel'          0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Title ends with _AL suggesting aluminium material
+      - Hinge is a component of the guard assembly (API_ASM_GUARD)
+      - Typical description style for similar parts (e.g., "Mesh guard panel, powder coated")
+  API_GUARD_HINGE_AL           partNumber   no evidence
+  API_MOTOR_GEAR_037KW         description  'Motor gear, 0.37\u202fkW'                 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Title indicates a gear for a 0.37 kW motor; no similar items available to copy.
+  API_NUT_M6_ISO4032           description  'Hex nut M6 ISO 4032, zinc plated'         0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_NUT_M8_ISO4032)
+      - source: API_NUT_M8_ISO4032
+      - Description pattern matches similar item API_NUT_M8_ISO4032, adjusting size from M8 to M6
+  API_ROLLER_IDLER_D50         description  'Idler roller, D50 mm'                     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_ROLLER_DRIVE_D50)
+      - source: API_ROLLER_DRIVE_D50
+      - Similar item API_ROLLER_DRIVE_D50 has description 'Drive roller, D50 mm'; replace 'Drive' with 'Idler' to match the part type while keeping size and format
+  API_ROLLER_IDLER_D50         partNumber   'CNV-1003'                                 0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: only hole in the sequence (the only missing number)
+      - source: API_ROLLER_DRIVE_D50
+      - Drive roller D50 has partNumber CNV-1002 within the same conveyor module.
+      - The module's partNumber is CNV-1000, suggesting component numbers follow sequentially.
+      - Idler roller is a sibling component to the drive roller, likely receiving the next sequential number.
+  API_WASHER_M8_ISO7089        description  'Plain washer M8 ISO 7089, zinc plated'    0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: API_NUT_M8_ISO4032
+      - source: API_BOLT_M8X25_ISO4017
+      - Uses the same syntax as other fasteners (type, size, standard, finish)
+      - Similar items describe the part type, size, standard, and coating
+  API_WASHER_M8_ISO7089        partNumber   no evidence
+
+9 of 12 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-182049-547455.json
+
+=== run 2 of 3 ===
+18 items in API_development: 12 gaps, 0 already awaiting review
+
+  API_ASM_GUARD                description  'Protective guard assembly for conveyor line' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: API_GUARD_PANEL_MESH
+      - source: API_ASM_CONVEYOR_LINE
+      - The guard is used in the API_ASM_CONVEYOR_LINE assembly, indicating its purpose is to protect the conveyor line.
+      - Children include a mesh guard panel (described as "Mesh guard panel, powder coated") and a hinge, suggesting the assembly is a protective guard.
+      - Assembly descriptions in the project follow the pattern "<function> <component> assembly" (e.g., "Motor mounting bracket assembly"), supporting a concise description.
+  API_BEARING_6204_2RS         description  '6204 2RS deep‑groove ball bearing'        0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title follows standard bearing naming: size 6204 with double rubber shields (2RS), typical description includes size and type.
+  API_BELT_PVC_600             partNumber   ambiguous: CNV-1003 also proposed for API_ROLLER_IDLER_D50
+  API_BOLT_M6X16_ISO4017       description  'Hex bolt M6x16 ISO 4017, zinc plated'     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_BOLT_M8X25_ISO4017)
+      - source: API_BOLT_M8X25_ISO4017
+      - Description pattern from similar bolt item differing only in size (M8x25 vs M6x16).
+  API_GUARD_HINGE_AL           description  'Aluminium guard hinge'                    0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'API_GUARD_HINGE_AL' indicates the part is a guard hinge made of aluminium (AL). No similar item with a description was found, so the description is derived directly from the title.
+  API_GUARD_HINGE_AL           partNumber   'GRD-3002'                                 0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: only hole in the sequence (the only missing number)
+      - source: API_ASM_GUARD
+      - source: API_GUARD_PANEL_MESH
+      - Guard assembly partNumber is GRD-3000
+      - Guard panel mesh partNumber is GRD-3001
+      - Numbers appear sequential, so next guard-related part (hinge) likely GRD-3002
+  API_MOTOR_GEAR_037KW         description  'Motor gear, 0.37\u202fkW'                 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: API_ASM_MOTOR_BRACKET
+      - source: API_BRACKET_MOTOR_S235
+      - Similar items use a concise format "Motor <component>, <specification>" in their descriptions
+      - The title indicates the part is a motor gear with a power rating of 0.37 kW
+  API_NUT_M6_ISO4032           description  'Hex nut M6 ISO 4032, zinc plated'         0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_NUT_M8_ISO4032)
+      - source: API_NUT_M8_ISO4032
+      - The M8 variant description follows the pattern 'Hex nut M< size > ISO 4032, zinc plated'. Applying the same wording to the M6 size yields the proposed description.
+  API_ROLLER_IDLER_D50         description  'Idler roller, D50 mm'                     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_ROLLER_DRIVE_D50)
+      - source: API_ROLLER_DRIVE_D50
+      - Description follows same pattern as drive roller, replacing 'Drive' with 'Idler' for the same diameter D50 mm
+  API_ROLLER_IDLER_D50         partNumber   ambiguous: CNV-1003 also proposed for API_BELT_PVC_600
+  API_WASHER_M8_ISO7089        description  'Flat washer M8 ISO 7089, zinc plated'     0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: API_NUT_M8_ISO4032
+      - Similar item API_NUT_M8_ISO4032 uses pattern '<type> M8 ISO <standard>, zinc plated'.
+      - Standard ISO 7089 defines flat washers; thus description follows same pattern with appropriate type and standard.
+  API_WASHER_M8_ISO7089        partNumber   no evidence
+
+9 of 12 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-182209-386078.json
+
+=== run 3 of 3 ===
+18 items in API_development: 12 gaps, 0 already awaiting review
+
+  API_ASM_GUARD                description  'Guard assembly, mesh panel with hinge'    0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item is an assembly (API_ASM_*) and its children include a mesh guard panel and a hinge, indicating the assembly is a guard consisting of these parts.
+  API_BEARING_6204_2RS         description  'Deep groove ball bearing 6204 with double rubber seals (2RS)' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title follows standard bearing naming: 6204 denotes a deep‑groove ball bearing size, and 2RS indicates double rubber sealing.
+  API_BELT_PVC_600             partNumber   no evidence
+  API_BOLT_M6X16_ISO4017       description  'Hex bolt M6x16 ISO 4017, zinc plated'     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_BOLT_M8X25_ISO4017)
+      - source: API_BOLT_M8X25_ISO4017
+      - Description follows same pattern as similar item API_BOLT_M8X25_ISO4017, differing only in size
+  API_GUARD_HINGE_AL           description  'Guard hinge, aluminium, powder coated'    0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: API_GUARD_PANEL_MESH
+      - source: API_ASM_GUARD
+      - Description follows the style of other guard components (e.g., 'Mesh guard panel, powder coated').
+      - Part number sequence suggests the hinge fills the gap between GRD-3001 and GRD-3003, indicating it is a guard component.
+      - The title suffix '_AL' indicates material aluminium.
+  API_GUARD_HINGE_AL           partNumber   'GRD-3002'                                 0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: only hole in the sequence (the only missing number)
+      - source: API_ASM_GUARD
+      - source: API_GUARD_PANEL_MESH
+      - Existing guard-related items have sequential part numbers GRD-3000 (assembly) and GRD-3001 (panel mesh)
+      - The new hinge part belongs to the same guard family, so the next logical number in the sequence is GRD-3002
+  API_MOTOR_GEAR_037KW         description  'Motor gear 0.37 kW'                       0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Title indicates it is a motor gear for a 0.37 kW motor; no existing similar items to copy from.
+  API_NUT_M6_ISO4032           description  'Hex nut M6 ISO 4032, zinc plated'         0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_NUT_M8_ISO4032)
+      - source: API_NUT_M8_ISO4032
+      - The description of API_NUT_M8_ISO4032 follows the pattern "Hex nut M<size> ISO 4032, zinc plated".
+      - Applying the same wording with size M6 yields the proposed description.
+  API_ROLLER_IDLER_D50         description  'Idler roller, D50 mm'                     0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (API_ROLLER_DRIVE_D50)
+      - source: API_ROLLER_DRIVE_D50
+      - API_ROLLER_DRIVE_D50 has description "Drive roller, D50 mm"; the idler roller is analogous, differing only in the type (Idler vs Drive).
+      - Both items share the same size designation D50, so the description follows the same pattern.
+  API_ROLLER_IDLER_D50         partNumber   'CNV-1003'                                 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: API_ROLLER_DRIVE_D50
+      - The drive roller (API_ROLLER_DRIVE_D50) has partNumber CNV-1002; similar family items usually receive sequential part numbers, so the next number CNV-1003 is a logical assignment for the idler roller.
+  API_WASHER_M8_ISO7089        description  'Washer M8 ISO 7089, zinc plated'          0.3  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: unverified: not confirmed, confidence 0.3
+      - source: API_NUT_M8_ISO4032
+      - Description follows same pattern as API_NUT_M8_ISO4032 which uses "<type> M8 ISO <standard>, zinc plated".
+  API_WASHER_M8_ISO7089        partNumber   'CNV-1006'                                 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: next after the highest (one after the highest in use): not confirmed, confidence 0.3
+      - source: API_BEARING_6204_2RS
+      - source: API_BOLT_M8X25_ISO4017
+      - Both bearing and bolt have partNumbers with prefix CNV- and sequential numbers 1004 and 1005
+      - Washer is a similar mechanical component, so it follows the next number in the CNV- series
+
+11 of 12 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-182352-483216.json

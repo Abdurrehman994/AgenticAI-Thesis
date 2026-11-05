@@ -1,0 +1,526 @@
+
+=== run 1 of 3 ===
+48 items in API_development: 56 gaps, 0 already awaiting review
+
+  Axle                         description  'Central shaft that connects the wheels and transmits load for the hand truck.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The Axle is used in the Hand Truck assembly and is the only component named Axle, indicating it serves as the central shaft linking wheels.
+      - Typical hand‑truck designs have an axle that holds the wheels and carries the load, so the description reflects that standard role.
+  Axle                         partNumber   no evidence
+  Axle.Cap                     description  'Axle cap'                                 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The description follows the simple pattern of using the item title words, as seen in other items like 'SWC-Cap sprinkler' whose description is 'Sprinkler head cap'. Here, 'Axle.Cap' maps to 'Axle cap'.
+  Axle.Cap                     partNumber   no evidence
+  Axle.Support                 description  'Support component for the axle, providing mounting and alignment within the hand‑truck assembly.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The part name 'Axle.Support' and its inclusion in the Leg.Support assembly indicate it functions as a support for the axle.
+  Axle.Support                 partNumber   no evidence
+  Blade                        description  'Flat steel blade used as the load‑carrying surface of the hand truck, providing a sliding platform for moving loads.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Hand Truck
+      - Blade is listed as a child component of the Hand Truck assembly.
+      - In typical hand truck designs, the blade is the flat metal plate that supports the load and slides on the floor.
+  Blade                        partNumber   no evidence
+  Brace.Pipe                   partNumber   no evidence
+  Caster.Assembly              description  'Caster assembly for Hand Truck'           0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Hand Truck
+      - Caster.Assembly is listed as a child of Hand Truck, indicating its role as the caster sub‑assembly of the hand truck.
+  Caster.Assembly              partNumber   no evidence
+  Hand Truck                   description  'Manual hand truck for transporting loads, comprising a blade, pneumatic tire, caster assembly, axle, leg support, handle, mounting plate, nut and round head bolt.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Blade
+      - source: Caster.Assembly
+      - source: Axle
+      - The Hand Truck item contains children that represent typical components of a manual hand truck (blade, tire, caster, axle, support, handle, mounting hardware).
+  Hand Truck                   partNumber   no evidence
+  Handle                       partNumber   no evidence
+  Leg.Support                  description  'Leg support assembly for Hand Truck'      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Item title 'Leg.Support' indicates its function
+      - Used in 'Hand Truck' assembly, implying it is the support leg component
+  Leg.Support                  partNumber   no evidence
+  Lower Pipe                   partNumber   no evidence
+  Mounting.Plate               description  'Flat steel plate used to mount components on the Hand Truck' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Mounting.Plate' indicates a flat plate for mounting purposes
+      - It is listed as a child of the Hand Truck assembly, implying it is used to attach parts on the hand truck
+  Mounting.Plate               partNumber   no evidence
+  Nut                          description  'Standard fastening nut used to secure components' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item title is 'Nut', a common fastening component; description is inferred from its generic function.
+  Nut                          partNumber   no evidence
+  Round Head Bolt_AI           description  'Round head bolt used to fasten components of the Hand Truck assembly' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item is listed as a child of the Hand Truck assembly, alongside other fasteners such as Nut, indicating its purpose as a fastening component.
+  Round Head Bolt_AI           partNumber   no evidence
+  SWC-Actuator                 partNumber   '520-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: breaks the pattern (520 is outside the sequence 501-518): not confirmed, confidence 0.3
+      - source: SWC-Base sprinkler
+      - source: SWC-Body sprinkler
+      - Existing partNumbers follow a pattern of three‑digit prefix incrementing with component hierarchy (e.g., 501-0601-00 for Base, 510-0601-00 for Body). The Actuator is a higher‑level assembly within the orbital sprinkler, so the next logical prefix after 510 is 520.
+      - No exact matching item found; pattern inferred from nearby component partNumbers.
+  SWC-Adjustment Knob sprinkler partNumber   '513-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: one of several holes (one of 5 missing numbers): not confirmed, confidence 0.3
+      - source: SWC-Body sprinkler
+      - source: SWC-Spray Angle Adjustment sprinkler
+      - source: SWC-Spray Disruptor sprinkler
+      - source: SWC-Engage Lever sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Jet sprinkler
+      - Sibling parts in SWC-Rotator have sequential part numbers 510, 511, 512, 514, 515 with the same suffix -0601-00.
+      - The missing sequential number 513 aligns with the function of an Adjustment Knob, fitting the pattern.
+  SWC-Base                     description  'Ground Base Rod'                          0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: literal copy (SWC-Base sprinkler)
+      - source: SWC-Base sprinkler
+      - SWC-Base sprinkler has description 'Ground Base Rod' and shares the same naming pattern (SWC-Base).
+      - SWC-Base is used in the same assembly (SWC-OrbitalSprinkler) and has similar children, indicating it serves as the base component.
+  SWC-Base                     partNumber   no evidence
+  SWC-Collar sprinkler         description  'Sprinkler head collar'                    0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Cap sprinkler
+      - The item name follows the pattern of other SWC parts (e.g., SWC-Cap sprinkler has description 'Sprinkler head cap').
+      - A 'collar' in a sprinkler assembly would logically be described as a 'Sprinkler head collar'.
+  SWC-Collar sprinkler         partNumber   no evidence
+  SWC-Engage Spring sprinkler  description  'Engagement Spring'                        0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (SWC-Engage Lever sprinkler)
+      - source: SWC-Engage Lever sprinkler
+      - The 'SWC-Engage Lever sprinkler' uses the description 'Engagement Lever'; following the same naming pattern, the spring variant is described as 'Engagement Spring'.
+  SWC-Jet sprinkler            description  'Jet nozzle'                               0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Title 'SWC-Jet sprinkler' suggests it is the jet/nozzle component of the sprinkler; other parts follow pattern '<Component> <function>', e.g., 'SWC-Cap sprinkler' described as 'Sprinkler head cap'.
+  SWC-Locklever sprinkler      description  'Lock Lever'                               0.3  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: unverified: not confirmed, confidence 0.3
+      - source: SWC-Engage Lever sprinkler
+      - The similar part 'SWC-Engage Lever sprinkler' has description 'Engagement Lever' and shares the same part number prefix (505-). Following the naming convention, the lock lever description is the concise term describing the part.
+  SWC-Lower Bearing sprinkler  partNumber   '508-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: one of several holes (one of 5 missing numbers): not confirmed, confidence 0.3
+      - source: SWC-Spring-upper bearing sprinkler
+      - source: SWC-Base sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Gasket sprinkler
+      - source: SWC-Jet sprinkler
+      - source: SWC-Locklever sprinkler
+      - Existing partNumbers for sprinkler components follow a sequential pattern in the 500 series (e.g., 501, 505, 506, 507, 510, 514, 515, 517).
+      - The next available number after 507 is 508, which is not used by any other listed item.
+      - Components of similar type (sprinkler sub‑assembly) share the suffix "-0601-00"; the lower bearing is a standard sprinkler component, so the suffix is applied.
+      - Thus the lower bearing is assigned the next sequential partNumber 508-0601-00.
+  SWC-Name Plate sprinkler     description  'Sprinkler name plate'                     0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Other SWC items use a concise noun‑phrase description matching the part title (e.g., SWC‑Cap sprinkler → "Sprinkler head cap").
+      - The title "SWC-Name Plate sprinkler" suggests the part is a name plate for the sprinkler, so the description follows the same pattern.
+  SWC-OrbitalSprinkler         partNumber   '525-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Base sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - Existing sprinkler components use part numbers in the 500-517 range with the same suffix -0601-00
+      - Upper bearing is a distinct component; a sequential next number (525) follows the pattern of increasing identifiers for related parts
+  SWC-Rotation Adjustment sprinkler description  'Sprinkler rotation adjuster'              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: unverified: not confirmed, confidence 0.3
+      - source: SWC-Adjustment Knob sprinkler
+      - source: SWC-Spray Angle Adjustment sprinkler
+      - Similar items use the pattern "Sprinkler <function> adjuster/knob".
+      - The term "rotation" matches the function, so the description follows the same phrasing.
+  SWC-Rotation Adjustment sprinkler partNumber   no evidence
+  SWC-Rotator                  description  'Rotator Assembly'                         0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Actuator
+      - source: SWC-OrbitalSprinkler
+      - Both SWC-Actuator and SWC-OrbitalSprinkler are sub‑assemblies whose descriptions follow the '<Component> Assembly' pattern.
+      - SWC-Rotator, as a sub‑assembly used in SWC‑OrbitalSprinkler and composed of multiple sprinkler parts, fits this same pattern.
+  SWC-Rotator                  partNumber   no evidence
+  SWC-Screw                    description  'Fastening screw for rotator'              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item is used in the SWC‑Rotator assembly, indicating its role as a fastening screw for that component.
+  SWC-Screw                    partNumber   no evidence
+  SWC-Shaft sprinkler          partNumber   no evidence
+  SWC-Spring-swingarm sprinkler partNumber   no evidence
+  SWC-Upper Bearing sprinkler  partNumber   '507-0802-00'                              0.1  agent-v3:gpt-oss-120b+checked
+      - basis: guess
+      - source: SWC-Spring-upper bearing sprinkler
+      - The Spring-upper bearing sprinkler has partNumber 507-0803-00; the Upper Bearing likely shares the 507-080x series with a different suffix
+      - Naming suggests it is a variant of the Spring-upper bearing, so the part number is inferred by decrementing the suffix
+  SWC-Upper Washer sprinkler   partNumber   no evidence
+  Short.Pipe                   partNumber   no evidence
+  Tire.Plastic                 description  'Plastic tire for hand truck, providing low‑friction rolling support for lightweight loads.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Based on the title 'Tire.Plastic' and the similar item 'Tire.Pneumatic' used in a Hand Truck, the description follows typical PLM wording for a plastic tire component.
+  Tire.Plastic                 partNumber   no evidence
+  Tire.Pneumatic               description  'Air‑filled pneumatic tire for the hand truck, providing cushioning and load‑bearing capability.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Hand Truck
+      - The item is used in the Hand Truck assembly and its title indicates it is a pneumatic (air‑filled) tire.
+      - Standard practice is to describe such tires as providing cushioning and load‑bearing for hand‑truck applications.
+  Tire.Pneumatic               partNumber   no evidence
+  Weld.Axle.Support            description  'Weld to support axle'                     0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Weld.Axle.Support' indicates a welding operation that provides support to the axle; a concise description follows this meaning.
+  Weld.Axle.Support            partNumber   no evidence
+  Weld.Long.to.Brace           description  'Long weld to brace'                       0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The description is inferred from the item title, following the pattern of similar items such as 'Weld.Short.to.Brace' which would logically have a description 'Short weld to brace'.
+  Weld.Long.to.Brace           partNumber   no evidence
+  Weld.Short.to.Brace          description  'WELD SHORT TO BRACE'                      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The description is derived directly from the item title, following the pattern observed for similar weld items where the description mirrors the title with spaces and uppercase.
+  Weld.Short.to.Brace          partNumber   no evidence
+
+29 of 56 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-183027-483461.json
+
+=== run 2 of 3 ===
+48 items in API_development: 56 gaps, 0 already awaiting review
+
+  Axle                         description  'Steel axle for the Hand Truck, providing the central shaft that supports the pneumatic tire and caster assembly.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The Axle is used in the Hand Truck assembly alongside Tire.Pneumatic and Caster.Assembly, indicating its role as the central shaft supporting these components.
+  Axle                         partNumber   no evidence
+  Axle.Cap                     description  'Axle cap'                                 0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Cap sprinkler
+      - Other items with 'Cap' in the title (e.g., SWC-Cap sprinkler) use a description formed by the component name followed by 'cap'.
+      - The title 'Axle.Cap' indicates it is a cap for the axle, so the description follows the same naming pattern.
+  Axle.Cap                     partNumber   no evidence
+  Axle.Support                 description  'Support for the axle in the leg assembly of the hand truck' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Item name indicates it provides support for the axle within the Leg.Support assembly, which is used in the Hand Truck.
+  Axle.Support                 partNumber   no evidence
+  Blade                        description  no evidence
+  Blade                        partNumber   no evidence
+  Brace.Pipe                   partNumber   no evidence
+  Caster.Assembly              description  'Caster assembly for hand truck'           0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item is titled Caster.Assembly and is used in the Hand Truck product, suggesting its description should identify it as the caster assembly for that hand truck.
+  Caster.Assembly              partNumber   no evidence
+  Hand Truck                   description  'Portable hand truck comprising a blade, pneumatic tire, caster assembly, axle, leg support, handle, mounting plate, nut and round head bolt.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Blade
+      - source: Caster.Assembly
+      - source: Axle
+      - The Hand Truck item is composed of the listed children, which together describe a typical hand truck structure.
+      - No existing similar item was found, so the description is inferred from the component list.
+  Hand Truck                   partNumber   no evidence
+  Handle                       partNumber   no evidence
+  Leg.Support                  description  'LEG SUPPORT'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Leg.Support is used in the Hand Truck assembly and comprises children items such as Axle.Support, Lower Pipe, various welds, Short.Pipe and Brace.Pipe, indicating it functions as the overall support structure for the hand‑truck leg.
+  Leg.Support                  partNumber   no evidence
+  Lower Pipe                   partNumber   no evidence
+  Mounting.Plate               description  'Flat mounting plate used to attach components to the Hand Truck' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - No existing description found; inferred from the part name and its use in the Hand Truck assembly.
+  Mounting.Plate               partNumber   no evidence
+  Nut                          description  no evidence
+  Nut                          partNumber   no evidence
+  Round Head Bolt_AI           description  'Round head bolt used to fasten components of the Hand Truck' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Hand Truck
+      - The item is used in the Hand Truck assembly and shares the typical function of a bolt, therefore its description can be inferred as a fastening round head bolt for that product.
+  Round Head Bolt_AI           partNumber   no evidence
+  SWC-Actuator                 partNumber   no evidence
+  SWC-Adjustment Knob sprinkler partNumber   '504-0601-00'                              0.1  agent-v3:gpt-oss-120b+checked
+      - basis: guess
+      - Similar SWC parts use a three‑digit prefix followed by '-0601-00'.  Based on nearby prefixes (501 for Base, 505 for Engage Lever, 517 for Cap), a plausible unused prefix for the Adjustment Knob is 504.
+  SWC-Base                     description  'Base'                                     0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Base sprinkler
+      - Similar items use 'Base' in their description (e.g., 'Ground Base Rod' and 'Base Gasket').
+      - SWC-Base is a generic component used in the SWC-OrbitalSprinkler assembly, suggesting a basic supporting part.
+  SWC-Base                     partNumber   no evidence
+  SWC-Collar sprinkler         description  'Sprinkler collar'                         0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Body sprinkler
+      - Other SWC items use a brief phrase of the form 'Sprinkler <part>' (e.g., 'Sprinkler head cap', 'Casing cover', 'Main sprinkler body').
+      - The term 'Collar' denotes a simple surrounding component, so the description follows the same concise naming convention.
+  SWC-Collar sprinkler         partNumber   no evidence
+  SWC-Engage Spring sprinkler  description  'Engagement Spring'                        0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (SWC-Engage Lever sprinkler)
+      - source: SWC-Engage Lever sprinkler
+      - The similar item 'SWC-Engage Lever sprinkler' has description 'Engagement Lever'; following the same naming pattern, the spring variant should be described as 'Engagement Spring'.
+  SWC-Jet sprinkler            description  'Jet sprinkler head'                       0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - Related sprinkler components use a pattern: component name followed by descriptive phrase (e.g., 'Main sprinkler body', 'Sprinkler head cap', 'Casing cover').
+      - The part name 'Jet sprinkler' suggests it is a jet-type head, so the description follows the pattern as 'Jet sprinkler head'.
+  SWC-Locklever sprinkler      description  'Sprinkler Lock Lever'                     0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Adjustment Knob sprinkler
+      - Similar component SWC-Adjustment Knob sprinkler uses description 'Sprinkler Adjustment Knob'
+      - Naming convention is "Sprinkler <component>"; lock lever follows same pattern
+  SWC-Lower Bearing sprinkler  partNumber   no evidence
+  SWC-Name Plate sprinkler     description  'Name plate'                               0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Base sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Gasket sprinkler
+      - source: SWC-Shaft sprinkler
+      - source: SWC-Swingarm sprinkler
+      - All similar SWC- items have short descriptive phrases matching the component name.
+      - The title 'SWC-Name Plate sprinkler' indicates the part is a name plate, so the description follows the same pattern.
+  SWC-OrbitalSprinkler         partNumber   '520-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: breaks the pattern (520 is outside the sequence 501-518): not confirmed, confidence 0.3
+      - source: SWC-Body sprinkler
+      - source: SWC-Jet sprinkler
+      - Existing sprinkler components use part numbers in the 510‑0601‑00 to 515‑0601‑00 range.
+      - The orbital sprinkler is a top‑level assembly, so its number likely follows the next sequential code in the 520‑0601‑00 slot.
+  SWC-Rotation Adjustment sprinkler description  'Sprinkler rotation adjuster'              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: unverified: not confirmed, confidence 0.3
+      - source: SWC-Adjustment Knob sprinkler
+      - source: SWC-Spray Angle Adjustment sprinkler
+      - Similar items use a description that starts with "Sprinkler" followed by the functional term from the title.
+      - The pattern for adjustment parts is "Sprinkler <function> adjuster" (e.g., angle adjuster).
+  SWC-Rotation Adjustment sprinkler partNumber   no evidence
+  SWC-Rotator                  description  'Rotator Assembly'                         0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Actuator
+      - source: SWC-OrbitalSprinkler
+      - Other components with similar naming (Actuator, Orbital Sprinkler) use '<Name> Assembly' as description.
+      - SWC-Rotator is a top-level part in the Orbital Sprinkler assembly, consistent with being an assembly itself.
+  SWC-Rotator                  partNumber   no evidence
+  SWC-Screw                    description  'Adjustment screw for rotator'             0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - SWC-Screw is listed as a child of the SWC-Rotator assembly, indicating it is a screw used within the rotator mechanism.
+      - Other SWC components have brief functional descriptions (e.g., "Main sprinkler body", "Sprinkler head cap"), so a concise functional phrase is appropriate.
+  SWC-Screw                    partNumber   'SWC‑Screw'                                0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - In the product structure, most items use a partNumber that matches their title (e.g., SWC‑Rotator, SWC‑Base). No explicit partNumber is stored for SWC‑Screw, so the safest assumption is that its partNumber follows the same convention.
+  SWC-Shaft sprinkler          partNumber   no evidence
+  SWC-Spring-swingarm sprinkler partNumber   '507-0602-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: new variant of an existing family (507 is already a family in use): not confirmed, confidence 0.3
+      - source: SWC-Engage Spring sprinkler
+      - source: SWC-Spring-upper bearing sprinkler
+      - Spring items in the SWC family use the 507 prefix (e.g., Engage Spring 507-0601-00, Spring-upper bearing 507-0803-00).
+      - A new spring variant (Swingarm spring) should follow the same 507 series while having a distinct middle code, choosing the next available sequence 0602.
+  SWC-Upper Bearing sprinkler  partNumber   no evidence
+  SWC-Upper Washer sprinkler   partNumber   '505-0803-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: new variant of an existing family (505 is already a family in use): not confirmed, confidence 0.3
+      - source: SWC-Washer-Swingarm sprinkler
+      - source: SWC-Spring-upper bearing sprinkler
+      - Both similar upper components have part numbers ending in -0803-00
+      - The sequence for these components uses 504 for washer-swingarm and 507 for spring-upper bearing, suggesting the next available number (505) belongs to the upper washer
+  Short.Pipe                   partNumber   no evidence
+  Tire.Plastic                 description  'Plastic tire'                             0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Item is part of the Tire family; the Pneumatic variant uses the description 'Pneumatic tire' (implied). The Plastic variant likely follows the same naming pattern, describing material.
+  Tire.Plastic                 partNumber   no evidence
+  Tire.Pneumatic               description  'PNEUMATIC TIRE'                           0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Tire.Pneumatic' indicates the part is a pneumatic tire; no similar items provide a description, so the description is derived directly from the title.
+  Tire.Pneumatic               partNumber   no evidence
+  Weld.Axle.Support            description  'Welded axle support'                      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title follows the pattern 'Weld.<Component>.<Function>', suggesting a welded component that supports the axle.
+  Weld.Axle.Support            partNumber   no evidence
+  Weld.Long.to.Brace           description  'Long weld to brace'                       0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Weld.Long.to.Brace' indicates the item is a weld joining a long component to a brace; no existing description is available, so the description is derived directly from the title.
+  Weld.Long.to.Brace           partNumber   no evidence
+  Weld.Short.to.Brace          description  'Weld short to brace'                      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - Description inferred from the item title, following the pattern of other items where the description mirrors the functional wording of the title.
+  Weld.Short.to.Brace          partNumber   no evidence
+
+27 of 56 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-183640-684155.json
+
+=== run 3 of 3 ===
+48 items in API_development: 56 gaps, 0 already awaiting review
+
+  Axle                         description  'Central bar that connects the wheels and supports the load on the hand truck.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The axle is listed as a child of the Hand Truck, indicating it serves as the central shaft for the wheels.
+  Axle                         partNumber   no evidence
+  Axle.Cap                     description  'Axle cap'                                 0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Cap sprinkler
+      - The only other item with a 'Cap' suffix (SWC-Cap sprinkler) uses a description formed by combining the component name with the word 'cap'.
+      - Applying the same naming pattern to Axle.Cap yields the description 'Axle cap'.
+  Axle.Cap                     partNumber   no evidence
+  Axle.Support                 description  'Axle support'                             0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Axle
+      - source: Axle.Cap
+      - source: Weld.Axle.Support
+      - source: Leg.Support
+      - Item is a child of Leg.Support and shares the name component 'Axle', indicating it supports the axle.
+      - Similar items (Axle, Axle.Cap, Weld.Axle.Support) suggest a functional description centered on supporting the axle.
+  Axle.Support                 partNumber   no evidence
+  Blade                        description  'Blade for Hand Truck'                     0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Hand Truck
+      - Blade is a child component of the Hand Truck assembly, indicating its purpose is the blade used in the Hand Truck
+  Blade                        partNumber   no evidence
+  Brace.Pipe                   partNumber   no evidence
+  Caster.Assembly              description  'Caster assembly'                          0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title directly indicates it is an assembly of caster components used in the Hand Truck
+  Caster.Assembly              partNumber   no evidence
+  Hand Truck                   description  'Hand truck with pneumatic tire and caster assembly, comprising a blade, axle, leg support, handle, mounting plate, nut and round head bolt for material handling.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The children list defines the components of the hand truck, indicating it is a material handling device with a pneumatic tire and caster assembly.
+  Hand Truck                   partNumber   no evidence
+  Handle                       partNumber   no evidence
+  Leg.Support                  description  'Support assembly for hand truck leg'      0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item name 'Leg.Support' indicates it is a support component for the leg of the Hand Truck.
+      - It is used in the 'Hand Truck' assembly and consists of axle support, pipe, welds, and brace components.
+  Leg.Support                  partNumber   no evidence
+  Lower Pipe                   partNumber   no evidence
+  Mounting.Plate               description  'Mounting plate used to attach the hand truck to surfaces or other components.' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The Hand Truck assembly includes a Mounting.Plate among other structural components such as Blade, Axle, and Caster.Assembly. Typical mounting plates serve to provide a flat attachment surface for the equipment.
+      - No directly similar items with description found; description inferred from typical function of a mounting plate in hand truck assemblies.
+  Mounting.Plate               partNumber   no evidence
+  Nut                          description  no evidence
+  Nut                          partNumber   no evidence
+  Round Head Bolt_AI           description  no evidence
+  Round Head Bolt_AI           partNumber   no evidence
+  SWC-Actuator                 partNumber   'SWC-Actuator'                             0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The item's title follows the SWC-XXXXX naming convention used throughout the product structure; in the absence of explicit partNumber data, the most likely identifier is the title itself.
+  SWC-Adjustment Knob sprinkler partNumber   no evidence
+  SWC-Base                     description  'Base Assembly'                            0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (SWC-Actuator)
+      - source: SWC-Actuator
+      - source: SWC-OrbitalSprinkler
+      - SWC-Actuator description is "Actuator Assembly" and SWC-OrbitalSprinkler description is "Orbital Sprinkler Assembly" indicating that primary sub‑assemblies use the "Assembly" suffix.
+      - SWC-Base is a top‑level component of the SWC‑OrbitalSprinkler assembly, analogous to those items, so its description follows the same pattern.
+  SWC-Base                     partNumber   no evidence
+  SWC-Collar sprinkler         description  'Sprinkler collar'                         0.7  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - source: SWC-Base sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Gasket sprinkler
+      - Similar items use a description of the form "Sprinkler <component>" (e.g., "Sprinkler head cap", "Sprinkler collar" fits this pattern).
+      - The item name "Collar" suggests the description should identify it as the collar component of the sprinkler.
+  SWC-Collar sprinkler         partNumber   no evidence
+  SWC-Engage Spring sprinkler  description  'Engage spring'                            0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Engage Lever sprinkler
+      - The item name contains 'Engage' and 'Spring', matching the pattern of other items like 'Swingarm spring'.
+      - No exact similar description exists, so the description is derived from the naming convention.
+  SWC-Jet sprinkler            description  'Jet sprinkler head'                       0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - The naming pattern of other SWC items includes a description that specifies the component function, e.g., 'Main sprinkler body' and 'Sprinkler head cap'.
+      - By analogy, the 'SWC-Jet sprinkler' should describe its function as a jet-type sprinkler head.
+  SWC-Locklever sprinkler      description  'Lock Lever'                               0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Adjustment Knob sprinkler
+      - source: SWC-Swingarm sprinkler
+      - The description of other SWC- components follows a simple noun phrase matching the component name (e.g., "Adjustment Knob", "Swingarm").
+      - Applying the same pattern to the title "SWC-Locklever sprinkler" yields the description "Lock Lever".
+  SWC-Lower Bearing sprinkler  partNumber   no evidence
+  SWC-Name Plate sprinkler     description  'Name plate'                               0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: SWC-Adjustment Knob sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Base sprinkler
+      - All SWC components have short descriptive phrases matching their function.
+      - The item name includes 'Name Plate', indicating its description should be a concise label of that function.
+  SWC-OrbitalSprinkler         partNumber   no evidence
+  SWC-Rotation Adjustment sprinkler description  'Sprinkler rotation adjuster'              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: unverified: not confirmed, confidence 0.3
+      - source: SWC-Adjustment Knob sprinkler
+      - source: SWC-Spray Angle Adjustment sprinkler
+      - The description follows the pattern 'Sprinkler <function> adjuster' used in similar items.
+  SWC-Rotation Adjustment sprinkler partNumber   '513-0601-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: one of several holes (one of 5 missing numbers): not confirmed, confidence 0.3
+      - source: SWC-Base sprinkler
+      - source: SWC-Spray Angle Adjustment sprinkler
+      - source: SWC-Body sprinkler
+      - source: SWC-Cap sprinkler
+      - source: SWC-Cover sprinkler
+      - source: SWC-Gasket sprinkler
+      - source: SWC-Jet sprinkler
+      - All SWC-* sprinkler parts use a three‑digit prefix followed by '-0601-00' for the main series.
+      - Existing part numbers for related adjustment components are 511-0601-00 (spray angle) and 501-0601-00 (base).
+      - Numbers 512 and 514‑517 are already assigned to other parts, leaving 513 as the next logical unused prefix for a rotation adjustment component.
+  SWC-Rotator                  description  'Rotator Assembly'                         0.8  agent-v3:gpt-oss-120b+checked
+      - basis: copied
+      - check: variant swap (SWC-Actuator)
+      - source: SWC-Actuator
+      - SWC-Actuator title ends with '-Actuator' and its description is 'Actuator Assembly'
+      - SWC-Rotator follows the same naming convention, so its description is likely '<Component> Assembly'
+  SWC-Rotator                  partNumber   no evidence
+  SWC-Screw                    description  'Screw'                                    0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title is SWC-Screw; similar items use concise noun phrases as descriptions, e.g., 'Ground Base Rod' for SWC-Base sprinkler. Therefore the description is inferred as the generic term 'Screw'.
+  SWC-Screw                    partNumber   '503-0601-00'                              0.1  agent-v3:gpt-oss-120b+checked
+      - basis: guess
+      - Other SWC parts use the pattern XXX-0601-00; choosing an unused XXX in the sequence (503) for the screw.
+  SWC-Shaft sprinkler          partNumber   no evidence
+  SWC-Spring-swingarm sprinkler partNumber   no evidence
+  SWC-Upper Bearing sprinkler  partNumber   '507-0801-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: new variant of an existing family (507 is already a family in use): not confirmed, confidence 0.3
+      - source: SWC-Spring-upper bearing sprinkler
+      - The Spring-upper bearing partNumber is 507-0803-00, suggesting a 507-08xx-00 series for bearing-related parts.
+      - Upper Bearing is a similar component without the spring, likely preceding the spring variant in the sequence.
+  SWC-Upper Washer sprinkler   partNumber   '505-0803-00'                              0.3  agent-v3:gpt-oss-120b+checked
+      - basis: pattern
+      - check: new variant of an existing family (505 is already a family in use): not confirmed, confidence 0.3
+      - source: SWC-Washer-Swingarm sprinkler
+      - source: SWC-Spring-upper bearing sprinkler
+      - Washer items use the 0803 series (e.g., SWC-Washer-Swingarm sprinkler has partNumber 504-0803-00).
+      - Upper bearing spring uses the same series with a different first three digits (507-0803-00).
+      - Following this pattern, the Upper Washer likely gets the next sequential code, 505-0803-00.
+  Short.Pipe                   partNumber   no evidence
+  Tire.Plastic                 description  'PLASTIC TIRE'                             0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Tire.Plastic' indicates the part is a tire made of plastic; similar items typically have descriptions that restate the material and function.
+  Tire.Plastic                 partNumber   no evidence
+  Tire.Pneumatic               description  'PNEUMATIC TIRE'                           0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - The title 'Tire.Pneumatic' indicates it is a pneumatic (air‑filled) tire, and similar items use concise descriptions
+  Tire.Pneumatic               partNumber   no evidence
+  Weld.Axle.Support            description  'Weld used to attach the axle support to the leg support assembly' 0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Axle.Support
+      - source: Weld.Long.to.Brace
+      - source: Weld.Short.to.Brace
+      - Title indicates a weld for the axle support
+      - Item is used in Leg.Support, suggesting the weld joins axle support to leg support
+  Weld.Axle.Support            partNumber   no evidence
+  Weld.Long.to.Brace           description  'Long weld to brace'                       0.3  agent-v3:gpt-oss-120b+checked
+      - basis: inferred
+      - source: Weld.Short.to.Brace
+      - source: Weld.Axle.Support
+      - The item's title follows the pattern 'Weld.<Length>.to.Brace', suggesting the description should state the weld length.
+      - Similar item 'Weld.Short.to.Brace' would logically have description 'Short weld to brace'; thus this item uses 'Long' in place of 'Short'.
+  Weld.Long.to.Brace           partNumber   no evidence
+  Weld.Short.to.Brace          description  no evidence
+  Weld.Short.to.Brace          partNumber   no evidence
+
+26 of 56 gaps have a proposal. Dry run: nothing written. Re-run with --apply.
+Saved runs\run-20261105-184423-014677.json

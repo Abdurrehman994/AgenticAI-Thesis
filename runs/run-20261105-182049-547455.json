@@ -1,0 +1,674 @@
+{
+  "collabspace": "API_development",
+  "suggester": "agent",
+  "label": "agent-v3:gpt-oss-120b+checked",
+  "dataset": "data/dataset.json",
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ASM_GUARD",
+        "title": "API_ASM_GUARD",
+        "field": "description",
+        "value": "Mesh guard assembly",
+        "confidence": 0.3,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: inferred",
+          "Children include mesh guard panel and hinge, indicating a guard assembly",
+          "Other assemblies in the project use descriptions following the pattern '<Function> assembly'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.608,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_ASM_GUARD"
+            }
+          }
+        ],
+        "latency_s": 4.6,
+        "prompt_tokens": 2190,
+        "completion_tokens": 445,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BEARING_6204_2RS",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "6204 2RS deep groove ball bearing",
+        "confidence": 0.3,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: inferred",
+          "The title 'API_BEARING_6204_2RS' follows the common naming convention for deep groove ball bearings, where '6204' denotes the bearing series and size, and '2RS' indicates two rubber seals."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.597,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_BEARING_6204_2RS"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_BEARING_6204_2RS"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "bearing 6204"
+            }
+          }
+        ],
+        "latency_s": 5.6,
+        "prompt_tokens": 5650,
+        "completion_tokens": 609,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BELT_PVC_600",
+        "title": "API_BELT_PVC_600",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 7.088,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_BELT_PVC_600"
+            }
+          },
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "API_BELT_PVC_600"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_CONVEYOR_MODULE"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_FRAME_SIDE_PLATE_S235"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "CNV-"
+            }
+          }
+        ],
+        "latency_s": 7.09,
+        "prompt_tokens": 8602,
+        "completion_tokens": 780,
+        "rejected": "part number CNV-1002 is already used"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_BOLT_M6X16_ISO4017",
+        "title": "API_BOLT_M6X16_ISO4017",
+        "field": "description",
+        "value": "Hex bolt M6x16 ISO 4017, zinc plated",
+        "confidence": 0.8,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: copied",
+          "check: variant swap (API_BOLT_M8X25_ISO4017)",
+          "source: API_BOLT_M8X25_ISO4017",
+          "Similar item API_BOLT_M8X25_ISO4017 uses description pattern 'Hex bolt M8x25 ISO 4017, zinc plated'",
+          "Target item is same family, differing only in size (M6x16) so description follows same pattern"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.851,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_BOLT_M6X16_ISO4017"
+            }
+          }
+        ],
+        "latency_s": 4.85,
+        "prompt_tokens": 1997,
+        "completion_tokens": 337,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "API_BOLT_M8X25_ISO4017"
+        ],
+        "sources_found": [
+          "API_BOLT_M8X25_ISO4017"
+        ],
+        "check": "variant swap",
+        "verified": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "description",
+        "value": "Aluminium hinge for guard panel",
+        "confidence": 0.3,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: inferred",
+          "Title ends with _AL suggesting aluminium material",
+          "Hinge is a component of the guard assembly (API_ASM_GUARD)",
+          "Typical description style for similar parts (e.g., \"Mesh guard panel, powder coated\")"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 7.992,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_GUARD_HINGE_AL"
+            }
+          },
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_GUARD_HINGE_AL"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_GUARD"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "HINGE"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "HINGE AL"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 8.0,
+        "prompt_tokens": 8196,
+        "completion_tokens": 845,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_GUARD_HINGE_AL",
+        "title": "API_GUARD_HINGE_AL",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 12.96,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_GUARD"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_BOLT_M6X16_ISO4017"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_NUT_M6_ISO4032"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "HINGE"
+            }
+          }
+        ],
+        "latency_s": 12.95,
+        "prompt_tokens": 7641,
+        "completion_tokens": 1192,
+        "rejected": "part number GRD-3001 is already used"
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_MOTOR_GEAR_037KW",
+        "title": "API_MOTOR_GEAR_037KW",
+        "field": "description",
+        "value": "Motor gear, 0.37 kW",
+        "confidence": 0.3,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: inferred",
+          "Title indicates a gear for a 0.37 kW motor; no similar items available to copy."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.423,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_MOTOR_GEAR_037KW"
+            }
+          },
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_MOTOR_GEAR_037KW"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "gear"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "motor gear"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "037KW"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 8.43,
+        "prompt_tokens": 8214,
+        "completion_tokens": 677,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_NUT_M6_ISO4032",
+        "title": "API_NUT_M6_ISO4032",
+        "field": "description",
+        "value": "Hex nut M6 ISO 4032, zinc plated",
+        "confidence": 0.8,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: copied",
+          "check: variant swap (API_NUT_M8_ISO4032)",
+          "source: API_NUT_M8_ISO4032",
+          "Description pattern matches similar item API_NUT_M8_ISO4032, adjusting size from M8 to M6"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.008,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_NUT_M6_ISO4032"
+            }
+          }
+        ],
+        "latency_s": 2.01,
+        "prompt_tokens": 1983,
+        "completion_tokens": 211,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "API_NUT_M8_ISO4032"
+        ],
+        "sources_found": [
+          "API_NUT_M8_ISO4032"
+        ],
+        "check": "variant swap",
+        "verified": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "description",
+        "value": "Idler roller, D50 mm",
+        "confidence": 0.8,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: copied",
+          "check: variant swap (API_ROLLER_DRIVE_D50)",
+          "source: API_ROLLER_DRIVE_D50",
+          "Similar item API_ROLLER_DRIVE_D50 has description 'Drive roller, D50 mm'; replace 'Drive' with 'Idler' to match the part type while keeping size and format"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.335,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_ROLLER_IDLER_D50"
+            }
+          }
+        ],
+        "latency_s": 2.33,
+        "prompt_tokens": 1950,
+        "completion_tokens": 248,
+        "basis": "copied",
+        "stated_basis": "copied",
+        "sources": [
+          "API_ROLLER_DRIVE_D50"
+        ],
+        "sources_found": [
+          "API_ROLLER_DRIVE_D50"
+        ],
+        "check": "variant swap",
+        "verified": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-API_ROLLER_IDLER_D50",
+        "title": "API_ROLLER_IDLER_D50",
+        "field": "partNumber",
+        "value": "CNV-1003",
+        "confidence": 0.7,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: pattern",
+          "check: only hole in the sequence (the only missing number)",
+          "source: API_ROLLER_DRIVE_D50",
+          "Drive roller D50 has partNumber CNV-1002 within the same conveyor module.",
+          "The module's partNumber is CNV-1000, suggesting component numbers follow sequentially.",
+          "Idler roller is a sibling component to the drive roller, likely receiving the next sequential number."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 12.564,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ASM_CONVEYOR_MODULE"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_ROLLER_DRIVE_D50"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 12.55,
+        "prompt_tokens": 4635,
+        "completion_tokens": 1187,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "API_ROLLER_DRIVE_D50"
+        ],
+        "sources_found": [
+          "API_ROLLER_DRIVE_D50"
+        ],
+        "check": "only hole in the sequence",
+        "verified": true
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "description",
+        "value": "Plain washer M8 ISO 7089, zinc plated",
+        "confidence": 0.7,
+        "method": "agent-v3:gpt-oss-120b+checked",
+        "evidence": [
+          "basis: pattern",
+          "source: API_NUT_M8_ISO4032",
+          "source: API_BOLT_M8X25_ISO4017",
+          "Uses the same syntax as other fasteners (type, size, standard, finish)",
+          "Similar items describe the part type, size, standard, and coating"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 8.516,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_WASHER_M8_ISO7089"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "WASHER M8 ISO 7089"
+            }
+          },
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_WASHER_M10_ISO7089"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "WASHER"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_BOLT_M8X25_ISO4017"
+            }
+          }
+        ],
+        "latency_s": 8.51,
+        "prompt_tokens": 8264,
+        "completion_tokens": 910,
+        "basis": "pattern",
+        "stated_basis": "pattern",
+        "sources": [
+          "API_NUT_M8_ISO4032",
+          "API_BOLT_M8X25_ISO4017"
+        ],
+        "sources_found": [
+          "API_NUT_M8_ISO4032",
+          "API_BOLT_M8X25_ISO4017"
+        ]
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-API_WASHER_M8_ISO7089",
+        "title": "API_WASHER_M8_ISO7089",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 9.218,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_WASHER_M8_ISO7089"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "WASHER M8 ISO7089"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "WASHER"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "WASHER M"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_WASHER"
+            }
+          },
+          {
+            "tool": "list_items",
+            "args": {}
+          }
+        ],
+        "latency_s": 9.22,
+        "prompt_tokens": 7825,
+        "completion_tokens": 758
+      }
+    }
+  ]
+}
