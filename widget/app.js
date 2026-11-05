@@ -360,6 +360,7 @@
   }
 
   function decide(record, event, value) {
+    if (typeof value === 'string') { value = value.trim(); }  // stray spaces from the edit box must not reach PLM
     var k = key(record);
     var label = event === 'approved' ? 'Write ' + JSON.stringify(value) + ' to ' + record.field + ' of ' + record.title
       : (record.written_to_plm ? 'Restore the old ' + record.field + ' of ' + record.title + ' (' +

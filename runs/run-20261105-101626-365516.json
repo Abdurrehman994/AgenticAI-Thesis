@@ -1,0 +1,71 @@
+{
+  "collabspace": "API_development",
+  "suggester": "agent",
+  "label": "agent-v3:gpt-oss-120b+evidence",
+  "dataset": null,
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "753B2A60C16F10006AA903A000001361",
+        "title": "API_BEARING_6204_2RS",
+        "field": "description",
+        "value": "Deep groove ball bearing 6204 with double rubber seals (2RS)",
+        "confidence": 0.3,
+        "method": "agent-v3:gpt-oss-120b+evidence",
+        "evidence": [
+          "basis: inferred",
+          "The title follows standard bearing nomenclature: '6204' denotes the bearing series and size, and '2RS' indicates double rubber seals."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 9.034,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "steps": [
+          {
+            "tool": "find_similar",
+            "args": {
+              "title": "API_BEARING_6204_2RS"
+            }
+          },
+          {
+            "tool": "get_item",
+            "args": {
+              "title": "API_BEARING_6204_2RS"
+            }
+          },
+          {
+            "tool": "find_items",
+            "args": {
+              "text": "API_BEARING"
+            }
+          },
+          {
+            "tool": "get_parents",
+            "args": {
+              "title": "API_BEARING_6204_2RS"
+            }
+          }
+        ],
+        "latency_s": 7.24,
+        "prompt_tokens": 5378,
+        "completion_tokens": 456,
+        "basis": "inferred",
+        "stated_basis": "inferred",
+        "sources": [],
+        "sources_found": []
+      }
+    }
+  ]
+}
