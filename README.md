@@ -176,6 +176,9 @@ same blanks and nothing is written to the tenant:
 
 # Which confidence threshold to write at: chosen on dataset.json, tested unchanged on the CAD data
 .venv\Scripts\python.exe scripts\threshold.py --since 20261023 --select dataset.json
+
+# Calibration: confidence against accuracy, per basis, and whether a learned mapping transfers
+.venv\Scripts\python.exe scripts\calibration.py --since 20261023 --suggester agent-v3 --suggester llm: --suggester rules [--close] [--plot runs\reliability.png] [--out runs\calibration.json]
 ```
 
 ## Tests
@@ -273,6 +276,66 @@ safety on another. Wrong writes are still reviewed before they count, but this i
 Most CAD descriptions are configuration-specific properties, not on the file's Custom tab: reading only the Custom
 tab makes the sprinkler look almost empty. The source data has its own errors too (the upper bearing spring is
 described as "Upper bearing - 22mm").
+
+### Calibration (5 November 2026)
+
+`calibration.py` measures how well each suggester's confidence matches how often it is right, from the run files
+(offline; `--out runs/calibration.json` keeps the reliability bins for a diagram). Graded proposals, repeats pooled:
+
+| Suggester | Dataset | Proposals | Mean confidence | Accuracy | ECE |
+|---|---|---|---|---|---|
+| GPT-OSS-120B, own confidence | `dataset.json` | 42 | 0.84 | 55% | 0.30 |
+| GPT-OSS-120B, own confidence | `dataset_cad.json` | 43 | 0.75 | 7% | **0.68** |
+| GPT-OSS-120B, evidence-based | `dataset.json` | 30 | 0.47 | 57% | 0.12 |
+| GPT-OSS-120B, evidence-based | `dataset_cad.json` | 43 | 0.38 | 12% | 0.27 |
+| Tool-using agent v3, evidence-based | `dataset.json` | 65 | 0.57 | 54% | 0.18 |
+| Tool-using agent v3, evidence-based | `dataset_cad.json` | 48 | 0.59 | 25% | 0.34 |
+
+ECE (expected calibration error) is the gap between confidence and accuracy, averaged over bins of width 0.2; 0 is
+perfect. The model's own confidence is the worst: on the CAD data it is 75% sure on average and 7% right.
+
+Accuracy per stated basis, tool-using agent v3 (95% Wilson interval):
+
+| Basis (confidence given) | `dataset.json` | `dataset_cad.json` |
+|---|---|---|
+| copied (0.8) | 95% (75-99%), n=19 | 46% (23-71%), n=13 |
+| pattern (0.7) | 80% (58-92%), n=20 | 32% (15-54%), n=19 |
+| inferred (0.3) | 4% (1-20%), n=25 | 0% (0-19%), n=16 |
+
+The basis ranks the answers in the same order on both datasets (copied > pattern > inferred), and "inferred" is
+almost never right on either: it separates well. What does not transfer is the level: the same basis is right half
+as often on the CAD data. So learning the basis-to-confidence mapping on one dataset and applying it to the other
+does not help (`calibration.py` table 3: ECE on the test data 0.33 learned against 0.34 fixed, and worse in the
+other direction).
+
+A threshold that is safe on one dataset is not safe on the other. With 50+ proposals a single wrong answer makes the
+strict "no wrong write" threshold write nothing, so table 3 also chooses a tolerant one: the lowest threshold whose
+written values are at most 10% wrong on the training data (`--max-wrong-rate`). Chosen on `dataset.json` and applied
+unchanged to the CAD data:
+
+| Suggester | Mapping | Tolerant threshold | CAD: written per run | CAD: wrong per run | Share wrong |
+|---|---|---|---|---|---|
+| Tool-using agent v3, evidence-based | fixed | 0.80 | 3.2 | 1.8 | 54% |
+| Tool-using agent v3, evidence-based | learned | 0.90 | 3.2 | 1.8 | 54% |
+| LLM, evidence-based | fixed | 0.70 | 2.2 | 2.0 | 89% |
+
+At most 10% wrong where the threshold was chosen, 54-89% wrong where it was applied.
+
+The result does not depend on exact matching being strict. With `--close` (a description sharing at least half its
+words with the truth counts as correct, closer to what a reviewer would accept after a small edit), the
+self-rated LLM is well calibrated on `dataset.json` (ECE 0.06) and badly on the CAD data (0.52); the evidence-based
+modes go from under-confident on `dataset.json` (confidence 0.47-0.57 against 83-91% close) to over-confident on the
+CAD data. Calibration measured on one product structure does not carry over to another, under either measure.
+
+`--plot runs/reliability.png` draws the reliability diagram (`runs/reliability.png`, exact match;
+`runs/reliability-close.png`, close match), for the thesis suggesters with
+`--suggester agent-v3 --suggester llm: --suggester rules`.
+
+A first look at why: on `dataset.json`, 18 of 19 "copied" answers are correct, but only one is a literal copy of a
+source item; the others adapt it (Hex nut M8 -> M6). A check that the proposed value literally equals a source's
+value therefore cannot verify the claim; it has to recognise a variant swap, as the `description-analogy` rule
+does. On the CAD data many wrong "copied" and "pattern" answers are close paraphrases ("Sprinkler rotation
+adjuster" for "Rotation Adjuster") or a part number guessed from a family pattern.
 
 ### Duplicate detection (4 November 2026)
 

@@ -4,3 +4,4 @@ python-dotenv>=1.0
 vcrpy>=6.0
 pytest>=8.0
 datamodel-code-generator>=0.26
+matplotlib>=3.9  # calibration.py --plot
