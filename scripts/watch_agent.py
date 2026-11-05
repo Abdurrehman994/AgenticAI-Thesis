@@ -22,7 +22,7 @@ from agent.snapshot import Snapshot, collab_items  # noqa: E402
 from agent.watch import DEFAULT_STATE, ChangeTracker  # noqa: E402
 from agent.writeback import ProposalLog  # noqa: E402
 from plm_client import Engineering, PLMError, PLMSession, Settings  # noqa: E402
-from scripts.run_agent import CONFIDENCE_MODES, SUGGESTERS, make_suggester, run, save_run  # noqa: E402
+from scripts.run_agent import CONFIDENCE_MODES, SUGGESTERS, utf8_output, make_suggester, run, save_run  # noqa: E402
 
 
 def poll(eng, tracker: ChangeTracker, *, collabspace: str, search: str = "*", handle: bool = True,
@@ -51,6 +51,7 @@ def main() -> None:
     parser.add_argument("--confidence", choices=CONFIDENCE_MODES, default="self")
     parser.add_argument("--state", type=Path, default=DEFAULT_STATE, help="where the last seen cestamps are kept")
     args = parser.parse_args()
+    utf8_output()
 
     eng = Engineering(PLMSession(Settings.from_env()))
     suggester = make_suggester(args.suggester, args.model, args.confidence)

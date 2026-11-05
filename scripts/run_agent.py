@@ -171,6 +171,14 @@ def parse_fields(parser: argparse.ArgumentParser, text: str) -> tuple[str, ...]:
     return fields
 
 
+def utf8_output() -> None:
+    """Print model answers whatever the console is: redirected to a file on Windows, stdout is cp1252, and a
+    non-breaking hyphen (U+2011) in an answer crashed a whole run."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--collabspace", default="API_development")
@@ -191,6 +199,7 @@ def main() -> None:
     )
     parser.add_argument("--only", nargs="+", metavar="TITLE", help="only propose for these item titles")
     args = parser.parse_args()
+    utf8_output()
     fields = parse_fields(parser, args.fields)
     if MATERIAL in fields and not args.dataset:
         parser.error("material is a dsspec:Material relationship the current roles cannot read (403): use --dataset")

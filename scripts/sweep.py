@@ -25,7 +25,7 @@ from agent.writeback import ProposalLog  # noqa: E402
 from scripts.cad_to_dataset import DATA, convert  # noqa: E402
 from scripts.compare import aggregate, fmt, score_run  # noqa: E402
 from scripts.evaluate import ground_truth  # noqa: E402
-from scripts.run_agent import CONFIDENCE_MODES, SUGGESTERS, make_suggester, parse_fields, run  # noqa: E402
+from scripts.run_agent import CONFIDENCE_MODES, SUGGESTERS, utf8_output, make_suggester, parse_fields, run  # noqa: E402
 
 
 def sweep(extract: dict, suggester, *, seeds: list[int], blank_fraction: float, fields: tuple[str, ...],
@@ -56,6 +56,7 @@ def main() -> None:
     parser.add_argument("--min-confidence", type=float, default=0.5)
     parser.add_argument("--out", type=Path, help="also save the per-seed scores and the table as JSON")
     args = parser.parse_args()
+    utf8_output()
     fields = parse_fields(parser, args.fields)
 
     extract = json.loads(args.extract.read_text(encoding="utf-8"))
