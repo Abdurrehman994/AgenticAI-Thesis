@@ -4,6 +4,7 @@ from agent.gaps import Gap, find_gaps
 from agent.snapshot import Snapshot
 from agent.suggest import RuleBasedSuggester, match_case
 from agent.writeback import Conflict, ProposalLog, approve, reject, write_proposal
+from plm_client import Settings
 from scripts.run_agent import run
 
 
@@ -18,6 +19,26 @@ def test_gaps_are_exactly_the_dataset_blanks(tenant, dataset):
     snapshot = Snapshot(tenant, tenant.iter_search("*"))
     found = {(g.title, g.field) for g in find_gaps(snapshot.items.values())}
     assert found == {(e["title"], field) for e in dataset["items"] for field in e.get("blank", [])}
+
+
+def test_root_limits_a_run_to_one_assembly(tenant, tmp_path):
+    log = ProposalLog(tmp_path / "log.jsonl")
+    collabspace = tenant.items["ID-API_ASM_GUARD"]["collabspace"]
+    results = run(tenant, collabspace=collabspace, log=log, root="API_ASM_GUARD")
+    assert results and {r["gap"]["title"] for r in results} <= {"API_ASM_GUARD", "API_GUARD_PANEL_MESH", "API_GUARD_HINGE_AL", "API_BOLT_M6X16_ISO4017", "API_NUT_M6_ISO4032"}
+    with pytest.raises(SystemExit):
+        run(tenant, collabspace=collabspace, log=log, root="NOT_THERE")
+
+
+def test_collabspace_comes_from_its_setting_else_the_security_context(monkeypatch):
+    monkeypatch.setattr("plm_client.config.load_dotenv", lambda: None)
+    for name in ("PLM_SPACE_URL", "PLM_PASSPORT_URL", "PLM_USERNAME", "PLM_PASSWORD"):
+        monkeypatch.setenv(name, "x")
+    monkeypatch.setenv("PLM_SECURITY_CONTEXT", "Role.Company Name.API_development")
+    monkeypatch.delenv("PLM_COLLABSPACE", raising=False)
+    assert Settings.from_env().collabspace == "API_development"
+    monkeypatch.setenv("PLM_COLLABSPACE", "CAD models for Agentic workflow testing")
+    assert Settings.from_env().collabspace == "CAD models for Agentic workflow testing"
 
 
 def test_proposed_values_and_pending_proposals_are_not_gaps():

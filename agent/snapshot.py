@@ -30,6 +30,12 @@ class Snapshot:
     def load(cls, eng: Engineering, search: str = "*", collabspace: str | None = None) -> "Snapshot":
         return cls(eng, collab_items(eng, search, collabspace))
 
+    def find(self, key: str) -> str | None:
+        """Item id for an id or a title."""
+        if key in self.items:
+            return key
+        return next((item_id for item_id, item in self.items.items() if item.get("title") == key), None)
+
     def item(self, item_id: str) -> dict:
         """Items outside the collab space (e.g. a child from a library) are fetched once."""
         if item_id not in self.items:

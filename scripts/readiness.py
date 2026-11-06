@@ -25,17 +25,10 @@ from plm_client import Engineering, PLMSession, Settings  # noqa: E402
 from scripts.run_agent import parse_fields  # noqa: E402
 
 
-def find_root(snapshot: Snapshot, key: str) -> str | None:
-    """The item id for a title or an id."""
-    if key in snapshot.items:
-        return key
-    return next((item_id for item_id, item in snapshot.items.items() if item.get("title") == key), None)
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("item", help="title or id of the assembly (or part) to check")
-    parser.add_argument("--collabspace", default="API_development")
+    parser.add_argument("--collabspace", help="default: PLM_COLLABSPACE, else the space in PLM_SECURITY_CONTEXT")
     parser.add_argument("--search", default="*")
     parser.add_argument("--fields", default="description,partNumber", help="fields that must be filled")
     parser.add_argument("--dataset", type=Path, help="check an in-memory tenant built from this dataset instead")
@@ -56,10 +49,11 @@ def main() -> int:
         dataset = json.loads(args.dataset.read_text(encoding="utf-8"))
         eng, collabspace, pending = DatasetTenant(dataset), dataset["collabspace"], []
     else:
-        eng, collabspace, pending = Engineering(PLMSession(Settings.from_env())), args.collabspace, ProposalLog().pending()
+        settings = Settings.from_env()
+        eng, collabspace, pending = Engineering(PLMSession(settings)), args.collabspace or settings.collabspace, ProposalLog().pending()
 
     snapshot = Snapshot.load(eng, args.search, collabspace)
-    root_id = find_root(snapshot, args.item)
+    root_id = snapshot.find(args.item)
     if root_id is None:
         parser.error(f"no item {args.item!r} in {collabspace} (search lags a few minutes behind new items)")
     report = check(snapshot, root_id, fields=fields, pending=pending)

@@ -54,7 +54,7 @@ def evaluate(dataset: dict, n: int, seeds: int) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--collabspace", default="API_development")
+    parser.add_argument("--collabspace", help="default: PLM_COLLABSPACE, else the space in PLM_SECURITY_CONTEXT")
     parser.add_argument("--search", default="*")
     parser.add_argument("--dataset", type=Path, help="an in-memory tenant built from this dataset instead")
     parser.add_argument("--new", metavar="DESCRIPTION", help="check a part before it is created")
@@ -88,8 +88,9 @@ def main() -> int:
     if dataset:
         snapshot, collabspace = offline_snapshot(dataset), dataset["collabspace"]
     else:
-        collabspace = args.collabspace
-        snapshot = Snapshot.load(Engineering(PLMSession(Settings.from_env())), args.search, collabspace)
+        settings = Settings.from_env()
+        collabspace = args.collabspace or settings.collabspace
+        snapshot = Snapshot.load(Engineering(PLMSession(settings)), args.search, collabspace)
 
     if args.new:
         found = find_existing(snapshot, args.title, args.new, args.material, min_score=args.min_score)

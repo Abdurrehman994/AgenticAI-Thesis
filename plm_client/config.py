@@ -28,6 +28,7 @@ class Settings:
     security_context: str  # Role.Organization.CollabSpace, sent as the SecurityContext header
     tenant: str = ""  # cloud 3DSpace answers "tenant does not exist" unless ?tenant= is sent
     timeout: float = 30.0
+    collabspace: str = ""  # the agent's working space; can differ from the one in security_context
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -46,4 +47,5 @@ class Settings:
             security_context=os.environ["PLM_SECURITY_CONTEXT"],
             tenant=os.getenv("PLM_TENANT") or tenant_from_url(space_url),
             timeout=float(os.getenv("PLM_TIMEOUT", "30")),
+            collabspace=os.getenv("PLM_COLLABSPACE") or os.environ["PLM_SECURITY_CONTEXT"].rsplit(".", 1)[-1],
         )

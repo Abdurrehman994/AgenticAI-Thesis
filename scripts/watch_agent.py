@@ -39,7 +39,7 @@ def poll(eng, tracker: ChangeTracker, *, collabspace: str, search: str = "*", ha
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--collabspace", default="API_development")
+    parser.add_argument("--collabspace", help="default: PLM_COLLABSPACE, else the space in PLM_SECURITY_CONTEXT")
     parser.add_argument("--search", default="*")
     parser.add_argument("--interval", type=float, default=300, help="seconds between polls")
     parser.add_argument("--once", action="store_true", help="poll once and exit")
@@ -53,17 +53,18 @@ def main() -> None:
     args = parser.parse_args()
     utf8_output()
 
-    eng = Engineering(PLMSession(Settings.from_env()))
+    settings = Settings.from_env()
+    eng, collabspace = Engineering(PLMSession(settings)), args.collabspace or settings.collabspace
     suggester = make_suggester(args.suggester, args.model, args.confidence)
     tracker, log = ChangeTracker(args.state), ProposalLog()
     if args.baseline:
-        changed, _ = poll(eng, tracker, collabspace=args.collabspace, search=args.search, handle=False)
+        changed, _ = poll(eng, tracker, collabspace=collabspace, search=args.search, handle=False)
         print(f"Baseline: {len(tracker.seen)} items recorded in {args.state} ({len(changed)} new or changed)")
 
     while True:
         try:
             changed, results = poll(
-                eng, tracker, collabspace=args.collabspace, search=args.search, apply=args.apply,
+                eng, tracker, collabspace=collabspace, search=args.search, apply=args.apply,
                 min_confidence=args.min_confidence, log=log, suggester=suggester,
             )
         except PLMError as exc:  # a failed poll is retried at the next interval
@@ -73,7 +74,7 @@ def main() -> None:
             print(f"{datetime.now():%H:%M:%S} no changes")
         if results:
             out = save_run(
-                results, collabspace=args.collabspace, suggester=suggester, dataset=None, fields=FIELDS,
+                results, collabspace=collabspace, suggester=suggester, dataset=None, fields=FIELDS,
                 applied=args.apply, min_confidence=args.min_confidence, trigger="watch",
             )
             print(f"Saved {out.relative_to(ROOT)}")

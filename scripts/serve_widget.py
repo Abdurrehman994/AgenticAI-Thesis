@@ -87,7 +87,8 @@ def config() -> dict:
     load_dotenv(ROOT / ".env")
     space_url = os.getenv("PLM_SPACE_URL", "")
     context = os.getenv("PLM_SECURITY_CONTEXT", "")
-    return {"spaceUrl": space_url, "securityContext": context, "collabspace": context.rsplit(".", 1)[-1],
+    return {"spaceUrl": space_url, "securityContext": context,
+            "collabspace": os.getenv("PLM_COLLABSPACE") or context.rsplit(".", 1)[-1],
             "tenant": os.getenv("PLM_TENANT") or tenant_from_url(space_url)}
 
 

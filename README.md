@@ -21,6 +21,7 @@ AI agent (gap detection, suggesters)  →  Python REST client  →  3DEXPERIENCE
 | 2. REST client | 3DPassport login, CSRF, search, GET/PATCH, recorded offline replay | Done |
 | 3. Agent logic | Gap detection, rule-based and LLM suggesters, `[PROPOSED]` write-back, review in a script or in a 3DEXPERIENCE route | Done; route review verified on the tenant |
 | 4. Evaluation | Score proposals against ground truth; held-out CAD dataset; rules vs. LLM vs. LLM with evidence-based confidence | Runs done; results below |
+| 5. Assembly reasoning | Orbital Sprinkler: reason about fixes using PLM documents | Started; awaiting supervisors' input |
 
 ## How the agent works
 
@@ -103,6 +104,7 @@ copy .env.example .env    # then fill in tenant URLs, credentials and SecurityCo
 ```
 
 `PLM_SECURITY_CONTEXT` is `Role.Organization.CollabSpace`, the same value as the `SecurityContext` header in Postman.
+The scripts work on that collab space unless `PLM_COLLABSPACE` or `--collabspace` names another one.
 
 ## Usage
 
@@ -124,6 +126,7 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 
 # Only one item or field, e.g. for a demo
 .venv\Scripts\python.exe scripts\run_agent.py --only API_ASM_GUARD --fields description --apply --min-confidence 0.3
+.venv\Scripts\python.exe scripts\run_agent.py --root SWC-OrbitalSprinkler_Default   # only the items in one assembly's BOM
 
 # Continuous mode: poll every 5 minutes and handle only new or changed items (--baseline: only later changes)
 .venv\Scripts\python.exe scripts\watch_agent.py [--baseline] [--interval 300] [--once] [--apply]
@@ -136,12 +139,11 @@ Scripts that change the tenant are dry runs unless given `--yes` or `--apply`.
 .venv\Scripts\python.exe scripts\duplicates.py --new "Hex bolt M8x25, zinc plated" [--title T] [--material M]
 
 # 3DDashboard widget: open https://localhost:8443/index.html once (accept the certificate), then paste the
-# same URL into the "Run your App" widget (lite.html if index.html does not connect); ?tab=readiness opens a tab
+# same URL into the "Run your App" widget; ?tab=readiness opens a tab
 # (works for the offline demo; 3DDashboard cannot frame localhost, so for live use build single-file pages and
 # host them on HTTPS, e.g. https://abdurrehman994.github.io/plm-agent-widget/index.html)
 .venv\Scripts\python.exe scripts\serve_widget.py [--port 8443]
 .venv\Scripts\python.exe scripts\build_widget.py      # widget/dist/: self-contained pages to host
-.venv\Scripts\python.exe scriptsuild_widget.py                    # widget/dist/: self-contained pages to host
 
 # Review proposals on the command line...
 .venv\Scripts\python.exe scripts\review.py
@@ -516,7 +518,7 @@ Verified on the tenant where it differs from the dseng 1.4.1 OpenAPI examples (d
 ## Repository layout
 
 ```
-plm_client/   REST client: auth, session, Engineering calls, recording, generated models
+plm_client/   REST client: auth, session, Engineering calls, recording
 agent/        snapshot, gap detection, suggesters, write-back and proposal log
 scripts/      checkpoint, seed, run_agent, review, evaluate, compare, extract_cad, cad_to_dataset
 data/         ground-truth datasets (Phase 3 and held-out CAD), CAD extract, ids of seeded items

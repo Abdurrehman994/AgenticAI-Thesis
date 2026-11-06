@@ -6,6 +6,7 @@
     python scripts/run_agent.py --suggester llm          # LLM from LLM_* in .env instead of the rules
     python scripts/run_agent.py --suggester agent        # the same LLM, gathering its own evidence with tools
     python scripts/run_agent.py --only API_ASM_GUARD --fields description --apply   # one item, one field
+    python scripts/run_agent.py --root SWC-OrbitalSprinkler_Default   # one assembly: the items in its BOM
 
 Phase 4 runs use --dataset: the agent works on an in-memory tenant built from the dataset file, so every run
 starts from the same blanks and nothing touches the real tenant. LLM answers vary, so repeat them:
@@ -31,6 +32,7 @@ sys.path.insert(0, str(ROOT))
 
 from agent.gaps import ALL_FIELDS, FIELDS, MATERIAL, find_gaps  # noqa: E402
 from agent.llm import CONFIDENCE_MODES  # noqa: E402
+from agent.readiness import walk_bom  # noqa: E402
 from agent.snapshot import Snapshot  # noqa: E402
 from agent.suggest import RuleBasedSuggester, Suggester  # noqa: E402
 from agent.writeback import ProposalLog, write_proposal  # noqa: E402
@@ -50,14 +52,21 @@ def run(
     suggester: Suggester | None = None,
     fields: tuple[str, ...] = FIELDS,
     only: set[str] | None = None,
+    root: str | None = None,
     snapshot: Snapshot | None = None,
 ) -> list[dict]:
-    """snapshot: an already loaded collab space (watch_agent.py), so it is not searched twice."""
+    """snapshot: an already loaded collab space (watch_agent.py), so it is not searched twice.
+    root: title or id of one assembly, whose BOM limits the gaps. Children outside the collab space get no proposals."""
     log = log or ProposalLog()
     suggester = suggester or RuleBasedSuggester()
     snapshot = snapshot or Snapshot.load(eng, search, collabspace)
     pending = {(p["item_id"], p["field"]) for p in log.pending()}
     gaps = find_gaps(snapshot.items.values(), pending, fields)
+    if root is not None:
+        root_id = snapshot.find(root)
+        if root_id is None:
+            raise SystemExit(f"no item {root!r} in {collabspace} (search lags a few minutes behind new items)")
+        only = {line.item_id for line in walk_bom(snapshot, root_id)[0]}
     if only is not None:  # titles or item ids; the whole collab space is still loaded, so the evidence is the same
         missing = only - {key for item in snapshot.items.values() for key in (item.get("title"), item["id"])}
         if missing:
@@ -181,7 +190,7 @@ def utf8_output() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--collabspace", default="API_development")
+    parser.add_argument("--collabspace", help="default: PLM_COLLABSPACE, else the space in PLM_SECURITY_CONTEXT")
     parser.add_argument("--search", default="*")
     parser.add_argument("--apply", action="store_true", help="write proposals to PLM and the proposal log")
     parser.add_argument("--min-confidence", type=float, default=0.5, help="only write proposals at or above this")
@@ -197,7 +206,9 @@ def main() -> None:
         "--fields", default=",".join(FIELDS),
         help=f"comma-separated fields to check, from {', '.join(ALL_FIELDS)} (material needs --dataset)",
     )
-    parser.add_argument("--only", nargs="+", metavar="TITLE", help="only propose for these item titles")
+    scope = parser.add_mutually_exclusive_group()
+    scope.add_argument("--only", nargs="+", metavar="TITLE", help="only propose for these item titles")
+    scope.add_argument("--root", metavar="TITLE", help="only propose for the items in this assembly's BOM")
     args = parser.parse_args()
     utf8_output()
     fields = parse_fields(parser, args.fields)
@@ -216,7 +227,8 @@ def main() -> None:
         eng, collabspace = DatasetTenant(dataset), dataset["collabspace"]
         log = ProposalLog(Path("unused"))  # no pending proposals in a fresh in-memory tenant
     else:
-        eng, collabspace, log = Engineering(PLMSession(Settings.from_env())), args.collabspace, None
+        settings = Settings.from_env()
+        eng, collabspace, log = Engineering(PLMSession(settings)), args.collabspace or settings.collabspace, None
 
     for repeat in range(1, args.repeat + 1):
         if args.repeat > 1:
@@ -224,12 +236,12 @@ def main() -> None:
         results = run(
             eng, collabspace=collabspace, search=args.search, apply=args.apply,
             min_confidence=args.min_confidence, log=log, suggester=suggester, fields=fields,
-            only=set(args.only) if args.only else None,
+            only=set(args.only) if args.only else None, root=args.root,
         )
         out = save_run(
             results, collabspace=collabspace, suggester=suggester, fields=fields, applied=args.apply,
             dataset=args.dataset.resolve().relative_to(ROOT).as_posix() if args.dataset else None,
-            min_confidence=args.min_confidence,
+            min_confidence=args.min_confidence, **({"root": args.root} if args.root else {}),
         )
         print(f"Saved {out.relative_to(ROOT)}")
 
