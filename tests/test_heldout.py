@@ -58,6 +58,28 @@ def test_heldout_dataset_file_is_consistent():
     assert all(field in i for i in dataset["items"] for field in i.get("blank", []))
 
 
+def test_root_keeps_one_assembly_as_imported():
+    dataset = convert(EXTRACT, blank_fraction=0.5, seed=1, collabspace="CS", root="Box", title_suffix="_Default")
+    items = {i["title"]: i for i in dataset["items"]}
+
+    assert set(items) == {"Box_Default", "Lid_Default", "Screw_Default"}
+    assert items["Box_Default"]["children"] == ["Lid_Default", "Screw_Default"]
+    assert items["Lid_Default"]["blank"] == ["description", "partNumber"]  # every known value
+    assert "partNumber" not in items["Box_Default"]["blank"]  # no CAD value, so no ground truth
+
+
+def test_sprinkler_dataset_matches_the_tenant_after_import():
+    path = Path(__file__).resolve().parents[1] / "data" / "dataset_sprinkler.json"
+    dataset = json.loads(path.read_text(encoding="utf-8"))
+    tenant = DatasetTenant(dataset)
+    gaps = find_gaps(Snapshot(tenant, tenant.iter_search("*")).items.values())
+
+    assert len(dataset["items"]) == 29
+    assert all(i["title"].endswith("_Default") for i in dataset["items"])
+    assert len(gaps) == 58  # readiness.py on the tenant, 6 Nov 2026
+    assert len(ground_truth(dataset, ["description", "partNumber"])) == 53
+
+
 def result(title, field, value=None, confidence=0.0):
     proposal = {"value": value, "confidence": confidence} if value else None
     return {"gap": {"title": title, "field": field}, "proposal": proposal, "elapsed_s": 0.5}

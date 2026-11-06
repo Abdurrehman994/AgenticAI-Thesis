@@ -1,0 +1,335 @@
+{
+  "_comment": "Phase 5 test data built by scripts/cad_to_dataset.py: SWC-OrbitalSprinkler as imported into the tenant. True values are the CAD properties; every known field is blank, as the import left them. Fields missing from an item have no CAD value: real gaps with no ground truth.",
+  "source": {
+    "extract": "data/cad_extract.json",
+    "root": "SWC-OrbitalSprinkler"
+  },
+  "collabspace": "CAD models for Agentic workflow",
+  "items": [
+    {
+      "title": "SWC-OrbitalSprinkler_Default",
+      "description": "Orbital Sprinkler Assembly",
+      "children": [
+        "SWC-Shaft sprinkler_Default",
+        "SWC-Base_Default",
+        "SWC-Rotator_Default",
+        "SWC-Upper Bearing sprinkler_Default",
+        "SWC-Washer-Swingarm sprinkler_Default",
+        "SWC-Upper Washer sprinkler_Default",
+        "SWC-Gasket sprinkler_Default",
+        "SWC-Spring-upper bearing sprinkler_Default",
+        "SWC-Lower Bearing sprinkler_Default",
+        "SWC-Actuator_Default"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Shaft sprinkler_Default",
+      "description": "Center Shaft",
+      "partNumber": "509-0601-00",
+      "material": "Brass",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Base_Default",
+      "description": "Base Mount Assembly",
+      "children": [
+        "SWC-Rotation Adjustment sprinkler_Default",
+        "SWC-Base sprinkler_Default",
+        "SWC-Collar sprinkler_Default"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Rotation Adjustment sprinkler_Default",
+      "description": "Rotation Adjuster",
+      "partNumber": "508-0601-00",
+      "material": "ABS PC",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Base sprinkler_Default",
+      "description": "Ground Base Rod",
+      "partNumber": "501-0601-00",
+      "material": "356.0-T6 Permanent Mold cast (SS)",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Collar sprinkler_Default",
+      "description": "Lower collar ring",
+      "partNumber": "502-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Rotator_Default",
+      "description": "Rotator Assembly",
+      "children": [
+        "SWC-Body sprinkler_Default",
+        "SWC-Spray Angle Adjustment sprinkler_Default",
+        "SWC-Screw_Default",
+        "SWC-Spray Disruptor sprinkler_Default",
+        "SWC-Engage Spring sprinkler_Default",
+        "SWC-Jet sprinkler_Default",
+        "SWC-Gasket-jet sprinkler_Default",
+        "SWC-Locklever sprinkler_Default",
+        "SWC-Cover sprinkler_Default",
+        "SWC-Engage Lever sprinkler_Default",
+        "SWC-Adjustment Knob sprinkler_Default"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Body sprinkler_Default",
+      "description": "Main sprinkler body",
+      "partNumber": "510-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Spray Angle Adjustment sprinkler_Default",
+      "description": "Sprinkler angle adjuster",
+      "partNumber": "511-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Screw_Default",
+      "description": "Faced roundhead screw - M6x1",
+      "partNumber": "519-0601-00",
+      "material": "Cast Alloy Steel",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Spray Disruptor sprinkler_Default",
+      "description": "Spray head disruptor",
+      "partNumber": "512-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Engage Spring sprinkler_Default",
+      "description": "Engagement spring",
+      "partNumber": "507-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Jet sprinkler_Default",
+      "description": "Jet head",
+      "partNumber": "515-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Gasket-jet sprinkler_Default",
+      "description": "Base gasket",
+      "partNumber": "506-0702-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Locklever sprinkler_Default",
+      "description": "Locking lever head",
+      "partNumber": "505-0702-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Cover sprinkler_Default",
+      "description": "Casing cover",
+      "partNumber": "514-0601-00",
+      "blank": [
+        "description",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Engage Lever sprinkler_Default",
+      "description": "Engagement Lever",
+      "partNumber": "505-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Adjustment Knob sprinkler_Default",
+      "description": "Sprinkler Adjustment Knob",
+      "partNumber": "513-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Upper Bearing sprinkler_Default",
+      "description": "Bearing Upper - 22mm",
+      "material": "Brass",
+      "blank": [
+        "description",
+        "material"
+      ]
+    },
+    {
+      "title": "SWC-Washer-Swingarm sprinkler_Default",
+      "description": "Washer - 23mm",
+      "partNumber": "504-0803-00",
+      "material": "Brass",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Upper Washer sprinkler_Default",
+      "description": "Washer Upper - 23mm",
+      "partNumber": "504-0702-00",
+      "material": "Brass",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Gasket sprinkler_Default",
+      "description": "Base Gasket",
+      "partNumber": "506-0601-00",
+      "material": "Rubber",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Spring-upper bearing sprinkler_Default",
+      "description": "Upper bearing - 22mm",
+      "partNumber": "507-0803-00",
+      "material": "Alloy Steel (SS)",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Lower Bearing sprinkler_Default",
+      "description": "Bearing Lower - 12mm",
+      "partNumber": "503-0601-00",
+      "material": "Brass",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Actuator_Default",
+      "description": "Actuator Assembly",
+      "children": [
+        "SWC-Spring-swingarm sprinkler_Default",
+        "SWC-Swingarm sprinkler_Default",
+        "SWC-Name Plate sprinkler_Default",
+        "SWC-Cap sprinkler_Default"
+      ],
+      "blank": [
+        "description"
+      ]
+    },
+    {
+      "title": "SWC-Spring-swingarm sprinkler_Default",
+      "description": "Swingarm spring - 33mm",
+      "partNumber": "507-0702-00",
+      "material": "Alloy Steel (SS)",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Swingarm sprinkler_Default",
+      "description": "Swingarm",
+      "partNumber": "516-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Name Plate sprinkler_Default",
+      "description": "Top cap label",
+      "partNumber": "518-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    },
+    {
+      "title": "SWC-Cap sprinkler_Default",
+      "description": "Sprinkler head cap",
+      "partNumber": "517-0601-00",
+      "material": "ABS",
+      "blank": [
+        "description",
+        "material",
+        "partNumber"
+      ]
+    }
+  ]
+}

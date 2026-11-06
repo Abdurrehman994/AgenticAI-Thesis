@@ -1,0 +1,1330 @@
+{
+  "collabspace": "CAD models for Agentic workflow",
+  "suggester": "llm",
+  "label": "llm:gpt-oss-120b",
+  "dataset": "data/dataset_sprinkler.json",
+  "fields": [
+    "description",
+    "partNumber"
+  ],
+  "applied": false,
+  "min_confidence": 0.5,
+  "results": [
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator_Default",
+        "title": "SWC-Actuator_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Actuator_Default",
+        "title": "SWC-Actuator_Default",
+        "field": "description",
+        "value": "Actuator that drives the swingarm movement in the SWC orbital sprinkler assembly",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn -> SWC-OrbitalSprinkler_Default",
+          "children -> SWC-Swingarm sprinkler_Default, SWC-Name Plate sprinkler_Default, SWC-Cap sprinkler_Default",
+          "otherParts in assembly include bearings, washers, springs indicating motion mechanism"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.005,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.01,
+        "prompt_tokens": 809,
+        "completion_tokens": 359
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Actuator_Default",
+        "title": "SWC-Actuator_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.771,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.77,
+        "prompt_tokens": 811,
+        "completion_tokens": 316
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler_Default",
+        "title": "SWC-Adjustment Knob sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler_Default",
+        "title": "SWC-Adjustment Knob sprinkler_Default",
+        "field": "description",
+        "value": "Manual adjustment knob for the sprinkler rotator assembly, used to set the spray direction",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in SWC-Rotator_Default assembly",
+          "Naming pattern of other parts (e.g., SWC-Spray Angle Adjustment sprinkler_Default)",
+          "Consistent description style for similar components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.525,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.52,
+        "prompt_tokens": 810,
+        "completion_tokens": 270
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Adjustment Knob sprinkler_Default",
+        "title": "SWC-Adjustment Knob sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.82,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.82,
+        "prompt_tokens": 812,
+        "completion_tokens": 325
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base sprinkler_Default",
+        "title": "SWC-Base sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base sprinkler_Default",
+        "title": "SWC-Base sprinkler_Default",
+        "field": "description",
+        "value": "Base component of the sprinkler assembly",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in assembly SWC-Base_Default alongside rotation adjustment, collar, etc.",
+          "Consistent naming pattern with other parts (e.g., SWC-Body, SWC-Cap) where description denotes the functional role"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.447,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.45,
+        "prompt_tokens": 808,
+        "completion_tokens": 257
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base sprinkler_Default",
+        "title": "SWC-Base sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base sprinkler_Default",
+        "title": "SWC-Base sprinkler_Default",
+        "field": "partNumber",
+        "value": "SWC-Base",
+        "confidence": 0.7,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Pattern: other items titles end with '_sprinkler_Default' and their part numbers are likely the component name (e.g., 'SWC-Actuator_Default' → partNumber 'SWC-Actuator')",
+          "Title of the item is 'SWC-Base sprinkler_Default', implying part number 'SWC-Base'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 5.029,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.03,
+        "prompt_tokens": 810,
+        "completion_tokens": 404
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base_Default",
+        "title": "SWC-Base_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Base_Default",
+        "title": "SWC-Base_Default",
+        "field": "description",
+        "value": "Base part of the sprinkler assembly (default configuration)",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: SWC-OrbitalSprinkler_Default",
+          "children includes SWC-Base sprinkler_Default",
+          "naming pattern of other items (e.g., SWC-Body sprinkler_Default, SWC-Cap sprinkler_Default)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.785,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.78,
+        "prompt_tokens": 808,
+        "completion_tokens": 319
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Base_Default",
+        "title": "SWC-Base_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.506,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.51,
+        "prompt_tokens": 810,
+        "completion_tokens": 242
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Body sprinkler_Default",
+        "title": "SWC-Body sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Body sprinkler_Default",
+        "title": "SWC-Body sprinkler_Default",
+        "field": "description",
+        "value": "Sprinkler body – default version",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "title pattern 'SWC-Body sprinkler_Default'",
+          "consistent naming of other parts (e.g., SWC-Cap sprinkler_Default, SWC-Gasket sprinkler_Default) where description follows '<Component> – default version'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.598,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.6,
+        "prompt_tokens": 808,
+        "completion_tokens": 258
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Body sprinkler_Default",
+        "title": "SWC-Body sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.594,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.59,
+        "prompt_tokens": 810,
+        "completion_tokens": 280
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cap sprinkler_Default",
+        "title": "SWC-Cap sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cap sprinkler_Default",
+        "title": "SWC-Cap sprinkler_Default",
+        "field": "description",
+        "value": "Protective cap for the sprinkler head assembly",
+        "confidence": 0.72,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Pattern: part titles use SWC-<Component> sprinkler_Default",
+          "Similar parts (e.g., SWC-Base, SWC-Cover) have descriptions describing their functional role as protective or supporting components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.51,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.51,
+        "prompt_tokens": 808,
+        "completion_tokens": 246
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cap sprinkler_Default",
+        "title": "SWC-Cap sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.502,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.5,
+        "prompt_tokens": 810,
+        "completion_tokens": 254
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler_Default",
+        "title": "SWC-Collar sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Collar sprinkler_Default",
+        "title": "SWC-Collar sprinkler_Default",
+        "field": "description",
+        "value": "Collar component of the sprinkler system, providing the interface between the base and the body (default configuration)",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Item title pattern (SWC-Collar ...)",
+          "Used in assembly with SWC-Base_Default and other base‑related parts",
+          "Consistent phrasing with other part descriptions such as SWC-Base, SWC-Body, SWC-Cap"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.01,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.01,
+        "prompt_tokens": 808,
+        "completion_tokens": 255
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Collar sprinkler_Default",
+        "title": "SWC-Collar sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 2.221,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.22,
+        "prompt_tokens": 810,
+        "completion_tokens": 284
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cover sprinkler_Default",
+        "title": "SWC-Cover sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cover sprinkler_Default",
+        "title": "SWC-Cover sprinkler_Default",
+        "field": "description",
+        "value": "Protective outer cover of the sprinkler head",
+        "confidence": 0.72,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "title includes 'Cover' indicating a protective outer component",
+          "used in assembly SWC-Rotator_Default alongside other sprinkler parts, typical of a cover component",
+          "similar naming convention to items such as SWC-Cap and SWC-Collar which have descriptive titles reflecting their function"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.355,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.36,
+        "prompt_tokens": 808,
+        "completion_tokens": 309
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Cover sprinkler_Default",
+        "title": "SWC-Cover sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Cover sprinkler_Default",
+        "title": "SWC-Cover sprinkler_Default",
+        "field": "partNumber",
+        "value": "SWC-Cover",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Body sprinkler_Default",
+          "SWC-Actuator_Default",
+          "SWC-Base sprinkler_Default"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.741,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.74,
+        "prompt_tokens": 810,
+        "completion_tokens": 310
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Lever sprinkler_Default",
+        "title": "SWC-Engage Lever sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Lever sprinkler_Default",
+        "title": "SWC-Engage Lever sprinkler_Default",
+        "field": "description",
+        "value": "Engage lever for sprinkler",
+        "confidence": 0.72,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "title pattern of similar parts (e.g., SWC-Locklever, SWC-Adjustment Knob)",
+          "naming convention of SWC-Engage Lever"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.45,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.45,
+        "prompt_tokens": 810,
+        "completion_tokens": 257
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Lever sprinkler_Default",
+        "title": "SWC-Engage Lever sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Lever sprinkler_Default",
+        "title": "SWC-Engage Lever sprinkler_Default",
+        "field": "partNumber",
+        "value": "SWC-ENGAGE-LEVER",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "title pattern of similar items like \"SWC-Engage Spring sprinkler_Default\"",
+          "consistent use of \"SWC-\" prefix and hyphenated descriptors in part identifiers"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.961,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.96,
+        "prompt_tokens": 812,
+        "completion_tokens": 391
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler_Default",
+        "title": "SWC-Engage Spring sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Engage Spring sprinkler_Default",
+        "title": "SWC-Engage Spring sprinkler_Default",
+        "field": "description",
+        "value": "Spring that provides the engagement force for the sprinkler rotator mechanism",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: SWC-Rotator_Default assembly",
+          "otherItemsInProject: SWC-Spring-swingarm sprinkler_Default"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.433,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.43,
+        "prompt_tokens": 810,
+        "completion_tokens": 253
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Engage Spring sprinkler_Default",
+        "title": "SWC-Engage Spring sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.901,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.9,
+        "prompt_tokens": 812,
+        "completion_tokens": 340
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket sprinkler_Default",
+        "title": "SWC-Gasket sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Gasket sprinkler_Default",
+        "title": "SWC-Gasket sprinkler_Default",
+        "field": "description",
+        "value": "Sealing gasket for the sprinkler assembly, providing a leak‑proof interface between the body and cover.",
+        "confidence": 0.86,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: SWC-OrbitalSprinkler_Default (gasket is a typical sealing component in the assembly)",
+          "otherItemsInProject: SWC-Gasket-jet sprinkler_Default (similar naming indicates gasket purpose)",
+          "title pattern: SWC-Gasket ... (indicates a gasket component)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.1,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.1,
+        "prompt_tokens": 808,
+        "completion_tokens": 320
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket sprinkler_Default",
+        "title": "SWC-Gasket sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.759,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.76,
+        "prompt_tokens": 810,
+        "completion_tokens": 307
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler_Default",
+        "title": "SWC-Gasket-jet sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler_Default",
+        "title": "SWC-Gasket-jet sprinkler_Default",
+        "field": "description",
+        "value": "Sealing gasket for the jet nozzle of the sprinkler",
+        "confidence": 0.86,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in assembly SWC-Rotator_Default alongside SWC-Jet sprinkler_Default",
+          "Naming pattern analogous to SWC-Gasket sprinkler_Default indicating a gasket component"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.951,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.95,
+        "prompt_tokens": 810,
+        "completion_tokens": 349
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Gasket-jet sprinkler_Default",
+        "title": "SWC-Gasket-jet sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.725,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.72,
+        "prompt_tokens": 812,
+        "completion_tokens": 286
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler_Default",
+        "title": "SWC-Jet sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler_Default",
+        "title": "SWC-Jet sprinkler_Default",
+        "field": "description",
+        "value": "Jet sprinkler (default configuration) – core nozzle assembly that delivers the water jet and integrates with the rotator and spray‑angle adjustment components.",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in SWC-Rotator_Default alongside Body, Spray Angle Adjustment, Gasket‑jet, etc.",
+          "Naming pattern of other items (e.g., SWC-Body sprinkler_Default, SWC-Gasket-jet sprinkler_Default) indicates a descriptive, functional phrase."
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.903,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.9,
+        "prompt_tokens": 808,
+        "completion_tokens": 340
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Jet sprinkler_Default",
+        "title": "SWC-Jet sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Jet sprinkler_Default",
+        "title": "SWC-Jet sprinkler_Default",
+        "field": "partNumber",
+        "value": "SWC-Jet",
+        "confidence": 0.62,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Title pattern: other parts use 'SWC-Body sprinkler_Default' etc., implying part numbers like 'SWC-Body'",
+          "No existing part number 'SWC-Jet' in project items"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.086,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.09,
+        "prompt_tokens": 810,
+        "completion_tokens": 374
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler_Default",
+        "title": "SWC-Locklever sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Locklever sprinkler_Default",
+        "title": "SWC-Locklever sprinkler_Default",
+        "field": "description",
+        "value": "Lock lever for the sprinkler rotator",
+        "confidence": 0.88,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn -> SWC-Rotator_Default",
+          "otherParts list includes SWC-Engage Lever sprinkler_Default indicating a lever family",
+          "naming pattern of other items (e.g., SWC-Body sprinkler_Default, SWC-Adjustment Knob sprinkler_Default)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.709,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.71,
+        "prompt_tokens": 809,
+        "completion_tokens": 305
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Locklever sprinkler_Default",
+        "title": "SWC-Locklever sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.705,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.7,
+        "prompt_tokens": 811,
+        "completion_tokens": 304
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler_Default",
+        "title": "SWC-Lower Bearing sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler_Default",
+        "title": "SWC-Lower Bearing sprinkler_Default",
+        "field": "description",
+        "value": "Lower bearing for sprinkler",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Upper Bearing sprinkler_Default (parallel naming)",
+          "Used in SWC-OrbitalSprinkler_Default assembly with other bearing components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.257,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.26,
+        "prompt_tokens": 809,
+        "completion_tokens": 290
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Lower Bearing sprinkler_Default",
+        "title": "SWC-Lower Bearing sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.565,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.56,
+        "prompt_tokens": 811,
+        "completion_tokens": 278
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler_Default",
+        "title": "SWC-Name Plate sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Name Plate sprinkler_Default",
+        "title": "SWC-Name Plate sprinkler_Default",
+        "field": "description",
+        "value": "Identification plate for the sprinkler assembly, providing model, serial number and safety information",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Item title includes 'Name Plate' indicating identification function",
+          "Consistent with other component names such as SWC-Base, SWC-Cap which are described as functional parts of the sprinkler",
+          "Used in SWC-Actuator_Default assembly where a name plate would serve to label the unit"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.903,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.9,
+        "prompt_tokens": 809,
+        "completion_tokens": 316
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Name Plate sprinkler_Default",
+        "title": "SWC-Name Plate sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.075,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.07,
+        "prompt_tokens": 811,
+        "completion_tokens": 292
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler_Default",
+        "title": "SWC-OrbitalSprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-OrbitalSprinkler_Default",
+        "title": "SWC-OrbitalSprinkler_Default",
+        "field": "description",
+        "value": "Default orbital sprinkler assembly",
+        "confidence": 0.85,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Children list includes all sub‑components of the sprinkler (shaft, base, rotator, bearings, washers, gasket, actuator, etc.) indicating this item is the top‑level assembly",
+          "Naming pattern of other items (e.g., \"SWC-Base sprinkler_Default\" → description “Base of sprinkler (default)”) suggests a concise functional description followed by “(default)”"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.645,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.64,
+        "prompt_tokens": 803,
+        "completion_tokens": 294
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-OrbitalSprinkler_Default",
+        "title": "SWC-OrbitalSprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.059,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.06,
+        "prompt_tokens": 805,
+        "completion_tokens": 185
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler_Default",
+        "title": "SWC-Rotation Adjustment sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler_Default",
+        "title": "SWC-Rotation Adjustment sprinkler_Default",
+        "field": "description",
+        "value": "Component that provides rotational adjustment for the sprinkler head, allowing precise setting of spray direction.",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Adjustment Knob sprinkler_Default",
+          "SWC-Rotator_Default",
+          "SWC-Spray Angle Adjustment sprinkler_Default",
+          "Used in SWC-Base_Default alongside SWC-Base and SWC-Collar"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.728,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.73,
+        "prompt_tokens": 809,
+        "completion_tokens": 308
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotation Adjustment sprinkler_Default",
+        "title": "SWC-Rotation Adjustment sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.36,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.36,
+        "prompt_tokens": 811,
+        "completion_tokens": 402
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator_Default",
+        "title": "SWC-Rotator_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator_Default",
+        "title": "SWC-Rotator_Default",
+        "field": "description",
+        "value": "Rotator component that enables rotation of the sprinkler head to adjust spray coverage (default version)",
+        "confidence": 0.86,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Item title 'SWC-Rotator_Default' follows naming pattern of other parts (e.g., SWC-Base sprinkler_Default) whose descriptions describe functional role",
+          "Children include adjustment and lever parts, indicating the rotator provides rotational movement",
+          "Used in SWC-OrbitalSprinkler_Default assembly, which requires a rotating mechanism for the sprinkler head"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 1.866,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.87,
+        "prompt_tokens": 809,
+        "completion_tokens": 334
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Rotator_Default",
+        "title": "SWC-Rotator_Default",
+        "field": "partNumber"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Rotator_Default",
+        "title": "SWC-Rotator_Default",
+        "field": "partNumber",
+        "value": "SWC-Rotator",
+        "confidence": 0.6,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "title pattern with '_Default' suffix used in other items suggests part number is the prefix before '_Default'",
+          "consistent naming across items such as 'SWC-Base_Default' implying part number 'SWC-Base'"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.34,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.34,
+        "prompt_tokens": 811,
+        "completion_tokens": 377
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw_Default",
+        "title": "SWC-Screw_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Screw_Default",
+        "title": "SWC-Screw_Default",
+        "field": "description",
+        "value": "Standard mounting screw for the default sprinkler rotator assembly",
+        "confidence": 0.66,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn → SWC-Rotator_Default (assembly context)",
+          "title pattern: SWC-<Component>_Default"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.005,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.0,
+        "prompt_tokens": 807,
+        "completion_tokens": 239
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Screw_Default",
+        "title": "SWC-Screw_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.622,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.62,
+        "prompt_tokens": 809,
+        "completion_tokens": 229
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler_Default",
+        "title": "SWC-Shaft sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Shaft sprinkler_Default",
+        "title": "SWC-Shaft sprinkler_Default",
+        "field": "description",
+        "value": "Shaft of sprinkler",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Naming pattern of other parts (e.g., SWC-Base sprinkler_Default → 'Base of sprinkler')",
+          "Used in SWC-OrbitalSprinkler_Default assembly where a shaft would serve as the rotational element"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.82,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.82,
+        "prompt_tokens": 808,
+        "completion_tokens": 357
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Shaft sprinkler_Default",
+        "title": "SWC-Shaft sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 5.115,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 5.11,
+        "prompt_tokens": 810,
+        "completion_tokens": 245
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spray Angle Adjustment sprinkler_Default",
+        "title": "SWC-Spray Angle Adjustment sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spray Angle Adjustment sprinkler_Default",
+        "title": "SWC-Spray Angle Adjustment sprinkler_Default",
+        "field": "description",
+        "value": "Adjustable component that sets the spray angle of the sprinkler head to control coverage pattern",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "UsedIn: SWC-Rotator_Default (assembly containing spray‑related parts like SWC-Jet sprinkler_Default, SWC‑Spray Disruptor sprinkler_Default)",
+          "Naming pattern of similar items (e.g., SWC‑Adjustment Knob sprinkler_Default, SWC‑Rotation Adjustment sprinkler_Default)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.473,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.47,
+        "prompt_tokens": 810,
+        "completion_tokens": 316
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spray Angle Adjustment sprinkler_Default",
+        "title": "SWC-Spray Angle Adjustment sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.78,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.78,
+        "prompt_tokens": 812,
+        "completion_tokens": 226
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spray Disruptor sprinkler_Default",
+        "title": "SWC-Spray Disruptor sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spray Disruptor sprinkler_Default",
+        "title": "SWC-Spray Disruptor sprinkler_Default",
+        "field": "description",
+        "value": "Spray disruptor component that fragments the water spray to improve coverage in the sprinkler system",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Naming pattern of similar parts (e.g., SWC-Spray Angle Adjustment, SWC-Jet)",
+          "Context of assembly SWC-Rotator_Default containing other sprinkler components"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 4.155,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.15,
+        "prompt_tokens": 811,
+        "completion_tokens": 268
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spray Disruptor sprinkler_Default",
+        "title": "SWC-Spray Disruptor sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.409,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.41,
+        "prompt_tokens": 813,
+        "completion_tokens": 174
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler_Default",
+        "title": "SWC-Spring-swingarm sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler_Default",
+        "title": "SWC-Spring-swingarm sprinkler_Default",
+        "field": "description",
+        "value": "Spring that returns the swingarm to its neutral position in the sprinkler assembly",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in SWC-Actuator_Default alongside SWC-Swingarm sprinkler_Default",
+          "Naming pattern of other parts (e.g., SWC-Base sprinkler_Default, SWC-Cap sprinkler_Default)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.167,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.17,
+        "prompt_tokens": 811,
+        "completion_tokens": 272
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-swingarm sprinkler_Default",
+        "title": "SWC-Spring-swingarm sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.325,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.32,
+        "prompt_tokens": 813,
+        "completion_tokens": 302
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler_Default",
+        "title": "SWC-Spring-upper bearing sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler_Default",
+        "title": "SWC-Spring-upper bearing sprinkler_Default",
+        "field": "description",
+        "value": "Preload spring for the upper bearing of the sprinkler",
+        "confidence": 0.86,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-Upper Bearing sprinkler_Default (assembly context)",
+          "Naming pattern of related parts such as SWC-Lower Bearing sprinkler_Default",
+          "Presence of other spring items like SWC-Engage Spring sprinkler_Default"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.272,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.27,
+        "prompt_tokens": 810,
+        "completion_tokens": 290
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Spring-upper bearing sprinkler_Default",
+        "title": "SWC-Spring-upper bearing sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.336,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.34,
+        "prompt_tokens": 812,
+        "completion_tokens": 166
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Swingarm sprinkler_Default",
+        "title": "SWC-Swingarm sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Swingarm sprinkler_Default",
+        "title": "SWC-Swingarm sprinkler_Default",
+        "field": "description",
+        "value": "Swingarm of sprinkler",
+        "confidence": 0.68,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Pattern from similar items such as SWC-Base sprinkler_Default (base of sprinkler) and SWC-Cap sprinkler_Default (cap of sprinkler)",
+          "Used alongside SWC-Spring-swingarm sprinkler_Default indicating a mechanical arm component"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.621,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.62,
+        "prompt_tokens": 809,
+        "completion_tokens": 334
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Swingarm sprinkler_Default",
+        "title": "SWC-Swingarm sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 3.458,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.46,
+        "prompt_tokens": 811,
+        "completion_tokens": 261
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler_Default",
+        "title": "SWC-Upper Bearing sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler_Default",
+        "title": "SWC-Upper Bearing sprinkler_Default",
+        "field": "description",
+        "value": "Upper bearing for sprinkler",
+        "confidence": 0.82,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "SWC-OrbitalSprinkler_Default (used in assembly)",
+          "SWC-Lower Bearing sprinkler_Default (similar naming pattern)"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.677,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.68,
+        "prompt_tokens": 809,
+        "completion_tokens": 329
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Bearing sprinkler_Default",
+        "title": "SWC-Upper Bearing sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.986,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.99,
+        "prompt_tokens": 811,
+        "completion_tokens": 253
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler_Default",
+        "title": "SWC-Upper Washer sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Upper Washer sprinkler_Default",
+        "title": "SWC-Upper Washer sprinkler_Default",
+        "field": "description",
+        "value": "Upper washer of the sprinkler assembly",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "Used in SWC-OrbitalSprinkler_Default alongside SWC-Upper Bearing sprinkler_Default",
+          "Naming pattern similar to SWC-Washer-Swingarm sprinkler_Default"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 3.713,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 3.71,
+        "prompt_tokens": 809,
+        "completion_tokens": 274
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Upper Washer sprinkler_Default",
+        "title": "SWC-Upper Washer sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 1.451,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 1.45,
+        "prompt_tokens": 811,
+        "completion_tokens": 257
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Washer-Swingarm sprinkler_Default",
+        "title": "SWC-Washer-Swingarm sprinkler_Default",
+        "field": "description"
+      },
+      "proposal": {
+        "item_id": "ID-SWC-Washer-Swingarm sprinkler_Default",
+        "title": "SWC-Washer-Swingarm sprinkler_Default",
+        "field": "description",
+        "value": "Flat washer that interfaces the swingarm to the upper bearing in the sprinkler assembly",
+        "confidence": 0.78,
+        "method": "llm:gpt-oss-120b",
+        "evidence": [
+          "usedIn: SWC-OrbitalSprinkler_Default includes swingarm-related components (Upper Bearing, Upper Washer)",
+          "otherItemsInProject: SWC-Upper Washer sprinkler_Default indicates naming convention for washers",
+          "item title: SWC-Washer-Swingarm sprinkler_Default suggests a washer specific to the swingarm"
+        ]
+      },
+      "proposal_id": null,
+      "elapsed_s": 2.11,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 2.11,
+        "prompt_tokens": 811,
+        "completion_tokens": 378
+      }
+    },
+    {
+      "gap": {
+        "item_id": "ID-SWC-Washer-Swingarm sprinkler_Default",
+        "title": "SWC-Washer-Swingarm sprinkler_Default",
+        "field": "partNumber"
+      },
+      "proposal": null,
+      "proposal_id": null,
+      "elapsed_s": 4.823,
+      "llm": {
+        "model": "azsydsttjnlbfjbgqnwd",
+        "latency_s": 4.82,
+        "prompt_tokens": 813,
+        "completion_tokens": 449
+      }
+    }
+  ]
+}
